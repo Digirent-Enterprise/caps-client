@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    container_name: jenkins-local
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    env_file:
+      - infrastructure/properties.env
+      - infrastructure/local.env
+    networks:
+      - client.local
+  sonarqube:
+    image: sonarqube:9.9.0-community
+    ports:
+      - "9000:9000"
+    networks:
+      - client.local
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+networks:
+  client.local:
+
+
