@@ -1,5 +1,3 @@
 export namespace ChatNS {
-    export interface ChatMessage {
-
-    }
+  export interface ChatMessage {}
 }

@@ -1,4 +1,4 @@
 export interface IMessageProps {
-    sender: string
-    message: string
+  sender: string;
+  message: string;
 }
