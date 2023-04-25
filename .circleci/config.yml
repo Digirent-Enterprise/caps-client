@@ -1,0 +1,83 @@
+version: 2.1
+
+aliases:
+  - &restore-cache
+    restore_cache:
+      key: dependency-cache-{{ checksum "package.json" }}
+  - &install-deps
+    run:
+      name: Install dependencies
+      command: npm ci
+  - &build-packages
+    run:
+      name: Build
+      command: npm run build
+  - &run-unit-tests
+    run:
+      name: Test
+      command: npm run test
+
+unit-tests-template: &unit-tests-template
+  steps:
+    - checkout
+    - *restore-cache
+    - *install-deps
+    - *build-packages
+    - *run-unit-tests
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:16
+    steps:
+      - checkout
+      - run:
+          name: Update NPM version
+          command: "sudo npm install -g npm@^8"
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Build
+          command: npm run build
+  lint:
+    docker:
+      - image: circleci/node:16
+    steps:
+      - checkout
+      - *restore-cache
+      - *install-deps
+      - run:
+          name: Lint eslint
+          command: npm run eslint
+
+  test_node_16:
+    docker:
+      - image: circleci/node:16
+    steps:
+      - checkout
+      - *restore-cache
+      - *install-deps
+      - *build-packages
+      - run:
+          name: Collect coverage
+          command: npm run test:coverage
+      - store_artifacts:
+          path: coverage
+
+workflows:
+  build-and-test:
+    jobs:
+      - build
+      - test_node_16:
+          requires:
+            - build
+      - lint:
+          requires:
+            - build
