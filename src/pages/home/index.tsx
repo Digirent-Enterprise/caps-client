@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import { IconSettings, IconPlus, IconUserCancel } from "@tabler/icons-react";
-import { router } from "next/client";
+import { isEmpty } from "lodash";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
+import axios from "@/axios";
 import ConversationList from "@/components/conversation-list";
 import MessageList from "@/components/message-list";
 import OnboardingTutorial from "@/components/onboarding-tutorial";
@@ -11,12 +13,15 @@ import WeatherReport from "@/components/weather-report";
 import { AuthContext } from "@/contexts/auth-context";
 import withAuth from "@/hoc/withLogin";
 import useConversation from "@/hooks/conversation/useConversation";
+import useDevice from "@/hooks/useDevice";
 import ConversationModal from "@/shared/conversation-modal";
 import DefaultChatMessage from "@/shared/default-chat-message";
 import SearchInput from "@/shared/search-input";
 import StatusModal from "@/shared/status-modal";
 
 const Component: React.FC = () => {
+  const { isMobile } = useDevice();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   {
     const [showConversationModal, setShowConversationModal] = useState(false);
@@ -83,21 +88,21 @@ const Component: React.FC = () => {
       router.push("/health-form/instruction");
       _onModalClose();
     };
-    //
-    // const _getUserStaticHealth = async () => {
-    //   return await axios.get("/static-health");
-    // };
-    //
-    // const _initForm = async () => {
-    //   const currentRecord = await _getUserStaticHealth();
-    //   if (isEmpty(currentRecord)) {
-    //     setOpen(true);
-    //   }
-    // };
 
-    // useEffect(() => {
-    //   if (user && user.firstLogin) _initForm();
-    // }, [user]);
+    const _getUserStaticHealth = async () => {
+      return await axios.get("/static-health");
+    };
+
+    const _initForm = async () => {
+      const currentRecord = await _getUserStaticHealth();
+      if (isEmpty(currentRecord)) {
+        setOpen(true);
+      }
+    };
+
+    useEffect(() => {
+      if (user && user.firstLogin) _initForm();
+    }, [user]);
 
     return (
       <div
@@ -192,7 +197,7 @@ const Component: React.FC = () => {
                   </div>
                 </div>
                 <div data-tour="step3" className="flex">
-                  {/*<WeatherReport />*/}
+                  <WeatherReport />
                 </div>
               </div>
               {selectedConversation && conversations.length > 0 ? (

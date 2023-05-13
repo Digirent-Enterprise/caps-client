@@ -1,10 +1,3 @@
-export enum BloodType {
-  A,
-  O,
-  AB,
-  Other,
-}
-
 export interface IHealthFormProps {
   age: string;
   height: string;
@@ -26,7 +19,7 @@ export const DefaultHealthForm: IHealthFormProps = {
   height: "",
   weight: "",
   bloodPressure: "",
-  bloodType: BloodType.A,
+  bloodType: "",
   allergies: [],
   medications: [],
   hasSurgery: false,

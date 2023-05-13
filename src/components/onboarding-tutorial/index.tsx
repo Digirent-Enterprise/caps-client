@@ -32,17 +32,16 @@ const Component: React.FC<IOnboardingStepProps> = ({ steps }) => {
 
     if (action === "skip" || action === "close") {
       setRun(false);
-      handleUpdateUser();
+      _handleUpdateUser();
       setStepIndex(0);
     }
   };
 
-  // TODO: it should be modified to only run when user login the first time
   const shouldRun = useMemo(() => {
     return router.pathname === "/" && user?.firstLogin;
   }, [router, user]);
 
-  const handleUpdateUser = async () => {
+  const _handleUpdateUser = async () => {
     await axios.put("/users/update", { firstLogin: false });
   };
 

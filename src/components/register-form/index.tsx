@@ -18,7 +18,7 @@ import useRegister from "@/hooks/auth/useRegister";
 import useDevice from "@/hooks/useDevice";
 
 const Component = React.memo(() => {
-  const { isMobile } = useDevice();
+  const { isDesktop } = useDevice();
   const [form, setForm] = useImmer(DefaultRegisterForm);
   const [selectedGender, setSelectedGender] =
     useImmer<SelectOption>(DefaultGenderOption);
@@ -65,7 +65,7 @@ const Component = React.memo(() => {
   return (
     <div
       className={
-        isMobile ? "flex flex-col gap-4" : "flex w-full flex-col gap-1"
+        isDesktop ? "flex w-2/5 flex-col gap-4" : "flex w-full flex-col gap-1"
       }
     >
       <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-blue">

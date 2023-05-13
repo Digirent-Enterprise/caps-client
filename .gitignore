@@ -39,5 +39,3 @@ next-env.d.ts
 .swc
 
 .env.local
-# Sentry Auth Token
-.sentryclirc

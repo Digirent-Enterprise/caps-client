@@ -8,9 +8,8 @@ import {
   CheckboxOptions,
   DefaultCheckboxOption,
 } from "@/components/health-form/constant";
-import { BloodType, IHealthFormProps } from "@/components/health-form/type";
+import { IHealthFormProps } from "@/components/health-form/type";
 import BadgeListInput from "@/core/badge-list-input";
-import { Badge } from "@/core/badge-list-input/type";
 import Button from "@/core/button";
 import Option from "@/core/select-option";
 import { SelectOption } from "@/core/select-option/type";
@@ -98,6 +97,7 @@ const Component = () => {
   };
 
   const _handleSubmitForm = async () => {
+    // TODO: refactor this using formData instead of multiple useState
     const finalForm: IHealthFormProps = {
       age,
       height,

@@ -10,7 +10,7 @@ export const CustomStyle = {
     bottom: "auto",
     width: "500px",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "#1F2937",
+    backgroundColor: "black",
     border: "none",
     boxShadow: "0 4px 12px rgba(0, 0, 0, 0.4)",
     borderRadius: "8px",
