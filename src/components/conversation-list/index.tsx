@@ -60,6 +60,12 @@ const Component: React.FC<IConversationListProps> = (
   }, []);
 
   useEffect(() => {
+    if (conversations && conversations.length && !selectedConversation) {
+      setSelectedConversation(conversations[0]);
+    }
+  }, [conversations]);
+
+  useEffect(() => {
     if (conversations) {
       sortConversationsByCreatedAt(conversations);
     }

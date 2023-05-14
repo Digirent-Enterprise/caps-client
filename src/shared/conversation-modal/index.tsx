@@ -26,8 +26,14 @@ const Component = React.memo((props: IConversationModalProps) => {
     onClose();
   };
 
+  const _resetForm = () => {
+    setConversationName("");
+    setSelectedModel(ConversationNS.ChatbotType.DUMMY);
+  };
+
   const _handleSubmitModal = () => {
     createNewConversation(conversationName, selectedModel);
+    _resetForm();
     onClose();
   };
 

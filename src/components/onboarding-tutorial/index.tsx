@@ -3,23 +3,29 @@ import React, { useContext, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import Joyride, { CallBackProps } from "react-joyride";
 
-import axios from "@/axios";
-import { options } from "@/components/onboarding-tutorial/constant";
+import {
+  DefaultGuideSteps,
+  options,
+} from "@/components/onboarding-tutorial/constant";
 import { IOnboardingStepProps } from "@/components/onboarding-tutorial/type";
 import { AuthContext } from "@/contexts/auth-context";
+import useUser from "@/hooks/user/useUser";
+
+const MAX_STEP = DefaultGuideSteps.length;
 
 const Component: React.FC<IOnboardingStepProps> = ({ steps }) => {
   const [run, setRun] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
+  const { updateUser } = useUser();
   const { user } = useContext(AuthContext);
   const router = useRouter();
 
   const handleJoyrideCallback = (data: CallBackProps) => {
     const { action, index, status, type } = data;
-
+    console.log("data", data);
     if (status === "finished" || status === "skipped") {
       setRun(false);
-      setStepIndex(0);
+      _handleUpdateUserFirstLogin();
     }
 
     if (type === "step:after" && action === "next") {
@@ -32,7 +38,6 @@ const Component: React.FC<IOnboardingStepProps> = ({ steps }) => {
 
     if (action === "skip" || action === "close") {
       setRun(false);
-      _handleUpdateUser();
       setStepIndex(0);
     }
   };
@@ -41,8 +46,8 @@ const Component: React.FC<IOnboardingStepProps> = ({ steps }) => {
     return router.pathname === "/" && user?.firstLogin;
   }, [router, user]);
 
-  const _handleUpdateUser = async () => {
-    await axios.put("/users/update", { firstLogin: false });
+  const _handleUpdateUserFirstLogin = async () => {
+    await updateUser({ firstLogin: false });
   };
 
   return (
@@ -51,7 +56,7 @@ const Component: React.FC<IOnboardingStepProps> = ({ steps }) => {
       scrollToFirstStep
       showProgress
       showSkipButton
-      steps={steps}
+      steps={DefaultGuideSteps}
       run={!!shouldRun}
       stepIndex={stepIndex}
       callback={handleJoyrideCallback}

@@ -5,6 +5,17 @@ export namespace UserNS {
 
   //request
 
+  export type UpdateUserReq = Partial<{
+    id: number;
+    name: string;
+    gender: GenderType;
+    dob: string;
+    age: number;
+    email: string;
+    firstLogin: boolean;
+    createdAt: string;
+  }>;
+
   //response
 
   export type UserDetailResponse = {

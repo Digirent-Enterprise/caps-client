@@ -4,6 +4,7 @@ import { ConversationContext } from "@/contexts/conversation-context";
 import { LoadingContext } from "@/contexts/loading-context";
 import ConversationService from "@/services/conversation";
 import { ConversationNS } from "@/services/conversation/type";
+import conversation from "@/shared/conversation";
 import { showToast } from "@/utils/toast";
 
 type ConversationResult = {
@@ -15,6 +16,8 @@ type ConversationResult = {
   conversations: ConversationNS.Conversation[];
   selectedConversation: ConversationNS.Conversation;
   setSelectedConversation: (x: ConversationNS.Conversation) => void;
+  updateConversation: (conversationId: number) => void;
+  deleteConversation: (conversationId: number) => void;
 };
 
 const useConversation = () => {
@@ -58,12 +61,18 @@ const useConversation = () => {
     setLoading(false);
   };
 
+  const updateConversation = async (conversationId: number) => {};
+
+  const deleteConversation = async (conversationId: number) => {};
+
   return {
     createNewConversation,
     getAllConversations,
     conversations,
     setSelectedConversation,
     selectedConversation,
+    updateConversation,
+    deleteConversation,
   } as ConversationResult;
 };
 

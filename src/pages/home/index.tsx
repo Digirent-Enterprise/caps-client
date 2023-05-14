@@ -35,6 +35,7 @@ const Component: React.FC = () => {
       selectedConversation,
       setSelectedConversation,
     } = useConversation();
+
     const _handleOpenConversationModal = () => {
       setShowConversationModal(true);
     };
@@ -51,35 +52,6 @@ const Component: React.FC = () => {
       conversation.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    const steps = [
-      {
-        target: '[data-tour="step1"]',
-        content: "Create new conversation to start asking question",
-        disableBeacon: true,
-      },
-      {
-        target: '[data-tour="step2"]',
-        content:
-          "This will show the model type that you will be using in this conversation",
-        disableBeacon: true,
-      },
-      {
-        target: '[data-tour="step3"]',
-        content: "The current weather on your location will show here",
-        disableBeacon: true,
-      },
-      {
-        target: '[data-tour="step4"]',
-        content: "Your chat message will show here",
-        disableBeacon: true,
-      },
-      {
-        target: '[data-tour="step5"]',
-        content: "You can start asking the question here",
-        disableBeacon: true,
-      },
-    ];
-
     const _onModalClose = () => {
       setOpen(false);
     };
@@ -95,13 +67,14 @@ const Component: React.FC = () => {
 
     const _initForm = async () => {
       const currentRecord = await _getUserStaticHealth();
+      console.log("current record", currentRecord);
       if (isEmpty(currentRecord)) {
         setOpen(true);
       }
     };
 
     useEffect(() => {
-      if (user && user.firstLogin) _initForm();
+      if (user) _initForm();
     }, [user]);
 
     return (
@@ -192,7 +165,9 @@ const Component: React.FC = () => {
                       Dengue Intelligent Chatbot Assistance
                     </p>
                     {selectedConversation && conversations.length > 0 ? (
-                      <p>Model type: {selectedConversation?.chatBotType}</p>
+                      <div className="h-fit w-fit rounded bg-green px-5 py-1 text-sm text-white">
+                        {selectedConversation?.chatBotType}
+                      </div>
                     ) : null}
                   </div>
                 </div>
@@ -212,7 +187,7 @@ const Component: React.FC = () => {
             </section>
           </main>
         </div>
-        <OnboardingTutorial steps={steps} />
+        <OnboardingTutorial />
         <StatusModal
           type="info"
           isOpen={open}
@@ -220,6 +195,7 @@ const Component: React.FC = () => {
           title="Health Status Update"
           description={`Hi, ${user?.name}. Thank you for using DICA. Please complete the first-time health declaration form to let us support you better.`}
           primaryButtonText="Sure"
+          secondButton
           secondaryButtonText="Not right now"
           onSecondaryButtonClick={_onModalClose}
           onPrimaryButtonClick={_onModalConfirm}

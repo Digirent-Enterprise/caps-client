@@ -4,12 +4,14 @@ import axios from "@/axios";
 import { LocalStorageService } from "@/services/local-storage";
 import { LocalStorageKeys } from "@/services/local-storage/constant";
 import { UserService } from "@/services/user";
+import { UserNS } from "@/services/user/type";
 import { User } from "@/types/context/with-auth-context";
 
 type UseUserResult = {
   user: User;
   getUser: () => Promise<User | undefined>;
   isLoading: boolean;
+  updateUser: (data: UserNS.UpdateUserReq) => Promise<User>;
 };
 
 const useUserDetail = () => {
@@ -38,7 +40,19 @@ const useUserDetail = () => {
     setLoading(false);
   };
 
-  return { user, getUser, isLoading } as UseUserResult;
+  const updateUser = async (data: UserNS.UpdateUserReq) => {
+    setLoading(true);
+    handleAccessToken();
+    const response = await UserService.updateUser(data);
+    if (response) {
+      const userDetail = response as User;
+      setUser(userDetail);
+      return userDetail;
+    }
+    setLoading(false);
+  };
+
+  return { user, getUser, isLoading, updateUser } as UseUserResult;
 };
 
 export default useUserDetail;
