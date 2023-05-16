@@ -15,12 +15,17 @@ const Component = React.memo((props: IConversationModalProps) => {
   const { isMobile } = useDevice();
   const [conversationName, setConversationName] = useState<string>("");
   const models: ConversationNS.ChatbotType[] = [
-    ConversationNS.ChatbotType.DUMMY,
-    ConversationNS.ChatbotType.SMART,
+    ConversationNS.ChatbotType.OPEN_AI_BASE,
+    ConversationNS.ChatbotType.OPEN_AI_EMBEDDING,
+    ConversationNS.ChatbotType.GPT4ALL_EMBEDDING,
+    ConversationNS.ChatbotType.BLOOM,
+    ConversationNS.ChatbotType.STABLE_LLM,
   ];
 
   const [selectedModel, setSelectedModel] =
-    useState<ConversationNS.ChatbotType>(ConversationNS.ChatbotType.DUMMY);
+    useState<ConversationNS.ChatbotType>(
+      ConversationNS.ChatbotType.OPEN_AI_BASE
+    );
 
   const _handleCancelClick = () => {
     onClose();
@@ -28,7 +33,7 @@ const Component = React.memo((props: IConversationModalProps) => {
 
   const _resetForm = () => {
     setConversationName("");
-    setSelectedModel(ConversationNS.ChatbotType.DUMMY);
+    setSelectedModel(ConversationNS.ChatbotType.OPEN_AI_BASE);
   };
 
   const _handleSubmitModal = () => {

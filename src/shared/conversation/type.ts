@@ -17,6 +17,6 @@ export interface IConversationProps extends IConversation {
 export const DefaultConversation: IConversation = {
   id: 0,
   name: "",
-  chatBotType: ChatbotType.DUMMY,
+  chatBotType: ChatbotType.OPEN_AI_BASE,
   createdAt: "",
 };

@@ -125,7 +125,7 @@ const HealthStatusModal: React.FC<IHealthStatusPopupModalProps> = ({
           </select>
         </div>
         <button
-          className="hover:bg-blue-600 focus:ring-opacity/50 mt-6 rounded-lg bg-blue px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue"
+          className="mt-6 rounded-lg bg-blue px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-darker-blue focus:outline-none focus:ring-2 focus:ring-blue"
           onClick={_handleSubmit}
         >
           Submit

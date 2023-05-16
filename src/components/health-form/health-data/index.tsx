@@ -112,7 +112,7 @@ const Component = () => {
       chronicIllnessDescription,
       hasHereditaryDisease,
       familyHistoryDescription,
-    } as IHealthFormProps;
+    } as unknown as IHealthFormProps;
     await axios.post("/static-health", finalForm);
     showToast("success", "Congratulations. You have updated your health data.");
     await router.push("/");

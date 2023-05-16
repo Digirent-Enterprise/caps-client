@@ -13,7 +13,7 @@ import useUser from "@/hooks/user/useUser";
 
 const MAX_STEP = DefaultGuideSteps.length;
 
-const Component: React.FC<IOnboardingStepProps> = ({ steps }) => {
+const Component: React.FC = () => {
   const [run, setRun] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
   const { updateUser } = useUser();
