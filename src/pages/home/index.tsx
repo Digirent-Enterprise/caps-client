@@ -1,6 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import { IconSettings, IconPlus, IconUserCancel } from "@tabler/icons-react";
+import {
+  IconSettings,
+  IconPlus,
+  IconUserCancel,
+  IconAdjustmentsHeart,
+  IconActivityHeartbeat,
+  IconBellHeart,
+  IconDeviceIpadHeart,
+} from "@tabler/icons-react";
 import { isEmpty } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -18,6 +26,7 @@ import ConversationModal from "@/shared/conversation-modal";
 import DefaultChatMessage from "@/shared/default-chat-message";
 import SearchInput from "@/shared/search-input";
 import StatusModal from "@/shared/status-modal";
+import { formatModelOption } from "@/utils/models";
 
 const Component: React.FC = () => {
   const { isMobile } = useDevice();
@@ -131,7 +140,16 @@ const Component: React.FC = () => {
               />
               <div className="grow"></div>
               <div className="flex border-t border-gray-800 p-4 pt-8">
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-2">
+                  <Link
+                    href={"/health-record"}
+                    className="flex cursor-pointer flex-row items-center gap-1"
+                  >
+                    <IconDeviceIpadHeart />
+                    <span className="ml-2 cursor-pointer text-sm text-white">
+                      My Health
+                    </span>
+                  </Link>
                   <Link
                     href={"/settings"}
                     className="flex cursor-pointer flex-row items-center gap-1"
@@ -141,7 +159,7 @@ const Component: React.FC = () => {
                       Open settings
                     </span>
                   </Link>
-                  <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
+                  <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />
                     <span
                       className="ml-2  cursor-pointer text-sm text-white"
@@ -166,7 +184,9 @@ const Component: React.FC = () => {
                     </p>
                     {selectedConversation && conversations.length > 0 ? (
                       <div className="h-fit w-fit rounded bg-green px-5 py-1 text-sm text-white">
-                        {selectedConversation?.chatBotType}
+                        {formatModelOption(
+                          selectedConversation?.chatBotType || ""
+                        )}
                       </div>
                     ) : null}
                   </div>
