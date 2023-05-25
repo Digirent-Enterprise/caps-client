@@ -6,6 +6,7 @@ import { Line } from "react-chartjs-2";
 
 import { LineChartDataset } from "@/components/dashboard-status-chart/type";
 import useDynamicHealth from "@/hooks/dynamic-health";
+
 import { formatDateTime } from "../../utils/common";
 Chart.register(...registerables);
 Chart.defaults.color = "#ffffff";
@@ -52,7 +53,7 @@ const Component = React.memo(() => {
   }, []);
 
   return (
-    <div className="h-full w-full bg-gray-800 p-4 text-white flex justify-center">
+    <div className="flex h-full w-full justify-center bg-gray-800 p-4 text-white">
       <Line data={data} options={options} />
     </div>
   );

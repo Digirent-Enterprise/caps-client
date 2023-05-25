@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
-import { Pie } from "react-chartjs-2";
+
 import { Chart, ChartOptions, registerables } from "chart.js";
 import { ChartData } from "chart.js/dist/types";
-import { formatDateTime } from "@/utils/common";
+import { Pie } from "react-chartjs-2";
+
 import {
   IDashboardPieChart,
   PieChartDataset,
 } from "@/components/dashboard-pie-chart/type";
 import useDynamicHealth from "@/hooks/dynamic-health";
+import { formatDateTime } from "@/utils/common";
 
 Chart.register(...registerables);
 Chart.defaults.color = "#ffffff";
@@ -47,7 +49,7 @@ const Component = React.memo((props: IDashboardPieChart) => {
   }, [type]);
 
   return (
-    <div className="h-full w-full bg-gray-800 p-4 text-white flex justify-center">
+    <div className="flex h-full w-full justify-center bg-gray-800 p-4 text-white">
       <Pie data={data} />
     </div>
   );
