@@ -6,5 +6,14 @@ export namespace DynamicHealthNS {
     status: Status;
     symptoms: string[];
   };
+
   //    Response
+  export type DynamicHealthStatusesRes = {
+    records?: number[];
+    times?: string[];
+  };
+
+  export type CategorizedStatusRes = {
+    [x: string]: number;
+  };
 }

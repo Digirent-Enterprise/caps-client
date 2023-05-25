@@ -6,23 +6,19 @@ import { Line } from "react-chartjs-2";
 
 import { LineChartDataset } from "@/components/dashboard-status-chart/type";
 import useDynamicHealth from "@/hooks/dynamic-health";
+import { formatDateTime } from "../../utils/common";
 Chart.register(...registerables);
 Chart.defaults.color = "#ffffff";
 
 const Component = React.memo(() => {
   const { myStatuses, getDynamicHealth } = useDynamicHealth();
+
   const data: ChartData<"line", any, any> = {
-    labels: [
-      "19/05/2023",
-      "20/05/2023",
-      "21/05/2023",
-      "23/05/2023",
-      "24/05/2023",
-    ],
+    labels: myStatuses.times?.map((item) => formatDateTime(item)),
     datasets: [
       {
-        label: "First dataset",
-        data: myStatuses,
+        label: "My heath status",
+        data: myStatuses.records,
         fill: true,
         backgroundColor: "rgba(75,192,192,0.2)",
         borderColor: "rgba(75,192,192,1)",
@@ -56,7 +52,7 @@ const Component = React.memo(() => {
   }, []);
 
   return (
-    <div className="h-full w-full bg-gray-800 p-4 text-white">
+    <div className="h-full w-full bg-gray-800 p-4 text-white flex justify-center">
       <Line data={data} options={options} />
     </div>
   );
