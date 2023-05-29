@@ -7,6 +7,15 @@ const nextConfig = {
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i1-vnexpress.vnecdn.net",
+        port: "",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

@@ -6,7 +6,6 @@ export namespace ConversationNS {
     BLOOM = "bloom",
     STABLE_LLM = "stable_llm",
   }
-
   export type Conversation = {
     id: number;
     name: string;
