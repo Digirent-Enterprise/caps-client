@@ -5,7 +5,7 @@ import withLayout from "@/hoc/withLayout";
 
 const Component = () => {
   return (
-    <div className="flex grow items-center justify-center">
+    <div className="flex h-full w-full items-center justify-center">
       <LoginForm />
     </div>
   );
