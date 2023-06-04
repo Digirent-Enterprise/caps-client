@@ -40,7 +40,7 @@ const useLogin = () => {
         LocalStorageKeys.refresh_token,
         response.refresh_token
       );
-      await route.push("/");
+      await route.push("/home/");
       setLoading(false);
     } catch (error) {
       setLoading(false);

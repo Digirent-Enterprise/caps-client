@@ -2,12 +2,9 @@ import React, { useContext } from "react";
 
 import {
   IconArrowBack,
-  IconArrowGuide,
   IconBellPlusFilled,
   IconDeviceIpadHeart,
   IconHistory,
-  IconSettings,
-  IconUserCancel,
 } from "@tabler/icons-react";
 import Link from "next/link";
 

@@ -15,6 +15,8 @@ module.exports = {
         red: "#Ef4444",
         green: "#10B981",
         button: "#",
+        "main-blue": "#169cd6",
+        "main-green": "#10b981",
         "hover-button": "#",
       },
     },

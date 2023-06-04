@@ -1,4 +1,4 @@
 export interface IBreakingNewsHeadlineProps {
-    headline: string;
-    onClick: () => void;
+  headline: string;
+  onClick: () => void;
 }
