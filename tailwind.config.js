@@ -12,7 +12,11 @@ module.exports = {
         "light-blue": "#0072C6",
         white: "#FFFFFF",
         red: "#Ef4444",
-
+        green: "#10B981",
+        button: "#",
+        "main-blue": "#169cd6",
+        "main-green": "#10b981",
+        "hover-button": "#",
         primary: {
           DEFAULT: "#292D3E",
           dark: "#2f3447",

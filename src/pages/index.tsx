@@ -1,17 +1,7 @@
-import { AuthProvider } from "@/contexts/auth-context";
-import { ConversationProvider } from "@/contexts/conversation-context";
-import Home from "@/pages/home";
-import CommandPalette from "@/shared/command-palette";
+import LandingPage from "@/pages/landing-page";
 
 const App = () => {
-  return (
-    <AuthProvider>
-      <ConversationProvider>
-        <Home />
-        <CommandPalette />
-      </ConversationProvider>
-    </AuthProvider>
-  );
+  return <LandingPage />;
 };
 
 export default App;

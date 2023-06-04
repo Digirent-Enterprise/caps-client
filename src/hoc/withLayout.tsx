@@ -9,18 +9,18 @@ export default function withLayout<P extends object>(
 ): React.FC<P> {
   const WithLayout: React.FC<P> = (props: P) => {
     return (
-      <>
+      <div className="flex h-screen flex-col">
         <Header />
         <main
           data-testid="wrapped-component"
-          className="m-0 h-screen w-screen bg-white px-2"
+          className="grow overflow-auto border-b border-gray-800 px-4  pb-10 pt-20"
         >
           <LoadingProvider>
             <WrappedComponent {...props} />
           </LoadingProvider>
         </main>
         <Footer />
-      </>
+      </div>
     );
   };
 

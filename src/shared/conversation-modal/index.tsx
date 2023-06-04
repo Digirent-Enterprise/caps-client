@@ -9,18 +9,20 @@ import useDevice from "@/hooks/useDevice";
 import { ConversationNS } from "@/services/conversation/type";
 import { CustomStyle } from "@/shared/conversation-modal/constant";
 import { IConversationModalProps } from "@/shared/conversation-modal/type";
+import { renderChatBotOptions } from "@/utils/models";
 
 const Component = React.memo((props: IConversationModalProps) => {
   const { isOpen, onClose, createNewConversation } = props;
   const { isMobile } = useDevice();
   const [conversationName, setConversationName] = useState<string>("");
-  const models: ConversationNS.ChatbotType[] = [
-    ConversationNS.ChatbotType.OPEN_AI_BASE,
-    ConversationNS.ChatbotType.OPEN_AI_EMBEDDING,
-    ConversationNS.ChatbotType.GPT4ALL_EMBEDDING,
-    ConversationNS.ChatbotType.BLOOM,
-    ConversationNS.ChatbotType.STABLE_LLM,
-  ];
+
+  const mappedModels = React.useMemo(() => {
+    return renderChatBotOptions();
+  }, []);
+
+  const models: ConversationNS.ChatbotType[] = Object.keys(
+    ConversationNS.ChatbotType
+  ).map((key) => ConversationNS.ChatbotType[key]);
 
   const [selectedModel, setSelectedModel] =
     useState<ConversationNS.ChatbotType>(
@@ -53,15 +55,19 @@ const Component = React.memo((props: IConversationModalProps) => {
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onClose} style={CustomStyle}>
-      <div className="flex justify-end">
+      <div className="mb-2 flex border-b-2 border-b-gray-700 pb-2">
+        <h2 className="mr-auto text-xl font-bold text-white">
+          Create a new conversation
+        </h2>
         <button onClick={onClose} className="text-white">
           <IconX />
         </button>
       </div>
-      <h2 className="mb-4 text-xl font-bold text-white">
-        Create a new conversation
-      </h2>
-      <div className="mb-4">
+
+      <div className="space-y-2">
+        <label className="mb-1 block font-medium text-white">
+          Conversation name
+        </label>
         <input
           type="text"
           placeholder="Enter conversation name"
@@ -73,16 +79,18 @@ const Component = React.memo((props: IConversationModalProps) => {
             isMobile ? "text-sm" : ""
           }`}
         />
-        <DropdownMenu
-          options={models}
-          onChange={(value: ConversationNS.ChatbotType) =>
-            handleModelTypeChange(value)
-          }
-          selectedValue={selectedModel}
-          label="Model type"
-        />
+        <div className="mt-2">
+          <DropdownMenu
+            options={mappedModels}
+            onChange={(value: ConversationNS.ChatbotType) =>
+              handleModelTypeChange(value)
+            }
+            selectedValue={selectedModel}
+            label="Model type"
+          />
+        </div>
       </div>
-      <div className="flex justify-end pr-2">
+      <div className="mt-3 flex justify-end">
         <div className="ml-5">
           <Button mode="secondary" onClick={_handleCancelClick}>
             Cancel

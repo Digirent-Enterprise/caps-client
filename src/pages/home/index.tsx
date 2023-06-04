@@ -8,6 +8,10 @@ import {
   IconScreenshot,
   IconMarkdown,
   IconJson,
+  IconAdjustmentsHeart,
+  IconActivityHeartbeat,
+  IconBellHeart,
+  IconDeviceIpadHeart,
 } from "@tabler/icons-react";
 import { toPng } from "html-to-image";
 import { isEmpty } from "lodash";
@@ -31,6 +35,8 @@ import DefaultChatMessage from "@/shared/default-chat-message";
 import Popover from "@/shared/popover";
 import SearchInput from "@/shared/search-input";
 import StatusModal from "@/shared/status-modal";
+import { formatModelOption } from "@/utils/models";
+import CommandPalette from "@/shared/command-palette";
 
 const Component: React.FC = () => {
   const { isMobile } = useDevice();
@@ -52,7 +58,7 @@ const Component: React.FC = () => {
 
     const { getAllMessages } = useMessage();
 
-    const chatContainerRef = useRef<HTMLDivElement>(null);
+    const chatContainerRef = useRef<HTMLDivElement | null>(null);
 
     const _handleOpenConversationModal = () => {
       setShowConversationModal(true);
@@ -103,7 +109,12 @@ const Component: React.FC = () => {
         return;
       }
 
-      chatContainerRef.current.classList.remove("max-h-full");
+      if (
+        chatContainerRef &&
+        chatContainerRef.current &&
+        chatContainerRef.current
+      )
+        chatContainerRef.current?.classList.remove("max-h-full");
       toPng(chatContainerRef.current, { cacheBust: true })
         .then((dataUrl) => {
           const link = document.createElement("a");
@@ -111,7 +122,7 @@ const Component: React.FC = () => {
           link.href = dataUrl;
           link.click();
           if (chatContainerRef.current) {
-            chatContainerRef.current.classList.add("max-h-full");
+            chatContainerRef.current?.classList.add("max-h-full");
           }
         })
         .catch((err) => {
@@ -217,7 +228,16 @@ const Component: React.FC = () => {
               />
               <div className="grow"></div>
               <div className="flex border-t border-gray-800 p-4 pt-8">
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-2">
+                  <Link
+                    href={"/health-record"}
+                    className="flex cursor-pointer flex-row items-center gap-1"
+                  >
+                    <IconDeviceIpadHeart />
+                    <span className="ml-2 cursor-pointer text-sm text-white">
+                      My Health
+                    </span>
+                  </Link>
                   <Link
                     href={"/news"}
                     className="flex cursor-pointer flex-row items-center gap-1"
@@ -264,13 +284,14 @@ const Component: React.FC = () => {
                     <span className="mb-2 mr-2 text-xl font-bold">
                       Dengue Intelligent Chatbot Assistance
                     </span>
-                    <Popover options={exportOptions} />
+                    {selectedConversation && conversations.length > 0 ? (
+                      <div className="h-fit w-fit rounded bg-green px-5 py-1 text-sm text-white">
+                        {formatModelOption(
+                          selectedConversation?.chatBotType || ""
+                        )}
+                      </div>
+                    ) : null}
                   </div>
-                  {selectedConversation && conversations.length > 0 ? (
-                    <div className="h-fit w-fit rounded bg-green-500 px-5 py-1 text-sm text-white">
-                      {selectedConversation?.chatBotType}
-                    </div>
-                  ) : null}
                 </div>
                 <div data-tour="step3" className="flex">
                   {/*<WeatherReport />*/}
@@ -302,6 +323,7 @@ const Component: React.FC = () => {
           onSecondaryButtonClick={_onModalClose}
           onPrimaryButtonClick={_onModalConfirm}
         />
+        <CommandPalette />
       </div>
     );
   }

@@ -22,7 +22,7 @@ const Component: React.FC = () => {
 
   const handleJoyrideCallback = (data: CallBackProps) => {
     const { action, index, status, type } = data;
-    console.log("data", data);
+
     if (status === "finished" || status === "skipped") {
       setRun(false);
       _handleUpdateUserFirstLogin();

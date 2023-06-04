@@ -1,12 +1,22 @@
+import { ReactNode } from "react";
+
+import { DynamicHealthNS } from "@/services/dynamic-health/type";
+
 export interface IHealthStatusPopupModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
-  onSubmit: (healthStatus: IHealthStatus) => void;
 }
 export interface IHealthStatus {
   feeling: string;
   symptoms: string[];
 }
+
+export type FeelingIcon = {
+  label: DynamicHealthNS.Status;
+  icon: ReactNode;
+};
+
+export type FeelingIcons = FeelingIcon[];
 
 export const allSymptoms = [
   "Fever",
