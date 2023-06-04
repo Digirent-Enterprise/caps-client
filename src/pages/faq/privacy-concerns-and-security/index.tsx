@@ -6,7 +6,7 @@ import Footer from "@/shared/footer";
 const Component: React.FC = () => {
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="my-10">
+      <div className="mb-10">
         <FaqHeader />
         <div className="mx-auto mt-10 max-w-3xl">
           <h2 className="mb-4 text-2xl font-bold">

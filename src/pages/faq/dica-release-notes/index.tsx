@@ -6,11 +6,11 @@ import Footer from "@/shared/footer";
 const Component: React.FC = () => {
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="my-10">
+      <div className="mb-10">
         <FaqHeader />
         <div className="mx-auto mt-10 max-w-3xl">
           <h2 className="mb-4 text-2xl font-bold">DICA - Release notes</h2>
-          <div className="rounded bg-white p-4 shadow">
+          <div className="rounded-xl border border-solid bg-white p-2 sm:p-3">
             <h3 className="mb-2 text-xl font-bold">
               Version 1.0.0 - Initial Release
             </h3>
