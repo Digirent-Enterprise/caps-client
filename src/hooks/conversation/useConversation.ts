@@ -4,7 +4,6 @@ import { ConversationContext } from "@/contexts/conversation-context";
 import { LoadingContext } from "@/contexts/loading-context";
 import ConversationService from "@/services/conversation";
 import { ConversationNS } from "@/services/conversation/type";
-import conversation from "@/shared/conversation";
 import { showToast } from "@/utils/toast";
 
 type ConversationResult = {

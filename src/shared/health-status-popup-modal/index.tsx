@@ -10,7 +10,6 @@ import {
 } from "@tabler/icons-react";
 import Modal from "react-modal";
 
-import Button from "@/core/button";
 import useDynamicHealth from "@/hooks/dynamic-health";
 import { DynamicHealthNS } from "@/services/dynamic-health/type";
 import {
@@ -21,7 +20,7 @@ import {
 
 Modal.setAppElement("#__next");
 
-const HealthStatusModal: React.FC<IHealthStatusPopupModalProps> = ({
+const Component: React.FC<IHealthStatusPopupModalProps> = ({
   isOpen,
   onRequestClose,
 }) => {
@@ -161,4 +160,6 @@ const HealthStatusModal: React.FC<IHealthStatusPopupModalProps> = ({
   );
 };
 
-export default HealthStatusModal;
+Component.displayName = "HealthStatusModal";
+
+export default Component;

@@ -1,13 +1,18 @@
 import React from "react";
 
+import { useRouter } from "next/router";
+
 import FaqHeader from "@/components/faq/header";
 import Footer from "@/shared/footer";
 
 const Component: React.FC = () => {
+  const router = useRouter();
+  const currentPage = router.pathname;
+
   return (
     <div className="flex min-h-screen flex-col">
       <div className="mb-10">
-        <FaqHeader />
+        <FaqHeader currentPage={currentPage} />
         <div className="mx-auto mt-10 max-w-3xl">
           <h2 className="mb-4 text-2xl font-bold">Account and Profile</h2>
           <div className="rounded bg-white p-4 shadow">

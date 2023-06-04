@@ -29,5 +29,5 @@ export const questions = [
 export const breadcrumbItems = [
   { label: "Home", href: "/" },
   { label: "DICA", href: "/faq" },
-  { label: "Current Page" },
+  { label: "FAQ" },
 ];
