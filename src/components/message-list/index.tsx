@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, useEffect, useRef } from "react";
+import React, { forwardRef, KeyboardEvent, useEffect, useRef } from "react";
 
 import { useImmer } from "use-immer";
 
@@ -10,111 +10,115 @@ import useDevice from "@/hooks/useDevice";
 import { MessageNS } from "@/services/message/type";
 import { closeSocket, getSocket, initSocket } from "@/socket";
 
-const MessageList: React.FC<IMessageListProps> = ({
-  selectedConversation,
-  dataTourOne,
-  dataTourTwo,
-}) => {
-  const { getAllMessages, messages, setMessages } = useMessage();
-  const { isMobile } = useDevice();
+const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
+  (props, ref) => {
+    const { getAllMessages, messages, setMessages } = useMessage();
+    const { isMobile } = useDevice();
 
-  const [message, setMessage] = useImmer<string>("");
-  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+    const [message, setMessage] = useImmer<string>("");
+    const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (selectedConversation && selectedConversation.id)
-      getAllMessages({ conversationId: selectedConversation.id });
-  }, [selectedConversation]);
+    useEffect(() => {
+      if (props.selectedConversation && props.selectedConversation.id)
+        getAllMessages({ conversationId: props.selectedConversation.id });
+    }, [props.selectedConversation]);
 
-  useEffect(() => {
-    initSocket();
+    useEffect(() => {
+      initSocket();
 
-    const socket = getSocket();
+      const socket = getSocket();
 
-    if (socket) {
-      socket.on("message", (message: MessageNS.Message) => {
-        setMessages(message);
-      });
-    }
+      if (socket) {
+        socket.on("message", (message: MessageNS.Message) => {
+          setMessages(message);
+        });
+      }
 
-    return () => {
-      closeSocket();
+      return () => {
+        closeSocket();
+      };
+    }, []);
+
+    const _scrollToBottom = () => {
+      if (messagesEndRef && messagesEndRef.current) {
+        const dom = messagesEndRef.current as HTMLDivElement;
+        dom.scrollIntoView({ behavior: "smooth" });
+      }
     };
-  }, []);
 
-  const _scrollToBottom = () => {
-    if (messagesEndRef && messagesEndRef.current) {
-      const dom = messagesEndRef.current as HTMLDivElement;
-      dom.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+    useEffect(() => {
+      _scrollToBottom();
+    }, [messages[messages.length - 1]]);
 
-  useEffect(() => {
-    _scrollToBottom();
-  }, [messages[messages.length - 1]]);
+    const _handleSend = () => {
+      const socket = getSocket();
+      if (
+        socket &&
+        props.selectedConversation &&
+        props.selectedConversation.id
+      ) {
+        socket.emit("message", {
+          conversationId: props.selectedConversation.id,
+          content: message,
+          sender: MessageNS.SenderType.USER,
+        });
+        _clearMessage();
+      }
+    };
 
-  const _handleSend = () => {
-    const socket = getSocket();
-    if (socket && selectedConversation && selectedConversation.id) {
-      socket.emit("message", {
-        conversationId: selectedConversation.id,
-        content: message,
-        sender: MessageNS.SenderType.USER,
-      });
-      _clearMessage();
-    }
-  };
+    const _handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        _handleSend();
+      }
+    };
 
-  const _handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      _handleSend();
-    }
-  };
+    const _clearMessage = () => {
+      setMessage("");
+    };
 
-  const _clearMessage = () => {
-    setMessage("");
-  };
+    const _onValueChange = (message: string) => {
+      setMessage(message);
+    };
 
-  const _onValueChange = (message: string) => {
-    setMessage(message);
-  };
-
-  return (
-    <>
-      <div
-        className={`flex ${
-          isMobile ? "h-full" : "flex-auto"
-        } flex-col overflow-y-scroll border-l border-gray-800`}
-      >
-        <div data-tour={dataTourOne} className="flex-1  p-4">
-          {messages.map((message, index) => (
-            <ChatMessage
-              key={index}
-              conservationId={message.id}
-              content={message.content}
-              senderType={message.sender}
-            />
-          ))}
-          <div ref={messagesEndRef}></div>
-          {messages &&
-          messages.length &&
-          messages[messages.length - 1].sender === MessageNS.SenderType.USER ? (
-            <div className="text-white">The chat advisor is typing...</div>
-          ) : null}
+    return (
+      <>
+        <div
+          ref={ref}
+          className={`flex ${
+            isMobile ? "h-full" : "flex-auto"
+          } flex-col overflow-y-scroll border-l border-gray-800`}
+        >
+          <div data-tour={props.dataTourOne} className="flex-1  p-4">
+            {messages.map((message, index) => (
+              <ChatMessage
+                key={index}
+                conservationId={message.id}
+                content={message.content}
+                senderType={message.sender}
+              />
+            ))}
+            <div ref={messagesEndRef}></div>
+            {messages &&
+            messages.length &&
+            messages[messages.length - 1].sender ===
+              MessageNS.SenderType.USER ? (
+              <div className="text-white">The chat advisor is typing...</div>
+            ) : null}
+          </div>
         </div>
-      </div>
 
-      <MessageInput
-        dataTourTwo={dataTourTwo}
-        message={message}
-        handleKeyDown={_handleKeyDown}
-        onValueChange={_onValueChange}
-        handleSend={_handleSend}
-      />
-    </>
-  );
-};
+        <MessageInput
+          dataTourTwo={props.dataTourTwo}
+          message={message}
+          handleKeyDown={_handleKeyDown}
+          onValueChange={_onValueChange}
+          handleSend={_handleSend}
+        />
+      </>
+    );
+  }
+);
 
 MessageList.displayName = "MessageList";
 

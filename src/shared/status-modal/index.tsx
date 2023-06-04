@@ -11,7 +11,6 @@ import Modal from "react-modal";
 import Button from "@/core/button";
 import { CustomStyle } from "@/shared/status-modal/constant";
 import { IConfirmationModalProps } from "@/shared/status-modal/type";
-import { renderFilePath } from "@/utils/system";
 
 const Component = React.memo((props: IConfirmationModalProps) => {
   const getConfirmationModalTypeStyle = (type: string) => {

@@ -1,14 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import {
   IconSettings,
   IconPlus,
   IconUserCancel,
+  IconNews,
+  IconScreenshot,
+  IconMarkdown,
+  IconJson,
   IconAdjustmentsHeart,
   IconActivityHeartbeat,
   IconBellHeart,
   IconDeviceIpadHeart,
 } from "@tabler/icons-react";
+import { toPng } from "html-to-image";
 import { isEmpty } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -17,16 +22,21 @@ import axios from "@/axios";
 import ConversationList from "@/components/conversation-list";
 import MessageList from "@/components/message-list";
 import OnboardingTutorial from "@/components/onboarding-tutorial";
+import Settings from "@/components/settings";
 import WeatherReport from "@/components/weather-report";
 import { AuthContext } from "@/contexts/auth-context";
 import withAuth from "@/hoc/withLogin";
 import useConversation from "@/hooks/conversation/useConversation";
+import useMessage from "@/hooks/message/useMessage";
 import useDevice from "@/hooks/useDevice";
+import { MessageNS } from "@/services/message/type";
 import ConversationModal from "@/shared/conversation-modal";
 import DefaultChatMessage from "@/shared/default-chat-message";
+import Popover from "@/shared/popover";
 import SearchInput from "@/shared/search-input";
 import StatusModal from "@/shared/status-modal";
 import { formatModelOption } from "@/utils/models";
+import CommandPalette from "@/shared/command-palette";
 
 const Component: React.FC = () => {
   const { isMobile } = useDevice();
@@ -35,6 +45,7 @@ const Component: React.FC = () => {
   {
     const [showConversationModal, setShowConversationModal] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
+    const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
 
     const { user, signOut } = useContext(AuthContext);
     const {
@@ -44,6 +55,10 @@ const Component: React.FC = () => {
       selectedConversation,
       setSelectedConversation,
     } = useConversation();
+
+    const { getAllMessages } = useMessage();
+
+    const chatContainerRef = useRef<HTMLDivElement | null>(null);
 
     const _handleOpenConversationModal = () => {
       setShowConversationModal(true);
@@ -76,11 +91,84 @@ const Component: React.FC = () => {
 
     const _initForm = async () => {
       const currentRecord = await _getUserStaticHealth();
-      console.log("current record", currentRecord);
       if (isEmpty(currentRecord)) {
         setOpen(true);
       }
     };
+
+    const _openSettingsModal = () => {
+      setIsSettingsModalOpen(true);
+    };
+
+    const _closeSettingsModal = () => {
+      setIsSettingsModalOpen(false);
+    };
+
+    const _onScreenshot = () => {
+      if (chatContainerRef.current === null) {
+        return;
+      }
+
+      if (
+        chatContainerRef &&
+        chatContainerRef.current &&
+        chatContainerRef.current
+      )
+        chatContainerRef.current?.classList.remove("max-h-full");
+      toPng(chatContainerRef.current, { cacheBust: true })
+        .then((dataUrl) => {
+          const link = document.createElement("a");
+          link.download = `${selectedConversation?.name || "conversation"}.png`;
+          link.href = dataUrl;
+          link.click();
+          if (chatContainerRef.current) {
+            chatContainerRef.current?.classList.add("max-h-full");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
+    const _handleExportJson = async () => {
+      const getMessageReq: MessageNS.GetMessageReq = {
+        conversationId: selectedConversation.id,
+      };
+
+      try {
+        const messages = getAllMessages(getMessageReq);
+        const json = JSON.stringify(messages);
+        console.log(messages, "mess");
+        const blob = new Blob([json], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        // const link = document.createElement("a");
+        // link.href = url;
+        // link.download = "messages.json";
+        // link.click();
+      } catch (error) {
+        console.error("Error exporting messages:", error);
+      }
+    };
+
+    const _handleExportMarkdown = () => {};
+
+    const exportOptions = [
+      {
+        icon: <IconScreenshot />,
+        label: "Take screenshot",
+        onClick: _onScreenshot,
+      },
+      {
+        icon: <IconJson />,
+        label: "Export JSON",
+        onClick: _handleExportJson,
+      },
+      {
+        icon: <IconMarkdown />,
+        label: "Export Markdown",
+        onClick: _handleExportMarkdown,
+      },
+    ];
 
     useEffect(() => {
       if (user) _initForm();
@@ -101,7 +189,7 @@ const Component: React.FC = () => {
             <section
               className={`group flex ${
                 isMobile ? "h-full" : ""
-              } w-24 flex-none flex-col overflow-auto transition-all duration-300 ease-in-out md:w-2/5 lg:max-w-sm`}
+              } w-80 flex-none flex-col overflow-auto transition-all duration-300 ease-in-out md:w-1/6 lg:max-w-sm`}
             >
               <div className="flex flex-none flex-row items-center justify-between p-4">
                 <p className="hidden text-lg font-bold md:block">
@@ -151,15 +239,29 @@ const Component: React.FC = () => {
                     </span>
                   </Link>
                   <Link
-                    href={"/settings"}
+                    href={"/news"}
                     className="flex cursor-pointer flex-row items-center gap-1"
                   >
-                    <IconSettings />
+                    <IconNews />
                     <span className="ml-2 cursor-pointer text-sm text-white">
-                      Open settings
+                      News
                     </span>
                   </Link>
-                  <div className="flex cursor-pointer flex-row items-center gap-1">
+                  <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
+                    <IconSettings />
+                    <span
+                      className="ml-2  cursor-pointer text-sm text-white"
+                      onClick={_openSettingsModal}
+                    >
+                      Settings
+                    </span>
+                  </div>
+                  <Settings
+                    isOpen={isSettingsModalOpen}
+                    onClose={_closeSettingsModal}
+                  />
+
+                  <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />
                     <span
                       className="ml-2  cursor-pointer text-sm text-white"
@@ -177,11 +279,11 @@ const Component: React.FC = () => {
               }`}
             >
               <div className="flex flex-none flex-row items-center justify-between border-b border-gray-800 px-6 py-4 shadow">
-                <div className="flex">
-                  <div data-tour="step2">
-                    <p className="mb-2 text-xl font-bold">
+                <div className="flex flex-col">
+                  <div data-tour="step2" className="flex items-center">
+                    <span className="mb-2 mr-2 text-xl font-bold">
                       Dengue Intelligent Chatbot Assistance
-                    </p>
+                    </span>
                     {selectedConversation && conversations.length > 0 ? (
                       <div className="h-fit w-fit rounded bg-green px-5 py-1 text-sm text-white">
                         {formatModelOption(
@@ -192,11 +294,12 @@ const Component: React.FC = () => {
                   </div>
                 </div>
                 <div data-tour="step3" className="flex">
-                  <WeatherReport />
+                  {/*<WeatherReport />*/}
                 </div>
               </div>
               {selectedConversation && conversations.length > 0 ? (
                 <MessageList
+                  ref={chatContainerRef}
                   dataTourOne="step4"
                   dataTourTwo="step5"
                   selectedConversation={selectedConversation}
@@ -220,6 +323,7 @@ const Component: React.FC = () => {
           onSecondaryButtonClick={_onModalClose}
           onPrimaryButtonClick={_onModalConfirm}
         />
+        <CommandPalette />
       </div>
     );
   }

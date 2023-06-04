@@ -7,7 +7,13 @@ export default class ConversationService {
   ): Promise<ConversationNS.Conversation> => {
     return axios.post("/conversation/create-conversation", data);
   };
-  static getAllConversation = (): Promise<ConversationNS.Conversation[]> => {
+  static getAllConversations = (): Promise<ConversationNS.Conversation[]> => {
     return axios.get("/conversation/items");
+  };
+
+  static updateConversation = (
+    data: ConversationNS.UpdateConversationRequest
+  ): Promise<ConversationNS.Conversation> => {
+    return axios.post("/conversation/create-conversation", data);
   };
 }

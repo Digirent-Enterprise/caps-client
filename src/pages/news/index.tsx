@@ -1,12 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import BreakingNewsHeadline from "@/components/news/breaking-news-headline";
 import FeatureNews from "@/components/news/feature-news";
 import TrendingStories from "@/components/news/trending-stories";
-import { trendingStories } from "@/pages/news/constant";
-import { startScraping } from "@/utils/scrapper";
 
-const Component: React.FC = ({ newsTitle, newsImage, newsUrl }: any) => {
+export const trendingStories = [
+  {
+    title: "Story 1",
+    imageUrl: "/theme/dark.png",
+  },
+  {
+    title: "Story 2",
+    imageUrl: "/theme/dark.png",
+  },
+  {
+    title: "Story 3",
+    imageUrl: "/theme/dark.png",
+  },
+];
+
+const Component: React.FC = () => {
   const handleHeadlineClick = () => {
     console.log("Headline clicked!");
   };
@@ -22,11 +35,11 @@ const Component: React.FC = ({ newsTitle, newsImage, newsUrl }: any) => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             <div className="md:col-span-2">
               <FeatureNews
-                image={newsImage}
+                image="/theme/dark.png"
                 imageAlt="Big Image"
-                description={newsTitle}
-                newsTitle={newsTitle}
-                url={newsUrl}
+                description="Description of another big image news"
+                newsTitle="Yet Another News Title"
+                url={""}
               />
             </div>
             <div className="md:col-span-1">
@@ -107,17 +120,3 @@ const Component: React.FC = ({ newsTitle, newsImage, newsUrl }: any) => {
 Component.displayName = "News";
 
 export default Component;
-
-export async function getServerSideProps() {
-  const scrapedData = await startScraping();
-
-  const { newsTitle, newsImage, newsUrl } = scrapedData;
-
-  return {
-    props: {
-      newsTitle,
-      newsImage,
-      newsUrl,
-    },
-  };
-}

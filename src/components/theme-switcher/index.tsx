@@ -17,13 +17,9 @@ const Component: React.FC = () => {
     setTheme(savedTheme ?? preferredTheme);
   }, []);
 
-  const handleThemeChange = (newTheme: Theme) => {
+  const _handleThemeChange = (newTheme: Theme) => {
     setTheme(newTheme);
-    if (newTheme === "system") {
-      localStorage.removeItem("theme");
-    } else {
-      localStorage.setItem("theme", newTheme);
-    }
+    localStorage.setItem("theme", newTheme);
   };
 
   const getCheckIcon = (selected: boolean) => {
@@ -38,61 +34,65 @@ const Component: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex cursor-pointer">
-        <div className="relative mr-4">
-          <div
-            className={`rounded border-2 ${
-              theme === "system" ? "border-light-blue" : ""
-            }`}
-            onClick={() => handleThemeChange("system")}
-          >
-            <Image
-              src="/theme/dark.png"
-              alt="System Theme"
-              width={300}
-              height={300}
-            />
-            {getCheckIcon(theme === "system")}
+    <>
+      <h2 className="mb-4 text-xl font-semibold">Theme</h2>
+
+      <div className="flex flex-col items-center">
+        <div className="flex cursor-pointer">
+          <div className="relative mr-4">
+            <div
+              className={`rounded border-2 ${
+                theme === "system" ? "border-light-blue" : ""
+              }`}
+              onClick={() => _handleThemeChange("system")}
+            >
+              <Image
+                src="/theme/dark.png"
+                alt="System Theme"
+                width={300}
+                height={300}
+              />
+              {getCheckIcon(theme === "system")}
+            </div>
+            <p className="mt-2 text-center font-medium">System Preference</p>
           </div>
-          <p className="mt-2 text-center font-medium">System Preference</p>
-        </div>
-        <div className="relative mr-4">
-          <div
-            className={`rounded border-2 ${
-              theme === "light" ? "border-light-blue" : ""
-            }`}
-            onClick={() => handleThemeChange("light")}
-          >
-            <Image
-              src="/theme/dark.png"
-              alt="Light Theme"
-              width={300}
-              height={300}
-            />
-            {getCheckIcon(theme === "light")}
+          <div className="relative mr-4">
+            <div
+              className={`rounded border-2 ${
+                theme === "light" ? "border-light-blue" : ""
+              }`}
+              onClick={() => _handleThemeChange("light")}
+            >
+              <Image
+                src="/theme/dark.png"
+                alt="Light Theme"
+                width={300}
+                height={300}
+              />
+              {getCheckIcon(theme === "light")}
+            </div>
+            <p className="mt-2 text-center font-medium">Light Theme</p>
           </div>
-          <p className="mt-2 text-center font-medium">Light Theme</p>
-        </div>
-        <div className="relative">
-          <div
-            className={`rounded border-2 ${
-              theme === "dark" ? "border-light-blue" : ""
-            }`}
-            onClick={() => handleThemeChange("dark")}
-          >
-            <Image
-              src="/theme/dark.png"
-              alt="Dark Theme"
-              width={300}
-              height={300}
-            />
-            {getCheckIcon(theme === "dark")}
+          <div className="relative">
+            <div
+              className={`rounded border-2 ${
+                theme === "dark" ? "border-light-blue" : ""
+              }`}
+              onClick={() => _handleThemeChange("dark")}
+            >
+              <Image
+                src="/theme/dark.png"
+                alt="Dark Theme"
+                width={300}
+                height={300}
+              />
+              {getCheckIcon(theme === "dark")}
+            </div>
+            <p className="mt-2 text-center font-medium">Dark Theme</p>
           </div>
-          <p className="mt-2 text-center font-medium">Dark Theme</p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -18,6 +18,10 @@ export namespace ConversationNS {
     chatBotType: ChatbotType;
   };
 
+  export type UpdateConversationRequest = {
+    name: string;
+  };
+
   //  response
   export type ConversationsResponse = Conversation[];
 }

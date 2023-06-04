@@ -53,7 +53,7 @@ const useConversation = () => {
   const getAllConversations = async () => {
     setLoading(true);
     try {
-      const response = await ConversationService.getAllConversation();
+      const response = await ConversationService.getAllConversations();
       setConversations(response);
     } catch (error) {
       showToast("error", "Could not fetch conversations");
