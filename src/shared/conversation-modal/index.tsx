@@ -44,7 +44,7 @@ const Component = React.memo((props: IConversationModalProps) => {
     onClose();
   };
 
-  const handleModelTypeChange = (value: ConversationNS.ChatbotType) => {
+  const _handleModelTypeChange = (value: ConversationNS.ChatbotType) => {
     setSelectedModel(value);
   };
 
@@ -83,7 +83,7 @@ const Component = React.memo((props: IConversationModalProps) => {
           <DropdownMenu
             options={mappedModels}
             onChange={(value: ConversationNS.ChatbotType) =>
-              handleModelTypeChange(value)
+              _handleModelTypeChange(value)
             }
             selectedValue={selectedModel}
             label="Model type"

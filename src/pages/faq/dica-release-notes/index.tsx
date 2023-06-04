@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import FaqHeader from "@/components/faq/header";
 import Footer from "@/shared/footer";
+import { convertUrlToTitle } from "@/utils/common";
 
 const Component: React.FC = () => {
   const router = useRouter();
@@ -12,7 +13,7 @@ const Component: React.FC = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <div className="mb-10">
-        <FaqHeader currentPage={currentPage} />
+        <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
         <div className="mx-auto mt-10 max-w-3xl">
           <h2 className="mb-4 text-2xl font-bold">DICA - Release notes</h2>
           <div className="rounded-xl border border-solid bg-white p-2 sm:p-3">

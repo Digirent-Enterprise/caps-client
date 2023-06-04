@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import { IconArrowRight } from "@tabler/icons-react";
 import { useRouter } from "next/router";
@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { questions } from "@/components/faq/constant";
 import FaqHeader from "@/components/faq/header";
 import Footer from "@/shared/footer";
+import { convertUrlToTitle } from "@/utils/common";
 
 const Component = () => {
   const router = useRouter();
@@ -18,7 +19,7 @@ const Component = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <div className="mb-10">
-        <FaqHeader currentPage={currentPage} />
+        <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
         <div className="mx-auto mt-10 max-w-3xl">
           <div className="flex flex-col gap-5">
             <section className="flex flex-col rounded-xl border border-solid  bg-white p-2 sm:p-3">

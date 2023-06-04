@@ -1,10 +1,8 @@
-import { memo, ReactDOM, useMemo } from "react";
+import { memo, useMemo } from "react";
 
 import {
   IconAddressBook,
-  IconArrowGuide,
   IconBrandWechat,
-  IconChartAreaLine,
   IconChartCandle,
   IconChartCircles,
   IconChecklist,
@@ -23,7 +21,6 @@ import {
   IconTrack,
   IconUrgent,
 } from "@tabler/icons-react";
-import { Icon } from "@tabler/icons-react";
 import { useImmer } from "use-immer";
 
 import {
@@ -44,7 +41,7 @@ const Component = memo(() => {
   const iconClass = useMemo(() => {
     return "w-10 h-10 stroke-1 m-0";
   }, []);
-  const getActionIcon = (action: string): React.ReactElement => {
+  const getActionIcon = (action: string): React.ReactElement | null => {
     switch (action) {
       // Immediate Actions
       case "Chat":
