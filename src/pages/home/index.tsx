@@ -247,7 +247,7 @@ const Component: React.FC = () => {
                       News
                     </span>
                   </Link>
-                  <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
+                  <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconSettings />
                     <span
                       className="ml-2  cursor-pointer text-sm text-white"
@@ -261,7 +261,7 @@ const Component: React.FC = () => {
                     onClose={_closeSettingsModal}
                   />
 
-                  <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
+                  <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />
                     <span
                       className="ml-2  cursor-pointer text-sm text-white"
@@ -285,14 +285,14 @@ const Component: React.FC = () => {
                       Dengue Intelligent Chatbot Assistance
                     </span>
                     <Popover options={exportOptions} />
-                    {selectedConversation && conversations.length > 0 ? (
-                      <div className="h-fit w-fit rounded bg-green px-5 py-1 text-sm text-white">
-                        {formatModelOption(
-                          selectedConversation?.chatBotType || ""
-                        )}
-                      </div>
-                    ) : null}
                   </div>
+                  {selectedConversation && conversations.length > 0 ? (
+                    <div className="h-fit w-fit rounded bg-green px-5 py-1 text-sm text-white">
+                      {formatModelOption(
+                        selectedConversation?.chatBotType || ""
+                      )}
+                    </div>
+                  ) : null}
                 </div>
                 <div data-tour="step3" className="flex">
                   {/*<WeatherReport />*/}

@@ -24,13 +24,11 @@ const Component: React.FC<IMessageInputProps> = ({
     {
       label: "English",
       value: "en-US",
-      icon: <IconMicrophone />,
       onClick: () => _handleLanguageSelect("en-US"),
     },
     {
       label: "Vietnamese",
-      value: "vi-VN",
-      icon: <IconMicrophone />,
+      value: "vi",
       onClick: () => _handleLanguageSelect("vi"),
     },
   ];
@@ -75,7 +73,7 @@ const Component: React.FC<IMessageInputProps> = ({
   return (
     <div className="flex-none">
       <div className="flex flex-row items-center p-4">
-        <Popover>
+        <Popover className="relative">
           {({ open }) => (
             <>
               <Popover.Button className="mx-2 flex h-6 w-6 shrink-0 text-blue hover:text-blue focus:outline-none">
@@ -95,12 +93,12 @@ const Component: React.FC<IMessageInputProps> = ({
                 leaveFrom="opacity-100 translate-y-0 scale-100"
                 leaveTo="opacity-0 translate-y-1 scale-95"
               >
-                <Popover.Panel className="absolute z-10 -ml-8 mt-2">
+                <Popover.Panel className="absolute bottom-full z-10 m-4">
                   <div className="rounded-lg bg-white py-2 shadow-lg">
                     {languageOptions.map((option) => (
                       <button
                         key={option.value}
-                        className="block w-full px-4 py-2 text-left hover:bg-gray-200"
+                        className="block w-full px-4 py-2 text-left text-black hover:bg-gray-200"
                         onClick={() => option.onClick()}
                       >
                         {option.label}
@@ -117,23 +115,14 @@ const Component: React.FC<IMessageInputProps> = ({
           ref={inputRef}
           className="w-full rounded-full border border-gray-800 bg-gray-800 py-2 pl-3 pr-10 text-gray-200 transition duration-300 ease-in focus:border-gray-700 focus:bg-gray-900 focus:shadow-md focus:outline-none"
           value={transcript || message}
-          onChange={(e) => {
-            const value = e.target.value;
-            onValueChange(value);
-            setTranscript(value);
-          }}
+          onChange={(e) => onValueChange(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Ask anything (Shift-Enter for new line, Enter to send)"
         />
         <button
           type="button"
           className="mx-2 flex h-6 w-6 shrink-0 text-blue hover:text-blue focus:outline-none"
-          onClick={() => {
-            if (inputRef.current && inputRef.current.value === transcript) {
-              onValueChange("");
-              setTranscript("");
-            }
-          }}
+          onClick={message ? handleSend : () => {}}
         >
           <IconSend color="white" />
         </button>
