@@ -13,7 +13,7 @@ const Component = React.memo(() => {
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      theme="dark"
+      theme="colored"
     />
   );
 });
