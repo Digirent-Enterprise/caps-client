@@ -24,6 +24,7 @@ import {
   IconUrgent,
 } from "@tabler/icons-react";
 import { Icon } from "@tabler/icons-react";
+import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
 import {
@@ -32,6 +33,8 @@ import {
 } from "@/components/main-page-cta/constant";
 
 const Component = memo(() => {
+  const { t } = useTranslation("landing_page");
+
   const [tab, setTab] = useImmer<number>(0);
 
   const activeClass = useMemo(() => {
@@ -47,47 +50,47 @@ const Component = memo(() => {
   const getActionIcon = (action: string): React.ReactElement => {
     switch (action) {
       // Immediate Actions
-      case "Chat":
+      case t("chat"):
         return <IconBrandWechat className={iconClass} />;
-      case "Suggestions":
+      case t("suggestions"):
         return <IconHeartHandshake className={iconClass} />;
-      case "Actions Now":
+      case t("actions_now"):
         return <IconClockExclamation className={iconClass} />;
-      case "Symptom Relief":
+      case t("symptom_relief"):
         return <IconNotebook className={iconClass} />;
-      case "Advice":
+      case t("advice"):
         return <IconProgressHelp className={iconClass} />;
-      case "Diagnosis":
+      case t("diagnosis"):
         return <IconScanEye className={iconClass} />;
-      case "Prevent Severe":
+      case t("prevent_severe"):
         return <IconShieldCheck className={iconClass} />;
-      case "Exercise Plans":
+      case t("exercise_plans"):
         return <IconAddressBook className={iconClass} />;
-      case "Vital Monitoring":
+      case t("vital_monitoring"):
         return <IconChartCandle className={iconClass} />;
-      case "Medication Tracking":
+      case t("medication_tracking"):
         return <IconTrack className={iconClass} />;
-      case "Nutrition Guidance":
+      case t("nutrition_guidance"):
         return <IconPlant className={iconClass} />;
-      case "Emergency Contacts":
+      case t("emergency_contact"):
         return <IconUrgent className={iconClass} />;
       //
       // // Long-Term Actions
-      case "Health Tracking":
+      case t("health_tracking"):
         return <IconTrack className={iconClass} />;
-      case "Visualization":
+      case t("visualization"):
         return <IconChartCircles className={iconClass} />;
-      case "Health Management":
+      case t("health_management"):
         return <IconChecklist className={iconClass} />;
-      case "Improved Life":
+      case t("improved_life"):
         return <IconHeartbeat className={iconClass} />;
-      case "Critical Illness":
+      case t("critical_illness"):
         return <IconRibbonHealth className={iconClass} />;
-      case "Goal Setting":
+      case t("goal_setting"):
         return <IconMedal className={iconClass} />;
-      case "Check-up Reminders":
+      case t("checkup_reminders"):
         return <IconClockCheck className={iconClass} />;
-      case "Education Resources":
+      case t("education_resources"):
         return <IconCloudStar className={iconClass} />;
 
       default:
@@ -96,20 +99,20 @@ const Component = memo(() => {
   };
   return (
     <div className="mt-4 flex w-full flex-col items-center justify-center px-36">
-      <div className="text-4xl text-black">How can we help you?</div>
+      <div className="text-4xl text-black">{t("how_can_we_help_you")}</div>
       <div className="mt-2 flex flex-row gap-5">
         <button
           className={`${tab === 0 ? activeClass : inactiveClass}`}
           onClick={() => setTab(0)}
         >
-          Immediate
+          {t("immediate")}
         </button>
 
         <button
           className={`${tab === 1 ? activeClass : inactiveClass}`}
           onClick={() => setTab(1)}
         >
-          Long-term
+          {t("long_term")}
         </button>
       </div>
       <div className="mt-5 md:w-full lg:w-2/3">
