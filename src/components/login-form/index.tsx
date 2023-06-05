@@ -78,11 +78,11 @@ const Component = React.memo(() => {
         onChange={_onInputChange}
       />
       <TextInput
-        label="Password"
+        label={t("password")}
         type="password"
         name="password"
         value={form.password}
-        placeHolder={"password"}
+        placeHolder={t("password")}
         dataKey="password"
         onChange={_onInputChange}
       />
@@ -91,9 +91,9 @@ const Component = React.memo(() => {
         {t("login_description")}
       </Button>
       <label className="text-xl">
-        Did not have an account?{" "}
+        {t("have_not_registered")}{" "}
         <Link href={"/auth/register"}>
-          <span className="text-blue">Register</span>
+          <span className="text-blue">{t("register")}</span>
         </Link>
       </label>
     </div>

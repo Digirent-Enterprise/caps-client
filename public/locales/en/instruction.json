@@ -1,0 +1,23 @@
+{
+  "form_instructions": "Form Instructions",
+  "purpose": "Purpose",
+  "the_purpose_of_this_health_form": "The purpose of this health form is to collect necessary information about your health, medical conditions, medications, allergies, emergency contacts, and other relevant information that can help us to assess your health status and provide appropriate advice.",
+  "rules": "Rules",
+  "please_read": "Please make sure to read and follow the instructions carefully. Failure to do so may result in disqualification.",
+  "please_answer": "Please answer all questions truthfully and to the best of your knowledge.",
+  "if_not_know_answer": "If you do not know the answer to a question, please leave it blank.",
+  "by_submitting": "By submitting this form, you acknowledge that you have read and agree to the data privacy policy.",
+  "instruction": "Instruction",
+  "blood_pressure": "Blood pressure: Please enter your blood pressure in mmHg format (e.g. 120/80).",
+  "blood_type": "Blood type: Please enter your blood type (e.g. A+, B-, AB+).",
+  "height": "Height: Please enter your height in centimeters.",
+  "weight": "Weight: Please enter your weight in kilograms.",
+  "medical_conditions": "Medical conditions: Please list any medical conditions you have been diagnosed with.",
+  "medications": "Medications: Please list any medications you are currently taking.",
+  "allergies": "Allergies: Please list any allergies you have.",
+  "data_privacy": "Data Privacy",
+  "we_take_data:": "We take data privacy seriously. Your information will be kept confidential and only used for the purposes of this form.",
+  "estimated_time:": "Estimated time:",
+  "15_minutes": "15 minutes",
+  "start": "Start"
+}

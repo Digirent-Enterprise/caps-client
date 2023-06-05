@@ -1,0 +1,13 @@
+{
+  "register": "Tạo tài khoản",
+  "full_name": "Họ và tên",
+  "email": "Email",
+  "password": "Mật khẩu",
+  "confirm_password": "Xác nhận mật khẩu",
+  "retype": "Nhập lại mật khẩu",
+  "have_account": "Bạn đã có tài khoản?",
+  "sign_in": "Đăng nhập",
+  "male": "Nam",
+  "female": "Nữ",
+  "other": "Khác"
+}

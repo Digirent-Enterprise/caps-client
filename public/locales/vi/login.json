@@ -2,5 +2,8 @@
   "login_description": "Đăng nhập",
   "login_heading": "Đăng nhập",
   "login_with_facebook": "Đăng nhập với Facebook",
-  "login_with_google": "Đăng nhập với Google"
+  "login_with_google": "Đăng nhập với Google",
+  "password": "Mật khẩu",
+  "have_not_registered": "Bạn chưa có tài khoản?",
+  "register": "Tạo tài khoản"
 }
