@@ -10,7 +10,7 @@ const Component = React.memo(() => {
   return (
     <header
       data-testid="header"
-      className="h-22 fixed top-0 w-full bg-gray-100 bg-opacity-60 p-2 shadow-amber-50"
+      className="h-22 fixed top-0 z-10 w-full bg-gray-100 bg-opacity-60 p-2 shadow-amber-50"
     >
       <div className="flex w-full flex-row content-between items-center gap-2">
         <div className="ml-32 w-40">
