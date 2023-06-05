@@ -5,13 +5,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import { appWithTranslation } from "next-i18next";
+import { useImmer } from "use-immer";
 
 import { AuthProvider } from "@/contexts/auth-context";
 import { ConversationProvider } from "@/contexts/conversation-context";
-import { LoadingContext } from "@/contexts/loading-context";
+import { LoadingContext, LoadingProvider } from "@/contexts/loading-context";
+import Loading from "@/core/loading";
 import ToastContainer from "@/core/toast-container";
 import nextI18nextConfig from "next-i18next.config";
-
 import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,7 +22,7 @@ interface CustomAppProps extends AppProps {
 }
 
 function App({ Component, pageProps, router, err }: CustomAppProps) {
-  const { loading, setLoading } = useContext(LoadingContext);
+  const [loading, setLoading] = useImmer<boolean>(false);
 
   useEffect(() => {
     const handleStart = () => setLoading(true);
@@ -48,11 +49,14 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
         transition={{ duration: 0.5 }}
       >
         <div className={inter.className}>
-          <AuthProvider>
-            <ConversationProvider>
-              <Component {...pageProps} err={err} />
-            </ConversationProvider>
-          </AuthProvider>
+          <LoadingProvider>
+            <AuthProvider>
+              <ConversationProvider>
+                <Component {...pageProps} err={err} />
+              </ConversationProvider>
+            </AuthProvider>
+          </LoadingProvider>
+          <Loading loadingProps={loading} />
           <ToastContainer />
         </div>
       </motion.div>
