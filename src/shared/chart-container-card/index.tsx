@@ -8,7 +8,6 @@ const ContainerCard = (props: ICompProps) => {
     <Box
       minW="30%"
       padding="3%"
-      margin="1.5%"
       minH="20rem"
       borderRadius="14"
       backgroundColor="#2d325a"
