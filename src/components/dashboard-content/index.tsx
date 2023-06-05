@@ -48,7 +48,7 @@ const Component = React.memo(() => {
     >
       <div
         ref={containerRef}
-        className="relative mt-5 h-auto min-h-[15rem] w-1/3 overflow-x-hidden rounded-xl bg-[#2d325a] p-10 md:w-full overflow-y-hidden"
+        className="relative mt-5 h-auto min-h-[15rem] w-1/3 overflow-hidden rounded-xl bg-[#2d325a] p-10 md:w-full"
       >
         <WeatherReport classes="absolute top-1 right-0 p-4 bg-[#475D78] bg-opacity-0 rounded-xl" />
         <div
