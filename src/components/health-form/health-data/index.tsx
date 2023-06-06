@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 
 import { useRouter } from "next/router";
-import { useImmer } from "use-immer";
+import * as yup from "yup";
 
 import axios from "@/axios";
 import {
@@ -22,100 +22,253 @@ import { showToast } from "@/utils/toast";
 const Component = () => {
   const { isMobile } = useDevice();
   const router = useRouter();
-  const [age, setAge] = useState("");
-  const [weight, setWeight] = useState("");
-  const [height, setHeight] = useState("");
+  const [healthForm, setHealthForm] = useState({
+    age: "",
+    weight: "",
+    height: "",
+    bloodPressure: "",
+    bloodType: "",
+    allergies: [] as string[],
+    medications: [] as string[],
+    hasSurgery: DefaultCheckboxOption,
+    surgeryDescription: "",
+    hasChronicIllness: DefaultCheckboxOption,
+    chronicIllnessDescription: "",
+    hasHereditaryDisease: DefaultCheckboxOption,
+    familyHistoryDescription: "",
+  });
 
-  const [bloodPressure, setBloodPressure] = useState("");
-  const [bloodType, setBloodType] = useState("");
+  interface ErrorMessages {
+    [key: string]: string;
+  }
+  const [errorMessages, setErrorMessages] = useState<ErrorMessages>({});
 
-  const [allergies, setAllergies] = useState<string[]>([]);
-  const [medications, setMedications] = useState<string[]>([]);
-  const [hasSurgery, setHasSurgery] = useImmer<SelectOption>(
-    DefaultCheckboxOption
-  );
-  const [surgeryDescription, setSurgeryDescription] = useState("");
-  const [hasChronicIllness, setHasChronicIllness] = useImmer<SelectOption>(
-    DefaultCheckboxOption
-  );
-  const [chronicIllnessDescription, setChronicIllnessDescription] =
-    useState("");
-  const [hasHereditaryDisease, setHasHereditaryDisease] =
-    useImmer<SelectOption>(DefaultCheckboxOption);
-  const [familyHistoryDescription, setFamilyHistoryDescription] = useState("");
+  const schema = yup.object().shape({
+    age: yup
+      .string()
+      .required("Age is required")
+      .matches(/^\d+$/, "Age must be a number"),
+    weight: yup
+      .string()
+      .required("Weight is required")
+      .matches(/^\d+$/, "Weight must be a number"),
+    height: yup
+      .string()
+      .required("Height is required")
+      .matches(/^\d+$/, "Height must be a number"),
+    bloodPressure: yup
+      .string()
+      .required("BloodPressure is required")
+      .matches(/^\d+$/, "Blood pressure must be a number"),
+    bloodType: yup
+      .string()
+      .required("Blood type is required")
+      .oneOf(["A", "B", "AB", "O"], "Invalid blood type"),
+    allergies: yup
+      .array()
+      .of(yup.string())
+      .required("Allergies are required")
+      .min(1, "At least one allergy must be specified")
+      .test(
+        "unique-allergies",
+        "Allergies must be unique",
+        function (allergies) {
+          if (!allergies || allergies.length === 0) {
+            return true;
+          }
+          const uniqueElements = new Set(allergies);
+          return uniqueElements.size === allergies.length;
+        }
+      ),
+    medications: yup
+      .array()
+      .of(yup.string())
+      .required("Allergies are required")
+      .min(1, "At least one medication must be specified")
+      .test(
+        "unique-allergies",
+        "Medications must be unique",
+        function (medications) {
+          if (!medications || medications.length === 0) {
+            return true;
+          }
+          const uniqueElements = new Set(medications);
+          return uniqueElements.size === medications.length;
+        }
+      ),
+    surgeryDescription: yup
+      .string()
+      .test(
+        "word-count",
+        "Surgery description should be between 1 and 100 words",
+        (value) => {
+          if (!value) {
+            return false;
+          }
+          const words = value.trim().split(/\s+/);
+          return words.length >= 1 && words.length <= 100;
+        }
+      ),
+    chronicIllnessDescription: yup
+      .string()
+      .test(
+        "word-count",
+        "Surgery description should be between 1 and 100 words",
+        (value) => {
+          if (!value) {
+            return false;
+          }
+          const words = value.trim().split(/\s+/);
+          return words.length >= 1 && words.length <= 100;
+        }
+      ),
+    familyHistoryDescription: yup
+      .string()
+      .test(
+        "word-count",
+        "Surgery description should be between 1 and 100 words",
+        (value) => {
+          if (!value) {
+            return false;
+          }
+          const words = value.trim().split(/\s+/);
+          return words.length >= 1 && words.length <= 100;
+        }
+      ),
+  });
 
   const _handleChangeAge = (value: string) => {
-    setAge(value);
+    setHealthForm({
+      ...healthForm,
+      age: value,
+    });
+    setErrorMessages({ ...errorMessages, age: "" });
   };
 
   const _handleChangeWeight = (value: string) => {
-    setWeight(value);
+    setHealthForm({
+      ...healthForm,
+      weight: value,
+    });
+    setErrorMessages({ ...errorMessages, weight: "" });
   };
 
   const _handleChangeHeight = (value: string) => {
-    setHeight(value);
+    setHealthForm({
+      ...healthForm,
+      height: value,
+    });
+    setErrorMessages({ ...errorMessages, height: "" });
   };
 
   const _handleChangeBloodPressure = (value: string) => {
-    setBloodPressure(value);
+    setHealthForm({
+      ...healthForm,
+      bloodPressure: value,
+    });
+    setErrorMessages({ ...errorMessages, bloodPressure: "" });
   };
 
   const _handleChangeBloodType = (value: string) => {
-    setBloodType(value);
+    setHealthForm({
+      ...healthForm,
+      bloodType: value,
+    });
+    setErrorMessages({ ...errorMessages, bloodType: "" });
   };
 
-  const _handleAllergiesChange = (allergies: string[]) => {
-    setAllergies(allergies);
+  const _handleAllergiesChange = (selectedAllergies: string[]) => {
+    setHealthForm({
+      ...healthForm,
+      allergies: selectedAllergies,
+    });
+    setErrorMessages({ ...errorMessages, allergies: "" });
   };
 
-  const _handleMedicationsChange = (allergies: string[]) => {
-    setMedications(allergies);
+  const _handleMedicationsChange = (selectedMedications: string[]) => {
+    setHealthForm({
+      ...healthForm,
+      medications: selectedMedications,
+    });
+    setErrorMessages({ ...errorMessages, medications: "" });
   };
 
   const _handleHasSurgery = (value: SelectOption) => {
-    setHasSurgery(value);
-  };
-
-  const _handleHasChronicIllness = (value: SelectOption) => {
-    setHasChronicIllness(value);
-  };
-
-  const _handleHasHereditaryDisease = (value: SelectOption) => {
-    setHasHereditaryDisease(value);
+    setHealthForm({
+      ...healthForm,
+      hasSurgery: value,
+    });
+    setErrorMessages({ ...errorMessages, hasSurgery: "" });
   };
 
   const _handleSurgeryDescription = (value: string) => {
-    setSurgeryDescription(value);
+    setHealthForm({
+      ...healthForm,
+      surgeryDescription: value,
+    });
+    setErrorMessages({ ...errorMessages, surgeryDescription: "" });
+  };
+
+  const _handleHasChronicIllness = (value: SelectOption) => {
+    setHealthForm({
+      ...healthForm,
+      hasChronicIllness: value,
+    });
+    setErrorMessages({ ...errorMessages, hasChronicIllness: "" });
   };
 
   const _handleChangeChronicIllnessDescription = (value: string) => {
-    setChronicIllnessDescription(value);
+    setHealthForm({
+      ...healthForm,
+      chronicIllnessDescription: value,
+    });
+    setErrorMessages({ ...errorMessages, chronicIllnessDescription: "" });
+  };
+
+  const _handleHasHereditaryDisease = (value: SelectOption) => {
+    setHealthForm({
+      ...healthForm,
+      hasHereditaryDisease: value,
+    });
+    setErrorMessages({ ...errorMessages, hasHereditaryDisease: "" });
   };
 
   const _handleChangeFamilyHistoryDescription = (value: string) => {
-    setFamilyHistoryDescription(value);
+    setHealthForm({
+      ...healthForm,
+      familyHistoryDescription: value,
+    });
+    setErrorMessages({ ...errorMessages, familyHistoryDescription: "" });
   };
 
-  const _handleSubmitForm = async () => {
-    // TODO: refactor this using formData instead of multiple useState
-    const finalForm: IHealthFormProps = {
-      age,
-      height,
-      weight,
-      bloodPressure,
-      bloodType,
-      allergies,
-      medications,
-      hasSurgery,
-      surgeryDescription,
-      hasChronicIllness,
-      chronicIllnessDescription,
-      hasHereditaryDisease,
-      familyHistoryDescription,
-    } as unknown as IHealthFormProps;
-    await axios.post("/static-health", finalForm);
-    showToast("success", "Congratulations. You have updated your health data.");
-    await router.push("/home");
+  const _handleSubmitForm = () => {
+    schema
+      .validate(healthForm, { abortEarly: false })
+      .then(async (validatedData) => {
+        await axios.post("/static-health", healthForm);
+        showToast(
+          "success",
+          "Congratulations. You have updated your health data."
+        );
+        await router.push("/");
+      })
+      .catch((validationErrors) => {
+        console.error("Validation errors:", validationErrors);
+
+        const newErrorMessages: ErrorMessages = {};
+
+        const errorMessages: { [key: string]: string } = {};
+
+        validationErrors.inner.forEach((error: any) => {
+          newErrorMessages[error.path] = error.message;
+        });
+
+        setErrorMessages(newErrorMessages);
+
+        Object.keys(errorMessages).forEach((fieldName) => {
+          showToast("error", `${fieldName}: ${errorMessages[fieldName]}`);
+        });
+      });
   };
 
   const containerClass = useMemo(() => {
@@ -159,7 +312,8 @@ const Component = () => {
         <div className="w-full">
           <div className="mt-5 grid grid-cols-3 gap-4">
             <TextInput
-              value={age}
+              value={healthForm.age}
+              errorMessage={errorMessages.age || ""}
               type="text"
               placeHolder="age"
               label="Age"
@@ -167,7 +321,8 @@ const Component = () => {
               onChange={(value) => _handleChangeAge(value)}
             />
             <TextInput
-              value={weight}
+              value={healthForm.weight}
+              errorMessage={errorMessages.weight || ""}
               type="text"
               placeHolder="weight in kg"
               label="Weight"
@@ -175,7 +330,8 @@ const Component = () => {
               onChange={(value) => _handleChangeWeight(value)}
             />
             <TextInput
-              value={height}
+              value={healthForm.height}
+              errorMessage={errorMessages.height || ""}
               type="text"
               placeHolder="height in cm"
               label="Height"
@@ -184,7 +340,8 @@ const Component = () => {
             />
 
             <TextInput
-              value={bloodPressure}
+              value={healthForm.bloodPressure}
+              errorMessage={errorMessages.bloodPressure || ""}
               type="text"
               placeHolder="blood pressure"
               label="Blood pressure"
@@ -192,7 +349,8 @@ const Component = () => {
               onChange={(value) => _handleChangeBloodPressure(value)}
             />
             <TextInput
-              value={bloodType}
+              value={healthForm.bloodType}
+              errorMessage={errorMessages.bloodType || ""}
               type="text"
               placeHolder="blood type"
               label="Blood type"
@@ -201,10 +359,12 @@ const Component = () => {
             />
             <BadgeListInput
               label="Allergies (please press enter to input)"
+              errorMessage={errorMessages.allergies || ""}
               onSubmit={_handleAllergiesChange}
             />
             <BadgeListInput
               label="Medications (please press enter to input)"
+              errorMessage={errorMessages.medications || ""}
               onSubmit={_handleMedicationsChange}
             />
 
@@ -212,7 +372,7 @@ const Component = () => {
               <Option
                 type="checkbox"
                 options={CheckboxOptions}
-                selectedOption={hasSurgery}
+                selectedOption={healthForm.hasSurgery}
                 onChange={_handleHasSurgery}
                 title="Have you ever had surgery?"
                 dataKey="hasSurgery"
@@ -220,7 +380,8 @@ const Component = () => {
             </div>
             <div className="col-span-3">
               <Textarea
-                value={surgeryDescription}
+                value={healthForm.surgeryDescription}
+                errorMessage={errorMessages.surgeryDescription || ""}
                 onChange={_handleSurgeryDescription}
                 label="Please describe your surgery history"
               />
@@ -229,7 +390,7 @@ const Component = () => {
               <Option
                 type="checkbox"
                 options={CheckboxOptions}
-                selectedOption={hasChronicIllness}
+                selectedOption={healthForm.hasChronicIllness}
                 onChange={_handleHasChronicIllness}
                 title="Do you have any chronic illnesses?"
                 dataKey="hasChronicIllness"
@@ -237,7 +398,8 @@ const Component = () => {
             </div>
             <div className="col-span-3">
               <Textarea
-                value={chronicIllnessDescription}
+                value={healthForm.chronicIllnessDescription}
+                errorMessage={errorMessages.chronicIllnessDescription || ""}
                 onChange={_handleChangeChronicIllnessDescription}
                 label="Please describe any chronic illnesses you have"
               />
@@ -246,7 +408,7 @@ const Component = () => {
               <Option
                 type="checkbox"
                 options={CheckboxOptions}
-                selectedOption={hasHereditaryDisease}
+                selectedOption={healthForm.hasHereditaryDisease}
                 onChange={_handleHasHereditaryDisease}
                 title="Is there a history of hereditary disease in your family?"
                 dataKey="hasHereditaryDisease"
@@ -254,7 +416,8 @@ const Component = () => {
             </div>
             <div className="col-span-3">
               <Textarea
-                value={familyHistoryDescription}
+                value={healthForm.familyHistoryDescription}
+                errorMessage={errorMessages.familyHistoryDescription || ""}
                 onChange={_handleChangeFamilyHistoryDescription}
                 label="Please describe any history of hereditary diseases in your family"
               />

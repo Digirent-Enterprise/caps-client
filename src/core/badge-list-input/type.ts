@@ -1,6 +1,7 @@
 interface IBadgeListInputProps {
   label: string;
   onSubmit: (badges: string[]) => void;
+  errorMessage?: string;
 }
 
 type Badge = {

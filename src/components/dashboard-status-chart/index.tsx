@@ -28,7 +28,7 @@ const Component = React.memo(() => {
         borderColor: DefaultColorPalette,
         borderWidth: 0,
       },
-    ] as LineChartDataset[],
+    ] as any,
   };
 
   const options: ChartOptions<"line"> = {

@@ -43,7 +43,7 @@ const Component = React.memo((props: IDashboardPieChart) => {
         borderColor: DefaultColorPalette,
         borderWidth: 0,
       },
-    ] as PieChartDataset[],
+    ] as any,
   };
 
   useEffect(() => {
