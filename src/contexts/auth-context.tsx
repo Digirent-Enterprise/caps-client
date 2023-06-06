@@ -7,11 +7,10 @@ import axios from "@/axios";
 import { LoadingContext } from "@/contexts/loading-context";
 import { LocalStorageService } from "@/services/local-storage";
 import { LocalStorageKeys } from "@/services/local-storage/constant";
-import { UserService } from "@/services/user";
 import {
   AuthContextData,
   IAuthContextProps,
-  User,
+  IUser,
 } from "@/types/context/with-auth-context";
 
 export const AuthContext = createContext<AuthContextData>(
@@ -22,13 +21,13 @@ export const useAuth = (): AuthContextData => useContext(AuthContext);
 
 export const AuthProvider = (props: IAuthContextProps) => {
   const { children } = props;
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<IUser | null>(null);
   const [accessToken, setAccessToken] = useImmer<string>("");
   const [refreshToken, setRefreshToken] = useImmer<string>("");
   const { setLoading } = useContext(LoadingContext);
   const router = useRouter();
 
-  const signIn = (user: User) => {
+  const signIn = (user: IUser) => {
     setUser(user);
   };
 

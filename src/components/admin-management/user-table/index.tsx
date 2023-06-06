@@ -1,18 +1,18 @@
-import React from "react";
+import { useEffect } from "react";
 
-import { Row, Col, Tooltip, User, Text } from "@nextui-org/react";
-import { IconEye, IconEdit, IconTrash } from "@tabler/icons-react";
+import { Col, Row, Table, Tooltip, User } from "@nextui-org/react";
+import { IconEye, IconPencil, IconTrash } from "@tabler/icons-react";
 
-import BaseAdminTable from "@/components/admin-management/base-admin-table";
 import {
-  StyledBadge,
+  columns,
   IconButton,
-} from "@/components/admin-management/base-admin-table/utils";
-import { usersData } from "@/components/admin-management/user-table/constant";
-import { IUserType } from "@/components/admin-management/user-table/type";
+  StyledBadge,
+} from "@/components/admin-management/user-table/constant";
+import useUser from "@/hooks/user/useUser";
+import { IUser } from "@/types/context/with-auth-context";
 
-const Component: React.FC = () => {
-  const renderCell = (user: IUserType, columnKey: keyof IUserType) => {
+const Component = () => {
+  const renderCell = (user: IUser, columnKey: React.Key) => {
     const cellValue = user[columnKey];
     switch (columnKey) {
       case "name":
@@ -22,31 +22,24 @@ const Component: React.FC = () => {
           </User>
         );
       case "role":
-        return (
-          <Col>
-            <Row>
-              <Text b size={14} css={{ tt: "capitalize" }}>
-                {cellValue}
-              </Text>
-            </Row>
-          </Col>
-        );
+        return <StyledBadge role={user?.role}>{cellValue}</StyledBadge>;
       case "status":
-        return <StyledBadge type={user?.status}>{cellValue}</StyledBadge>;
+        return <StyledBadge status={user?.status}>{cellValue}</StyledBadge>;
+
       case "actions":
         return (
           <Row justify="center" align="center">
             <Col css={{ d: "flex" }}>
               <Tooltip content="Details">
                 <IconButton onClick={() => console.log("View user", user?.id)}>
-                  <IconEye size={20} fill="#979797" />
+                  <IconEye size={20} />
                 </IconButton>
               </Tooltip>
             </Col>
             <Col css={{ d: "flex" }}>
               <Tooltip content="Edit user">
-                <IconButton>
-                  <IconEdit size={20} fill="#979797" />
+                <IconButton onClick={() => console.log("Edit user", user?.id)}>
+                  <IconPencil size={20} />
                 </IconButton>
               </Tooltip>
             </Col>
@@ -57,7 +50,7 @@ const Component: React.FC = () => {
                 onClick={() => console.log("Delete user", user?.id)}
               >
                 <IconButton>
-                  <IconTrash size={20} fill="#FF0080" />
+                  <IconTrash size={20} />
                 </IconButton>
               </Tooltip>
             </Col>
@@ -67,8 +60,37 @@ const Component: React.FC = () => {
         return cellValue;
     }
   };
-
-  return <BaseAdminTable items={usersData} renderCell={renderCell} />;
+  return (
+    <Table
+      aria-label="User Table"
+      css={{
+        height: "auto",
+        minWidth: "100%",
+      }}
+      selectionMode="single"
+    >
+      <Table.Header columns={columns}>
+        {(column) => (
+          <Table.Column
+            key={column.uid}
+            hideHeader={column.uid === "actions"}
+            align={column.uid === "actions" ? "center" : "start"}
+          >
+            {column.name}
+          </Table.Column>
+        )}
+      </Table.Header>
+      <Table.Body items={allUsers}>
+        {(item: IUser) => (
+          <Table.Row>
+            {(columnKey) => (
+              <Table.Cell>{renderCell(item, columnKey)}</Table.Cell>
+            )}
+          </Table.Row>
+        )}
+      </Table.Body>
+    </Table>
+  );
 };
 
 Component.displayName = "UserTable";
