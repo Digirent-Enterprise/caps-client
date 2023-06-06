@@ -29,7 +29,7 @@ const Component = React.memo(() => {
       const interval = setInterval(() => {
         const dom = cloudRef.current as HTMLDivElement;
         const container = containerRef.current as HTMLDivElement;
-        if (container){
+        if (container) {
           fX += gap;
           dom.style.left = `${fX}px`;
         }
