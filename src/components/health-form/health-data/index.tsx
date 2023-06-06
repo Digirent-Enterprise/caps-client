@@ -115,7 +115,7 @@ const Component = () => {
     } as unknown as IHealthFormProps;
     await axios.post("/static-health", finalForm);
     showToast("success", "Congratulations. You have updated your health data.");
-    await router.push("/");
+    await router.push("/home");
   };
 
   const containerClass = useMemo(() => {

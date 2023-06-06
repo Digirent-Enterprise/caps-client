@@ -29,8 +29,10 @@ const Component = React.memo(() => {
       const interval = setInterval(() => {
         const dom = cloudRef.current as HTMLDivElement;
         const container = containerRef.current as HTMLDivElement;
-        fX += gap;
-        dom.style.left = `${fX}px`;
+        if (container){
+          fX += gap;
+          dom.style.left = `${fX}px`;
+        }
         if (container && fX > container.clientWidth) gap = gap * -1;
         else gap = Math.abs(gap);
       }, 100);
