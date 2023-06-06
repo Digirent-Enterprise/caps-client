@@ -50,7 +50,7 @@ const Component: React.FC<IBadgeListInputProps> = ({
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label className="mb-2 block font-medium text-blue">{label}</label>
+        <label className="text-blue mb-2 block font-medium">{label}</label>
         <input
           className={inputClassNames}
           type="text"
@@ -58,14 +58,14 @@ const Component: React.FC<IBadgeListInputProps> = ({
           onChange={handleInputChange}
         />
         {errorMessage ? (
-          <div className="mt-2 text-sm text-red">{errorMessage}</div>
+          <div className="text-red mt-2 text-sm">{errorMessage}</div>
         ) : null}
       </form>
       <div className="mt-2 flex flex-wrap">
         {badges.map((badge, index) => (
           <div
             key={index}
-            className="m-1 inline-flex items-center rounded-lg bg-blue px-3 py-1 text-white"
+            className="bg-blue m-1 inline-flex items-center rounded-lg px-3 py-1 text-white"
           >
             {badge.value}
             <button className="ml-2" onClick={() => handleDelete(badge)}>

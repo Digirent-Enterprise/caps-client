@@ -48,7 +48,7 @@ const Component: React.FC<IMessageInputProps> = ({
     <div className="flex-none">
       <div className="flex flex-row items-center p-4">
         <button
-          className="mx-2 flex h-6 w-6 shrink-0 text-blue hover:text-blue focus:outline-none"
+          className="text-blue hover:text-blue mx-2 flex h-6 w-6 shrink-0 focus:outline-none"
           onClick={_handleRecording}
         >
           {isRecording ? (
@@ -67,14 +67,14 @@ const Component: React.FC<IMessageInputProps> = ({
         />
         <button
           type="button"
-          className="mx-2 flex h-6 w-6 shrink-0 text-blue hover:text-blue focus:outline-none"
+          className="text-blue hover:text-blue mx-2 flex h-6 w-6 shrink-0 focus:outline-none"
           onClick={message ? handleSend : () => {}}
         >
           <IconSend color="white" />
         </button>
         <button
           type="button"
-          className="mx-2 flex h-6 w-6 shrink-0 text-blue hover:text-blue focus:outline-none"
+          className="text-blue hover:text-blue mx-2 flex h-6 w-6 shrink-0 focus:outline-none"
           onClick={() => setIsHealthStatusPopupModalOpen(true)}
         >
           <IconHeartbeat color="white" />

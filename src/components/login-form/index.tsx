@@ -45,18 +45,18 @@ const Component = React.memo(() => {
         isDesktop ? "flex w-2/5 flex-col gap-4" : "flex w-full flex-col gap-1"
       }
     >
-      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-blue">
+      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-light-text-heading">
         {t("login_heading")}
       </div>
       <button
-        className="flex cursor-pointer items-center justify-center rounded bg-[#1778f2] px-4 py-2 font-bold text-white hover:bg-[#3b5998] focus:ring-2 focus:ring-blue"
+        className="focus:ring-blue flex cursor-pointer items-center justify-center rounded bg-[#1778f2] px-4 py-2 font-bold text-white hover:bg-[#3b5998] focus:ring-2"
         onClick={() => signIn()}
       >
         <IconBrandFacebook className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>
       </button>
       <button
-        className="mt-4 flex cursor-pointer items-center justify-center rounded bg-[#EA4335] px-4 py-2 font-bold text-white hover:bg-[#DB4437] focus:ring-2 focus:ring-blue"
+        className="focus:ring-blue mt-4 flex cursor-pointer items-center justify-center rounded bg-[#EA4335] px-4 py-2 font-bold text-white hover:bg-[#DB4437] focus:ring-2"
         onClick={() => signIn()}
       >
         <IconBrandGoogle className="mr-2 h-8 w-8" />
@@ -93,7 +93,7 @@ const Component = React.memo(() => {
       <label className="text-xl">
         {t("have_not_registered")}{" "}
         <Link href={"/auth/register"}>
-          <span className="text-blue">{t("register")}</span>
+          <span className="text-light-text-heading">{t("register")}</span>
         </Link>
       </label>
     </div>

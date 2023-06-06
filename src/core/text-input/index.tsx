@@ -39,7 +39,10 @@ const Component = React.memo((props: IInputProps) => {
 
   return (
     <div className="mb-5 space-y-1">
-      <label className="mb-2 block font-medium text-blue" htmlFor={name}>
+      <label
+        className="mb-2 block font-medium text-light-text-heading"
+        htmlFor={name}
+      >
         {label}
       </label>
       <input
@@ -52,7 +55,7 @@ const Component = React.memo((props: IInputProps) => {
         onChange={(e) => _onValueChange(e.target.value)}
       />
       {errorMessage && (
-        <div className="mt-2 text-sm text-red">{errorMessage}</div>
+        <div className="text-red mt-2 text-sm">{errorMessage}</div>
       )}
     </div>
   );

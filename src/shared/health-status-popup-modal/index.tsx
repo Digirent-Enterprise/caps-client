@@ -132,7 +132,7 @@ const HealthStatusModal: React.FC<IHealthStatusPopupModalProps> = ({
               multiple
               value={symptoms}
               onChange={_handleSymptomsChange}
-              className="w-full rounded-lg border px-3 py-2 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue"
+              className="focus:ring-blue w-full rounded-lg border px-3 py-2 shadow-sm focus:border-transparent focus:outline-none focus:ring-2"
             >
               {allSymptoms.map((symptom) => (
                 <option key={symptom} value={symptom}>
@@ -144,13 +144,13 @@ const HealthStatusModal: React.FC<IHealthStatusPopupModalProps> = ({
         )}
         <div className="flex justify-end gap-1">
           <button
-            className="hover:bg-blue-600 focus:ring-opacity/50 mt-6 rounded-lg bg-blue px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue"
+            className="focus:ring-opacity/50 bg-blue focus:ring-blue mt-6 rounded-lg px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-blue-600 focus:outline-none focus:ring-2"
             onClick={onRequestClose}
           >
             Cancel
           </button>
           <button
-            className=" hover:bg-blue-600 focus:ring-opacity/50 mt-6 rounded-lg bg-darker-blue px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue"
+            className=" focus:ring-opacity/50 bg-darker-blue focus:ring-blue mt-6 rounded-lg px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-blue-600 focus:outline-none focus:ring-2"
             onClick={_handleSubmit}
           >
             Submit

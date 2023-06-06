@@ -22,7 +22,7 @@ const Component: React.FC<ITrendingStoriesProps> = ({ stories }) => {
             <div>
               <a
                 href="#"
-                className="text-blue transition-colors duration-300 hover:text-blue hover:underline"
+                className="text-blue hover:text-blue transition-colors duration-300 hover:underline"
               >
                 {story.title}
               </a>

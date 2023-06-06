@@ -71,7 +71,7 @@ const Component = React.memo((props: IConfirmationModalProps) => {
   return (
     <Modal
       isOpen={isOpen}
-      className="absolute bg-darker-blue"
+      className="bg-darker-blue absolute"
       onRequestClose={onClose}
       style={CustomStyle}
     >

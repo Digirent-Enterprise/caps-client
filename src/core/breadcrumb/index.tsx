@@ -9,7 +9,7 @@ const Component: React.FC<IBreadcrumbProps> = ({ items, currentPage }) => {
         {items.map((item, index) => (
           <li key={index} className="flex items-center">
             {item.href ? (
-              <Link href={item.href} className="hover:text-blue-700 text-blue">
+              <Link href={item.href} className="text-blue hover:text-blue-700">
                 {item.label}
               </Link>
             ) : (

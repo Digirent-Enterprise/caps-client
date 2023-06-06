@@ -136,7 +136,7 @@ const Component = React.memo(() => {
         isDesktop ? "flex w-2/5 flex-col gap-4" : "flex w-full flex-col gap-1"
       }
     >
-      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-blue">
+      <div className="text-blue mb-[40px] w-full text-center text-3xl font-bold tracking-normal">
         {t("register")}
       </div>
       <TextInput

@@ -18,7 +18,7 @@ const Component = React.memo((props: ITextareaProps) => {
 
   return (
     <div className="mb-4 flex w-full flex-col">
-      <label htmlFor={value} className="mb-2 font-medium text-blue">
+      <label htmlFor={value} className="text-blue mb-2 font-medium">
         {label}
       </label>
       <textarea
@@ -30,7 +30,7 @@ const Component = React.memo((props: ITextareaProps) => {
         onChange={(e) => (onChange ? onChange(e.target.value) : null)}
       />
       {errorMessage ? (
-        <div className="mt-2 text-sm text-red">{errorMessage}</div>
+        <div className="text-red mt-2 text-sm">{errorMessage}</div>
       ) : null}
     </div>
   );

@@ -306,7 +306,7 @@ const Component = () => {
   return (
     <div className={containerClass}>
       <div className={formClass}>
-        <div className="mb-10 text-center text-5xl font-bold tracking-normal text-blue">
+        <div className="text-blue mb-10 text-center text-5xl font-bold tracking-normal">
           Health form
         </div>
         <div className="w-full">

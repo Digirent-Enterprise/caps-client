@@ -1,10 +1,12 @@
 import "@/styles/globals.css";
+
 import { useContext, useEffect } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import { appWithTranslation } from "next-i18next";
+import { ThemeProvider } from "next-themes";
 
 import { AuthProvider } from "@/contexts/auth-context";
 import { ConversationProvider } from "@/contexts/conversation-context";
@@ -25,15 +27,20 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
 
   useEffect(() => {
     const handleStart = () => setLoading(true);
+
     const handleComplete = () => setLoading(false);
 
     router.events.on("routeChangeStart", handleStart);
+
     router.events.on("routeChangeComplete", handleComplete);
+
     router.events.on("routeChangeError", handleComplete);
 
     return () => {
       router.events.off("routeChangeStart", handleStart);
+
       router.events.off("routeChangeComplete", handleComplete);
+
       router.events.off("routeChangeError", handleComplete);
     };
   }, [router, setLoading]);
@@ -50,9 +57,12 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
         <div className={inter.className}>
           <AuthProvider>
             <ConversationProvider>
-              <Component {...pageProps} err={err} />
+              <ThemeProvider attribute="class">
+                <Component {...pageProps} err={err} />
+              </ThemeProvider>
             </ConversationProvider>
           </AuthProvider>
+
           <ToastContainer />
         </div>
       </motion.div>

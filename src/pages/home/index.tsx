@@ -285,7 +285,7 @@ const Component: React.FC = () => {
                       Dengue Intelligent Chatbot Assistance
                     </span>
                     {selectedConversation && conversations.length > 0 ? (
-                      <div className="h-fit w-fit rounded bg-green px-5 py-1 text-sm text-white">
+                      <div className="bg-green h-fit w-fit rounded px-5 py-1 text-sm text-white">
                         {formatModelOption(
                           selectedConversation?.chatBotType || ""
                         )}
