@@ -1,7 +1,8 @@
 export namespace UserNS {
   //generic
   type GenderType = "male" | "female" | "other";
-  type RoleType = string[];
+  type RoleType = "user" | "admin";
+  type StatusType = "active" | "deactivated";
 
   //request
 
@@ -21,11 +22,14 @@ export namespace UserNS {
   export type UserDetailResponse = {
     id: number;
     name: string;
+    avatar: string;
     gender: GenderType;
     dob: string;
     age: number;
     email: string;
-    roles: RoleType;
+    role: RoleType;
+    status: StatusType;
+    firstLogin: boolean;
     createdAt: string;
   };
 }

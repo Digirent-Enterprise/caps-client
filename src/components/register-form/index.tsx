@@ -17,7 +17,6 @@ import TextInput from "@/core/text-input";
 import { FormExtension } from "@/core/text-input/type";
 import useRegister from "@/hooks/auth/useRegister";
 import useDevice from "@/hooks/useDevice";
-import { showToast } from "@/utils/toast";
 
 const Component = React.memo(() => {
   const { isDesktop } = useDevice();
@@ -96,15 +95,13 @@ const Component = React.memo(() => {
   const _handleSubmitForm = () => {
     schema
       .validate(form, { abortEarly: false })
-      .then(async (validatedData) => {
+      .then(async () => {
         register(form);
       })
       .catch((validationErrors) => {
         console.error("Validation errors:", validationErrors);
 
         const newErrorMessages: ErrorMessages = {};
-
-        const errorMessages: { [key: string]: string } = {};
 
         validationErrors.inner.forEach((error: ErrorMessages) => {
           newErrorMessages[error.path] = error.message;

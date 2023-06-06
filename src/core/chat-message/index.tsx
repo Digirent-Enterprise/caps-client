@@ -7,6 +7,7 @@ import { IChatMessageProps } from "@/core/chat-message/type";
 const Component = React.memo((props: IChatMessageProps) => {
   const { conservationId, content, senderType } = props;
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
 
   const containerClasses = {
     chatbot: "justify-start",
@@ -24,7 +25,7 @@ const Component = React.memo((props: IChatMessageProps) => {
   const _speakMessage = () => {
     const utterance = new SpeechSynthesisUtterance(content);
 
-    utterance.voice = speechSynthesis.getVoices()[0];
+    utterance.voice = voices.find((voice) => voice.lang === "vi") || null;
     utterance.lang = "vi";
 
     speechSynthesis.speak(utterance);
@@ -33,6 +34,19 @@ const Component = React.memo((props: IChatMessageProps) => {
       setIsSpeaking(false);
     };
   };
+
+  useEffect(() => {
+    const handleVoicesChanged = () => {
+      const allVoices = speechSynthesis.getVoices();
+      setVoices(allVoices);
+    };
+
+    speechSynthesis.addEventListener("voiceschanged", handleVoicesChanged);
+
+    return () => {
+      speechSynthesis.removeEventListener("voiceschanged", handleVoicesChanged);
+    };
+  }, []);
 
   useEffect(() => {
     if (isSpeaking) {

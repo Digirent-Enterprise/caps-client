@@ -1,26 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { IconCheck } from "@tabler/icons-react";
 import Image from "next/image";
-
-import { Theme } from "@/components/theme-switcher/type";
+import { useTheme } from "next-themes";
 
 const Component: React.FC = () => {
-  const [theme, setTheme] = useState<Theme>("system");
-
-  useEffect(() => {
-    const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
-      .matches
-      ? "dark"
-      : "light";
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    setTheme(savedTheme ?? preferredTheme);
-  }, []);
-
-  const _handleThemeChange = (newTheme: Theme) => {
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-  };
+  const { theme, setTheme } = useTheme();
 
   const getCheckIcon = (selected: boolean) => {
     if (selected) {
@@ -44,7 +29,7 @@ const Component: React.FC = () => {
               className={`rounded border-2 ${
                 theme === "system" ? "border-light-blue" : ""
               }`}
-              onClick={() => _handleThemeChange("system")}
+              onClick={() => setTheme("system")}
             >
               <Image
                 src="/theme/dark.png"
@@ -61,7 +46,7 @@ const Component: React.FC = () => {
               className={`rounded border-2 ${
                 theme === "light" ? "border-light-blue" : ""
               }`}
-              onClick={() => _handleThemeChange("light")}
+              onClick={() => setTheme("light")}
             >
               <Image
                 src="/theme/dark.png"
@@ -78,7 +63,7 @@ const Component: React.FC = () => {
               className={`rounded border-2 ${
                 theme === "dark" ? "border-light-blue" : ""
               }`}
-              onClick={() => _handleThemeChange("dark")}
+              onClick={() => setTheme("dark")}
             >
               <Image
                 src="/theme/dark.png"

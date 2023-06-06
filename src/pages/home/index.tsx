@@ -30,13 +30,13 @@ import useConversation from "@/hooks/conversation/useConversation";
 import useMessage from "@/hooks/message/useMessage";
 import useDevice from "@/hooks/useDevice";
 import { MessageNS } from "@/services/message/type";
+import CommandPalette from "@/shared/command-palette";
 import ConversationModal from "@/shared/conversation-modal";
 import DefaultChatMessage from "@/shared/default-chat-message";
 import Popover from "@/shared/popover";
 import SearchInput from "@/shared/search-input";
 import StatusModal from "@/shared/status-modal";
 import { formatModelOption } from "@/utils/models";
-import CommandPalette from "@/shared/command-palette";
 
 const Component: React.FC = () => {
   const { isMobile } = useDevice();
@@ -247,7 +247,7 @@ const Component: React.FC = () => {
                       News
                     </span>
                   </Link>
-                  <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
+                  <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconSettings />
                     <span
                       className="ml-2  cursor-pointer text-sm text-white"
@@ -261,7 +261,7 @@ const Component: React.FC = () => {
                     onClose={_closeSettingsModal}
                   />
 
-                  <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
+                  <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />
                     <span
                       className="ml-2  cursor-pointer text-sm text-white"
@@ -284,14 +284,15 @@ const Component: React.FC = () => {
                     <span className="mb-2 mr-2 text-xl font-bold">
                       Dengue Intelligent Chatbot Assistance
                     </span>
-                    {selectedConversation && conversations.length > 0 ? (
-                      <div className="h-fit w-fit rounded bg-green px-5 py-1 text-sm text-white">
-                        {formatModelOption(
-                          selectedConversation?.chatBotType || ""
-                        )}
-                      </div>
-                    ) : null}
+                    <Popover options={exportOptions} />
                   </div>
+                  {selectedConversation && conversations.length > 0 ? (
+                    <div className="h-fit w-fit rounded bg-green px-5 py-1 text-sm text-white">
+                      {formatModelOption(
+                        selectedConversation?.chatBotType || ""
+                      )}
+                    </div>
+                  ) : null}
                 </div>
                 <div data-tour="step3" className="flex">
                   {/*<WeatherReport />*/}

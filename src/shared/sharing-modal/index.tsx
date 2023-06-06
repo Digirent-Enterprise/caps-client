@@ -6,7 +6,7 @@ import Modal from "react-modal";
 
 import { CustomStyle } from "@/shared/sharing-modal/constant";
 import { ISharingModalProps } from "@/shared/sharing-modal/type";
-import { formatDate } from "@/utils/date-time";
+import { formatDate } from "@/utils/common";
 
 const Component: React.FC<ISharingModalProps> = ({
   isOpen,
@@ -51,7 +51,7 @@ const Component: React.FC<ISharingModalProps> = ({
             <span className="ml-2">More info</span>
           </Link>
         </div>
-        <button className="flex items-center rounded border-2 border-transparent bg-green-500 px-3 py-2 text-xs text-white focus:border-green-700 focus:outline-none">
+        <button className="bg-green-500 focus:border-green-700 flex items-center rounded border-2 border-transparent px-3 py-2 text-xs text-white focus:outline-none">
           <IconLink size={18} />
           <span className="ml-2">Copy Link</span>
         </button>

@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import { appWithTranslation } from "next-i18next";
+import { ThemeProvider } from "next-themes";
 
 import { AuthProvider } from "@/contexts/auth-context";
 import { ConversationProvider } from "@/contexts/conversation-context";
@@ -50,7 +51,9 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
         <div className={inter.className}>
           <AuthProvider>
             <ConversationProvider>
-              <Component {...pageProps} err={err} />
+              <ThemeProvider>
+                <Component {...pageProps} err={err} />
+              </ThemeProvider>
             </ConversationProvider>
           </AuthProvider>
           <ToastContainer />
