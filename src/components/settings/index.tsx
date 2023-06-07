@@ -104,7 +104,6 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                           title="Enable email notification"
                           description="Receive regular emails tailored to your interests and geographic location. Our system will analyze your symptoms and provide personalized updates on dengue-related information specific to your needs."
                           checked={isEnabledNotification}
-                          onChange={_handleToggle}
                         />
                       )}
                     </div>
