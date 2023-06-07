@@ -13,7 +13,7 @@ const Component = () => {
         <SingleTopic />
         <SingleTopic />
       </div>
-      <div className="flex justify-center my-10">
+      <div className="my-10 flex justify-center">
         <Pagination />
       </div>
     </div>
