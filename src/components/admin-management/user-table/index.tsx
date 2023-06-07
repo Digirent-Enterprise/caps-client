@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import { Col, Row, Table, Tooltip, User } from "@nextui-org/react";
 import { IconEye, IconPencil, IconTrash } from "@tabler/icons-react";
 
@@ -12,6 +10,8 @@ import useUser from "@/hooks/user/useUser";
 import { IUser } from "@/types/context/with-auth-context";
 
 const Component = () => {
+  const { allUsers } = useUser();
+
   const renderCell = (user: IUser, columnKey: React.Key) => {
     const cellValue = user[columnKey];
     switch (columnKey) {

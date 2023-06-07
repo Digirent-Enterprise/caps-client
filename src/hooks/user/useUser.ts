@@ -47,7 +47,6 @@ const useUser = () => {
     setLoading(true);
     handleAccessToken();
     const response = await UserService.getAllUsers();
-    console.log(response, "res");
     if (response) {
       const allUsers = response as IUser[];
       setAllUsers(allUsers);
