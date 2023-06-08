@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 import * as yup from "yup";
 
 import axios from "@/axios";
@@ -20,6 +21,7 @@ import useDevice from "@/hooks/useDevice";
 import { showToast } from "@/utils/toast";
 
 const Component = () => {
+  const { t } = useTranslation("health_data");
   const { isMobile } = useDevice();
   const router = useRouter();
   const [healthForm, setHealthForm] = useState({
@@ -47,31 +49,31 @@ const Component = () => {
     age: yup
       .string()
       .required("Age is required")
-      .matches(/^\d+$/, "Age must be a number"),
+      .matches(/^\d+$/, `${t("age_error")}`),
     weight: yup
       .string()
       .required("Weight is required")
-      .matches(/^\d+$/, "Weight must be a number"),
+      .matches(/^\d+$/, `${t("weight_error")}`),
     height: yup
       .string()
       .required("Height is required")
-      .matches(/^\d+$/, "Height must be a number"),
+      .matches(/^\d+$/, `${t("height_error")}`),
     bloodPressure: yup
       .string()
       .required("BloodPressure is required")
-      .matches(/^\d+$/, "Blood pressure must be a number"),
+      .matches(/^\d+$/, `${t("blood_pressure_error")}`),
     bloodType: yup
       .string()
       .required("Blood type is required")
-      .oneOf(["A", "B", "AB", "O"], "Invalid blood type"),
+      .oneOf(["A", "B", "AB", "O"], `${t("blood_type_error")}`),
     allergies: yup
       .array()
       .of(yup.string())
       .required("Allergies are required")
-      .min(1, "At least one allergy must be specified")
+      .min(1, `${t("allergies_blank_error")}`)
       .test(
         "unique-allergies",
-        "Allergies must be unique",
+        `${t("allergies_error")}`,
         function (allergies) {
           if (!allergies || allergies.length === 0) {
             return true;
@@ -84,10 +86,10 @@ const Component = () => {
       .array()
       .of(yup.string())
       .required("Allergies are required")
-      .min(1, "At least one medication must be specified")
+      .min(1, `${t("medications_blank_error")}`)
       .test(
         "unique-allergies",
-        "Medications must be unique",
+        `${t("medications_error")}`,
         function (medications) {
           if (!medications || medications.length === 0) {
             return true;
@@ -98,22 +100,18 @@ const Component = () => {
       ),
     surgeryDescription: yup
       .string()
-      .test(
-        "word-count",
-        "Surgery description should be between 1 and 100 words",
-        (value) => {
-          if (!value) {
-            return false;
-          }
-          const words = value.trim().split(/\s+/);
-          return words.length >= 1 && words.length <= 100;
+      .test("word-count", `${t("surgery_description_error")}`, (value) => {
+        if (!value) {
+          return false;
         }
-      ),
+        const words = value.trim().split(/\s+/);
+        return words.length >= 1 && words.length <= 100;
+      }),
     chronicIllnessDescription: yup
       .string()
       .test(
         "word-count",
-        "Surgery description should be between 1 and 100 words",
+        `${t("chronic_illness_description_error")}`,
         (value) => {
           if (!value) {
             return false;
@@ -126,7 +124,7 @@ const Component = () => {
       .string()
       .test(
         "word-count",
-        "Surgery description should be between 1 and 100 words",
+        `${t("family_history_description_error")}`,
         (value) => {
           if (!value) {
             return false;
@@ -307,7 +305,7 @@ const Component = () => {
     <div className={containerClass}>
       <div className={formClass}>
         <div className="text-blue mb-10 text-center text-5xl font-bold tracking-normal">
-          Health form
+          {t("health_form")}
         </div>
         <div className="w-full">
           <div className="mt-5 grid grid-cols-3 gap-4">
@@ -315,8 +313,8 @@ const Component = () => {
               value={healthForm.age}
               errorMessage={errorMessages.age || ""}
               type="text"
-              placeHolder="age"
-              label="Age"
+              placeHolder={t("age")}
+              label={t("age_lable")}
               name="age"
               onChange={(value) => _handleChangeAge(value)}
             />
@@ -324,8 +322,8 @@ const Component = () => {
               value={healthForm.weight}
               errorMessage={errorMessages.weight || ""}
               type="text"
-              placeHolder="weight in kg"
-              label="Weight"
+              placeHolder={t("weight")}
+              label={t("weight_label")}
               name="weight"
               onChange={(value) => _handleChangeWeight(value)}
             />
@@ -333,8 +331,8 @@ const Component = () => {
               value={healthForm.height}
               errorMessage={errorMessages.height || ""}
               type="text"
-              placeHolder="height in cm"
-              label="Height"
+              placeHolder={t("height")}
+              label={t("height_label")}
               name="height"
               onChange={(value) => _handleChangeHeight(value)}
             />
@@ -343,8 +341,8 @@ const Component = () => {
               value={healthForm.bloodPressure}
               errorMessage={errorMessages.bloodPressure || ""}
               type="text"
-              placeHolder="blood pressure"
-              label="Blood pressure"
+              placeHolder={t("blood_presure")}
+              label={t("blood_pressure_label")}
               name="blood-pressure"
               onChange={(value) => _handleChangeBloodPressure(value)}
             />
@@ -352,18 +350,18 @@ const Component = () => {
               value={healthForm.bloodType}
               errorMessage={errorMessages.bloodType || ""}
               type="text"
-              placeHolder="blood type"
-              label="Blood type"
+              placeHolder={t("blood_type")}
+              label={t("blood_type_label")}
               name="blood-type"
               onChange={(value) => _handleChangeBloodType(value)}
             />
             <BadgeListInput
-              label="Allergies (please press enter to input)"
+              label={t("allergies")}
               errorMessage={errorMessages.allergies || ""}
               onSubmit={_handleAllergiesChange}
             />
             <BadgeListInput
-              label="Medications (please press enter to input)"
+              label={t("medications")}
               errorMessage={errorMessages.medications || ""}
               onSubmit={_handleMedicationsChange}
             />
@@ -374,7 +372,7 @@ const Component = () => {
                 options={CheckboxOptions}
                 selectedOption={healthForm.hasSurgery}
                 onChange={_handleHasSurgery}
-                title="Have you ever had surgery?"
+                title={t("has_surgery")}
                 dataKey="hasSurgery"
               />
             </div>
@@ -383,7 +381,7 @@ const Component = () => {
                 value={healthForm.surgeryDescription}
                 errorMessage={errorMessages.surgeryDescription || ""}
                 onChange={_handleSurgeryDescription}
-                label="Please describe your surgery history"
+                label={t("surgery_description")}
               />
             </div>
             <div className="col-span-3">
@@ -392,7 +390,7 @@ const Component = () => {
                 options={CheckboxOptions}
                 selectedOption={healthForm.hasChronicIllness}
                 onChange={_handleHasChronicIllness}
-                title="Do you have any chronic illnesses?"
+                title={t("has_chronic_illness")}
                 dataKey="hasChronicIllness"
               />
             </div>
@@ -401,7 +399,7 @@ const Component = () => {
                 value={healthForm.chronicIllnessDescription}
                 errorMessage={errorMessages.chronicIllnessDescription || ""}
                 onChange={_handleChangeChronicIllnessDescription}
-                label="Please describe any chronic illnesses you have"
+                label={t("chronic_illness_description")}
               />
             </div>
             <div className="col-span-3">
@@ -410,7 +408,7 @@ const Component = () => {
                 options={CheckboxOptions}
                 selectedOption={healthForm.hasHereditaryDisease}
                 onChange={_handleHasHereditaryDisease}
-                title="Is there a history of hereditary disease in your family?"
+                title={t("has_hereditary_disease")}
                 dataKey="hasHereditaryDisease"
               />
             </div>
@@ -419,7 +417,7 @@ const Component = () => {
                 value={healthForm.familyHistoryDescription}
                 errorMessage={errorMessages.familyHistoryDescription || ""}
                 onChange={_handleChangeFamilyHistoryDescription}
-                label="Please describe any history of hereditary diseases in your family"
+                label={t("family_history_description")}
               />
             </div>
           </div>
@@ -427,12 +425,12 @@ const Component = () => {
         <div className="mt-10 flex w-full flex-col items-center justify-between sm:flex-row">
           <div>
             <Button onClick={() => router.back()} mode="secondary">
-              Back
+              {t("back")}
             </Button>
           </div>
           <div className="flex justify-end">
             <Button onClick={_handleSubmitForm} mode="primary">
-              Submit
+              {t("submit")}
             </Button>
           </div>
         </div>

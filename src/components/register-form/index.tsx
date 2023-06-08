@@ -184,7 +184,7 @@ const Component = React.memo(() => {
         dataKey="gender"
         selectedOption={selectedGender}
         options={GenderOptions}
-        title="Gender"
+        title={t("Gender")}
       />
       <Button onClick={_handleSubmitForm} mode="primary">
         {t("register")}

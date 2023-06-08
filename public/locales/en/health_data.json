@@ -1,4 +1,5 @@
 {
+  "health_form": "Health form",
   "age_lable": "Age",
   "age": "age",
   "weight_label": "Weight",
@@ -18,5 +19,19 @@
   "has_hereditary_disease": "Is there a history of hereditary disease in your family?",
   "family_history_description": "Please describe any history of hereditary diseases in your family",
   "back": "Back",
-  "submit": "Submit"
+  "submit": "Submit",
+  "yes": "Yes",
+  "no": "No",
+  "age_error": "Age must be a number",
+  "weight_error": "Weight must be a number",
+  "height_error": "Height must be a number",
+  "blood_pressure_error": "Blood pressure must be a number",
+  "blood_type_error": "Invalid blood type",
+  "allergies_blank_error": "At least one allergy must be specified",
+  "allergies_error": "Allergies must be unique",
+  "medications_blank_error": "At least one medication must be specified",
+  "medications_error": "Medications must be unique",
+  "surgery_description_error": "Surgery description should be between 1 and 100 words",
+  "chronic_illness_description_error": "Chronic illness description should be between 1 and 100 words",
+  "family_history_description_error": "Family history description should be between 1 and 100 words"
 }

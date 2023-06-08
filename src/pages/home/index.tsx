@@ -17,6 +17,7 @@ import { toPng } from "html-to-image";
 import { isEmpty } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 import axios from "@/axios";
 import ConversationList from "@/components/conversation-list";
@@ -46,7 +47,7 @@ const Component: React.FC = () => {
     const [showConversationModal, setShowConversationModal] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
-
+    const { t } = useTranslation("home");
     const { user, signOut } = useContext(AuthContext);
     const {
       getAllConversations,
@@ -193,13 +194,13 @@ const Component: React.FC = () => {
             >
               <div className="flex flex-none flex-row items-center justify-between p-4">
                 <p className="hidden text-lg font-bold md:block">
-                  Welcome, {user?.name}
+                  {t("welcome")} {user?.name}
                 </p>
               </div>
 
               <div className="flex-none p-4">
                 <SearchInput
-                  placeholder="Search anything"
+                  placeholder={t("search")}
                   searchTerm={searchTerm}
                   onSearch={_handleSearchConversation}
                 />
@@ -211,7 +212,9 @@ const Component: React.FC = () => {
                   onClick={_handleOpenConversationModal}
                 >
                   <IconPlus />
-                  <span className="ml-2 text-white">New Conversation</span>
+                  <span className="ml-2 text-white">
+                    {t("new_conversation")}
+                  </span>
                 </div>
               </div>
               <ConversationList
@@ -235,7 +238,7 @@ const Component: React.FC = () => {
                   >
                     <IconDeviceIpadHeart />
                     <span className="ml-2 cursor-pointer text-sm text-white">
-                      My Health
+                      {t("my_health")}
                     </span>
                   </Link>
                   <Link
@@ -244,7 +247,7 @@ const Component: React.FC = () => {
                   >
                     <IconNews />
                     <span className="ml-2 cursor-pointer text-sm text-white">
-                      News
+                      {t("news")}
                     </span>
                   </Link>
                   <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
@@ -253,7 +256,7 @@ const Component: React.FC = () => {
                       className="ml-2  cursor-pointer text-sm text-white"
                       onClick={_openSettingsModal}
                     >
-                      Settings
+                      {t("settings")}
                     </span>
                   </div>
                   <Settings
@@ -267,7 +270,7 @@ const Component: React.FC = () => {
                       className="ml-2  cursor-pointer text-sm text-white"
                       onClick={signOut}
                     >
-                      Logout
+                      {t("logout")}
                     </span>
                   </div>
                 </div>
@@ -315,11 +318,11 @@ const Component: React.FC = () => {
           type="info"
           isOpen={open}
           onClose={_onModalClose}
-          title="Health Status Update"
-          description={`Hi, ${user?.name}. Thank you for using DICA. Please complete the first-time health declaration form to let us support you better.`}
-          primaryButtonText="Sure"
+          title={t("health_status_update")}
+          description={`${t("hi")}, ${user?.name}. ${t("thank_you")}`}
+          primaryButtonText={t("sure")}
           secondButton
-          secondaryButtonText="Not right now"
+          secondaryButtonText={t("not_right_now")}
           onSecondaryButtonClick={_onModalClose}
           onPrimaryButtonClick={_onModalConfirm}
         />

@@ -5,5 +5,6 @@
   "login_with_google": "Sign in with Google",
   "password": "Password",
   "have_not_registered": "Did not have an account?",
-  "register": "Register"
+  "register": "Register",
+  "or": "or"
 }
