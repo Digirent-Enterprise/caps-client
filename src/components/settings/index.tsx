@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 
 import { Dialog, Transition } from "@headlessui/react";
-import { Input } from "@nextui-org/react";
 import { IconExternalLink, IconX } from "@tabler/icons-react";
 import Link from "next/link";
 
@@ -9,9 +8,7 @@ import LanguageSwitcher from "@/components/language-switcher";
 import { tabs } from "@/components/settings/constant";
 import { ISettingsModalProps } from "@/components/settings/type";
 import ThemeSwitcher from "@/components/theme-switcher";
-import Avatar from "@/core/avatar";
 import Switcher from "@/core/switcher";
-import TextInput from "@/core/text-input";
 
 const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
   const [selectedTab, setSelectedTab] = useState(1);
@@ -94,29 +91,7 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                       </>
                     )}
                     <div className="ml-4 mt-2">
-                      {selectedTab === 2 && (
-                        <>
-                          <Avatar />
-                          <div className="flex gap-8">
-                            <div>
-                              <Input
-                                clearable
-                                bordered
-                                labelPlaceholder="Name"
-                                initialValue="Name"
-                              />
-                            </div>
-                            <div>
-                              <Input
-                                clearable
-                                bordered
-                                labelPlaceholder="Email"
-                                initialValue="Email"
-                              />
-                            </div>
-                          </div>
-                        </>
-                      )}
+                      {selectedTab === 2 && <></>}
                     </div>
                     {selectedTab === 3 && (
                       <>{/* Add privacy settings content here */}</>
