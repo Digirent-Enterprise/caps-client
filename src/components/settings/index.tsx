@@ -9,9 +9,10 @@ import LanguageSwitcher from "@/components/language-switcher";
 import { tabs } from "@/components/settings/constant";
 import { ISettingsModalProps } from "@/components/settings/type";
 import ThemeSwitcher from "@/components/theme-switcher";
-import Avatar from "@/core/avatar";
 import Switcher from "@/core/switcher";
 import TextInput from "@/core/text-input";
+
+import Avatar from "@/core/avatar";
 
 const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
   const [selectedTab, setSelectedTab] = useState(1);

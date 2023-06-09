@@ -2,7 +2,8 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
 
-const options: NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID!,
@@ -15,4 +16,4 @@ const options: NextAuthOptions = {
   ],
 };
 
-export default NextAuth(options);
+export default NextAuth(authOptions);
