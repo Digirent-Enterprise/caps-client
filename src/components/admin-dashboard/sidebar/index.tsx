@@ -16,19 +16,14 @@ import { IconMenu2 } from "@tabler/icons-react";
 import { Scrollbars } from "react-custom-scrollbars-2";
 
 import SidebarContent from "@/components/admin-dashboard/sidebar/sidebar-content";
+import {
+  ISidebarProps,
+  ISidebarResponsiveProps,
+} from "@/components/admin-dashboard/sidebar/type";
 import { renderThumb, renderTrack, renderView } from "@/core/scrollbar";
-import { IRoute } from "@/types/global/navigation";
 import { isWindowAvailable } from "@/utils/navigation";
 
-interface SidebarResponsiveProps {
-  routes: IRoute[];
-}
-
-interface SidebarProps extends SidebarResponsiveProps {
-  [x: string]: any;
-}
-
-function Component(props: SidebarProps) {
+function Component(props: ISidebarProps) {
   const { routes } = props;
 
   let variantChange = "0.2s linear";
@@ -64,7 +59,7 @@ function Component(props: SidebarProps) {
   );
 }
 
-export function SidebarResponsive(props: SidebarResponsiveProps) {
+export function SidebarResponsive(props: ISidebarResponsiveProps) {
   let sidebarBackgroundColor = useColorModeValue("white", "navy.800");
   let menuColor = useColorModeValue("gray.400", "white");
   const { isOpen, onOpen, onClose } = useDisclosure();

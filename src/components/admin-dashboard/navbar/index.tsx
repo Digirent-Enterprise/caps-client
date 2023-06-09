@@ -10,16 +10,10 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
+import { INavbarProps } from "@/components/admin-dashboard/navbar/type";
 import { isWindowAvailable } from "@/utils/navigation";
 
-const Component = (props: {
-  secondary: boolean;
-  message: string | boolean;
-  brandText: string;
-  logoText: string;
-  fixed: boolean;
-  onOpen: (...args: any[]) => any;
-}) => {
+const Component = (props: INavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
