@@ -29,26 +29,8 @@ export default function ProfileOverview() {
             pb={{ base: "100px", lg: "20px" }}
           />
         </Grid>
-        <Grid
-          mb="20px"
-          templateColumns={{
-            base: "1fr",
-            lg: "repeat(2, 1fr)",
-            "2xl": "1.34fr 1.62fr 1fr",
-          }}
-          templateRows={{
-            base: "1fr",
-            lg: "repeat(2, 1fr)",
-            "2xl": "1fr",
-          }}
-          gap={{ base: "20px", xl: "20px" }}
-        >
-          <GeneralInformation
-            gridArea={{ base: "2 / 1 / 3 / 2", lg: "1 / 2 / 2 / 3" }}
-            minH="365px"
-            pe="20px"
-          />
-        </Grid>
+
+        <GeneralInformation minH="365px" pe="20px" />
       </Box>
     </AdminLayout>
   );

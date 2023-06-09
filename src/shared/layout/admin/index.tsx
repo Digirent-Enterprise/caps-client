@@ -51,7 +51,7 @@ const Component = (props: IDashboardLayoutProps) => {
             <Box>
               <NavbarAdmin
                 onOpen={onOpen}
-                logoText={"Horizon UI Dashboard PRO"}
+                logoText={"DICA"}
                 brandText={getActiveRoute(routes)}
                 secondary={getActiveNavbar(routes)}
                 message={getActiveNavbarText(routes)}

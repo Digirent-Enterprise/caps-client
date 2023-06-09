@@ -1,6 +1,6 @@
 import { Flex, useColorModeValue } from "@chakra-ui/react";
+import Image from "next/image";
 
-import { HorizonLogo } from "@/core/icons";
 import { HSeparator } from "@/core/separator";
 
 export function Component() {
@@ -8,7 +8,7 @@ export function Component() {
 
   return (
     <Flex alignItems="center" flexDirection="column">
-      <HorizonLogo h="26px" w="175px" my="32px" color={logoColor} />
+      <p>DICA</p>
       <HSeparator mb="20px" />
     </Flex>
   );
