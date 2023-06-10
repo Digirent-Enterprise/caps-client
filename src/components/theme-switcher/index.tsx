@@ -2,11 +2,12 @@ import React from "react";
 
 import { IconCheck } from "@tabler/icons-react";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
 import { useTheme } from "next-themes";
 
 const Component: React.FC = () => {
   const { theme, setTheme } = useTheme();
-
+  const { t } = useTranslation("settings");
   const getCheckIcon = (selected: boolean) => {
     if (selected) {
       return (
@@ -20,7 +21,7 @@ const Component: React.FC = () => {
 
   return (
     <>
-      <h2 className="mb-4 text-xl font-semibold">Theme</h2>
+      <h2 className="mb-4 text-xl font-semibold">{t("theme")}</h2>
 
       <div className="flex flex-col items-center">
         <div className="flex cursor-pointer">
@@ -39,7 +40,9 @@ const Component: React.FC = () => {
               />
               {getCheckIcon(theme === "system")}
             </div>
-            <p className="mt-2 text-center font-medium">System Preference</p>
+            <p className="mt-2 text-center font-medium">
+              {t("system_preference")}
+            </p>
           </div>
           <div className="relative mr-4">
             <div
@@ -56,7 +59,7 @@ const Component: React.FC = () => {
               />
               {getCheckIcon(theme === "light")}
             </div>
-            <p className="mt-2 text-center font-medium">Light Theme</p>
+            <p className="mt-2 text-center font-medium">{t("light")}</p>
           </div>
           <div className="relative">
             <div
@@ -73,7 +76,7 @@ const Component: React.FC = () => {
               />
               {getCheckIcon(theme === "dark")}
             </div>
-            <p className="mt-2 text-center font-medium">Dark Theme</p>
+            <p className="mt-2 text-center font-medium">{t("dark")}</p>
           </div>
         </div>
       </div>

@@ -8,12 +8,12 @@ const Component = () => {
   const { isMobile } = useDevice();
   return (
     <div
-      className={`mx-auto bg-light-gray dark:bg-dark-blue max-w-3xl px-4 py-8 ${
+      className={`mx-auto max-w-3xl bg-light-gray px-4 py-8 dark:bg-dark-blue ${
         isMobile ? "sm:px-6" : "lg:px-8"
       }`}
     >
       <div className="mb-8">
-        <h2 className="mb-4 text-light-blue-hover dark:text-dark-orange-heading text-2xl font-bold">
+        <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-dark-orange-heading">
           {t("form_instructions")}
         </h2>
         <div className="mb-4">

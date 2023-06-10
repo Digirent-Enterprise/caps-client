@@ -43,8 +43,8 @@ const Component = React.memo(() => {
     <div
       className={
         isDesktop
-          ? "flex bg-light-background-gray dark:bg-dark-blue w-2/5 flex-col gap-4"
-          : "flex bg-light-background-gray dark:bg-dark-blue w-full flex-col gap-1"
+          ? "flex w-2/5 flex-col gap-4 bg-light-background-gray dark:bg-dark-blue"
+          : "flex w-full flex-col gap-1 bg-light-background-gray dark:bg-dark-blue"
       }
     >
       <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
@@ -66,7 +66,7 @@ const Component = React.memo(() => {
       </button>
       <div className="inline-flex w-full items-center justify-center">
         <hr className="my-8 h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
-        <span className="absolute left-1/2 -translate-x-1/2 bg-white dark:bg-dark-blue px-3 font-medium text-gray-900 dark:text-dark-white">
+        <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 font-medium text-gray-900 dark:bg-dark-blue dark:text-dark-white">
           {t("or")}
         </span>
       </div>

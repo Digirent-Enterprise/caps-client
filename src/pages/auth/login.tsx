@@ -5,7 +5,7 @@ import withLayout from "@/hoc/withLayout";
 
 const Component = () => {
   return (
-    <div className="flex h-full bg-light-background-gray dark:bg-dark-blue w-full items-center justify-center">
+    <div className="flex h-full w-full items-center justify-center bg-light-background-gray dark:bg-dark-blue">
       <LoginForm />
     </div>
   );

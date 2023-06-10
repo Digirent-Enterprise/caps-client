@@ -71,7 +71,7 @@ const Component = React.memo((props: IConfirmationModalProps) => {
   return (
     <Modal
       isOpen={isOpen}
-      className="absolute bg-light-gray dark:bg-dark-blue"
+      className="absolute bg-light-background-gray dark:bg-dark-blue"
       onRequestClose={onClose}
       style={CustomStyle}
     >
@@ -85,10 +85,10 @@ const Component = React.memo((props: IConfirmationModalProps) => {
           src={"/static/modal_img/status_modal.svg"}
         />
       </div>
-      <h2 className="text-light-blue-hover dark:text-dark-white my-5 text-lg font-bold">
+      <h2 className="my-5 text-lg font-bold text-light-blue-hover dark:text-dark-white">
         {title}
       </h2>
-      <p className="text-light-blue-hover dark:text-dark-white mb-5 mt-1">
+      <p className="mb-5 mt-1 text-light-blue-hover dark:text-dark-white">
         {description}
       </p>
       <div className="flex flex-row flex-nowrap items-end justify-end gap-2">

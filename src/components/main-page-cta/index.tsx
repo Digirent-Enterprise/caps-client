@@ -98,8 +98,8 @@ const Component = memo(() => {
     }
   };
   return (
-    <div className="mt-4 flex bg-light-background-gray dark:bg-dark-blue w-full flex-col items-center justify-center px-36">
-      <div className="text-4xl text-light-hover-blue dark:text-dark-orange-heading">
+    <div className="mt-4 flex w-full flex-col items-center justify-center bg-light-background-gray px-36 dark:bg-dark-blue">
+      <div className="text-light-hover-blue text-4xl dark:text-dark-orange-heading">
         {t("how_can_we_help_you")}
       </div>
       <div className="mt-2 flex flex-row gap-5">
@@ -118,7 +118,7 @@ const Component = memo(() => {
         </button>
       </div>
       <div className="mt-5 md:w-full lg:w-2/3">
-        <div className="flex w-full flex-row flex-wrap items-center justify-center text-light-hover-blue dark:text-dark-orange gap-10 ">
+        <div className="text-light-hover-blue flex w-full flex-row flex-wrap items-center justify-center gap-10 dark:text-dark-orange ">
           {(tab === 0 ? ImmediateActions : LongTermActions).map((action) => {
             if (getActionIcon(action))
               return (

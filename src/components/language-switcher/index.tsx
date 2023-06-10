@@ -1,13 +1,14 @@
 import React, { useMemo } from "react";
 
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 import { languageOptions } from "@/components/language-switcher/constant";
 import { LocalStorageService } from "@/services/local-storage";
 
 const Component: React.FC = () => {
   const router = useRouter();
-
+  const { t } = useTranslation("settings");
   const _handleChangeLanguage = (lang: string) => () => {
     const localStorageService = LocalStorageService.getInstance();
     const { pathname, asPath, query } = router;
@@ -29,7 +30,7 @@ const Component: React.FC = () => {
 
   return (
     <>
-      <h2 className="my-4 text-xl font-semibold">Language</h2>
+      <h2 className="my-4 text-xl font-semibold">{t("language")}</h2>
 
       <div className="flex items-center">
         {languageOptions.map(({ name, locale }) => (
