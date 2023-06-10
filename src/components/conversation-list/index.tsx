@@ -95,7 +95,7 @@ const Component: React.FC<IConversationListProps> = (
 
   if (!Object.keys(groupedConversations).length)
     return (
-      <div className="text-light-hover-blue m-4 font-bold">
+      <div className="m-4 font-bold text-light-hover-blue">
         {t("empty_conversation")}
       </div>
     );
@@ -108,7 +108,7 @@ const Component: React.FC<IConversationListProps> = (
     >
       {Object.keys(groupedConversations).map((label) => (
         <div key={label}>
-          <div className="mb-2 text-sm text-gray-400">{label}</div>
+          <div className="mb-2 text-sm text-light-blue-hover dark:text-dark-gray">{label}</div>
           {groupedConversations[label].map((conversation) => (
             <div
               key={conversation.id}
