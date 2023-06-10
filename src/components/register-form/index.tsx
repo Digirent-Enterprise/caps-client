@@ -133,10 +133,12 @@ const Component = React.memo(() => {
   return (
     <div
       className={
-        isDesktop ? "flex w-2/5 flex-col gap-4" : "flex w-full flex-col gap-1"
+        isDesktop
+          ? "flex bg-light-background-gray dark:bg-dark-blue w-2/5 flex-col gap-4"
+          : "flex bg-light-background-gray dark:bg-dark-blue w-full flex-col gap-1"
       }
     >
-      <div className="text-blue mb-[40px] w-full text-center text-3xl font-bold tracking-normal">
+      <div className="text-light-blue-hover dark:text-dark-white mb-[40px] w-full text-center text-3xl font-bold tracking-normal">
         {t("register")}
       </div>
       <TextInput

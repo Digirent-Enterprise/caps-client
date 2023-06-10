@@ -15,7 +15,7 @@ const Component = memo(() => {
       autoPlay={true}
       showStatus={false}
     >
-      <div className="mt-2 flex w-full items-center justify-center  px-36">
+      <div className="mt-2 bg-light-background-gray dark:bg-dark-blue flex w-full items-center justify-center  px-36">
         <div className="from-1% flex h-full w-full items-center justify-center rounded-3xl rounded-b-[20%] bg-gradient-to-r from-[#169cd6] via-sky-500 via-30%  to-emerald-500 to-100% px-2	">
           <img
             className="h-auto pb-10 sm:w-full md:w-full lg:w-1/3 "
@@ -29,7 +29,7 @@ const Component = memo(() => {
           </div>
         </div>
       </div>
-      <div className="mt-2 flex w-full items-center justify-center  px-36">
+      <div className="mt-2 bg-light-background-gray dark:bg-dark-blue flex w-full items-center justify-center  px-36">
         <div className="from-1% flex  h-full w-full items-center justify-center rounded-3xl rounded-b-[20%] bg-gradient-to-r from-[#169cd6] via-sky-500 via-30%	 to-emerald-500 to-100%	 px-2">
           <img
             className="h-auto pb-10 sm:w-full md:w-full lg:w-1/3 "
@@ -43,7 +43,7 @@ const Component = memo(() => {
           </div>
         </div>
       </div>
-      <div className="mt-2 flex w-full items-center justify-center  px-36">
+      <div className="mt-2 bg-light-background-gray dark:bg-dark-blue flex w-full items-center justify-center  px-36">
         <div className="from-1% flex  h-full w-full items-center justify-center rounded-3xl rounded-b-[20%] bg-gradient-to-r from-[#169cd6] via-sky-500 via-30%	 to-emerald-500 to-100%	 px-2	">
           <img
             className="h-auto pb-10 sm:w-full md:w-full lg:w-1/3 "

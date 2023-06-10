@@ -42,10 +42,12 @@ const Component = React.memo(() => {
   return (
     <div
       className={
-        isDesktop ? "flex w-2/5 flex-col gap-4" : "flex w-full flex-col gap-1"
+        isDesktop
+          ? "flex bg-light-background-gray dark:bg-dark-blue w-2/5 flex-col gap-4"
+          : "flex bg-light-background-gray dark:bg-dark-blue w-full flex-col gap-1"
       }
     >
-      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-light-text-heading">
+      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
         {t("login_heading")}
       </div>
       <button
@@ -64,7 +66,7 @@ const Component = React.memo(() => {
       </button>
       <div className="inline-flex w-full items-center justify-center">
         <hr className="my-8 h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
-        <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 font-medium text-gray-900">
+        <span className="absolute left-1/2 -translate-x-1/2 bg-white dark:bg-dark-blue px-3 font-medium text-gray-900 dark:text-dark-white">
           {t("or")}
         </span>
       </div>
@@ -93,7 +95,9 @@ const Component = React.memo(() => {
       <label className="text-xl">
         {t("have_not_registered")}{" "}
         <Link href={"/auth/register"}>
-          <span className="text-light-text-heading">{t("register")}</span>
+          <span className="text-light-text-heading dark:text-dark-white">
+            {t("register")}
+          </span>
         </Link>
       </label>
     </div>

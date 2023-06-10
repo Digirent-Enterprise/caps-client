@@ -34,4 +34,12 @@ export const LongTermActions = [
   "Goal Setting",
   "Check-up Reminders",
   "Education Resources",
+  "Theo dõi sức khỏe",
+  "Hình dung",
+  "Quản lý sức khỏe",
+  "Cải thiện đời sống",
+  "Bệnh nghiêm trọng",
+  "Thiết lập mục tiêu",
+  "Nhắc nhở",
+  "Tài liệu giáo dục",
 ];
