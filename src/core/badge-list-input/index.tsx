@@ -37,20 +37,22 @@ const Component: React.FC<IBadgeListInputProps> = ({
   };
 
   let inputClassNames =
-    "w-full rounded-lg border border-gray-300 p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue";
+    "w-full rounded-lg border border-light-border-gray p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue";
 
   if (errorMessage) {
     inputClassNames =
       "w-full rounded-lg border border-red p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue";
   } else {
     inputClassNames =
-      "w-full rounded-lg border border-gray-300 p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue";
+      "w-full rounded-lg border border-light-border-gray p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue";
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label className="text-blue mb-2 block font-medium">{label}</label>
+        <label className="text-light-hover-blue mb-2 block font-medium">
+          {label}
+        </label>
         <input
           className={inputClassNames}
           type="text"
@@ -58,14 +60,14 @@ const Component: React.FC<IBadgeListInputProps> = ({
           onChange={handleInputChange}
         />
         {errorMessage ? (
-          <div className="text-red mt-2 text-sm">{errorMessage}</div>
+          <div className="mt-2 text-sm text-red">{errorMessage}</div>
         ) : null}
       </form>
       <div className="mt-2 flex flex-wrap">
         {badges.map((badge, index) => (
           <div
             key={index}
-            className="bg-blue m-1 inline-flex items-center rounded-lg px-3 py-1 text-white"
+            className="bg-light-hover-blue m-1 inline-flex items-center rounded-lg px-3 py-1 text-white"
           >
             {badge.value}
             <button className="ml-2" onClick={() => handleDelete(badge)}>

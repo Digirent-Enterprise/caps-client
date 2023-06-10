@@ -177,7 +177,7 @@ const Component: React.FC = () => {
 
     return (
       <div
-        className={`flex h-screen w-full overflow-hidden bg-gray-900 text-gray-200 antialiased ${
+        className={`text-light-hover-blue flex h-screen w-full overflow-hidden bg-light-background-gray antialiased ${
           isMobile ? "flex-col" : ""
         }`}
       >
@@ -193,7 +193,7 @@ const Component: React.FC = () => {
               } w-80 flex-none flex-col overflow-auto transition-all duration-300 ease-in-out md:w-1/6 lg:max-w-sm`}
             >
               <div className="flex flex-none flex-row items-center justify-between p-4">
-                <p className="hidden text-lg font-bold md:block">
+                <p className="text-light-hover-blue hidden font-bold md:block">
                   {t("welcome")} {user?.name}
                 </p>
               </div>
@@ -205,14 +205,14 @@ const Component: React.FC = () => {
                   onSearch={_handleSearchConversation}
                 />
               </div>
-              <div className="mx-4 flex-none cursor-pointer gap-3 rounded-md border border-white/20 p-4 text-sm text-white transition-colors duration-200 hover:bg-gray-500/10">
+              <div className="text-light-hover-blue hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-white/20 bg-light-input-gray p-4 text-sm transition-colors duration-200">
                 <div
                   data-tour="step1"
                   className="flex cursor-pointer items-center"
                   onClick={_handleOpenConversationModal}
                 >
                   <IconPlus />
-                  <span className="ml-2 text-white">
+                  <span className="text-light-hover-blue ml-2">
                     {t("new_conversation")}
                   </span>
                 </div>
@@ -237,7 +237,7 @@ const Component: React.FC = () => {
                     className="flex cursor-pointer flex-row items-center gap-1"
                   >
                     <IconDeviceIpadHeart />
-                    <span className="ml-2 cursor-pointer text-sm text-white">
+                    <span className="text-light-hover-blue ml-2 cursor-pointer text-sm">
                       {t("my_health")}
                     </span>
                   </Link>
@@ -246,14 +246,14 @@ const Component: React.FC = () => {
                     className="flex cursor-pointer flex-row items-center gap-1"
                   >
                     <IconNews />
-                    <span className="ml-2 cursor-pointer text-sm text-white">
+                    <span className="text-light-hover-blue ml-2 cursor-pointer text-sm">
                       {t("news")}
                     </span>
                   </Link>
                   <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
                     <IconSettings />
                     <span
-                      className="ml-2  cursor-pointer text-sm text-white"
+                      className="text-light-hover-blue  ml-2 cursor-pointer text-sm"
                       onClick={_openSettingsModal}
                     >
                       {t("settings")}
@@ -267,7 +267,7 @@ const Component: React.FC = () => {
                   <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />
                     <span
-                      className="ml-2  cursor-pointer text-sm text-white"
+                      className="text-light-hover-blue  ml-2 cursor-pointer text-sm"
                       onClick={signOut}
                     >
                       {t("logout")}

@@ -24,7 +24,7 @@ const Component = React.memo(() => {
             />
           </Link>
         </div>
-        <div className=" text-blue ml-auto mr-32 w-2/3  font-semibold">
+        <div className=" ml-auto mr-32 w-2/3 font-semibold  text-light-blue">
           <div className="flex w-full flex-nowrap items-center justify-end gap-5">
             <Link href={"/landing-page"}>
               <div className="ho mr-2 w-fit text-center"> Home </div>

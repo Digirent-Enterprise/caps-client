@@ -6,19 +6,19 @@ const Component = React.memo((props: ITextareaProps) => {
   const { value, label, onChange, errorMessage } = props;
 
   let inputClassNames =
-    "w-full rounded-lg border border-gray-300 p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue";
+    "w-full rounded-lg border border-light-border-gray p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue";
 
   if (errorMessage) {
     inputClassNames =
       "w-full rounded-lg border border-red p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue";
   } else {
     inputClassNames =
-      "w-full rounded-lg border border-gray-300 p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue";
+      "w-full rounded-lg border border-light-border-gray p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue";
   }
 
   return (
     <div className="mb-4 flex w-full flex-col">
-      <label htmlFor={value} className="text-blue mb-2 font-medium">
+      <label htmlFor={value} className="text-light-hover-blue mb-2 font-medium">
         {label}
       </label>
       <textarea
@@ -30,7 +30,7 @@ const Component = React.memo((props: ITextareaProps) => {
         onChange={(e) => (onChange ? onChange(e.target.value) : null)}
       />
       {errorMessage ? (
-        <div className="text-red mt-2 text-sm">{errorMessage}</div>
+        <div className="mt-2 text-sm text-red">{errorMessage}</div>
       ) : null}
     </div>
   );

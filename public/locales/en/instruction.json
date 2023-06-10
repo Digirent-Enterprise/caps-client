@@ -16,8 +16,8 @@
   "medications": "Medications: Please list any medications you are currently taking.",
   "allergies": "Allergies: Please list any allergies you have.",
   "data_privacy": "Data Privacy",
-  "we_take_data:": "We take data privacy seriously. Your information will be kept confidential and only used for the purposes of this form.",
-  "estimated_time:": "Estimated time:",
+  "we_take_data": "We take data privacy seriously. Your information will be kept confidential and only used for the purposes of this form.",
+  "estimated_time": "Estimated time:",
   "15_minutes": "15 minutes",
   "start": "Start"
 }

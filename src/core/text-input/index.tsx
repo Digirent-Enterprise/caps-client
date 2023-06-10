@@ -23,7 +23,7 @@ const Component = React.memo((props: IInputProps) => {
     }
   };
   let inputClassNames =
-    "w-full rounded-lg border border-gray-300 p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue ";
+    "w-full rounded-lg border border-light-border-gray p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue ";
 
   if (isMobile) {
     inputClassNames += " py-2";
@@ -34,13 +34,13 @@ const Component = React.memo((props: IInputProps) => {
       "w-full rounded-lg border border-red p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue ";
   } else {
     inputClassNames =
-      "w-full rounded-lg border border-gray-300 p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue ";
+      "w-full rounded-lg border border-light-border-gray p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue ";
   }
 
   return (
     <div className="mb-5 space-y-1">
       <label
-        className="mb-2 block font-medium text-light-text-heading"
+        className="text-light-hover-blue mb-2 block font-medium"
         htmlFor={name}
       >
         {label}
@@ -55,7 +55,7 @@ const Component = React.memo((props: IInputProps) => {
         onChange={(e) => _onValueChange(e.target.value)}
       />
       {errorMessage && (
-        <div className="text-red mt-2 text-sm">{errorMessage}</div>
+        <div className="mt-2 text-sm text-red">{errorMessage}</div>
       )}
     </div>
   );

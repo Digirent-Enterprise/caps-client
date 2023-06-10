@@ -304,7 +304,7 @@ const Component = () => {
   return (
     <div className={containerClass}>
       <div className={formClass}>
-        <div className="text-blue mb-10 text-center text-5xl font-bold tracking-normal">
+        <div className="text-light-hover-blue mb-10 text-center text-5xl font-bold tracking-normal">
           {t("health_form")}
         </div>
         <div className="w-full">

@@ -16,13 +16,13 @@ const Component = () => {
         <h2 className="mb-4 text-2xl font-bold">{t("form_instructions")}</h2>
         <div className="mb-4">
           <h3 className="mb-2 text-lg font-bold">{t("purpose")}</h3>
-          <p className="text-gray-700">
+          <p className="text-light-hover-blue">
             {t("the_purpose_of_this_health_form")}
           </p>
         </div>
         <div className="mb-4">
           <h3 className="mb-2 text-lg font-bold">{t("rules")}</h3>
-          <p className="text-gray-700">{t("please_read")}</p>
+          <p className="text-light-hover-blue">{t("please_read")}</p>
           <ol className="list-decimal pt-5">
             <li>{t("please_answer")}</li>
             <li>{t("if_not_know_answer")}</li>
@@ -43,12 +43,12 @@ const Component = () => {
         </div>
         <div>
           <h3 className="mb-2 text-lg font-bold">{t("data_privacy")}</h3>
-          <p className="text-gray-700">{t("we_take_data")}</p>
+          <p className="text-light-hover-blue">{t("we_take_data")}</p>
         </div>
       </div>
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <p className="text-gray-700">
+          <p className="text-light-hover-blue">
             {t("estimated_time")}{" "}
             <span className="font-bold">{t("15_minutes")}</span>
           </p>
