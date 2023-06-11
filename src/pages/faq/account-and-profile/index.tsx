@@ -8,16 +8,22 @@ import Footer from "@/shared/footer";
 const Component: React.FC = () => {
   const { t } = useTranslation("faq");
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex bg-background-gray dark:bg-dark-blue min-h-screen flex-col">
       <div className="my-10">
         <FaqHeader />
-        <div className="mx-auto mt-10 max-w-3xl">
-          <h2 className="mb-4 text-2xl font-bold">{t("account")}</h2>
-          <div className="rounded bg-white p-4 shadow">
-            <h3 className="mb-2 text-xl font-bold">{t("creating_account")}</h3>
+        <div className="mx-auto bg-background-gray dark:bg-dark-blue mt-10 max-w-3xl">
+          <h2 className="mb-4 text-light-blue-hover dark:text-dark-orange text-2xl font-bold">
+            {t("account")}
+          </h2>
+          <div className="rounded bg-background-gray dark:bg-dark-blue  p-4 shadow">
+            <h3 className="mb-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("creating_account")}
+            </h3>
             <p>{t("creating_account_description")}</p>
 
-            <h3 className="my-2 text-xl font-bold">{t("update_profile")}</h3>
+            <h3 className="my-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("update_profile")}
+            </h3>
             <p>{t("update_profile_description")}</p>
           </div>
         </div>

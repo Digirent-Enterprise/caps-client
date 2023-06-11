@@ -1,4 +1,5 @@
 import { memo } from "react";
+
 import { useTranslation } from "next-i18next";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader

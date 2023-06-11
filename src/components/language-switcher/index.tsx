@@ -30,7 +30,9 @@ const Component: React.FC = () => {
 
   return (
     <>
-      <h2 className="my-4 text-xl font-semibold">{t("language")}</h2>
+      <h2 className="my-4 text-xl text-light-blue-hover dark:text-dark-white font-semibold">
+        {t("language")}
+      </h2>
 
       <div className="flex items-center">
         {languageOptions.map(({ name, locale }) => (
@@ -38,8 +40,8 @@ const Component: React.FC = () => {
             key={locale}
             className={`rounded-lg p-2 ${
               currentLocale?.locale === locale
-                ? "bg-blue text-white"
-                : "bg-white text-black"
+                ? "bg-light-blue text-light-background-gray dark:bg-dark-orange dark:text-dark-white"
+                : "bg-light-background-gray text-light-blue-hover dark:bg-dark-blue dark:text-dark-white"
             }`}
             onClick={_handleChangeLanguage(locale)}
           >

@@ -36,7 +36,7 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-light-text-modal bg-opacity-75 transition-opacity" />
           </Transition.Child>
 
           <Transition.Child
@@ -49,14 +49,14 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
             leaveTo="-translate-x-full"
           >
             <div className="w-full max-w-screen-md">
-              <div className="relative rounded-lg bg-white p-8 shadow-xl">
+              <div className="relative rounded-lg bg-light-background-gray dark:bg-dark-blue p-8 shadow-xl">
                 <div className="mb-4 flex items-center justify-between ">
-                  <h2 className="ml-4 text-xl font-semibold">
+                  <h2 className="ml-4 text-xl text-light-blue-hover dark:text-dark-white font-semibold">
                     {t("settings")}
                   </h2>
                   <button
                     type="button"
-                    className="text-gray-400 hover:text-gray-500 focus:outline-none"
+                    className="text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-light-text-modal focus:outline-none"
                     onClick={onClose}
                   >
                     <IconX className="h-6 w-6" />
@@ -69,9 +69,9 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                       {tabs.map((tab) => (
                         <button
                           key={tab.id}
-                          className={`px-4 py-2 text-left text-gray-500 hover:text-indigo-600 focus:outline-none ${
+                          className={`px-4 py-2 text-left text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-light-text-modal focus:outline-none ${
                             selectedTab === tab.id
-                              ? "font-medium text-indigo-600"
+                              ? "font-medium light-blue-hover"
                               : ""
                           }`}
                           onClick={() => setSelectedTab(tab.id)}
@@ -116,8 +116,8 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                 <div className="mt-6 flex items-center justify-between">
                   <div className="flex items-center">
                     <Link href="/faq" className="flex items-center">
-                      <IconExternalLink className="ml-4 h-4 w-4 text-gray-500" />
-                      <span className="ml-2 text-gray-500">
+                      <IconExternalLink className="ml-4 h-4 w-4 text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-light-text-modal" />
+                      <span className="ml-2 text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-light-text-modal">
                         {t("help_faq")}
                       </span>
                     </Link>
@@ -125,14 +125,14 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                   <div className="mt-6 flex justify-end">
                     <button
                       type="button"
-                      className="ml-4 rounded-lg bg-white px-4 py-2 text-gray-700 hover:bg-gray-100 focus:outline-none"
+                      className="ml-4 rounded-lg bg-light-gray text-light-background-gray hover:bg-light-blue-hover dark:hover:bg-dark-orange-hover px-4 py-2 focus:outline-none"
                       onClick={onClose}
                     >
                       {t("cancel")}
                     </button>
                     <button
                       type="button"
-                      className="rounded-lg bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 focus:outline-none"
+                      className="rounded-lg text-light-background-gray bg-light-blue hover:bg-light-blue-hover dark:bg-light-maroon dark:hover:bg-dark-orange-hover px-4 py-2  focus:outline-none"
                       onClick={onClose}
                     >
                       {t("save")}

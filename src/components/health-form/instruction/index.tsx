@@ -8,7 +8,7 @@ const Component = () => {
   const { isMobile } = useDevice();
   return (
     <div
-      className={`mx-auto max-w-3xl bg-light-gray px-4 py-8 dark:bg-dark-blue ${
+      className={`mx-auto max-w-3xl bg-light-background-gray px-4 py-8 dark:bg-dark-blue ${
         isMobile ? "sm:px-6" : "lg:px-8"
       }`}
     >

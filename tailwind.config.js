@@ -13,6 +13,7 @@ module.exports = {
         "light-border-gray": "#d1d5db",
         "light-text-heading": "#002248",
         "light-text-paragraph": "#0d0505",
+        "light-text-modal": "#9ca3af", //text in settings modal
         "light-background-gray": "#ffffff", // background
         "light-search-gray": "#50514c",
         "light-header-footer": "#db8414", //header footer
