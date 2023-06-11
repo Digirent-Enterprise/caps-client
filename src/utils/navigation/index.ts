@@ -1,4 +1,4 @@
-import { IRoute } from "@/types/global/navigation";
+import { IRoute } from "@/types/globals/navigation";
 
 export const isWindowAvailable = () => typeof window !== "undefined";
 
@@ -13,12 +13,12 @@ export const findCurrentRoute = (routes: IRoute[]): IRoute | undefined => {
 
 export const getActiveRoute = (routes: IRoute[]): string => {
   const route = findCurrentRoute(routes);
-  return route?.name || "Default Brand Text";
+  return route?.name || "DICA";
 };
 
 export const getActiveNavbar = (routes: IRoute[]): boolean => {
   const route = findCurrentRoute(routes);
-  return route?.secondary!;
+  return route?.secondary || false;
 };
 
 export const getActiveNavbarText = (routes: IRoute[]): string | boolean => {

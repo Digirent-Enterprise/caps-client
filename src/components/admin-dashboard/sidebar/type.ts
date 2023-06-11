@@ -1,4 +1,4 @@
-import { IRoute } from "@/types/global/navigation";
+import { IRoute } from "@/types/globals/navigation";
 
 export interface ISidebarResponsiveProps {
   routes: IRoute[];

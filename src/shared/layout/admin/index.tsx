@@ -4,9 +4,9 @@ import { Portal, Box, useDisclosure } from "@chakra-ui/react";
 
 import FooterAdmin from "@/components/admin-dashboard/footer";
 import NavbarAdmin from "@/components/admin-dashboard/navbar";
+import routes from "@/components/admin-dashboard/routes";
 import Sidebar from "@/components/admin-dashboard/sidebar";
 import { SidebarContext } from "@/contexts/sidebar-context";
-import routes from "@/routes";
 import { IDashboardLayoutProps } from "@/shared/layout/admin/type";
 import {
   getActiveNavbar,
@@ -19,10 +19,6 @@ const Component = (props: IDashboardLayoutProps) => {
   const [fixed] = useState(false);
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const { onOpen } = useDisclosure();
-
-  useEffect(() => {
-    window.document.documentElement.dir = "ltr";
-  });
 
   return (
     <Box>

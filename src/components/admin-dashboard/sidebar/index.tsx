@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import {
   Box,
@@ -23,7 +23,7 @@ import {
 import { renderThumb, renderTrack, renderView } from "@/core/scrollbar";
 import { isWindowAvailable } from "@/utils/navigation";
 
-function Component(props: ISidebarProps) {
+const Component = (props: ISidebarProps) => {
   const { routes } = props;
 
   let variantChange = "0.2s linear";
@@ -57,13 +57,13 @@ function Component(props: ISidebarProps) {
       </Box>
     </Box>
   );
-}
+};
 
-export function SidebarResponsive(props: ISidebarResponsiveProps) {
+export const SidebarResponsive = (props: ISidebarResponsiveProps) => {
   let sidebarBackgroundColor = useColorModeValue("white", "navy.800");
   let menuColor = useColorModeValue("gray.400", "white");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
+  const btnRef = useRef<HTMLDivElement | null>(null); // Updated type and initialization
 
   const { routes } = props;
 
@@ -112,7 +112,7 @@ export function SidebarResponsive(props: ISidebarResponsiveProps) {
       </Drawer>
     </Flex>
   );
-}
+};
 
 Component.displayName = "SidebarAdmin";
 export default Component;
