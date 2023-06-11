@@ -15,17 +15,21 @@ module.exports = {
         "light-green": "#2f855a",
         "light-text-heading": "#002248",
         "light-text-paragraph": "#0d0505",
-        "light-background-gray": "#f3f4f6", // background
+        "light-text-modal": "#9ca3af", //text in settings modal
+        "light-background-gray": "#ffffff", // background
         "light-search-gray": "#50514c",
+        "light-header-footer": "#db8414", //header footer
         "light-search-text-white": "#50514c",
         "light-input-gray": "#50514c",
         "light-input-hover-gray": "#872c45",
         "dark-orange-hover": "#DB8E2A", //hover button
         "dark-orange": "#db8414", // primary button
         "dark-blue": "#162549", //background
+        "dark-header-footer": "#162549", //header footer
         "dark-gray": "#9C9E95",
         "dark-white": "#ffffff", //text
         "dark-red": "#dc2626",
+        "dark-orange-heading": "#db8414", //text heading
         red: "#dc2626",
         primary: {
           DEFAULT: "#292D3E",

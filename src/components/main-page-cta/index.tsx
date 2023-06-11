@@ -38,10 +38,10 @@ const Component = memo(() => {
   const [tab, setTab] = useImmer<number>(0);
 
   const activeClass = useMemo(() => {
-    return "rounded-full bg-main-blue p-4 px-8 text-white min-w-fit hover:bg-main-green transition-colors font-bold";
+    return "rounded-full bg-light-blue-hover dark:bg-dark-orange p-4 px-8 text-white min-w-fit hover:bg-main-green transition-colors font-bold";
   }, []);
   const inactiveClass = useMemo(() => {
-    return "rounded-full bg-gray-300 p-4 px-8 text-white min-w-fit hover:bg-main-green transition-colors font-bold";
+    return "rounded-full bg-light-border-gray p-4 px-8 text-white min-w-fit hover:bg-main-green transition-colors font-bold";
   }, []);
 
   const iconClass = useMemo(() => {
@@ -98,8 +98,10 @@ const Component = memo(() => {
     }
   };
   return (
-    <div className="mt-4 flex w-full flex-col items-center justify-center px-36">
-      <div className="text-4xl text-black">{t("how_can_we_help_you")}</div>
+    <div className="mt-4 flex w-full flex-col items-center justify-center bg-light-background-gray px-36 dark:bg-dark-blue">
+      <div className="text-light-hover-blue text-4xl dark:text-dark-orange-heading">
+        {t("how_can_we_help_you")}
+      </div>
       <div className="mt-2 flex flex-row gap-5">
         <button
           className={`${tab === 0 ? activeClass : inactiveClass}`}
@@ -116,12 +118,12 @@ const Component = memo(() => {
         </button>
       </div>
       <div className="mt-5 md:w-full lg:w-2/3">
-        <div className="flex w-full flex-row flex-wrap items-center justify-center gap-10 ">
+        <div className="text-light-hover-blue flex w-full flex-row flex-wrap items-center justify-center gap-10 dark:text-dark-orange ">
           {(tab === 0 ? ImmediateActions : LongTermActions).map((action) => {
             if (getActionIcon(action))
               return (
                 <div className="flex flex-col items-center justify-center gap-2 text-center">
-                  <div className="w-fit rounded-full bg-gray-300 p-5">
+                  <div className="w-fit rounded-full bg-light-border-gray p-5">
                     {getActionIcon(action)}
                   </div>
                   <div className="font-bold">{action}</div>

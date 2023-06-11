@@ -25,5 +25,8 @@
   "critical_illness": "Bệnh nghiêm trọng",
   "goal_setting": "Thiết lập mục tiêu",
   "checkup_reminders": "Nhắc nhở",
-  "education_resources": "Tài liệu giáo dục"
+  "education_resources": "Tài liệu giáo dục",
+  "dica_is_able": "DICA có khả năng giúp bạn theo dõi triệu chứng và truy cập các khuyến nghị sức khỏe của bạn.",
+  "moniter_progress": "Theo dõi tiến trình và trực quan hóa dữ liệu sức khỏe là phương pháp tốt nhất để bảo vệ sức khỏe của bạn.",
+  "dica_is_accessible": "DICA có thể truy cập trên điện thoại thông minh, máy tính bảng và máy tính cá nhân ở bất kỳ đâu có kết nối internet."
 }

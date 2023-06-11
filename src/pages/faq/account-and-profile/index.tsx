@@ -1,28 +1,30 @@
 import React from "react";
 
+import { useTranslation } from "next-i18next";
+
 import FaqHeader from "@/components/faq/header";
 import Footer from "@/shared/footer";
 
 const Component: React.FC = () => {
+  const { t } = useTranslation("faq");
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex bg-background-gray dark:bg-dark-blue min-h-screen flex-col">
       <div className="my-10">
         <FaqHeader />
-        <div className="mx-auto mt-10 max-w-3xl">
-          <h2 className="mb-4 text-2xl font-bold">Account and Profile</h2>
-          <div className="rounded bg-white p-4 shadow">
-            <h3 className="mb-2 text-xl font-bold">Creating an Account</h3>
-            <p>
-              To create an account, click on the &quot;Register&quot; button and
-              follow the instructions to provide the required information.
-            </p>
+        <div className="mx-auto bg-background-gray dark:bg-dark-blue mt-10 max-w-3xl">
+          <h2 className="mb-4 text-light-blue-hover dark:text-dark-orange text-2xl font-bold">
+            {t("account")}
+          </h2>
+          <div className="rounded bg-background-gray dark:bg-dark-blue  p-4 shadow">
+            <h3 className="mb-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("creating_account")}
+            </h3>
+            <p>{t("creating_account_description")}</p>
 
-            <h3 className="my-2 text-xl font-bold">Updating Your Profile</h3>
-            <p>
-              Yes, you can update your profile information by navigating to the
-              &quot;Settings&quot; section and selecting the &quot;Account&quot;
-              tab.
-            </p>
+            <h3 className="my-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("update_profile")}
+            </h3>
+            <p>{t("update_profile_description")}</p>
           </div>
         </div>
       </div>

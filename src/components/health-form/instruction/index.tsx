@@ -8,21 +8,25 @@ const Component = () => {
   const { isMobile } = useDevice();
   return (
     <div
-      className={`mx-auto max-w-3xl px-4 py-8 ${
+      className={`mx-auto max-w-3xl bg-light-background-gray px-4 py-8 dark:bg-dark-blue ${
         isMobile ? "sm:px-6" : "lg:px-8"
       }`}
     >
       <div className="mb-8">
-        <h2 className="mb-4 text-2xl font-bold">{t("form_instructions")}</h2>
+        <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-dark-orange-heading">
+          {t("form_instructions")}
+        </h2>
         <div className="mb-4">
           <h3 className="mb-2 text-lg font-bold">{t("purpose")}</h3>
-          <p className="text-light-hover-blue">
+          <p className="text-light-blue-hover dark:text-dark-white">
             {t("the_purpose_of_this_health_form")}
           </p>
         </div>
         <div className="mb-4">
           <h3 className="mb-2 text-lg font-bold">{t("rules")}</h3>
-          <p className="text-light-hover-blue">{t("please_read")}</p>
+          <p className="text-light-blue-hover dark:text-dark-white">
+            {t("please_read")}
+          </p>
           <ol className="list-decimal pt-5">
             <li>{t("please_answer")}</li>
             <li>{t("if_not_know_answer")}</li>
@@ -43,12 +47,14 @@ const Component = () => {
         </div>
         <div>
           <h3 className="mb-2 text-lg font-bold">{t("data_privacy")}</h3>
-          <p className="text-light-hover-blue">{t("we_take_data")}</p>
+          <p className="text-light-blue-hover dark:text-dark-white">
+            {t("we_take_data")}
+          </p>
         </div>
       </div>
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <p className="text-light-hover-blue">
+          <p className="text-light-blue-hover dark:text-dark-white">
             {t("estimated_time")}{" "}
             <span className="font-bold">{t("15_minutes")}</span>
           </p>
