@@ -14,8 +14,8 @@ const Component = React.memo((props: IChatMessageProps) => {
   };
 
   const messageClasses = {
-    chatbot: "bg-gray-800 rounded-3xl text-gray-200",
-    user: "bg-blue rounded-3xl text-white",
+    chatbot: "bg-gray dark:bg-dark-orange rounded-3xl text-light-blue-hover dark:text-dark-gray",
+    user: "bg-light-blue dark:bg-dark-white rounded-3xl text-dark-white dark:text-dark-blue",
   };
 
   const containerClass = containerClasses[senderType];
@@ -56,7 +56,9 @@ const Component = React.memo((props: IChatMessageProps) => {
               onClick={() => setIsSpeaking(true)}
               aria-label="Speak"
             >
-              <IconVolume2 />
+              <div className="dark:text-dark-blue">
+                <IconVolume2 />
+              </div>
             </button>
           </div>
         </div>

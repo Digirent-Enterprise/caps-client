@@ -48,18 +48,18 @@ const Component: React.FC<IMessageInputProps> = ({
     <div className="flex-none">
       <div className="flex flex-row items-center p-4">
         <button
-          className="text-blue hover:text-blue mx-2 flex h-6 w-6 shrink-0 focus:outline-none"
+          className="flex w-6 h-6 mx-2 text-blue hover:text-blue shrink-0 focus:outline-none"
           onClick={_handleRecording}
         >
           {isRecording ? (
-            <div className="h-4 w-4 animate-spin rounded-full border-t-2 border-neutral-800 opacity-60 dark:border-neutral-100"></div>
+            <div className="w-4 h-4 border-t-2 rounded-full animate-spin border-neutral-800 opacity-60 dark:border-neutral-100"></div>
           ) : (
-            <IconMicrophone color="white" />
+            <IconMicrophone color="orange" />
           )}
         </button>
         <input
           data-tour={dataTourTwo}
-          className="w-full rounded-full border border-gray-800 bg-gray-800 py-2 pl-3 pr-10 text-gray-200 transition duration-300 ease-in focus:border-gray-700 focus:bg-gray-900 focus:shadow-md focus:outline-none"
+          className="w-full py-2 pl-3 pr-10 text-gray-200 transition duration-300 ease-in border border-gray-800 rounded-full bg-light-background-gray dark:bg-gray-800 focus:border-gray-700 focus:bg-gray-900 focus:shadow-md focus:outline-none"
           value={transcript || message}
           onChange={(e) => onValueChange(e.target.value)}
           onKeyDown={handleKeyDown}
@@ -67,17 +67,17 @@ const Component: React.FC<IMessageInputProps> = ({
         />
         <button
           type="button"
-          className="text-blue hover:text-blue mx-2 flex h-6 w-6 shrink-0 focus:outline-none"
+          className="flex w-6 h-6 mx-2 text-blue hover:text-blue shrink-0 focus:outline-none"
           onClick={message ? handleSend : () => {}}
         >
-          <IconSend color="white" />
+          <IconSend color="orange" />
         </button>
         <button
           type="button"
-          className="text-blue hover:text-blue mx-2 flex h-6 w-6 shrink-0 focus:outline-none"
+          className="flex w-6 h-6 mx-2 text-blue hover:text-blue shrink-0 focus:outline-none"
           onClick={() => setIsHealthStatusPopupModalOpen(true)}
         >
-          <IconHeartbeat color="white" />
+          <IconHeartbeat color="red" />
         </button>
         <HealthStatusPopupModal
           isOpen={isHealthStatusModalOpen}

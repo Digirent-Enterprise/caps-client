@@ -81,17 +81,17 @@ const HealthStatusModal: React.FC<IHealthStatusPopupModalProps> = ({
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      className="flex h-full items-center justify-center"
+      className="flex items-center justify-center h-full"
     >
       <div
         id="health-status-popup-modal"
-        className="rounded-lg bg-white p-8 shadow-lg"
+        className="p-8 bg-white shadow-lg drounded-lg dark:bg-dark-blue"
       >
-        <div className="mb-6 flex items-center justify-between">
+        <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold">Update Health Status</h2>
           <button
             onClick={onRequestClose}
-            className="text-gray-600 hover:text-gray-800"
+            className="text-gray-600 hover:text-gray-800 dark:text-dark-white"
           >
             <IconX />
           </button>
@@ -99,7 +99,7 @@ const HealthStatusModal: React.FC<IHealthStatusPopupModalProps> = ({
         <div className="mb-4">
           <label
             htmlFor="feeling"
-            className="mb-2 block font-bold text-gray-700"
+            className="block mb-2 font-bold text-gray-700 dark:text-dark-white"
           >
             How are you feeling today?
           </label>
@@ -110,7 +110,7 @@ const HealthStatusModal: React.FC<IHealthStatusPopupModalProps> = ({
                   key={feelingIcon.label}
                   onClick={() => setFeeling(feelingIcon.label)}
                   className={`flex flex-col items-center ${
-                    feeling === feelingIcon.label ? "bg-gray-200" : ""
+                    feeling === feelingIcon.label ? "bg-gray-200 dark:bg-dark-orange" : ""
                   } cursor-pointer rounded-lg p-2 transition-colors duration-200 ease-in-out`}
                 >
                   {feelingIcon.icon}
@@ -124,7 +124,7 @@ const HealthStatusModal: React.FC<IHealthStatusPopupModalProps> = ({
         </div>
         {isShowSymptoms && (
           <div className="mt-6">
-            <label htmlFor="symptoms" className="mb-2 block font-medium">
+            <label htmlFor="symptoms" className="block mb-2 font-medium">
               Select any symptoms you are experiencing (select multiple)
             </label>
             <select
@@ -132,7 +132,7 @@ const HealthStatusModal: React.FC<IHealthStatusPopupModalProps> = ({
               multiple
               value={symptoms}
               onChange={_handleSymptomsChange}
-              className="focus:ring-blue w-full rounded-lg border px-3 py-2 shadow-sm focus:border-transparent focus:outline-none focus:ring-2"
+              className="w-full px-3 py-2 border rounded-lg shadow-sm focus:ring-blue focus:border-transparent focus:outline-none focus:ring-2"
             >
               {allSymptoms.map((symptom) => (
                 <option key={symptom} value={symptom}>
@@ -144,13 +144,13 @@ const HealthStatusModal: React.FC<IHealthStatusPopupModalProps> = ({
         )}
         <div className="flex justify-end gap-1">
           <button
-            className="focus:ring-opacity/50 bg-blue focus:ring-blue mt-6 rounded-lg px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-blue-600 focus:outline-none focus:ring-2"
+            className="px-4 py-2 mt-6 font-medium text-white transition-colors duration-200 ease-in-out rounded-lg dark:bg-dark-red focus:ring-opacity/50 bg-blue focus:ring-blue hover:bg-blue-600 focus:outline-none focus:ring-2"
             onClick={onRequestClose}
           >
             Cancel
           </button>
           <button
-            className=" focus:ring-opacity/50 bg-darker-blue focus:ring-blue mt-6 rounded-lg px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-blue-600 focus:outline-none focus:ring-2"
+            className="px-4 py-2 mt-6 font-medium text-white transition-colors duration-200 ease-in-out rounded-lg dark:bg-dark-blue focus:ring-opacity/50 bg-darker-blue focus:ring-blue hover:bg-blue-600 focus:outline-none focus:ring-2"
             onClick={_handleSubmit}
           >
             Submit

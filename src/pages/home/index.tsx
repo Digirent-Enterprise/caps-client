@@ -177,7 +177,7 @@ const Component: React.FC = () => {
 
     return (
       <div
-        className={`text-light-hover-blue flex h-screen w-full overflow-hidden bg-light-background-gray antialiased ${
+        className={`text-light-hover-blue dark:text-dark-white flex h-screen w-full overflow-hidden bg-light-background-gray dark:bg-dark-blue antialiased ${
           isMobile ? "flex-col" : ""
         }`}
       >
@@ -192,8 +192,8 @@ const Component: React.FC = () => {
                 isMobile ? "h-full" : ""
               } w-80 flex-none flex-col overflow-auto transition-all duration-300 ease-in-out md:w-1/6 lg:max-w-sm`}
             >
-              <div className="flex flex-none flex-row items-center justify-between p-4">
-                <p className="text-light-hover-blue hidden font-bold md:block">
+              <div className="flex flex-row items-center justify-between flex-none p-4">
+                <p className="hidden font-bold text-light-hover-blue md:block">
                   {t("welcome")} {user?.name}
                 </p>
               </div>
@@ -205,14 +205,14 @@ const Component: React.FC = () => {
                   onSearch={_handleSearchConversation}
                 />
               </div>
-              <div className="text-light-hover-blue hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-white/20 bg-light-input-gray p-4 text-sm transition-colors duration-200">
+              <div className="flex-none gap-3 p-4 mx-4 text-sm transition-colors duration-200 border rounded-md cursor-pointer text-light-white hover:light-input-hover-gray border-white/20 bg-dark-orange">
                 <div
                   data-tour="step1"
-                  className="flex cursor-pointer items-center"
+                  className="flex items-center cursor-pointer"
                   onClick={_handleOpenConversationModal}
                 >
                   <IconPlus />
-                  <span className="text-light-hover-blue ml-2">
+                  <span className="ml-2 text-light-hover-blue">
                     {t("new_conversation")}
                   </span>
                 </div>
@@ -230,30 +230,30 @@ const Component: React.FC = () => {
                 createNewConversation={createNewConversation}
               />
               <div className="grow"></div>
-              <div className="flex border-t border-gray-800 p-4 pt-8">
+              <div className="flex p-4 pt-8 border-t border-gray-800 dark:border-dark-gray">
                 <div className="flex flex-col gap-2">
                   <Link
                     href={"/health-record"}
-                    className="flex cursor-pointer flex-row items-center gap-1"
+                    className="flex flex-row items-center gap-1 cursor-pointer"
                   >
                     <IconDeviceIpadHeart />
-                    <span className="text-light-hover-blue ml-2 cursor-pointer text-sm">
+                    <span className="ml-2 text-sm cursor-pointer text-light-hover-blue">
                       {t("my_health")}
                     </span>
                   </Link>
                   <Link
                     href={"/news"}
-                    className="flex cursor-pointer flex-row items-center gap-1"
+                    className="flex flex-row items-center gap-1 cursor-pointer"
                   >
                     <IconNews />
-                    <span className="text-light-hover-blue ml-2 cursor-pointer text-sm">
+                    <span className="ml-2 text-sm cursor-pointer text-light-hover-blue">
                       {t("news")}
                     </span>
                   </Link>
-                  <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
+                  <div className="flex flex-row items-center gap-1 mt-2 cursor-pointer">
                     <IconSettings />
                     <span
-                      className="text-light-hover-blue  ml-2 cursor-pointer text-sm"
+                      className="ml-2 text-sm cursor-pointer text-light-hover-blue"
                       onClick={_openSettingsModal}
                     >
                       {t("settings")}
@@ -264,10 +264,10 @@ const Component: React.FC = () => {
                     onClose={_closeSettingsModal}
                   />
 
-                  <div className="mt-2 flex cursor-pointer flex-row items-center gap-1">
+                  <div className="flex flex-row items-center gap-1 mt-2 cursor-pointer">
                     <IconUserCancel />
                     <span
-                      className="text-light-hover-blue  ml-2 cursor-pointer text-sm"
+                      className="ml-2 text-sm cursor-pointer text-light-hover-blue"
                       onClick={signOut}
                     >
                       {t("logout")}
@@ -277,18 +277,18 @@ const Component: React.FC = () => {
               </div>
             </section>
             <section
-              className={`flex flex-auto flex-col border border-gray-800 ${
+              className={`flex flex-auto flex-col border border-gray-800 dark:border-dark-gray ${
                 isMobile ? "" : "w-full"
               }`}
             >
-              <div className="flex flex-none flex-row items-center justify-between border-b border-gray-800 px-6 py-4 shadow">
+              <div className="flex flex-row items-center justify-between flex-none px-6 py-4 border-b border-gray-800 shadow dark:border-dark-gray">
                 <div className="flex flex-col">
                   <div data-tour="step2" className="flex items-center">
                     <span className="mb-2 mr-2 text-xl font-bold">
                       Dengue Intelligent Chatbot Assistance
                     </span>
                     {selectedConversation && conversations.length > 0 ? (
-                      <div className="bg-green h-fit w-fit rounded px-5 py-1 text-sm text-white">
+                      <div className="px-5 py-1 text-sm text-white rounded bg-green h-fit w-fit">
                         {formatModelOption(
                           selectedConversation?.chatBotType || ""
                         )}
