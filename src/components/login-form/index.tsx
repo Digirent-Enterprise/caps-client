@@ -3,7 +3,8 @@ import React from "react";
 import { IconBrandFacebook, IconBrandGoogle } from "@tabler/icons-react";
 import { cloneDeep } from "lodash";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { signIn, useSession } from "next-auth/react";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
@@ -13,6 +14,7 @@ import TextInput from "@/core/text-input";
 import { FormExtension } from "@/core/text-input/type";
 import useLogin from "@/hooks/auth/useLogin";
 import useDevice from "@/hooks/useDevice";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 const Component = React.memo(() => {
   const { t } = useTranslation("login");
@@ -21,6 +23,7 @@ const Component = React.memo(() => {
   const [form, setForm] = useImmer(DefaultLoginForm);
   const { login } = useLogin();
   const _onInputChange = (value: string, extension?: FormExtension) => {
+    const { data: session } = useSession();
     const { dataKey } = extension!;
     const temp = cloneDeep(form);
     switch (dataKey) {
@@ -52,14 +55,14 @@ const Component = React.memo(() => {
       </div>
       <button
         className="focus:ring-blue flex cursor-pointer items-center justify-center rounded bg-[#1778f2] px-4 py-2 font-bold text-white hover:bg-[#3b5998] focus:ring-2"
-        onClick={() => signIn()}
+        onClick={() => signIn("facebook")}
       >
         <IconBrandFacebook className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>
       </button>
       <button
         className="focus:ring-blue mt-4 flex cursor-pointer items-center justify-center rounded bg-[#EA4335] px-4 py-2 font-bold text-white hover:bg-[#DB4437] focus:ring-2"
-        onClick={() => signIn()}
+        onClick={() => signIn("google")}
       >
         <IconBrandGoogle className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>
@@ -107,3 +110,22 @@ const Component = React.memo(() => {
 Component.displayName = "LoginForm";
 
 export default Component;
+
+export async function getServerSideProps(context: any) {
+  const session = await getServerSession(context.req, context.res, authOptions);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  } else {
+    return {
+      props: {
+        session,
+      },
+    };
+  }
+}

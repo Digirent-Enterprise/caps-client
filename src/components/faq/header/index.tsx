@@ -4,7 +4,11 @@ import { breadcrumbItems } from "@/components/faq/constant";
 import Breadcrumb from "@/core/breadcrumb";
 import SearchInput from "@/shared/search-input";
 
-const Component: React.FC = () => {
+interface IBreadcrumbProps {
+  currentPage: string;
+}
+
+const Component: React.FC<IBreadcrumbProps> = ({ currentPage }) => {
   return (
     <>
       <div className="bg-light-header-footer dark:bg-dark-orange p-10">
@@ -16,7 +20,7 @@ const Component: React.FC = () => {
         </div>
       </div>
       <div className="mx-auto mt-10 max-w-3xl">
-        <Breadcrumb items={breadcrumbItems} currentPage={""} />
+        <Breadcrumb items={breadcrumbItems} currentPage={currentPage} />
       </div>
     </>
   );

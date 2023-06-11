@@ -250,7 +250,7 @@ const Component: React.FC = () => {
                       {t("news")}
                     </span>
                   </Link>
-                  <div className="flex flex-row items-center gap-1 mt-2 cursor-pointer">
+                  <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconSettings />
                     <span
                       className="ml-2 text-sm cursor-pointer text-light-hover-blue"
@@ -263,8 +263,7 @@ const Component: React.FC = () => {
                     isOpen={isSettingsModalOpen}
                     onClose={_closeSettingsModal}
                   />
-
-                  <div className="flex flex-row items-center gap-1 mt-2 cursor-pointer">
+                  <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />
                     <span
                       className="ml-2 text-sm cursor-pointer text-light-hover-blue"
@@ -287,14 +286,15 @@ const Component: React.FC = () => {
                     <span className="mb-2 mr-2 text-xl font-bold">
                       Dengue Intelligent Chatbot Assistance
                     </span>
-                    {selectedConversation && conversations.length > 0 ? (
-                      <div className="px-5 py-1 text-sm text-white rounded bg-green h-fit w-fit">
-                        {formatModelOption(
-                          selectedConversation?.chatBotType || ""
-                        )}
-                      </div>
-                    ) : null}
+                    <Popover options={exportOptions} />
                   </div>
+                  {selectedConversation && conversations.length > 0 ? (
+                    <div className="h-fit w-fit rounded bg-green px-5 py-1 text-sm text-white">
+                      {formatModelOption(
+                        selectedConversation?.chatBotType || ""
+                      )}
+                    </div>
+                  ) : null}
                 </div>
                 <div data-tour="step3" className="flex">
                   {/*<WeatherReport />*/}

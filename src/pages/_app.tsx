@@ -2,9 +2,11 @@ import "@/styles/globals.css";
 
 import { useContext, useEffect } from "react";
 
+import { ChakraProvider } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "next-themes";
 
@@ -12,6 +14,7 @@ import { AuthProvider } from "@/contexts/auth-context";
 import { ConversationProvider } from "@/contexts/conversation-context";
 import { LoadingContext } from "@/contexts/loading-context";
 import ToastContainer from "@/core/toast-container";
+import theme from "@/utils/theme";
 import nextI18nextConfig from "next-i18next.config";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -55,14 +58,17 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
         transition={{ duration: 0.5 }}
       >
         <div className={inter.className}>
-          <AuthProvider>
-            <ConversationProvider>
-              <ThemeProvider attribute="class">
-                <Component {...pageProps} err={err} />
-              </ThemeProvider>
-            </ConversationProvider>
-          </AuthProvider>
-
+          <ChakraProvider theme={theme}>
+            <SessionProvider>
+              <AuthProvider>
+                <ConversationProvider>
+                  <ThemeProvider>
+                    <Component {...pageProps} err={err} />
+                  </ThemeProvider>
+                </ConversationProvider>
+              </AuthProvider>
+            </SessionProvider>
+          </ChakraProvider>
           <ToastContainer />
         </div>
       </motion.div>

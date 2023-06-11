@@ -4,8 +4,7 @@ import { useRouter } from "next/router";
 
 import { AuthContext, AuthProvider, useAuth } from "@/contexts/auth-context";
 import { LoadingProvider } from "@/contexts/loading-context";
-// import useUser from "@/hooks/user/useUser";
-import useUserDetail from "@/hooks/user/useUser";
+import useUser from "@/hooks/user/useUser";
 import { showToast } from "@/utils/toast";
 
 export default function withAuth<P extends object>(
@@ -13,7 +12,7 @@ export default function withAuth<P extends object>(
 ) {
   const WithAuth: React.FC<P> = (props) => {
     const router = useRouter();
-    const { user, getUser, isLoading } = useUserDetail();
+    const { user, getUser, isLoading } = useUser();
     const { signIn } = useContext(AuthContext);
     const _firstGetUser = async () => {
       const response = await getUser();

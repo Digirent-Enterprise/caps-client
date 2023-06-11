@@ -94,9 +94,7 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                       </>
                     )}
                     <div className="ml-4 mt-2">
-                      {selectedTab === 2 && (
-                        <>{/* Add account settings content here */}</>
-                      )}
+                      {selectedTab === 2 && <></>}
                     </div>
                     {selectedTab === 3 && (
                       <>{/* Add privacy settings content here */}</>
@@ -107,7 +105,6 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                           title={t("notifications_enalble")}
                           description={t("notifications_enalble_description")}
                           checked={isEnabledNotification}
-                          onChange={_handleToggle}
                         />
                       )}
                     </div>

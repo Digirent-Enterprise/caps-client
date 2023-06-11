@@ -1,9 +1,9 @@
-export interface Question {
+export interface IQuestion {
   id: number;
   title: string;
   content: string;
 }
 
 export interface IQuestionProps {
-  questions: Question[];
+  questions: IQuestion[];
 }

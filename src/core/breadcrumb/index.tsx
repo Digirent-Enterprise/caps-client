@@ -20,7 +20,7 @@ const Component: React.FC<IBreadcrumbProps> = ({ items, currentPage }) => {
                 {currentPage ? currentPage : item.label}
               </span>
             )}
-            {index < items.length - 1 && (
+            {index < items.length - 1 && item.label && (
               <span className="mx-2 text-gray-400">&#8250;</span>
             )}
           </li>

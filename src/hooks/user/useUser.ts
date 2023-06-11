@@ -5,18 +5,21 @@ import { LocalStorageService } from "@/services/local-storage";
 import { LocalStorageKeys } from "@/services/local-storage/constant";
 import { UserService } from "@/services/user";
 import { UserNS } from "@/services/user/type";
-import { User } from "@/types/context/with-auth-context";
+import { IUser } from "@/types/context/with-auth-context";
 
 type UseUserResult = {
-  user: User;
-  getUser: () => Promise<User | undefined>;
+  user: IUser;
+  allUsers: IUser[];
+  getUser: () => Promise<IUser | undefined>;
+  getAllUsers: () => Promise<IUser[] | undefined>; // New method to get all users
   isLoading: boolean;
-  updateUser: (data: UserNS.UpdateUserReq) => Promise<User>;
+  updateUser: (data: UserNS.UpdateUserReq) => Promise<IUser>;
 };
 
-const useUserDetail = () => {
+const useUser = () => {
   const [isLoading, setLoading] = useState<boolean>(true);
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<IUser | null>(null);
+  const [allUsers, setAllUsers] = useState<IUser[] | null>(null);
 
   const handleAccessToken = () => {
     const accessToken = LocalStorageService.getInstance().getItem(
@@ -33,9 +36,21 @@ const useUserDetail = () => {
     handleAccessToken();
     const response = await UserService.getUserDetail();
     if (response) {
-      const userDetail = response as User;
+      const userDetail = response as IUser;
       setUser(userDetail);
       return userDetail;
+    }
+    setLoading(false);
+  };
+
+  const getAllUsers = async () => {
+    setLoading(true);
+    handleAccessToken();
+    const response = await UserService.getAllUsers();
+    if (response) {
+      const allUsers = response as IUser[];
+      setAllUsers(allUsers);
+      return allUsers;
     }
     setLoading(false);
   };
@@ -45,14 +60,21 @@ const useUserDetail = () => {
     handleAccessToken();
     const response = await UserService.updateUser(data);
     if (response) {
-      const userDetail = response as User;
+      const userDetail = response as IUser;
       setUser(userDetail);
       return userDetail;
     }
     setLoading(false);
   };
 
-  return { user, getUser, isLoading, updateUser } as UseUserResult;
+  return {
+    user,
+    allUsers,
+    getUser,
+    getAllUsers,
+    isLoading,
+    updateUser,
+  } as UseUserResult;
 };
 
-export default useUserDetail;
+export default useUser;

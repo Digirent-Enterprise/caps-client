@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { IconX } from "@tabler/icons-react";
-
 import { Badge, IBadgeListInputProps } from "@/core/badge-list-input/type";
 
 const Component: React.FC<IBadgeListInputProps> = ({
