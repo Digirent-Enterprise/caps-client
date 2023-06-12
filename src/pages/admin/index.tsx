@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useRouter } from "next/router";
+import Dashboard from "@/pages/admin/dashboard";
 
-const Component = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push("/admin/profile");
-  });
-
-  return <div />;
-};
+const Component = React.memo(() => {
+  return <Dashboard />;
+});
 
 Component.displayName = "Admin";
 export default Component;
