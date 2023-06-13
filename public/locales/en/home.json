@@ -1,0 +1,16 @@
+{
+  "welcome_to_chatbot": "Welcome to the ChatBot web portal! Please select a conversation to begin.",
+  "welcome": "Welcome",
+  "new_conversation": "New Conversation",
+  "empty_conversation": "Empty Conversation",
+  "my_health": "My health",
+  "news": "News",
+  "settings": "Settings",
+  "logout": "Logout",
+  "search": "Search anything",
+  "health_status_update": "Health Status Update",
+  "thank_you": "Thank you for using DICA. Please complete the first-time health declaration form to let us support you better.",
+  "hi": "Hi",
+  "sure": "Sure",
+  "not_right_now": "Not right now"
+}

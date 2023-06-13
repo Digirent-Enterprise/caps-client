@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { cloneDeep } from "lodash";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 import * as yup from "yup";
 
@@ -19,6 +20,7 @@ import useRegister from "@/hooks/auth/useRegister";
 import useDevice from "@/hooks/useDevice";
 
 const Component = React.memo(() => {
+  const { t } = useTranslation("register");
   const { isDesktop } = useDevice();
   const [form, setForm] = useImmer(DefaultRegisterForm);
   const [selectedGender, setSelectedGender] =
@@ -128,49 +130,51 @@ const Component = React.memo(() => {
   return (
     <div
       className={
-        isDesktop ? "flex w-2/5 flex-col gap-4" : "flex w-full flex-col gap-1"
+        isDesktop
+          ? "flex w-2/5 flex-col gap-4 bg-light-background-gray dark:bg-dark-blue"
+          : "flex w-full flex-col gap-1 bg-light-background-gray dark:bg-dark-blue"
       }
     >
-      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-blue">
-        Register
+      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
+        {t("register")}
       </div>
       <TextInput
-        label="Full name"
+        label={t("full_name")}
         type="text"
         value={form.name}
         errorMessage={errorMessages.name || ""}
         name="fullName"
-        placeHolder="full name"
+        placeHolder={t("full_name")}
         dataKey="name"
         onChange={_onInputChange}
       />
       <TextInput
-        label="Email"
+        label={t("email")}
         type="text"
         name="email"
         value={form.email}
         errorMessage={errorMessages.email || ""}
-        placeHolder="email"
+        placeHolder={t("email")}
         dataKey="email"
         onChange={_onInputChange}
       />
       <TextInput
-        label="Password"
+        label={t("password")}
         type="password"
         name="password"
         value={form.password}
         errorMessage={errorMessages.password || ""}
-        placeHolder="password"
+        placeHolder={t("password")}
         dataKey="password"
         onChange={_onInputChange}
       />
       <TextInput
-        label="Confirm password"
+        label={t("confirm_password")}
         type="password"
         name="confirmPassword"
         value={form.confirmPassword}
         errorMessage={errorMessages.confirmPassword || ""}
-        placeHolder="retype your password"
+        placeHolder={t("retype")}
         dataKey="confirmPassword"
         onChange={_onInputChange}
       />
@@ -179,15 +183,15 @@ const Component = React.memo(() => {
         dataKey="gender"
         selectedOption={selectedGender}
         options={GenderOptions}
-        title="Gender"
+        title={t("Gender")}
       />
       <Button onClick={_handleSubmitForm} mode="primary">
-        Register
+        {t("register")}
       </Button>
       <label className="text-xl">
-        Already have account?{" "}
+        {t("have_account")}{" "}
         <Link href={"/auth/login"}>
-          <span className="text-blue">Sign in</span>
+          <span className="text-blue">{t("sign_in")}</span>
         </Link>
       </label>
     </div>

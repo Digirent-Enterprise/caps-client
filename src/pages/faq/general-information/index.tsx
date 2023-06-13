@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 import FaqHeader from "@/components/faq/header";
@@ -7,45 +8,38 @@ import Footer from "@/shared/footer";
 import { convertUrlToTitle } from "@/utils/common";
 
 const Component: React.FC = () => {
+  const { t } = useTranslation("faq");
   const router = useRouter();
   const currentPage = router.pathname;
-
+  
   return (
-    <div className="flex min-h-screen flex-col">
-      <div className="mb-10">
+    <div className="flex bg-background-gray dark:bg-dark-blue min-h-screen flex-col">
+      <div className="my-10">
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
-        <div className="mx-auto mt-10 max-w-3xl">
-          <h2 className="mb-4 text-2xl font-bold">General Information</h2>
-          <div className="rounded bg-white p-4 shadow">
-            <h3 className="mb-2 text-xl font-bold">What is DICA?</h3>
-            <p>
-              DICA is designed to provide assistance and answer questions
-              related to domain dengue.
-            </p>
-
-            <h3 className="my-2 text-xl font-bold">
-              Getting Started with DICA
+        <div className="mx-auto bg-background-gray dark:bg-dark-blue mt-10 max-w-3xl">
+          <h2 className="mb-4 text-light-blue-hover dark:text-dark-orange text-2xl font-bold">
+            {t("general")}
+          </h2>
+          <div className="rounded bg-background-gray dark:bg-dark-blue p-4 shadow">
+            <h3 className="mb-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("what_dica")}
             </h3>
-            <p>
-              Simply type your question or concern in the chat window, and the
-              chatbot will provide relevant information or direct you to the
-              appropriate resource.
-            </p>
+            <p>{t("what_dica_description")}</p>
 
-            <h3 className="my-2 text-xl font-bold">
-              Using DICA on Mobile Devices
+            <h3 className="my-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("started_with_dica")}
             </h3>
-            <p>
-              Absolutely! The chatbot is fully responsive and can be accessed on
-              any device, including mobile phones and tablets.
-            </p>
+            <p>{t("started_with_dica_description")}</p>
 
-            <h3 className="my-2 text-xl font-bold">Chatbot Updates</h3>
-            <p>
-              We continually update and improve the chatbot to ensure it
-              provides accurate and up-to-date information. Updates are deployed
-              regularly to enhance its functionality.
-            </p>
+            <h3 className="my-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("dica_on_mobile")}
+            </h3>
+            <p>{t("dica_on_mobile_description")}</p>
+
+            <h3 className="my-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("chatbot_update")}
+            </h3>
+            <p>{t("chatbot_update_description")}</p>
           </div>
         </div>
       </div>

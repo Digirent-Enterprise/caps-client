@@ -17,6 +17,7 @@ import { toPng } from "html-to-image";
 import { isEmpty } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 import axios from "@/axios";
 import ConversationList from "@/components/conversation-list";
@@ -46,7 +47,7 @@ const Component: React.FC = () => {
     const [showConversationModal, setShowConversationModal] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
-
+    const { t } = useTranslation("home");
     const { user, signOut } = useContext(AuthContext);
     const {
       getAllConversations,
@@ -176,7 +177,7 @@ const Component: React.FC = () => {
 
     return (
       <div
-        className={`flex h-screen w-full overflow-hidden bg-gray-900 text-gray-200 antialiased ${
+        className={`text-light-hover-blue dark:text-dark-white flex h-screen w-full overflow-hidden bg-light-background-gray dark:bg-dark-blue antialiased ${
           isMobile ? "flex-col" : ""
         }`}
       >
@@ -191,27 +192,29 @@ const Component: React.FC = () => {
                 isMobile ? "h-full" : ""
               } w-80 flex-none flex-col overflow-auto transition-all duration-300 ease-in-out md:w-1/6 lg:max-w-sm`}
             >
-              <div className="flex flex-none flex-row items-center justify-between p-4">
-                <p className="hidden text-lg font-bold md:block">
-                  Welcome, {user?.name}
+              <div className="flex flex-row items-center justify-between flex-none p-4">
+                <p className="hidden font-bold text-light-hover-blue md:block">
+                  {t("welcome")} {user?.name}
                 </p>
               </div>
 
               <div className="flex-none p-4">
                 <SearchInput
-                  placeholder="Search anything"
+                  placeholder={t("search")}
                   searchTerm={searchTerm}
                   onSearch={_handleSearchConversation}
                 />
               </div>
-              <div className="mx-4 flex-none cursor-pointer gap-3 rounded-md border border-white/20 p-4 text-sm text-white transition-colors duration-200 hover:bg-gray-500/10">
+              <div className="flex-none gap-3 p-4 mx-4 text-sm transition-colors duration-200 border rounded-md cursor-pointer text-light-white hover:light-input-hover-gray border-white/20 bg-dark-orange">
                 <div
                   data-tour="step1"
-                  className="flex cursor-pointer items-center"
+                  className="flex items-center cursor-pointer"
                   onClick={_handleOpenConversationModal}
                 >
                   <IconPlus />
-                  <span className="ml-2 text-white">New Conversation</span>
+                  <span className="ml-2 text-light-hover-blue">
+                    {t("new_conversation")}
+                  </span>
                 </div>
               </div>
               <ConversationList
@@ -227,58 +230,57 @@ const Component: React.FC = () => {
                 createNewConversation={createNewConversation}
               />
               <div className="grow"></div>
-              <div className="flex border-t border-gray-800 p-4 pt-8">
+              <div className="flex p-4 pt-8 border-t border-gray-800 dark:border-dark-gray">
                 <div className="flex flex-col gap-2">
                   <Link
                     href={"/health-record"}
-                    className="flex cursor-pointer flex-row items-center gap-1"
+                    className="flex flex-row items-center gap-1 cursor-pointer"
                   >
                     <IconDeviceIpadHeart />
-                    <span className="ml-2 cursor-pointer text-sm text-white">
-                      My Health
+                    <span className="ml-2 text-sm cursor-pointer text-light-hover-blue">
+                      {t("my_health")}
                     </span>
                   </Link>
                   <Link
                     href={"/news"}
-                    className="flex cursor-pointer flex-row items-center gap-1"
+                    className="flex flex-row items-center gap-1 cursor-pointer"
                   >
                     <IconNews />
-                    <span className="ml-2 cursor-pointer text-sm text-white">
-                      News
+                    <span className="ml-2 text-sm cursor-pointer text-light-hover-blue">
+                      {t("news")}
                     </span>
                   </Link>
                   <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconSettings />
                     <span
-                      className="ml-2  cursor-pointer text-sm text-white"
+                      className="ml-2 text-sm cursor-pointer text-light-hover-blue"
                       onClick={_openSettingsModal}
                     >
-                      Settings
+                      {t("settings")}
                     </span>
                   </div>
                   <Settings
                     isOpen={isSettingsModalOpen}
                     onClose={_closeSettingsModal}
                   />
-
                   <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />
                     <span
-                      className="ml-2  cursor-pointer text-sm text-white"
+                      className="ml-2 text-sm cursor-pointer text-light-hover-blue"
                       onClick={signOut}
                     >
-                      Logout
+                      {t("logout")}
                     </span>
                   </div>
                 </div>
               </div>
             </section>
             <section
-              className={`flex flex-auto flex-col border border-gray-800 ${
+              className={`flex flex-auto flex-col border border-gray-800 dark:border-dark-gray ${
                 isMobile ? "" : "w-full"
               }`}
             >
-              <div className="flex flex-none flex-row items-center justify-between border-b border-gray-800 px-6 py-4 shadow">
+              <div className="flex flex-row items-center justify-between flex-none px-6 py-4 border-b border-gray-800 shadow dark:border-dark-gray">
                 <div className="flex flex-col">
                   <div data-tour="step2" className="flex items-center">
                     <span className="mb-2 mr-2 text-xl font-bold">
@@ -316,11 +318,11 @@ const Component: React.FC = () => {
           type="info"
           isOpen={open}
           onClose={_onModalClose}
-          title="Health Status Update"
-          description={`Hi, ${user?.name}. Thank you for using DICA. Please complete the first-time health declaration form to let us support you better.`}
-          primaryButtonText="Sure"
+          title={t("health_status_update")}
+          description={`${t("hi")}, ${user?.name}. ${t("thank_you")}`}
+          primaryButtonText={t("sure")}
           secondButton
-          secondaryButtonText="Not right now"
+          secondaryButtonText={t("not_right_now")}
           onSecondaryButtonClick={_onModalClose}
           onPrimaryButtonClick={_onModalConfirm}
         />

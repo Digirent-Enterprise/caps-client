@@ -89,7 +89,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
             isMobile ? "h-full" : "flex-auto"
           } flex-col overflow-y-scroll border-l border-gray-800`}
         >
-          <div data-tour={props.dataTourOne} className="flex-1  p-4">
+          <div data-tour={props.dataTourOne} className="flex-1 p-4">
             {messages.map((message, index) => (
               <ChatMessage
                 key={index}
@@ -103,7 +103,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
             messages.length &&
             messages[messages.length - 1].sender ===
               MessageNS.SenderType.USER ? (
-              <div className="text-white">The chat advisor is typing...</div>
+              <div className="text-light-blue-hover dark:text-dark-white">The chat advisor is typing...</div>
             ) : null}
           </div>
         </div>

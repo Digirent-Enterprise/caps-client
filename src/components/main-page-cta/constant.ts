@@ -1,20 +1,28 @@
 export const ImmediateActions = [
   "Nutrition Guidance",
-
   "Suggestions",
   "Actions Now",
   "Symptom Relief",
   "Vital Monitoring",
-
   "Generic Diagnosis",
   "Prevent Severe",
   "Exercise Plans",
   "Advice",
-
   "Medication Tracking",
   "Chat",
-
   "Emergency Contacts",
+  "Tư vấn dinh dưỡng",
+  "Lời khuyên",
+  "Hành động ngay",
+  "Giảm triệu chứng",
+  "Giám sát tình trạng",
+  "Ngăn chặn nghiêm trọng",
+  "Chẩn đoán",
+  "Liên hệ khẩn cấp",
+  "Kế hoạch tập thể dục",
+  "Lời khuyên",
+  "Theo dõi thuốc",
+  "Trò chuyện",
 ];
 
 export const LongTermActions = [
@@ -26,4 +34,12 @@ export const LongTermActions = [
   "Goal Setting",
   "Check-up Reminders",
   "Education Resources",
+  "Theo dõi sức khỏe",
+  "Hình dung",
+  "Quản lý sức khỏe",
+  "Cải thiện đời sống",
+  "Bệnh nghiêm trọng",
+  "Thiết lập mục tiêu",
+  "Nhắc nhở",
+  "Tài liệu giáo dục",
 ];

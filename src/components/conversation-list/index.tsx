@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import dayjs from "dayjs";
+import { useTranslation } from "next-i18next";
 
 import {
   IConversationLabel,
@@ -20,7 +21,7 @@ const Component: React.FC<IConversationListProps> = (
     selectedConversation,
   } = props;
   const { isDesktop } = useDevice();
-
+  const { t } = useTranslation("home");
   const [groupedConversations, setGroupedConversations] = useState<{
     [key: string]: ConversationNS.Conversation[];
   }>({});
@@ -94,7 +95,9 @@ const Component: React.FC<IConversationListProps> = (
 
   if (!Object.keys(groupedConversations).length)
     return (
-      <div className="m-4 font-bold text-gray-300"> Empty Conversation </div>
+      <div className="m-4 font-bold text-light-hover-blue">
+        {t("empty_conversation")}
+      </div>
     );
 
   return (
@@ -105,7 +108,7 @@ const Component: React.FC<IConversationListProps> = (
     >
       {Object.keys(groupedConversations).map((label) => (
         <div key={label}>
-          <div className="mb-2 text-sm text-gray-400">{label}</div>
+          <div className="mb-2 text-sm text-light-blue-hover dark:text-dark-gray">{label}</div>
           {groupedConversations[label].map((conversation) => (
             <div
               key={conversation.id}

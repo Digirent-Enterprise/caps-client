@@ -1,87 +1,67 @@
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 import Button from "@/core/button";
 import useDevice from "@/hooks/useDevice";
-
 const Component = () => {
+  const { t } = useTranslation("instruction");
   const { isMobile } = useDevice();
   return (
     <div
-      className={`mx-auto max-w-3xl px-4 py-8 ${
+      className={`mx-auto max-w-3xl bg-light-background-gray px-4 py-8 dark:bg-dark-blue ${
         isMobile ? "sm:px-6" : "lg:px-8"
       }`}
     >
       <div className="mb-8">
-        <h2 className="mb-4 text-2xl font-bold">Form Instructions</h2>
+        <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-dark-orange-heading">
+          {t("form_instructions")}
+        </h2>
         <div className="mb-4">
-          <h3 className="mb-2 text-lg font-bold">Purpose</h3>
-          <p className="text-gray-700">
-            The purpose of this health form is to collect necessary information
-            about your health, medical conditions, medications, allergies,
-            emergency contacts, and other relevant information that can help us
-            to assess your health status and provide appropriate advice.
+          <h3 className="mb-2 text-lg font-bold">{t("purpose")}</h3>
+          <p className="text-light-blue-hover dark:text-dark-white">
+            {t("the_purpose_of_this_health_form")}
           </p>
         </div>
         <div className="mb-4">
-          <h3 className="mb-2 text-lg font-bold">Rules</h3>
-          <p className="text-gray-700">
-            Please make sure to read and follow the instructions carefully.
-            Failure to do so may result in disqualification.
+          <h3 className="mb-2 text-lg font-bold">{t("rules")}</h3>
+          <p className="text-light-blue-hover dark:text-dark-white">
+            {t("please_read")}
           </p>
           <ol className="list-decimal pt-5">
-            <li>
-              Please answer all questions truthfully and to the best of your
-              knowledge.
-            </li>
-            <li>
-              If you do not know the answer to a question, please leave it
-              blank.
-            </li>
-            <li>
-              By submitting this form, you acknowledge that you have read and
-              agree to the data privacy policy.
-            </li>
+            <li>{t("please_answer")}</li>
+            <li>{t("if_not_know_answer")}</li>
+            <li>{t("by_submitting")}</li>
           </ol>
         </div>
         <div>
-          <h3 className="mb-2 text-lg font-bold">Instruction</h3>
+          <h3 className="mb-2 text-lg font-bold">{t("instruction")}</h3>
           <ul className="list-disc pb-5">
-            <li>
-              Blood pressure: Please enter your blood pressure in mmHg format
-              (e.g. 120/80).
-            </li>
-            <li>
-              Blood type: Please enter your blood type (e.g. A+, B-, AB+).
-            </li>
-            <li>Height: Please enter your height in centimeters.</li>
-            <li>Weight: Please enter your weight in kilograms.</li>
-            <li>
-              Medical conditions: Please list any medical conditions you have
-              been diagnosed with.
-            </li>
-            <li>
-              Medications: Please list any medications you are currently taking.
-            </li>
-            <li>Allergies: Please list any allergies you have.</li>
+            <li>{t("blood_pressure")}</li>
+            <li>{t("blood_type")}</li>
+            <li>{t("height")}</li>
+            <li>{t("weight")}</li>
+            <li>{t("medical_conditions")}</li>
+            <li>{t("medications")}</li>
+            <li>{t("allergies")}</li>
           </ul>
         </div>
         <div>
-          <h3 className="mb-2 text-lg font-bold">Data Privacy</h3>
-          <p className="text-gray-700">
-            We take data privacy seriously. Your information will be kept
-            confidential and only used for the purposes of this form.
+          <h3 className="mb-2 text-lg font-bold">{t("data_privacy")}</h3>
+          <p className="text-light-blue-hover dark:text-dark-white">
+            {t("we_take_data")}
           </p>
         </div>
       </div>
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <p className="text-gray-700">
-            Estimated time: <span className="font-bold">15 minutes</span>
+          <p className="text-light-blue-hover dark:text-dark-white">
+            {t("estimated_time")}{" "}
+            <span className="font-bold">{t("15_minutes")}</span>
           </p>
         </div>
         <div>
           <Link href={"/health-form/health-data"}>
-            <Button mode="primary">Start</Button>
+            <Button mode="primary">{t("start")}</Button>
           </Link>
         </div>
       </div>

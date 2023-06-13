@@ -1,0 +1,16 @@
+{
+  "welcome_to_chatbot": "Chào mừng bạn đến với cổng web ChatBot! Vui lòng chọn một cuộc trò chuyện để bắt đầu.",
+  "welcome": "Chào mừng, ",
+  "new_conversation": "Cuộc trò chuyện mới",
+  "empty_conversation": "Cuộc trò chuyện trống",
+  "my_health": "Sức khỏe của tôi",
+  "news": "Tin tức",
+  "settings": "Cài đặt",
+  "logout": "Đăng xuất",
+  "search": "Tìm kiếm",
+  "health_status_update": "Cập nhật tình trạng sức khỏe",
+  "thank_you": "Cảm ơn bạn đã sử dụng DICA. Vui lòng điền đầy đủ thông tin vào tờ khai y tế lần đầu để chúng tôi hỗ trợ bạn tốt hơn.",
+  "hi": "Chào",
+  "sure": "OK",
+  "not_right_now": "Lần sau"
+}
