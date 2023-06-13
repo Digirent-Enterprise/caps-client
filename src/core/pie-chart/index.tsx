@@ -19,7 +19,7 @@ interface ChartProps {
 const PieChart = ({ data, title }: ChartProps) => {
   const custom_canvas_background_color = {
     id: "custom_canvas_background_color",
-    beforeDraw: (chart, args, options) => {
+    beforeDraw: (chart: any, args: any, options: any) => {
       const {
         ctx,
         chartArea: { top, right, bottom, left, width, height },

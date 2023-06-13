@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 
 export interface ICompProps {
-  chart: ReactNode;
+  chart?: ReactNode;
+  children?: ReactNode;
 }

@@ -10,6 +10,8 @@ import withAuth from "@/hoc/withLogin";
 import useDevice from "@/hooks/useDevice";
 import HealthStatusPopupModal from "@/shared/health-status-popup-modal";
 import StatusModal from "@/shared/status-modal";
+import ContainerCard from "@/shared/chart-container-card";
+import {Progress} from "@nextui-org/react";
 
 const Component = React.memo(() => {
   const { isMobile } = useDevice();
@@ -88,6 +90,12 @@ const Component = React.memo(() => {
         <DashboardPieChart type="symptoms" />
         <DashboardPieChart type="categorized-status" />
         <DashboardStatusChart />
+        <ContainerCard chart={ <div className='w-full h-full'>
+          <div className='p-1 w-full text-center text-white'> General score  </div>
+          <div/>
+          <Progress value={80} color='primary' size='xl' />
+        </div>
+        }/>
       </div>
       <HealthStatusPopupModal isOpen={open} onRequestClose={_onCloseModal} />
     </section>
