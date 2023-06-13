@@ -1,0 +1,23 @@
+{
+  "form_instructions": "Hướng dẫn biểu mẫu",
+  "purpose": "Mục đích",
+  "the_purpose_of_this_health_form": "Mục đích của biểu mẫu sức khỏe này là thu thập thông tin cần thiết về sức khỏe, tình trạng y tế, thuốc men, dị ứng, liên hệ khẩn cấp và các thông tin liên quan khác có thể giúp chúng tôi đánh giá tình trạng sức khỏe của bạn và đưa ra lời khuyên phù hợp.",
+  "rules": "Quy tắc",
+  "please_read": "Hãy chắc chắn đọc và làm theo các hướng dẫn một cách cẩn thận. Không làm như vậy có thể dẫn đến việc bị loại.",
+  "please_answer": "Vui lòng trả lời tất cả các câu hỏi một cách trung thực và theo sự hiểu biết tốt nhất của bạn.",
+  "if_not_know_answer": "Nếu bạn không biết câu trả lời cho một câu hỏi, xin vui lòng để trống.",
+  "by_submitting": "Bằng cách gửi biểu mẫu này, bạn xác nhận rằng bạn đã đọc và đồng ý với chính sách bảo mật dữ liệu.",
+  "instruction": "Hướng dẫn",
+  "blood_pressure": "Huyết áp: Vui lòng nhập huyết áp của bạn ở định dạng mmHg (ví dụ: 120/80).",
+  "blood_type": "Nhóm máu: Vui lòng nhập nhóm máu của bạn (ví dụ: A+, B-, AB+).",
+  "height": "Chiều cao: Vui lòng nhập chiều cao của bạn tính bằng centimet.",
+  "weight": "Cân nặng: Vui lòng nhập cân nặng của bạn tính bằng kilôgam.",
+  "medical_conditions": "Điều kiện y tế: Vui lòng liệt kê bất kỳ điều kiện y tế nào bạn đã được chẩn đoán.",
+  "medications": "Thuốc: Vui lòng liệt kê bất kỳ loại thuốc nào bạn hiện đang dùng.",
+  "allergies": "Dị ứng: Vui lòng liệt kê bất kỳ dị ứng nào bạn có.",
+  "data_privacy": "Bảo mật dữ liệu",
+  "we_take_data": "Chúng tôi coi trọng quyền riêng tư dữ liệu. Thông tin của bạn sẽ được giữ bí mật và chỉ được sử dụng cho các mục đích của biểu mẫu này.",
+  "estimated_time": "Thời gian dự định:",
+  "15_minutes": "15 phút",
+  "start": "Bắt đầu"
+}

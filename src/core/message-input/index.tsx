@@ -113,7 +113,7 @@ const Component: React.FC<IMessageInputProps> = ({
         <input
           data-tour={dataTourTwo}
           ref={inputRef}
-          className="w-full rounded-full border border-gray-800 bg-gray-800 py-2 pl-3 pr-10 text-gray-200 transition duration-300 ease-in focus:border-gray-700 focus:bg-gray-900 focus:shadow-md focus:outline-none"
+          className="w-full py-2 pl-3 pr-10 text-gray-200 transition duration-300 ease-in border border-gray-800 rounded-full bg-light-background-gray dark:bg-gray-800 focus:border-gray-700 focus:bg-gray-900 focus:shadow-md focus:outline-none"
           value={transcript || message}
           onChange={(e) => onValueChange(e.target.value)}
           onKeyDown={handleKeyDown}
@@ -121,17 +121,17 @@ const Component: React.FC<IMessageInputProps> = ({
         />
         <button
           type="button"
-          className="mx-2 flex h-6 w-6 shrink-0 text-blue hover:text-blue focus:outline-none"
+          className="flex w-6 h-6 mx-2 text-blue hover:text-blue shrink-0 focus:outline-none"
           onClick={message ? handleSend : () => {}}
         >
-          <IconSend color="white" />
+          <IconSend color="orange" />
         </button>
         <button
           type="button"
-          className="mx-2 flex h-6 w-6 shrink-0 text-blue hover:text-blue focus:outline-none"
+          className="flex w-6 h-6 mx-2 text-blue hover:text-blue shrink-0 focus:outline-none"
           onClick={() => setIsHealthStatusPopupModalOpen(true)}
         >
-          <IconHeartbeat color="white" />
+          <IconHeartbeat color="red" />
         </button>
         <HealthStatusPopupModal
           isOpen={isHealthStatusModalOpen}

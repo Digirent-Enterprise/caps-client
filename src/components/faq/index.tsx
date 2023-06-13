@@ -17,17 +17,17 @@ const Component = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen bg-background-gray dark:bg-dark-blue flex-col">
       <div className="mb-10">
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
         <div className="mx-auto mt-10 max-w-3xl">
           <div className="flex flex-col gap-5">
-            <section className="flex flex-col rounded-xl border border-solid  bg-white p-2 sm:p-3">
+            <section className="border-light-blue-hover dark:border-dark-white flex flex-col rounded-xl border border-solid bg-background-gray dark:bg-dark-blue p-2 sm:p-3">
               {questions.map((question) => (
                 <div
                   key={question.id}
                   onClick={() => _handleQuestionClick(question)}
-                  className={`group/article flex flex-row justify-between gap-2 rounded-lg px-3 py-2 text-black no-underline transition duration-250 ease-linear hover:bg-gray-300 hover:text-primary sm:py-3 ${
+                  className={`group/article text-light-blue-hover dark:text-dark-white flex flex-row justify-between gap-2 rounded-lg px-3 py-2 no-underline transition duration-250 ease-linear hover:bg-light-border-gray hover:text-light-background-gray dark:hover:text-dark-orange sm:py-3 ${
                     question.title === currentPage ? "current-page" : ""
                   }`}
                 >

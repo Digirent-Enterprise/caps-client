@@ -18,20 +18,20 @@ const Component = React.memo((props: ISearchInputProps) => {
   };
 
   return (
-    <div className="relative flex w-full items-center">
+    <div className="relative flex items-center w-full">
       {!searchTerm && (
         <IconSearch
           className={`absolute ${
             isMobile ? "right-2" : "right-4"
-          } cursor-pointer text-neutral-300 hover:text-neutral-400`}
+          } cursor-pointer dark:text-light-blue-hover hover:text-neutral-400`}
           size={18}
           onClick={_clearSearch}
         />
       )}
       <input
-        className={`w-full rounded-md border border-gray-700 bg-gray-700 py-2 pl-3 ${
+        className={`w-full rounded-md border border-gray-700 dark:bg-dark-white py-2 pl-3 ${
           isMobile ? "pr-6" : "pr-10"
-        } text-gray-200 transition duration-300 ease-in focus:border-gray-700 focus:bg-gray-900 focus:shadow-md focus:outline-none`}
+        } text-gray-200 dark:text-dark-blue transition duration-300 ease-in focus:border-gray-700 focus:bg-gray-900 focus:shadow-md focus:outline-none`}
         type="text"
         placeholder={isMobile ? "" : placeholder}
         value={searchTerm}
@@ -42,7 +42,7 @@ const Component = React.memo((props: ISearchInputProps) => {
         <IconX
           className={`absolute ${
             isMobile ? "right-2" : "right-4"
-          } cursor-pointer text-neutral-300 hover:text-neutral-400`}
+          } cursor-pointer text-dark-red hover:text-neutral-400`}
           size={18}
           onClick={_clearSearch}
         />

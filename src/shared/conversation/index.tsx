@@ -118,7 +118,7 @@ const Component = React.memo(
           }`}
         >
           {isRenaming && selectedConversation?.id === conversation.id ? (
-            <div className="group flex w-full items-center gap-3 rounded-md bg-gray-800 p-3">
+            <div className="flex items-center w-full gap-3 p-3 bg-gray-800 rounded-md group">
               <IconMessage size={18} />
               <input
                 className="mr-12 flex-1 overflow-hidden text-ellipsis bg-transparent text-left text-[12.5px] leading-3 text-white outline-none"
@@ -131,15 +131,15 @@ const Component = React.memo(
             </div>
           ) : (
             <button
-              className={`flex w-full cursor-pointer items-center gap-3 rounded-lg p-3 text-sm transition-colors duration-200 hover:bg-[#343541]/90 ${
+              className={`flex w-full cursor-pointer items-center gap-3 rounded-lg p-3 text-sm transition-colors hover:text-light-background-gray duration-200 hover:bg-light-blue-hover ${
                 selectedConversation?.id === conversation.id
-                  ? "bg-[#343541]/90"
+                  ? "bg-light-background-gray dark:bg-dark-blue"
                   : ""
               }`}
               draggable="true"
               onDragStart={(e) => _handleDragStart(e, conversation)}
             >
-              <IconMessage size={18} />
+              <IconMessage size={18} className="text-light-gray" />
               <div
                 className={`relative max-h-5 flex-1 overflow-hidden text-ellipsis whitespace-nowrap break-all text-left text-[12.5px] leading-3 ${
                   selectedConversation?.id === conversation.id
@@ -154,12 +154,12 @@ const Component = React.memo(
 
           {(isDeleting || isRenaming) &&
             selectedConversation?.id === conversation.id && (
-              <div className="absolute right-1 z-10 flex text-gray-300">
+              <div className="absolute z-10 flex right-1 text-light-300">
                 <SidebarActionButton handleClick={_handleConfirm}>
-                  <IconCheck size={18} color="white" />
+                  <IconCheck size={18} color="text-light-green dark:white" />
                 </SidebarActionButton>
                 <SidebarActionButton handleClick={_handleCancel}>
-                  <IconX size={18} color="white" />
+                  <IconX size={18} color="text-dark-red" />
                 </SidebarActionButton>
               </div>
             )}
@@ -167,17 +167,17 @@ const Component = React.memo(
           {selectedConversation?.id === conversation.id &&
             !isDeleting &&
             !isRenaming && (
-              <div className="absolute right-1 z-10 flex text-gray-300">
+              <div className="absolute z-10 flex text-gray-300 right-1">
                 <SidebarActionButton handleClick={_handleOpenRenameModal}>
-                  <IconPencil size={18} color="white" />
+                  <IconPencil size={18} color="gray" />
                 </SidebarActionButton>
                 <SidebarActionButton
                   handleClick={_handleShareConversationModal}
                 >
-                  <IconShare2 size={18} color="white" />
+                  <IconShare2 size={18} color="gray" />
                 </SidebarActionButton>
                 <SidebarActionButton handleClick={_handleOpenDeleteModal}>
-                  <IconTrash size={18} color="white" />
+                  <IconTrash size={18} color="gray" />
                 </SidebarActionButton>
               </div>
             )}

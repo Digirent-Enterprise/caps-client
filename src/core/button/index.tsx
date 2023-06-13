@@ -6,9 +6,9 @@ const Component = React.memo((props: IButtonProps) => {
 
   const colorClass = useMemo(() => {
     if (mode === "primary") {
-      return "bg-blue hover:bg-blue-600";
+      return "bg-light-blue hover:bg-light-blue-hover dark:bg-light-maroon dark:hover:bg-dark-orange-hover";
     }
-    return "bg-gray-500 hover:bg-gray-600";
+    return "bg-light-gray hover:bg-light-blue-hover dark:hover:bg-dark-orange-hover";
   }, [mode]);
 
   const sizeClass = useMemo(() => {
@@ -29,7 +29,7 @@ const Component = React.memo((props: IButtonProps) => {
   return (
     <button
       disabled={disabled}
-      className={`mb-5 w-full rounded-md border border-solid border-black text-white dark:border-white ${colorClass} ${sizeClass}`}
+      className={`mb-5 w-full rounded-md border border-solid border-white text-white dark:border-dark-blue ${colorClass} ${sizeClass}`}
       onClick={_onClick}
     >
       {children}

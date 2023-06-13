@@ -1,0 +1,17 @@
+{
+  "settings": "Settings",
+  "general": "General",
+  "accounts": "Accounts",
+  "privacy": "Privacy",
+  "notifications": "Notifications",
+  "help_faq": "Help & FAQ",
+  "theme": "Theme",
+  "system_preference": "System Preference",
+  "light": "Light Theme",
+  "dark": "Dark Theme",
+  "language": "Language",
+  "cancel": "Cancel",
+  "save": "Save",
+  "notifications_enalble": "Enable email notification",
+  "notifications_enalble_description": "Receive regular emails tailored to your interests and geographic location. Our system will analyze your symptoms and provide personalized updates on dengue-related information specific to your needs."
+}

@@ -10,11 +10,11 @@ const Component = React.memo(() => {
 
   return (
     <div className="absolute z-50 flex h-screen w-screen items-center justify-center bg-transparent">
-      <div className="flex h-1/4 w-1/6 flex-col items-center justify-center gap-10 bg-grey ">
+      <div className="bg-grey flex h-1/4 w-1/6 flex-col items-center justify-center gap-10 ">
         <div role="status">
           <svg
             aria-hidden="true"
-            className="mr-2 inline h-20 w-20 animate-spin fill-blue text-gray-200 dark:text-gray-600"
+            className="fill-blue mr-2 inline h-20 w-20 animate-spin text-gray-200 dark:text-gray-600"
             viewBox="0 0 100 101"
             fill="#E18204"
             xmlns="http://www.w3.org/2000/svg"

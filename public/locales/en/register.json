@@ -1,0 +1,14 @@
+{
+  "register": "Register",
+  "full_name": "Full name",
+  "email": "Email",
+  "password": "Password",
+  "confirm_password": "Confirm password",
+  "retype": "Retype password",
+  "have_account": "Already have account?",
+  "sign_in": "Sign in",
+  "gender": "Gender",
+  "male": "Male",
+  "female": "Female",
+  "other": "Other"
+}

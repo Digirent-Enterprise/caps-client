@@ -20,14 +20,16 @@ const Component = React.memo((props: ISelectOptionProps) => {
 
   return (
     <div className="mb-5">
-      <div className="mb-2 block font-medium text-blue">{title}</div>
+      <div className="text-light-hover-blue mb-2 block font-medium">
+        {title}
+      </div>
       <div className="flex flex-wrap gap-2">
         {options.map((option, index) => (
           <div key={index}>
             <label className="inline-flex cursor-pointer items-center">
               <input
                 type={type}
-                className="text-blue"
+                className="text-light-hover-blue"
                 value={option.value}
                 checked={selectedOption === option}
                 onChange={() => _handleChange(option)}

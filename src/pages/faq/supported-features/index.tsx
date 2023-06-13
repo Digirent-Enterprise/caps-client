@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 import FaqHeader from "@/components/faq/header";
@@ -7,53 +8,38 @@ import Footer from "@/shared/footer";
 import { convertUrlToTitle } from "@/utils/common";
 
 const Component: React.FC = () => {
+  const { t } = useTranslation("faq");
   const router = useRouter();
   const currentPage = router.pathname;
+  
   return (
-    <div className="flex min-h-screen flex-col">
-      <div className="mb-10">
+    <div className="flex bg-background-gray dark:bg-dark-blue min-h-screen flex-col">
+      <div className="my-10">
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
-        <div className="mx-auto mt-10 max-w-3xl">
-          <h2 className="mb-4 text-2xl font-bold">Supported Features</h2>
-          <div className="rounded bg-white p-4 shadow">
-            <h3 className="mb-2 text-xl font-bold">
-              Does the chatbot support natural language processing?
+        <div className="mx-auto  mt-10 max-w-3xl">
+          <h2 className="mb-4 text-light-blue-hover dark:text-dark-orange text-2xl font-bold">
+            {t("features")}
+          </h2>
+          <div className="rounded bg-background-gray dark:bg-dark-blue p-4 shadow">
+            <h3 className="mb-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("support_natural_language")}
             </h3>
-            <p>
-              Yes, the chatbot is equipped with natural language processing
-              capabilities, allowing it to understand and respond to user
-              queries in a conversational manner.
-            </p>
+            <p>{t("support_natural_language_description")}</p>
 
-            <h3 className="my-2 text-xl font-bold">
-              What languages does the chatbot support?
+            <h3 className="my-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("what_languages")}
             </h3>
-            <p>
-              Currently, the chatbot supports multiple languages. You can
-              interact with the chatbot in any language you want. In terms of
-              website language, we currently support English and Vietnamese, but
-              we will be working on adding more languages in the next release.
-              Stay tuned!
-            </p>
+            <p>{t("what_languages_description")}</p>
 
-            <h3 className="my-2 text-xl font-bold">
-              Key Features of Our Product
+            <h3 className="my-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("key_features")}
             </h3>
-            <p>
-              Our chatbot offers a range of features including Health Form,
-              Personalized Dashboard, Personalized News, and many more. Each
-              feature is designed to enhance user experience and provide
-              specific functionalities.
-            </p>
+            <p>{t("key_features_description")}</p>
 
-            <h3 className="my-2 text-xl font-bold">
-              Can I request a new feature?
+            <h3 className="my-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("new_feature")}
             </h3>
-            <p>
-              Absolutely! We value user feedback and actively consider feature
-              requests. You can submit your feature request through the
-              &quot;Contact&quot; page, and our team will review it.
-            </p>
+            <p>{t("new_feature_description")}</p>
           </div>
         </div>
       </div>
