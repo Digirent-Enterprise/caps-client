@@ -15,7 +15,8 @@ const Component = React.memo((props: IChatMessageProps) => {
   };
 
   const messageClasses = {
-    chatbot: "bg-gray dark:bg-dark-orange rounded-3xl text-light-blue-hover dark:text-dark-gray",
+    chatbot:
+      "bg-gray dark:bg-dark-orange rounded-3xl text-light-blue-hover dark:text-dark-gray",
     user: "bg-light-blue dark:bg-dark-white rounded-3xl text-dark-white dark:text-dark-blue",
   };
 

@@ -30,7 +30,7 @@ const Component: React.FC = () => {
 
   return (
     <>
-      <h2 className="my-4 text-xl text-light-blue-hover dark:text-dark-white font-semibold">
+      <h2 className="my-4 text-xl font-semibold text-light-blue-hover dark:text-dark-white">
         {t("language")}
       </h2>
 

@@ -49,14 +49,14 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
             leaveTo="-translate-x-full"
           >
             <div className="w-full max-w-screen-md">
-              <div className="relative rounded-lg bg-light-background-gray dark:bg-dark-blue p-8 shadow-xl">
+              <div className="relative rounded-lg bg-light-background-gray p-8 shadow-xl dark:bg-dark-blue">
                 <div className="mb-4 flex items-center justify-between ">
-                  <h2 className="ml-4 text-xl text-light-blue-hover dark:text-dark-white font-semibold">
+                  <h2 className="ml-4 text-xl font-semibold text-light-blue-hover dark:text-dark-white">
                     {t("settings")}
                   </h2>
                   <button
                     type="button"
-                    className="text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-light-text-modal focus:outline-none"
+                    className="text-light-text-modal hover:text-light-blue-hover focus:outline-none dark:text-dark-white dark:hover:text-light-text-modal"
                     onClick={onClose}
                   >
                     <IconX className="h-6 w-6" />
@@ -69,9 +69,9 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                       {tabs.map((tab) => (
                         <button
                           key={tab.id}
-                          className={`px-4 py-2 text-left text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-light-text-modal focus:outline-none ${
+                          className={`px-4 py-2 text-left text-light-text-modal hover:text-light-blue-hover focus:outline-none dark:text-dark-white dark:hover:text-light-text-modal ${
                             selectedTab === tab.id
-                              ? "font-medium light-blue-hover"
+                              ? "light-blue-hover font-medium"
                               : ""
                           }`}
                           onClick={() => setSelectedTab(tab.id)}
@@ -122,14 +122,14 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                   <div className="mt-6 flex justify-end">
                     <button
                       type="button"
-                      className="ml-4 rounded-lg bg-light-gray text-light-background-gray hover:bg-light-blue-hover dark:hover:bg-dark-orange-hover px-4 py-2 focus:outline-none"
+                      className="ml-4 rounded-lg bg-light-gray px-4 py-2 text-light-background-gray hover:bg-light-blue-hover focus:outline-none dark:hover:bg-dark-orange-hover"
                       onClick={onClose}
                     >
                       {t("cancel")}
                     </button>
                     <button
                       type="button"
-                      className="rounded-lg text-light-background-gray bg-light-blue hover:bg-light-blue-hover dark:bg-light-maroon dark:hover:bg-dark-orange-hover px-4 py-2  focus:outline-none"
+                      className="rounded-lg bg-light-blue px-4 py-2 text-light-background-gray hover:bg-light-blue-hover focus:outline-none dark:bg-light-maroon  dark:hover:bg-dark-orange-hover"
                       onClick={onClose}
                     >
                       {t("save")}
