@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 
+import { Progress } from "@nextui-org/react";
 import { useImmer } from "use-immer";
 
 import DashboardPieChart from "@/components/dashboard-pie-chart";
@@ -8,10 +9,9 @@ import WeatherReport from "@/components/weather-report";
 import { AuthContext } from "@/contexts/auth-context";
 import withAuth from "@/hoc/withLogin";
 import useDevice from "@/hooks/useDevice";
+import ContainerCard from "@/shared/chart-container-card";
 import HealthStatusPopupModal from "@/shared/health-status-popup-modal";
 import StatusModal from "@/shared/status-modal";
-import ContainerCard from "@/shared/chart-container-card";
-import {Progress} from "@nextui-org/react";
 
 const Component = React.memo(() => {
   const { isMobile } = useDevice();
@@ -90,12 +90,18 @@ const Component = React.memo(() => {
         <DashboardPieChart type="symptoms" />
         <DashboardPieChart type="categorized-status" />
         <DashboardStatusChart />
-        <ContainerCard chart={ <div className='w-full h-full'>
-          <div className='p-1 w-full text-center text-white'> General score  </div>
-          <div/>
-          <Progress value={80} color='primary' size='xl' />
-        </div>
-        }/>
+        <ContainerCard
+          chart={
+            <div className="h-full w-full">
+              <div className="w-full p-1 text-center text-white">
+                {" "}
+                General score{" "}
+              </div>
+              <div />
+              <Progress value={80} color="primary" size="xl" />
+            </div>
+          }
+        />
       </div>
       <HealthStatusPopupModal isOpen={open} onRequestClose={_onCloseModal} />
     </section>

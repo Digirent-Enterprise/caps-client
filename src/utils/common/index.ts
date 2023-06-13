@@ -24,4 +24,4 @@ export const formatDateAndMonth = (dateTimeStr: string) => {
     // If the input string is not in the expected format, return null
     return "";
   }
-}
+};

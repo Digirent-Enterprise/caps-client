@@ -5,13 +5,13 @@ import { Chart, registerables } from "chart.js";
 import { Line } from "react-chartjs-2";
 
 import { DefaultColorPalette } from "@/components/dashboard-pie-chart/constant";
+import { DATE_AND_MONTH_TIME_FENCE } from "@/components/dashboard-status-chart/constant";
 import { LineChartDataset } from "@/components/dashboard-status-chart/type";
 import LineChart from "@/core/line-chart";
 import useDynamicHealth from "@/hooks/dynamic-health";
 import ContainerCard from "@/shared/chart-container-card";
 
 import { formatDateAndMonth, formatDateTime } from "../../utils/common";
-import {DATE_AND_MONTH_TIME_FENCE} from "@/components/dashboard-status-chart/constant";
 
 Chart.register(...registerables);
 Chart.defaults.color = "#ffffff";
@@ -21,7 +21,7 @@ const Component = React.memo(() => {
 
   const data: ChartData<"line", any, any> = {
     labels:
-    myStatuses.times && myStatuses.times.length < DATE_AND_MONTH_TIME_FENCE
+      myStatuses.times && myStatuses.times.length < DATE_AND_MONTH_TIME_FENCE
         ? myStatuses.times?.map((item) => formatDateTime(item))
         : myStatuses.times?.map((item) => formatDateAndMonth(item)),
     datasets: [
