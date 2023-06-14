@@ -4,10 +4,15 @@ import { ChartData, ChartOptions } from "chart.js";
 import { Chart, registerables } from "chart.js";
 import { Line } from "react-chartjs-2";
 
+import { DefaultColorPalette } from "@/components/dashboard-pie-chart/constant";
+import { DATE_AND_MONTH_TIME_FENCE } from "@/components/dashboard-status-chart/constant";
 import { LineChartDataset } from "@/components/dashboard-status-chart/type";
+import LineChart from "@/core/line-chart";
 import useDynamicHealth from "@/hooks/dynamic-health";
+import ContainerCard from "@/shared/chart-container-card";
 
-import { formatDateTime } from "../../utils/common";
+import { formatDateAndMonth, formatDateTime } from "../../utils/common";
+
 Chart.register(...registerables);
 Chart.defaults.color = "#ffffff";
 
@@ -15,16 +20,20 @@ const Component = React.memo(() => {
   const { myStatuses, getDynamicHealth } = useDynamicHealth();
 
   const data: ChartData<"line", any, any> = {
-    labels: myStatuses.times?.map((item) => formatDateTime(item)),
+    labels:
+      myStatuses.times && myStatuses.times.length < DATE_AND_MONTH_TIME_FENCE
+        ? myStatuses.times?.map((item) => formatDateTime(item))
+        : myStatuses.times?.map((item) => formatDateAndMonth(item)),
     datasets: [
       {
         label: "My heath status",
         data: myStatuses.records,
         fill: true,
-        backgroundColor: "rgba(75,192,192,0.2)",
-        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: DefaultColorPalette,
+        borderColor: DefaultColorPalette,
+        borderWidth: 0,
       },
-    ] as LineChartDataset[],
+    ] as any,
   };
 
   const options: ChartOptions<"line"> = {
@@ -46,17 +55,28 @@ const Component = React.memo(() => {
       },
     },
     color: "white",
+    plugins: {
+      title: {
+        display: true,
+        text: "My health status over time",
+        position: "top",
+        align: "center",
+        color: "white",
+        font: {
+          size: 20,
+        },
+      },
+      legend: {
+        display: false,
+      },
+    },
   };
 
   useEffect(() => {
     getDynamicHealth();
   }, []);
 
-  return (
-    <div className="flex h-full w-full justify-center bg-gray-800 p-4 text-white">
-      <Line data={data} options={options} />
-    </div>
-  );
+  return <ContainerCard chart={<Line data={data} options={options} />} />;
 });
 Component.displayName = "DashboardStatusChart";
 

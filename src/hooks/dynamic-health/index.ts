@@ -32,6 +32,7 @@ const useDynamicHealth = () => {
     try {
       setLoading(true);
       const response = await DynamicHealthService.addDynamicHealth(data);
+      await getDynamicHealth();
       setLoading(false);
       showToast("success", "Update your health status successfully!");
     } catch (error) {

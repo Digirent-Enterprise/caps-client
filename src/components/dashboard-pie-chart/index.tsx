@@ -4,15 +4,18 @@ import { Chart, ChartOptions, registerables } from "chart.js";
 import { ChartData } from "chart.js/dist/types";
 import { Pie } from "react-chartjs-2";
 
+import { DefaultColorPalette } from "@/components/dashboard-pie-chart/constant";
 import {
   IDashboardPieChart,
   PieChartDataset,
 } from "@/components/dashboard-pie-chart/type";
+import PieChart from "@/core/pie-chart";
 import useDynamicHealth from "@/hooks/dynamic-health";
+import ContainerCard from "@/shared/chart-container-card";
 import { formatDateTime } from "@/utils/common";
 
 Chart.register(...registerables);
-Chart.defaults.color = "#ffffff";
+Chart.defaults.color = "#44687E";
 const Component = React.memo((props: IDashboardPieChart) => {
   const { type } = props;
   const {
@@ -36,11 +39,11 @@ const Component = React.memo((props: IDashboardPieChart) => {
                 (key) => categorizedStatus[key]
               )
             : Object.keys(commonSymptoms)?.map((key) => commonSymptoms[key]),
-        fill: true,
-        backgroundColor: "rgba(75,192,192,0.2)",
-        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: DefaultColorPalette,
+        borderColor: DefaultColorPalette,
+        borderWidth: 0,
       },
-    ] as PieChartDataset[],
+    ] as any,
   };
 
   useEffect(() => {
@@ -49,9 +52,18 @@ const Component = React.memo((props: IDashboardPieChart) => {
   }, [type]);
 
   return (
-    <div className="flex h-full w-full justify-center bg-gray-800 p-4 text-white">
-      <Pie data={data} />
-    </div>
+    <ContainerCard
+      chart={
+        <PieChart
+          data={data}
+          title={`${
+            type === "categorized-status"
+              ? "My recorded statuses"
+              : "My recorded symptoms"
+          }`}
+        />
+      }
+    />
   );
 });
 Component.displayName = "DashboardPieChart";

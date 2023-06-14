@@ -12,7 +12,7 @@ const Component: React.FC = () => {
     if (selected) {
       return (
         <div className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-light-blue">
-          <IconCheck className="h-4 w-4 text-white bg-light-blue" />
+          <IconCheck className="h-4 w-4 bg-light-blue text-white" />
         </div>
       );
     }
@@ -21,7 +21,7 @@ const Component: React.FC = () => {
 
   return (
     <>
-      <h2 className="mb-4 text-xl text-light-blue-hover dark:text-dark-white font-semibold">
+      <h2 className="mb-4 text-xl font-semibold text-light-blue-hover dark:text-dark-white">
         {t("theme")}
       </h2>
 
@@ -42,7 +42,7 @@ const Component: React.FC = () => {
               />
               {getCheckIcon(theme === "system")}
             </div>
-            <p className="mt-2 text-center text-light-blue-hover dark:text-dark-white font-medium">
+            <p className="mt-2 text-center font-medium text-light-blue-hover dark:text-dark-white">
               {t("system_preference")}
             </p>
           </div>
@@ -61,7 +61,7 @@ const Component: React.FC = () => {
               />
               {getCheckIcon(theme === "light")}
             </div>
-            <p className="mt-2 text-center text-light-blue-hover dark:text-dark-white font-medium">
+            <p className="mt-2 text-center font-medium text-light-blue-hover dark:text-dark-white">
               {t("light")}
             </p>
           </div>
@@ -80,7 +80,7 @@ const Component: React.FC = () => {
               />
               {getCheckIcon(theme === "dark")}
             </div>
-            <p className="mt-2 text-center text-light-blue-hover dark:text-dark-white font-medium">
+            <p className="mt-2 text-center font-medium text-light-blue-hover dark:text-dark-white">
               {t("dark")}
             </p>
           </div>

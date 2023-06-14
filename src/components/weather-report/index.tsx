@@ -4,7 +4,8 @@ import { IWeatherData } from "@/components/weather-report/type";
 import useDevice from "@/hooks/useDevice";
 import { showToast } from "@/utils/toast";
 
-const Component = () => {
+const Component = (props: { classes?: string }) => {
+  const { classes } = props;
   const [weather, setWeather] = useState<IWeatherData | null>(null);
   const { isMobile } = useDevice();
   const iconSize = isMobile ? 40 : 60;
@@ -50,7 +51,7 @@ const Component = () => {
       : "";
 
   return (
-    <div className="flex items-center">
+    <div className={`flex items-center ${classes}`}>
       <div className="mr-4">
         <img
           src={iconUrl}

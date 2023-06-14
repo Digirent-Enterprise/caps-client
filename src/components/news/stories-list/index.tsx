@@ -145,7 +145,7 @@ const Component = () => {
             <span className="mb-28 rounded-md text-center sm:mb-20">
               <button
                 type="button"
-                className="bg-orange-600 hover:bg-orange-500 focus:border-orange-700 focus:shadow-outline-orange active:bg-orange-700 inline-flex items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out focus:outline-none"
+                className="focus:shadow-outline-orange inline-flex items-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out hover:bg-orange-500 focus:border-orange-700 focus:outline-none active:bg-orange-700"
                 onClick={() => setTotalStories(totalStories + STORIES_OFFSET)}
               >
                 Load More

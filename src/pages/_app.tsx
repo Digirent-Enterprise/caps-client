@@ -9,14 +9,15 @@ import { Inter } from "next/font/google";
 import { SessionProvider } from "next-auth/react";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "next-themes";
+import { useImmer } from "use-immer";
 
 import { AuthProvider } from "@/contexts/auth-context";
 import { ConversationProvider } from "@/contexts/conversation-context";
-import { LoadingContext } from "@/contexts/loading-context";
+import { LoadingContext, LoadingProvider } from "@/contexts/loading-context";
+import Loading from "@/core/loading";
 import ToastContainer from "@/core/toast-container";
 import theme from "@/utils/theme";
 import nextI18nextConfig from "next-i18next.config";
-
 import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,7 +27,7 @@ interface CustomAppProps extends AppProps {
 }
 
 function App({ Component, pageProps, router, err }: CustomAppProps) {
-  const { loading, setLoading } = useContext(LoadingContext);
+  const [loading, setLoading] = useImmer<boolean>(false);
 
   useEffect(() => {
     const handleStart = () => setLoading(true);
@@ -60,15 +61,18 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
         <div className={inter.className}>
           <ChakraProvider theme={theme}>
             <SessionProvider>
-              <AuthProvider>
-                <ConversationProvider>
-                  <ThemeProvider>
-                    <Component {...pageProps} err={err} />
-                  </ThemeProvider>
-                </ConversationProvider>
-              </AuthProvider>
+              <LoadingProvider>
+                <AuthProvider>
+                  <ConversationProvider>
+                    <ThemeProvider>
+                      <Component {...pageProps} err={err} />
+                    </ThemeProvider>
+                  </ConversationProvider>
+                </AuthProvider>
+              </LoadingProvider>
             </SessionProvider>
           </ChakraProvider>
+          <Loading loadingProps={loading} />
           <ToastContainer />
         </div>
       </motion.div>

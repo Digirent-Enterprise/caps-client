@@ -28,7 +28,7 @@ const Component = React.memo(() => {
       </div>
       <div className="my-2 flex border-t border-gray-800 p-2">
         <Link
-          href={"/"}
+          href={"/home"}
           className="flex cursor-pointer flex-row items-center justify-start gap-1"
         >
           <IconArrowBack />
