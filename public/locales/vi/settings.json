@@ -12,6 +12,6 @@
   "language": "Ngôn ngữ",
   "cancel": "Hủy",
   "save": "Lưu",
-  "notifications_enalble": "Bật thông báo qua email",
-  "notifications_enalble_description": "Nhận email định kỳ phù hợp với sở thích và vị trí địa lý của bạn. Hệ thống sẽ phân tích triệu chứng của bạn và cung cấp cập nhật cá nhân về thông tin liên quan đến bệnh sốt xuất huyết phù hợp với nhu cầu của bạn."
+  "notifications_enable": "Bật thông báo qua email",
+  "notifications_enable_description": "Nhận email định kỳ phù hợp với sở thích và vị trí địa lý của bạn. Hệ thống sẽ phân tích triệu chứng của bạn và cung cấp cập nhật cá nhân về thông tin liên quan đến bệnh sốt xuất huyết phù hợp với nhu cầu của bạn."
 }

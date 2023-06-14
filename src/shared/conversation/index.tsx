@@ -131,7 +131,7 @@ const Component = React.memo(
             </div>
           ) : (
             <button
-              className={`flex w-full cursor-pointer items-center gap-3 rounded-lg p-3 text-sm transition-colors duration-200 hover:bg-light-blue-hover hover:text-light-background-gray ${
+              className={`flex w-full cursor-pointer items-center gap-3 rounded-lg bg-light-orange p-3 text-sm text-white transition-colors duration-200 hover:bg-light-blue-hover hover:text-light-gray dark:text-black ${
                 selectedConversation?.id === conversation.id
                   ? "bg-light-background-gray dark:bg-dark-blue"
                   : ""

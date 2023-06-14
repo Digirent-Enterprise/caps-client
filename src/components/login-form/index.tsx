@@ -23,7 +23,6 @@ const Component = React.memo(() => {
   const [form, setForm] = useImmer(DefaultLoginForm);
   const { login } = useLogin();
   const _onInputChange = (value: string, extension?: FormExtension) => {
-    const { data: session } = useSession();
     const { dataKey } = extension!;
     const temp = cloneDeep(form);
     switch (dataKey) {

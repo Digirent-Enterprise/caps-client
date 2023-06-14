@@ -80,7 +80,9 @@ const Component: React.FC<IMessageInputProps> = ({
                 {isRecording ? (
                   <div className="h-4 w-4 animate-spin rounded-full border-t-2 border-neutral-800 opacity-60 dark:border-neutral-100"></div>
                 ) : (
-                  <IconMicrophone color="white" />
+                  <div className="text-light-orange">
+                    <IconMicrophone />
+                  </div>
                 )}
               </Popover.Button>
               <Transition

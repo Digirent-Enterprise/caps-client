@@ -16,8 +16,8 @@ const Component = React.memo((props: IChatMessageProps) => {
 
   const messageClasses = {
     chatbot:
-      "bg-gray dark:bg-dark-orange rounded-3xl text-light-blue-hover dark:text-dark-gray",
-    user: "bg-light-blue dark:bg-dark-white rounded-3xl text-dark-white dark:text-dark-blue",
+      "bg-light-blue dark:bg-dark-orange rounded-3xl text-white dark:text-dark-gray",
+    user: "bg-light-orange dark:bg-dark-white rounded-3xl text-dark-white dark:text-dark-blue",
   };
 
   const containerClass = containerClasses[senderType];
@@ -26,7 +26,7 @@ const Component = React.memo((props: IChatMessageProps) => {
   const _speakMessage = () => {
     const utterance = new SpeechSynthesisUtterance(content);
 
-    utterance.voice = voices.find((voice) => voice.lang === "vi") || null;
+    utterance.voice = voices.find((voice) => voice.lang === "vi-VN") || null;
     utterance.lang = "vi";
 
     speechSynthesis.speak(utterance);
@@ -53,7 +53,7 @@ const Component = React.memo((props: IChatMessageProps) => {
     if (isSpeaking) {
       _speakMessage();
     }
-  }, [isSpeaking]);
+  }, [isSpeaking, content]);
 
   return (
     <div
@@ -71,7 +71,7 @@ const Component = React.memo((props: IChatMessageProps) => {
               onClick={() => setIsSpeaking(true)}
               aria-label="Speak"
             >
-              <div className="dark:text-dark-blue">
+              <div className="text-white dark:text-dark-blue">
                 <IconVolume2 />
               </div>
             </button>

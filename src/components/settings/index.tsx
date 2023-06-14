@@ -102,8 +102,8 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                     <div className="ml-4 mt-2">
                       {selectedTab === 4 && (
                         <Switcher
-                          title={t("notifications_enalble")}
-                          description={t("notifications_enalble_description")}
+                          title={t("notifications_enable")}
+                          description={t("notifications_enable_description")}
                           checked={isEnabledNotification}
                         />
                       )}
@@ -122,18 +122,20 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                   <div className="mt-6 flex justify-end">
                     <button
                       type="button"
-                      className="ml-4 rounded-lg bg-light-gray px-4 py-2 text-light-background-gray hover:bg-light-blue-hover focus:outline-none dark:hover:bg-dark-orange-hover"
+                      className="ml-4 rounded-md bg-light-gray px-4 py-2 text-light-background-gray hover:bg-light-blue-hover focus:outline-none dark:hover:bg-dark-orange-hover"
                       onClick={onClose}
                     >
                       {t("cancel")}
                     </button>
-                    <button
-                      type="button"
-                      className="rounded-lg bg-light-blue px-4 py-2 text-light-background-gray hover:bg-light-blue-hover focus:outline-none dark:bg-light-maroon  dark:hover:bg-dark-orange-hover"
-                      onClick={onClose}
-                    >
-                      {t("save")}
-                    </button>
+                    <div className="ml-2">
+                      <button
+                        type="button"
+                        className="rounded-md bg-light-orange px-4 py-2 text-light-background-gray hover:bg-light-blue-hover focus:outline-none dark:bg-light-maroon  dark:hover:bg-dark-orange-hover"
+                        onClick={onClose}
+                      >
+                        {t("save")}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
