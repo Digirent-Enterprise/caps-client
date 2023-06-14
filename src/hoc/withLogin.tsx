@@ -32,11 +32,7 @@ export default function withAuth<P extends object>(
       }
     }, [user, isLoading, router]);
 
-    return user ? (
-      <LoadingProvider>
-        <Component {...props} />
-      </LoadingProvider>
-    ) : null;
+    return user ? <Component {...props} /> : null;
   };
 
   return WithAuth;

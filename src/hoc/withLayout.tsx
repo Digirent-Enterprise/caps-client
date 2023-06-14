@@ -15,9 +15,7 @@ export default function withLayout<P extends object>(
           data-testid="wrapped-component"
           className="grow overflow-auto border-b border-gray-800 px-4  pb-10 pt-20"
         >
-          <LoadingProvider>
-            <WrappedComponent {...props} />
-          </LoadingProvider>
+          <WrappedComponent {...props} />
         </main>
         <Footer />
       </div>
