@@ -8,8 +8,8 @@ import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import { SessionProvider } from "next-auth/react";
 import { appWithTranslation } from "next-i18next";
-import { useImmer } from "use-immer";
 import { ThemeProvider } from "next-themes";
+import { useImmer } from "use-immer";
 
 import { AuthProvider } from "@/contexts/auth-context";
 import { ConversationProvider } from "@/contexts/conversation-context";
@@ -62,13 +62,13 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
           <ChakraProvider theme={theme}>
             <SessionProvider>
               <LoadingProvider>
-              <AuthProvider>
-                <ConversationProvider>
-                  <ThemeProvider>
-                    <Component {...pageProps} err={err} />
-                  </ThemeProvider>
-                </ConversationProvider>
-              </AuthProvider>
+                <AuthProvider>
+                  <ConversationProvider>
+                    <ThemeProvider>
+                      <Component {...pageProps} err={err} />
+                    </ThemeProvider>
+                  </ConversationProvider>
+                </AuthProvider>
               </LoadingProvider>
             </SessionProvider>
           </ChakraProvider>

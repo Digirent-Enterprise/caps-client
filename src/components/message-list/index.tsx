@@ -103,7 +103,9 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
             messages.length &&
             messages[messages.length - 1].sender ===
               MessageNS.SenderType.USER ? (
-              <div className="text-light-blue-hover dark:text-dark-white">The chat advisor is typing...</div>
+              <div className="text-light-blue-hover dark:text-dark-white">
+                The chat advisor is typing...
+              </div>
             ) : null}
           </div>
         </div>

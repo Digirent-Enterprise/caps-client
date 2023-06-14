@@ -77,7 +77,7 @@ const Component = React.memo(() => {
           <div className="flex flex-row gap-1">
             Please let DICA know your
             <div
-              className="animate-pulse cursor-pointer text-main-blue"
+              className="text-main-blue animate-pulse cursor-pointer"
               onClick={_openModal}
             >
               latest status

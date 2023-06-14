@@ -177,7 +177,7 @@ const Component: React.FC = () => {
 
     return (
       <div
-        className={`text-light-hover-blue dark:text-dark-white flex h-screen w-full overflow-hidden bg-light-background-gray dark:bg-dark-blue antialiased ${
+        className={`text-light-hover-blue flex h-screen w-full overflow-hidden bg-light-background-gray antialiased dark:bg-dark-blue dark:text-dark-white ${
           isMobile ? "flex-col" : ""
         }`}
       >
@@ -192,8 +192,8 @@ const Component: React.FC = () => {
                 isMobile ? "h-full" : ""
               } w-80 flex-none flex-col overflow-auto transition-all duration-300 ease-in-out md:w-1/6 lg:max-w-sm`}
             >
-              <div className="flex flex-row items-center justify-between flex-none p-4">
-                <p className="hidden font-bold text-light-hover-blue md:block">
+              <div className="flex flex-none flex-row items-center justify-between p-4">
+                <p className="text-light-hover-blue hidden font-bold md:block">
                   {t("welcome")} {user?.name}
                 </p>
               </div>
@@ -205,14 +205,14 @@ const Component: React.FC = () => {
                   onSearch={_handleSearchConversation}
                 />
               </div>
-              <div className="flex-none gap-3 p-4 mx-4 text-sm transition-colors duration-200 border rounded-md cursor-pointer text-light-white hover:light-input-hover-gray border-white/20 bg-dark-orange">
+              <div className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-white/20 bg-dark-orange p-4 text-sm text-light-white transition-colors duration-200">
                 <div
                   data-tour="step1"
-                  className="flex items-center cursor-pointer"
+                  className="flex cursor-pointer items-center"
                   onClick={_handleOpenConversationModal}
                 >
                   <IconPlus />
-                  <span className="ml-2 text-light-hover-blue">
+                  <span className="text-light-hover-blue ml-2">
                     {t("new_conversation")}
                   </span>
                 </div>
@@ -230,30 +230,30 @@ const Component: React.FC = () => {
                 createNewConversation={createNewConversation}
               />
               <div className="grow"></div>
-              <div className="flex p-4 pt-8 border-t border-gray-800 dark:border-dark-gray">
+              <div className="flex border-t border-gray-800 p-4 pt-8 dark:border-dark-gray">
                 <div className="flex flex-col gap-2">
                   <Link
                     href={"/health-record"}
-                    className="flex flex-row items-center gap-1 cursor-pointer"
+                    className="flex cursor-pointer flex-row items-center gap-1"
                   >
                     <IconDeviceIpadHeart />
-                    <span className="ml-2 text-sm cursor-pointer text-light-hover-blue">
+                    <span className="text-light-hover-blue ml-2 cursor-pointer text-sm">
                       {t("my_health")}
                     </span>
                   </Link>
                   <Link
                     href={"/news"}
-                    className="flex flex-row items-center gap-1 cursor-pointer"
+                    className="flex cursor-pointer flex-row items-center gap-1"
                   >
                     <IconNews />
-                    <span className="ml-2 text-sm cursor-pointer text-light-hover-blue">
+                    <span className="text-light-hover-blue ml-2 cursor-pointer text-sm">
                       {t("news")}
                     </span>
                   </Link>
                   <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconSettings />
                     <span
-                      className="ml-2 text-sm cursor-pointer text-light-hover-blue"
+                      className="text-light-hover-blue ml-2 cursor-pointer text-sm"
                       onClick={_openSettingsModal}
                     >
                       {t("settings")}
@@ -266,7 +266,7 @@ const Component: React.FC = () => {
                   <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />
                     <span
-                      className="ml-2 text-sm cursor-pointer text-light-hover-blue"
+                      className="text-light-hover-blue ml-2 cursor-pointer text-sm"
                       onClick={signOut}
                     >
                       {t("logout")}
@@ -280,7 +280,7 @@ const Component: React.FC = () => {
                 isMobile ? "" : "w-full"
               }`}
             >
-              <div className="flex flex-row items-center justify-between flex-none px-6 py-4 border-b border-gray-800 shadow dark:border-dark-gray">
+              <div className="flex flex-none flex-row items-center justify-between border-b border-gray-800 px-6 py-4 shadow dark:border-dark-gray">
                 <div className="flex flex-col">
                   <div data-tour="step2" className="flex items-center">
                     <span className="mb-2 mr-2 text-xl font-bold">
@@ -289,7 +289,7 @@ const Component: React.FC = () => {
                     <Popover options={exportOptions} />
                   </div>
                   {selectedConversation && conversations.length > 0 ? (
-                    <div className="h-fit w-fit rounded bg-green px-5 py-1 text-sm text-white">
+                    <div className="bg-green h-fit w-fit rounded px-5 py-1 text-sm text-white">
                       {formatModelOption(
                         selectedConversation?.chatBotType || ""
                       )}

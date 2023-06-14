@@ -30,7 +30,7 @@ const Component = ({
                 aria-haspopup="listbox"
                 aria-expanded="true"
                 aria-labelledby="listbox-label"
-                className="focus:shadow-outline-orange focus:border-orange-300 relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left transition duration-150 ease-in-out focus:outline-none sm:text-sm sm:leading-5"
+                className="focus:shadow-outline-orange relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left transition duration-150 ease-in-out focus:border-orange-300 focus:outline-none sm:text-sm sm:leading-5"
               >
                 <span className="block truncate">
                   {

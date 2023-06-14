@@ -56,7 +56,7 @@ const Component = () => {
         <Disclosure>
           {({ open }) => (
             <>
-              <Disclosure.Button className="focus-visible:ring-blue-500 flex w-full items-center justify-between rounded-lg bg-white px-4 py-2 text-left text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-opacity-75">
+              <Disclosure.Button className="flex w-full items-center justify-between rounded-lg bg-white px-4 py-2 text-left text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
                 <span>Resources</span>
                 {open ? (
                   <IconArrowNarrowUp className="h-5 w-5" />
@@ -70,7 +70,7 @@ const Component = () => {
                     <li key={index}>
                       <a
                         href="#"
-                        className="hover:text-blue-600 flex items-center text-gray-900"
+                        className="flex items-center text-gray-900 hover:text-blue-600"
                       >
                         {resource.icon}
                         {resource.label}
@@ -86,7 +86,7 @@ const Component = () => {
         <Disclosure>
           {({ open }) => (
             <>
-              <Disclosure.Button className="focus-visible:ring-blue-500 mt-4 flex w-full items-center justify-between rounded-lg bg-white px-4 py-2 text-left text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-opacity-75">
+              <Disclosure.Button className="mt-4 flex w-full items-center justify-between rounded-lg bg-white px-4 py-2 text-left text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
                 <span>Categories</span>
                 {open ? (
                   <IconArrowNarrowUp className="h-5 w-5" />
@@ -100,7 +100,7 @@ const Component = () => {
                     <li key={index}>
                       <a
                         href="#"
-                        className="hover:text-blue-600 flex items-center text-gray-900"
+                        className="flex items-center text-gray-900 hover:text-blue-600"
                       >
                         {category.icon}
                         {category.label}
@@ -116,7 +116,7 @@ const Component = () => {
         <Disclosure>
           {({ open }) => (
             <>
-              <Disclosure.Button className="focus-visible:ring-blue-500 mt-4 flex w-full items-center justify-between rounded-lg bg-white px-4 py-2 text-left text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-opacity-75">
+              <Disclosure.Button className="mt-4 flex w-full items-center justify-between rounded-lg bg-white px-4 py-2 text-left text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
                 <span>Tags</span>
                 {open ? (
                   <IconArrowNarrowUp className="h-5 w-5" />
@@ -130,7 +130,7 @@ const Component = () => {
                     <li key={index}>
                       <a
                         href="#"
-                        className="hover:text-blue-600 flex items-center text-gray-900"
+                        className="flex items-center text-gray-900 hover:text-blue-600"
                       >
                         {tag.icon}
                         {tag.label}

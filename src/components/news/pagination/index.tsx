@@ -20,8 +20,8 @@ const PageNumber = ({
         pt-4 text-sm font-medium leading-5 transition 
         duration-150 ease-in-out focus:outline-none`,
         isSelected
-          ? `border-orange-500 text-orange-600 focus:text-orange-800 
-          focus:border-orange-700`
+          ? `border-orange-500 text-orange-600 focus:border-orange-700 
+          focus:text-orange-800`
           : `border-transparent text-gray-500 hover:border-gray-300 
           hover:text-gray-700 focus:border-gray-400 focus:text-gray-700`
       )}
@@ -126,7 +126,7 @@ const Component = ({
 
               <div className="relative mx-2 mt-1 shadow-sm" key={"input"}>
                 <input
-                  className="text-orange-600 form-input focus:text-orange-800 mt-3 block w-12 rounded-sm sm:text-sm sm:leading-5"
+                  className="form-input mt-3 block w-12 rounded-sm text-orange-600 focus:text-orange-800 sm:text-sm sm:leading-5"
                   placeholder="25"
                   value={input}
                   onChange={(e) => {
