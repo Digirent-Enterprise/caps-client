@@ -6,7 +6,8 @@ module.exports = {
     extend: {
       colors: {
         "light-blue-hover": "#162549", //hover button and text
-        "light-blue": "#db8414", // primary button
+        "light-blue": "#002248",
+        "light-orange": "#db8414", // primary button
         "light-gray": "#50514c", //secondary button
         "light-nude": "#e3ece3",
         "light-white": "#ffffff", //text

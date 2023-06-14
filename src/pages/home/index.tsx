@@ -289,7 +289,7 @@ const Component: React.FC = () => {
                     <Popover options={exportOptions} />
                   </div>
                   {selectedConversation && conversations.length > 0 ? (
-                    <div className="bg-green h-fit w-fit rounded px-5 py-1 text-sm text-white">
+                    <div className="h-fit w-fit rounded bg-light-green px-5 py-1 text-sm text-white">
                       {formatModelOption(
                         selectedConversation?.chatBotType || ""
                       )}
