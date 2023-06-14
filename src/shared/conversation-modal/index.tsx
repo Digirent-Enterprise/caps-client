@@ -44,7 +44,7 @@ const Component = React.memo((props: IConversationModalProps) => {
     onClose();
   };
 
-  const handleModelTypeChange = (value: ConversationNS.ChatbotType) => {
+  const _handleModelTypeChange = (value: ConversationNS.ChatbotType) => {
     setSelectedModel(value);
   };
 
@@ -55,7 +55,7 @@ const Component = React.memo((props: IConversationModalProps) => {
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onClose} style={CustomStyle}>
-      <div className="mb-2 flex border-b-2 border-b-gray-700 pb-2">
+      <div className="flex pb-2 mb-2 border-b-2 border-b-gray-700">
         <h2 className="mr-auto text-xl font-bold text-white">
           Create a new conversation
         </h2>
@@ -65,7 +65,7 @@ const Component = React.memo((props: IConversationModalProps) => {
       </div>
 
       <div className="space-y-2">
-        <label className="mb-1 block font-medium text-white">
+        <label className="block mb-1 font-medium text-white">
           Conversation name
         </label>
         <input
@@ -83,14 +83,14 @@ const Component = React.memo((props: IConversationModalProps) => {
           <DropdownMenu
             options={mappedModels}
             onChange={(value: ConversationNS.ChatbotType) =>
-              handleModelTypeChange(value)
+              _handleModelTypeChange(value)
             }
             selectedValue={selectedModel}
             label="Model type"
           />
         </div>
       </div>
-      <div className="mt-3 flex justify-end">
+      <div className="flex justify-end mt-3">
         <div className="ml-5">
           <Button mode="secondary" onClick={_handleCancelClick}>
             Cancel

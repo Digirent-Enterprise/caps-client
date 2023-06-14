@@ -20,9 +20,10 @@ export const formatModelOption = (model: string) => {
 
 export const renderChatBotOptions = () => {
   return Object.keys(ConversationNS.ChatbotType).map((key) => {
+    const chatbotType = ConversationNS.ChatbotType as Record<string, any>;
     return {
-      value: ConversationNS.ChatbotType[key],
-      label: formatModelOption(ConversationNS.ChatbotType[key]),
+      value: chatbotType[key],
+      label: formatModelOption(chatbotType[key]),
     };
   });
 };

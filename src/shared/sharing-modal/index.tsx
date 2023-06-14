@@ -6,7 +6,7 @@ import Modal from "react-modal";
 
 import { CustomStyle } from "@/shared/sharing-modal/constant";
 import { ISharingModalProps } from "@/shared/sharing-modal/type";
-import { formatDate } from "@/utils/date-time";
+import { formatDate } from "@/utils/common";
 
 const Component: React.FC<ISharingModalProps> = ({
   isOpen,

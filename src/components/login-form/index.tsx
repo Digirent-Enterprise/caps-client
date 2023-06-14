@@ -3,7 +3,8 @@ import React from "react";
 import { IconBrandFacebook, IconBrandGoogle } from "@tabler/icons-react";
 import { cloneDeep } from "lodash";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { signIn, useSession } from "next-auth/react";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
@@ -13,6 +14,7 @@ import TextInput from "@/core/text-input";
 import { FormExtension } from "@/core/text-input/type";
 import useLogin from "@/hooks/auth/useLogin";
 import useDevice from "@/hooks/useDevice";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 const Component = React.memo(() => {
   const { t } = useTranslation("login");
@@ -21,6 +23,7 @@ const Component = React.memo(() => {
   const [form, setForm] = useImmer(DefaultLoginForm);
   const { login } = useLogin();
   const _onInputChange = (value: string, extension?: FormExtension) => {
+    const { data: session } = useSession();
     const { dataKey } = extension!;
     const temp = cloneDeep(form);
     switch (dataKey) {
@@ -42,30 +45,32 @@ const Component = React.memo(() => {
   return (
     <div
       className={
-        isDesktop ? "flex w-2/5 flex-col gap-4" : "flex w-full flex-col gap-1"
+        isDesktop
+          ? "flex w-2/5 flex-col gap-4 bg-light-background-gray dark:bg-dark-blue"
+          : "flex w-full flex-col gap-1 bg-light-background-gray dark:bg-dark-blue"
       }
     >
-      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-blue">
+      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
         {t("login_heading")}
       </div>
       <button
-        className="flex cursor-pointer items-center justify-center rounded bg-[#1778f2] px-4 py-2 font-bold text-white hover:bg-[#3b5998] focus:ring-2 focus:ring-blue"
-        onClick={() => signIn()}
+        className="focus:ring-blue flex cursor-pointer items-center justify-center rounded bg-[#1778f2] px-4 py-2 font-bold text-white hover:bg-[#3b5998] focus:ring-2"
+        onClick={() => signIn("facebook")}
       >
         <IconBrandFacebook className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>
       </button>
       <button
-        className="mt-4 flex cursor-pointer items-center justify-center rounded bg-[#EA4335] px-4 py-2 font-bold text-white hover:bg-[#DB4437] focus:ring-2 focus:ring-blue"
-        onClick={() => signIn()}
+        className="focus:ring-blue mt-4 flex cursor-pointer items-center justify-center rounded bg-[#EA4335] px-4 py-2 font-bold text-white hover:bg-[#DB4437] focus:ring-2"
+        onClick={() => signIn("google")}
       >
         <IconBrandGoogle className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>
       </button>
       <div className="inline-flex w-full items-center justify-center">
         <hr className="my-8 h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
-        <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 font-medium text-gray-900">
-          or
+        <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 font-medium text-gray-900 dark:bg-dark-blue dark:text-dark-white">
+          {t("or")}
         </span>
       </div>
       <TextInput
@@ -78,11 +83,11 @@ const Component = React.memo(() => {
         onChange={_onInputChange}
       />
       <TextInput
-        label="Password"
+        label={t("password")}
         type="password"
         name="password"
         value={form.password}
-        placeHolder={"password"}
+        placeHolder={t("password")}
         dataKey="password"
         onChange={_onInputChange}
       />
@@ -91,9 +96,11 @@ const Component = React.memo(() => {
         {t("login_description")}
       </Button>
       <label className="text-xl">
-        Did not have an account?{" "}
+        {t("have_not_registered")}{" "}
         <Link href={"/auth/register"}>
-          <span className="text-blue">Register</span>
+          <span className="text-light-text-heading dark:text-dark-white">
+            {t("register")}
+          </span>
         </Link>
       </label>
     </div>
@@ -103,3 +110,22 @@ const Component = React.memo(() => {
 Component.displayName = "LoginForm";
 
 export default Component;
+
+export async function getServerSideProps(context: any) {
+  const session = await getServerSession(context.req, context.res, authOptions);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  } else {
+    return {
+      props: {
+        session,
+      },
+    };
+  }
+}

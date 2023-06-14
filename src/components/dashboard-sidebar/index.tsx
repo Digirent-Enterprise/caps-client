@@ -39,7 +39,7 @@ const Component = React.memo(() => {
       </div>
       <div className="flex border-t border-gray-800 p-3">
         <div className="flex w-full flex-col gap-3">
-          <div
+          <Link
             href={"/health-record"}
             className="flex w-full cursor-pointer flex-row items-center gap-1 bg-gray-800 p-2"
           >
@@ -47,8 +47,8 @@ const Component = React.memo(() => {
             <span className="ml-2 cursor-pointer text-sm text-white">
               My General Heath Statistic
             </span>
-          </div>
-          <div
+          </Link>
+          <Link
             href={"/health-record"}
             className="flex cursor-pointer flex-row items-center gap-1 p-2 opacity-25"
           >
@@ -56,8 +56,8 @@ const Component = React.memo(() => {
             <span className="ml-2 cursor-pointer text-sm text-white">
               My Health History
             </span>
-          </div>
-          <div
+          </Link>
+          <Link
             href={"/health-record"}
             className="flex cursor-pointer flex-row items-center gap-1 p-2 opacity-25"
           >
@@ -65,7 +65,7 @@ const Component = React.memo(() => {
             <span className="ml-2 cursor-pointer text-sm text-white">
               My secret recommendations
             </span>
-          </div>
+          </Link>
         </div>
       </div>
       <div className="flex-none p-4"></div>

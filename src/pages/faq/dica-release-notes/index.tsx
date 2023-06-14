@@ -1,63 +1,60 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { useRouter } from "next/router";
+
+import { useTranslation } from "next-i18next";
 
 import FaqHeader from "@/components/faq/header";
 import Footer from "@/shared/footer";
+import { convertUrlToTitle } from "@/utils/common";
 
 const Component: React.FC = () => {
+  const { t } = useTranslation("faq");
+  const router = useRouter();
+  const currentPage = router.pathname;
+
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex bg-background-gray dark:bg-dark-blue min-h-screen flex-col">
       <div className="my-10">
-        <FaqHeader />
+        <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
         <div className="mx-auto mt-10 max-w-3xl">
-          <h2 className="mb-4 text-2xl font-bold">DICA - Release notes</h2>
-          <div className="rounded bg-white p-4 shadow">
-            <h3 className="mb-2 text-xl font-bold">
-              Version 1.0.0 - Initial Release
+          <h2 className="mb-4 text-light-blue-hover dark:text-dark-orange text-2xl font-bold">
+            {t("release")}
+          </h2>
+          <div className="rounded bg-background-gray dark:bg-dark-blue p-4 shadow">
+            <h3 className="mb-2 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("version_1.0.0")}
             </h3>
             <ul className="list-inside list-disc">
-              <li>Implemented the basic chatbot functionality</li>
-              <li>
-                Added support for answering domain-specific questions related to
-                dengue
-              </li>
-              <li>Designed a user-friendly interface</li>
+              <li>{t("version_1.0.0_description")}</li>
+              <li>{t("version_1.0.0_description2")}</li>
+              <li>{t("version_1.1.0_description3")}</li>
             </ul>
 
-            <h3 className="my-4 text-xl font-bold">
-              Version 1.1.0 - Enhanced Features
+            <h3 className="my-4 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("version_1.1.0")}
             </h3>
             <ul className="list-inside list-disc">
-              <li>Improved natural language processing capabilities</li>
-              <li>
-                Expanded the knowledge base with more comprehensive information
-              </li>
-              <li>Added support for mobile devices and responsive design</li>
-              <li>Fixed various bugs and performance issues</li>
+              <li>{t("version_1.1.0_description")}</li>
+              <li>{t("version_1.1.0_description2")}</li>
+              <li>{t("version_1.1.0_description3")}</li>
+              <li>{t("version_1.1.0_description4")}</li>
             </ul>
 
-            <h3 className="my-4 text-xl font-bold">
-              Version 1.2.0 - Security and Privacy Enhancements
+            <h3 className="my-4 text-light-blue-hover dark:text-dark-white text-xl font-bold">
+              {t("version_1.2.0")}
             </h3>
             <ul className="list-inside list-disc">
-              <li>
-                Implemented stronger encryption algorithms for data protection
-              </li>
-              <li>Enhanced user data privacy measures</li>
-              <li>
-                Updated the privacy policy to comply with the latest regulations
-              </li>
+              <li>{t("version_1.2.0_description")}</li>
+              <li>{t("version_1.2.0_description2")}</li>
+              <li>{t("version_1.2.0_description3")}</li>
             </ul>
 
-            <h3 className="my-4 text-xl font-bold">
-              Version 1.3.0 - Improved User Experience
-            </h3>
+            <h3 className="my-4 text-xl font-bold">{t("version_1.3.0")}</h3>
             <ul className="list-inside list-disc">
-              <li>Added typing indicators for a more interactive experience</li>
-              <li>
-                Implemented auto-suggestions to assist users in formulating
-                queries
-              </li>
-              <li>Optimized performance for faster response times</li>
+              <li>{t("version_1.3.0_description")}</li>
+              <li>{t("version_1.3.0_description2")}</li>
+              <li>{t("version_1.3.0_description3")}</li>
             </ul>
           </div>
         </div>

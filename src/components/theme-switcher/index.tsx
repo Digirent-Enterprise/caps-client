@@ -1,32 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { IconCheck } from "@tabler/icons-react";
 import Image from "next/image";
-
-import { Theme } from "@/components/theme-switcher/type";
+import { useTranslation } from "next-i18next";
+import { useTheme } from "next-themes";
 
 const Component: React.FC = () => {
-  const [theme, setTheme] = useState<Theme>("system");
-
-  useEffect(() => {
-    const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
-      .matches
-      ? "dark"
-      : "light";
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    setTheme(savedTheme ?? preferredTheme);
-  }, []);
-
-  const _handleThemeChange = (newTheme: Theme) => {
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-  };
-
+  const { theme, setTheme } = useTheme();
+  const { t } = useTranslation("settings");
   const getCheckIcon = (selected: boolean) => {
     if (selected) {
       return (
         <div className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-light-blue">
-          <IconCheck className="h-4 w-4 text-white" />
+          <IconCheck className="h-4 w-4 text-white bg-light-blue" />
         </div>
       );
     }
@@ -35,7 +21,9 @@ const Component: React.FC = () => {
 
   return (
     <>
-      <h2 className="mb-4 text-xl font-semibold">Theme</h2>
+      <h2 className="mb-4 text-xl text-light-blue-hover dark:text-dark-white font-semibold">
+        {t("theme")}
+      </h2>
 
       <div className="flex flex-col items-center">
         <div className="flex cursor-pointer">
@@ -44,7 +32,7 @@ const Component: React.FC = () => {
               className={`rounded border-2 ${
                 theme === "system" ? "border-light-blue" : ""
               }`}
-              onClick={() => _handleThemeChange("system")}
+              onClick={() => setTheme("system")}
             >
               <Image
                 src="/theme/dark.png"
@@ -54,14 +42,16 @@ const Component: React.FC = () => {
               />
               {getCheckIcon(theme === "system")}
             </div>
-            <p className="mt-2 text-center font-medium">System Preference</p>
+            <p className="mt-2 text-center text-light-blue-hover dark:text-dark-white font-medium">
+              {t("system_preference")}
+            </p>
           </div>
           <div className="relative mr-4">
             <div
               className={`rounded border-2 ${
                 theme === "light" ? "border-light-blue" : ""
               }`}
-              onClick={() => _handleThemeChange("light")}
+              onClick={() => setTheme("light")}
             >
               <Image
                 src="/theme/dark.png"
@@ -71,14 +61,16 @@ const Component: React.FC = () => {
               />
               {getCheckIcon(theme === "light")}
             </div>
-            <p className="mt-2 text-center font-medium">Light Theme</p>
+            <p className="mt-2 text-center text-light-blue-hover dark:text-dark-white font-medium">
+              {t("light")}
+            </p>
           </div>
           <div className="relative">
             <div
               className={`rounded border-2 ${
                 theme === "dark" ? "border-light-blue" : ""
               }`}
-              onClick={() => _handleThemeChange("dark")}
+              onClick={() => setTheme("dark")}
             >
               <Image
                 src="/theme/dark.png"
@@ -88,7 +80,9 @@ const Component: React.FC = () => {
               />
               {getCheckIcon(theme === "dark")}
             </div>
-            <p className="mt-2 text-center font-medium">Dark Theme</p>
+            <p className="mt-2 text-center text-light-blue-hover dark:text-dark-white font-medium">
+              {t("dark")}
+            </p>
           </div>
         </div>
       </div>

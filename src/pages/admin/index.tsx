@@ -1,13 +1,10 @@
-import AdminManagement from "@/components/admin-management";
+import React from "react";
 
-const Component = () => {
-  return (
-    <div className="flex flex-wrap">
-      <AdminManagement />
-      <div className="mb-12 w-full px-4 xl:mb-0 xl:w-8/12">{/*  Chart 1*/}</div>
-      <div className="w-full px-4 xl:w-4/12">{/*  Chart 2*/}</div>
-    </div>
-  );
-};
+import Dashboard from "@/pages/admin/dashboard";
+
+const Component = React.memo(() => {
+  return <Dashboard />;
+});
+
 Component.displayName = "Admin";
 export default Component;
