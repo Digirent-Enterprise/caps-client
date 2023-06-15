@@ -3,6 +3,7 @@ export namespace MessageNS {
     id: number;
     content: string;
     sender: SenderType;
+    language?: string;
   };
 
   export type Messages = Message[];
