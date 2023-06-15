@@ -45,7 +45,7 @@ const Component: React.FC<IMessageInputProps> = ({
   const _handleRecording = () => {
     const recognition = new (window as any).webkitSpeechRecognition();
     recognition.lang = selectedLanguage;
-    recognition.continuous = false;
+    recognition.continuous = true;
     recognition.interimResults = false;
 
     recognition.onstart = () => {
@@ -57,7 +57,6 @@ const Component: React.FC<IMessageInputProps> = ({
 
     recognition.onresult = (event: any) => {
       const { transcript } = event.results[0][0];
-      setTranscript(transcript);
       onValueChange(transcript);
       setIsRecording(false);
     };
@@ -114,7 +113,7 @@ const Component: React.FC<IMessageInputProps> = ({
           data-tour={dataTourTwo}
           ref={inputRef}
           className="w-full rounded-full border border-gray-800 bg-light-background-gray py-2 pl-3 pr-10 text-gray-200 transition duration-300 ease-in focus:border-gray-700 focus:bg-gray-900 focus:shadow-md focus:outline-none dark:bg-gray-800"
-          value={transcript || message}
+          value={message}
           onChange={(e) => onValueChange(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Ask anything (Shift-Enter for new line, Enter to send)"

@@ -1,4 +1,4 @@
-import React from "preact/compat";
+import React from "react";
 
 import DashboardContent from "@/components/dashboard-content";
 import DashboardSidebar from "@/components/dashboard-sidebar";

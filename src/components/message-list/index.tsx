@@ -30,6 +30,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
 
       if (socket) {
         socket.on("message", (message: MessageNS.Message) => {
+            console.log('call ', message)
           setMessages(message);
         });
       }
@@ -96,6 +97,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
                 conservationId={message.id}
                 content={message.content}
                 senderType={message.sender}
+                language={message.language}
               />
             ))}
             <div ref={messagesEndRef}></div>
