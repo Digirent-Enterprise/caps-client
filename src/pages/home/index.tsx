@@ -171,8 +171,8 @@ const Component: React.FC = () => {
     }, [user]);
 
     useEffect(() => {
-      getAllMessages({conversationId: selectedConversation.id})
-    }, [])
+      getAllMessages({ conversationId: selectedConversation.id });
+    }, []);
 
     return (
       <div
@@ -321,7 +321,7 @@ const Component: React.FC = () => {
           description={`${t("hi")}, ${user?.name}. ${t("thank_you")}`}
           primaryButtonText={t("sure")}
           secondButton
-          secondaryButtonText={t("not_right_now")|| 'Not right now'}
+          secondaryButtonText={t("not_right_now") || "Not right now"}
           onSecondaryButtonClick={_onModalClose}
           onPrimaryButtonClick={_onModalConfirm}
         />
