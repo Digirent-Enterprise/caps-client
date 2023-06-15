@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { IconX } from "@tabler/icons-react";
 import Modal from "react-modal";
-
+import { useTranslation } from "next-i18next";
 import Button from "@/core/button";
 import DropdownMenu from "@/core/dropdown-menu";
 import useDevice from "@/hooks/useDevice";
@@ -15,7 +15,7 @@ const Component = React.memo((props: IConversationModalProps) => {
   const { isOpen, onClose, createNewConversation } = props;
   const { isMobile } = useDevice();
   const [conversationName, setConversationName] = useState<string>("");
-
+  const { t } = useTranslation("create_conversation");
   const mappedModels = React.useMemo(() => {
     return renderChatBotOptions();
   }, []);
@@ -55,18 +55,18 @@ const Component = React.memo((props: IConversationModalProps) => {
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onClose} style={CustomStyle}>
-      <div className="mb-2 flex border-b-2 border-b-gray-700 pb-2">
-        <h2 className="mr-auto text-xl font-bold text-white">
-          Create a new conversation
+      <div className="mb-2 flex border-b-2 bg-light-background-gray border-b-light-gray pb-2">
+        <h2 className="mr-auto text-xl font-bold text-light-blue-hover">
+          {t("create")}
         </h2>
-        <button onClick={onClose} className="text-white">
+        <button onClick={onClose} className="text-light-blue-hover">
           <IconX />
         </button>
       </div>
 
       <div className="space-y-2">
-        <label className="mb-1 block font-medium text-white">
-          Conversation name
+        <label className="mb-1 block font-medium text-light-blue-hover">
+          {t("name")}
         </label>
         <input
           type="text"
@@ -75,7 +75,7 @@ const Component = React.memo((props: IConversationModalProps) => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setConversationName(e.target.value)
           }
-          className={`w-full rounded-md border border-gray-700 bg-gray-700 py-2 pl-3 pr-10 text-gray-200 transition duration-300 ease-in focus:border-gray-700 focus:bg-gray-900 focus:shadow-md focus:outline-none ${
+          className={`w-full rounded-md border border-light-gray bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:bg-light-gray focus:shadow-md focus:outline-none ${
             isMobile ? "text-sm" : ""
           }`}
         />
@@ -86,19 +86,19 @@ const Component = React.memo((props: IConversationModalProps) => {
               _handleModelTypeChange(value)
             }
             selectedValue={selectedModel}
-            label="Model type"
+            label={t("model")}
           />
         </div>
       </div>
       <div className="mt-3 flex justify-end">
         <div className="ml-5">
           <Button mode="secondary" onClick={_handleCancelClick}>
-            Cancel
+            {t("cancel")}
           </Button>
         </div>
         <div className="ml-5">
           <Button mode="primary" onClick={_handleSubmitModal}>
-            Save
+            {t("save")}
           </Button>
         </div>
       </div>
