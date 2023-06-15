@@ -57,7 +57,7 @@ const Component: React.FC = () => {
       setSelectedConversation,
     } = useConversation();
 
-    const { getAllMessages } = useMessage();
+    const { getAllMessages, messages } = useMessage();
 
     const chatContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -132,20 +132,15 @@ const Component: React.FC = () => {
     };
 
     const _handleExportJson = async () => {
-      const getMessageReq: MessageNS.GetMessageReq = {
-        conversationId: selectedConversation.id,
-      };
-
       try {
-        const messages = getAllMessages(getMessageReq);
         const json = JSON.stringify(messages);
         console.log(messages, "mess");
         const blob = new Blob([json], { type: "application/json" });
         const url = URL.createObjectURL(blob);
-        // const link = document.createElement("a");
-        // link.href = url;
-        // link.download = "messages.json";
-        // link.click();
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "messages.json";
+        link.click();
       } catch (error) {
         console.error("Error exporting messages:", error);
       }
@@ -174,6 +169,10 @@ const Component: React.FC = () => {
     useEffect(() => {
       if (user) _initForm();
     }, [user]);
+
+    useEffect(() => {
+      getAllMessages({conversationId: selectedConversation.id})
+    }, [])
 
     return (
       <div
@@ -322,7 +321,7 @@ const Component: React.FC = () => {
           description={`${t("hi")}, ${user?.name}. ${t("thank_you")}`}
           primaryButtonText={t("sure")}
           secondButton
-          secondaryButtonText={t("not_right_now")}
+          secondaryButtonText={t("not_right_now")|| 'Not right now'}
           onSecondaryButtonClick={_onModalClose}
           onPrimaryButtonClick={_onModalConfirm}
         />

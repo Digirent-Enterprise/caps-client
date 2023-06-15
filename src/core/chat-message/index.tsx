@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 import { IconVolume2 } from "@tabler/icons-react";
+import axios from "axios";
 
 import { IChatMessageProps } from "@/core/chat-message/type";
-import axios from "axios";
 
 const Component = React.memo((props: IChatMessageProps) => {
   const { conservationId, content, senderType, language } = props;
@@ -22,30 +22,30 @@ const Component = React.memo((props: IChatMessageProps) => {
   const containerClass = containerClasses[senderType];
   const messageClass = messageClasses[senderType];
 
-  const _speak =   async () => {
-    const api = 'https://api.fpt.ai/hmi/tts/v5'
-    const response = await axios.post(api, content, {headers: {
-        'api-key': 'ZGnYwVUSYDwW3Wy7l9UFLBCG0XH03SqB',
-        'speed': '',
-        'voice': 'linhsan'
-      }})
+  const _speak = async () => {
+    const api = "https://api.fpt.ai/hmi/tts/v5";
+    const response = await axios.post(api, content, {
+      headers: {
+        "api-key": "ZGnYwVUSYDwW3Wy7l9UFLBCG0XH03SqB",
+        speed: "",
+        voice: "linhsan",
+      },
+    });
 
-    if (response){
+    if (response) {
       try {
-        const audio = new Audio(response.data.async)
-        await audio.play()
-      } catch (e) {
-
-      }
+        const audio = new Audio(response.data.async);
+        await audio.play();
+      } catch (e) {}
     }
-    setIsSpeaking(false)
-  }
+    setIsSpeaking(false);
+  };
 
   useEffect(() => {
     if (isSpeaking) {
       _speak();
     }
-  }, [isSpeaking])
+  }, [isSpeaking]);
 
   return (
     <div
