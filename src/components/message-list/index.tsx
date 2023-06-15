@@ -63,6 +63,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
           content: message,
           sender: MessageNS.SenderType.USER,
         });
+        console.log("message", message);
         _clearMessage();
       }
     };

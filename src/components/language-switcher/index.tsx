@@ -40,7 +40,7 @@ const Component: React.FC = () => {
             key={locale}
             className={`rounded-lg p-2 ${
               currentLocale?.locale === locale
-                ? "bg-light-blue text-light-background-gray dark:bg-dark-orange dark:text-dark-white"
+                ? "bg-light-orange text-light-background-gray dark:bg-dark-orange dark:text-dark-white"
                 : "bg-light-background-gray text-light-blue-hover dark:bg-dark-blue dark:text-dark-white"
             }`}
             onClick={_handleChangeLanguage(locale)}

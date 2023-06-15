@@ -4,7 +4,7 @@ const { i18n } = require("./next-i18next.config");
 const nextConfig = {
   reactStrictMode: true,
   i18n,
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  pageExtensions: ["ts", "tsx", "js", "jsx"],
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname,
   },
