@@ -123,7 +123,7 @@ const Component: React.FC<IMessageInputProps> = ({
         />
         <button
           type="button"
-          className="text-light-button-green hover:text-light-button-green-hover mx-2 flex h-6 w-6 shrink-0 focus:outline-none"
+          className="mx-2 flex h-6 w-6 shrink-0 text-light-button-green hover:text-light-button-green-hover focus:outline-none"
           onClick={message ? handleSend : () => {}}
         >
           <IconSend color="green" />

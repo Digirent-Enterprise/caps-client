@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
 import { IconX } from "@tabler/icons-react";
-import Modal from "react-modal";
 import { useTranslation } from "next-i18next";
+import Modal from "react-modal";
+
 import Button from "@/core/button";
 import DropdownMenu from "@/core/dropdown-menu";
 import useDevice from "@/hooks/useDevice";
@@ -55,7 +56,7 @@ const Component = React.memo((props: IConversationModalProps) => {
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onClose} style={CustomStyle}>
-      <div className="mb-2 flex border-b-2 bg-light-background-gray border-b-light-gray pb-2">
+      <div className="mb-2 flex border-b-2 border-b-light-gray bg-light-background-gray pb-2">
         <h2 className="mr-auto text-xl font-bold text-light-blue-hover">
           {t("create")}
         </h2>

@@ -1,0 +1,21 @@
+{
+  "update": "Update Health Status",
+  "how": "How are you feeling today?",
+  "critical": "Critical",
+  "poor": "Poor",
+  "not_good": "Not Good",
+  "fair": "Fair",
+  "good": "Good",
+  "cancel": "Cancel",
+  "submit": "Submit",
+  "select": "Select any symptoms you are experiencing (select multiple)",
+  "fever": "Fever",
+  "cough": "Cough",
+  "shortness": "Shortness of breath",
+  "fatigue": "Fatigue",
+  "muscle": "Muscle of body aches",
+  "sore": "Sore throat",
+  "congestion": "Congestion or runny nose",
+  "nausea": "Nausea or vomiting",
+  "diarrhea": "Diarrhea"
+}

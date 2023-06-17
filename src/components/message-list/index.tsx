@@ -88,7 +88,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
           ref={ref}
           className={`flex ${
             isMobile ? "h-full" : "flex-auto"
-          } flex-col overflow-y-scroll border-l border-light-gray`}
+          } flex-col overflow-y-scroll border-l border-light-gray hide-scrollbar`}
         >
           <div data-tour={props.dataTourOne} className="flex-1 p-4">
             {messages.map((message, index) => (

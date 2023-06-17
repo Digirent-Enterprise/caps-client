@@ -18,7 +18,7 @@ const Component = React.memo((props: ITextareaProps) => {
 
   return (
     <div className="mb-4 flex w-full flex-col">
-      <label htmlFor={value} className="text-light-hover-blue mb-2 font-medium">
+      <label htmlFor={value} className="text-light-hover-blue mb-2 font-bold">
         {label}
       </label>
       <textarea

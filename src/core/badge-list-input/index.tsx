@@ -50,7 +50,7 @@ const Component: React.FC<IBadgeListInputProps> = ({
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label className="text-light-hover-blue mb-2 block font-medium">
+        <label className="text-light-hover-blue mb-2 block font-bold">
           {label}
         </label>
         <input

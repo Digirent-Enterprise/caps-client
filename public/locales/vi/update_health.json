@@ -1,0 +1,21 @@
+{
+  "update": "Cập nhật Trạng thái Sức khỏe",
+  "how": "Bạn cảm thấy thế nào hôm nay?",
+  "critical": "Nghiêm trọng",
+  "poor": "Yếu",
+  "not_good": "Không tốt",
+  "fair": "Bình thường",
+  "good": "Tốt",
+  "cancel": "Hủy",
+  "submit": "Gửi",
+  "select": "Chọn các triệu chứng bạn đang gặp phải (chọn nhiều)",
+  "fever": "Sốt",
+  "cough": "Ho",
+  "shortness": "Khó thở",
+  "fatigue": "Mệt mỏi",
+  "muscle": "Đau cơ toàn thân",
+  "sore": "Đau họng",
+  "congestion": "Nghẹt mũi hoặc chảy nước mũi",
+  "nausea": "Buồn nôn hoặc nôn mửa",
+  "diarrhea": "Tiêu chảy"
+}

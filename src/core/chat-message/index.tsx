@@ -16,8 +16,8 @@ const Component = React.memo((props: IChatMessageProps) => {
 
   const messageClasses = {
     chatbot:
-      "bg-light-blue dark:bg-dark-orange rounded-3xl text-white dark:text-dark-gray",
-    user: "bg-light-orange dark:bg-dark-white rounded-3xl text-dark-white dark:text-dark-blue",
+      "bg-light-button-green dark:bg-dark-orange rounded-3xl text-white dark:text-dark-gray",
+    user: "bg-light-button-green-hover dark:bg-dark-white rounded-3xl text-dark-white dark:text-dark-blue",
   };
 
   const containerClass = containerClasses[senderType];
@@ -57,7 +57,7 @@ const Component = React.memo((props: IChatMessageProps) => {
 
   return (
     <div
-      className={`mt-5 grid grid-flow-row gap-2 text-sm text-gray-700 ${containerClass}`}
+      className={`mt-5 grid grid-flow-row gap-2 text-sm text-light-blue-hover ${containerClass}`}
     >
       <div className={`group flex ${containerClass}`}>
         <div

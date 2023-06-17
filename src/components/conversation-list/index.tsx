@@ -95,7 +95,7 @@ const Component: React.FC<IConversationListProps> = (
 
   if (!Object.keys(groupedConversations).length)
     return (
-      <div className="text-light-blue-hover m-4 font-bold">
+      <div className="m-4 font-bold text-light-blue-hover">
         {t("empty_conversation")}
       </div>
     );
@@ -104,7 +104,7 @@ const Component: React.FC<IConversationListProps> = (
     <div
       className={`mt-4 flex ${
         isDesktop ? "flex-col" : "scroll-m-2"
-      } gap-2 overflow-y-scroll border-b-light-gray p-2`}
+      } gap-2 overflow-y-scroll border-b-light-gray p-2 hide-scrollbar`}
     >
       {Object.keys(groupedConversations).map((label) => (
         <div key={label}>

@@ -10,7 +10,7 @@ const Component: React.FC = () => {
 
   return (
     <div
-      className={`flex h-screen  w-full overflow-hidden bg-gray-900 text-gray-200 antialiased  ${
+      className={`flex h-screen  w-full overflow-hidden bg-light-background-gray text-light-blue-hover antialiased  ${
         isMobile ? "flex-col" : ""
       }`}
     >

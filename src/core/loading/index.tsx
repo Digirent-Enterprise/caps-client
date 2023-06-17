@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useMemo } from "react";
-
+import { useTranslation } from "next-i18next";
 import { LoadingContext } from "@/contexts/loading-context";
 
 const Component = React.memo((props: { loadingProps?: boolean }) => {
+  const { t } = useTranslation("home");
   const { loadingProps } = props;
   const { loading } = useContext(LoadingContext);
   if (!loading && !loadingProps) {
@@ -20,17 +21,19 @@ const Component = React.memo((props: { loadingProps?: boolean }) => {
           />
         </div>
         <div className="relative bottom-12 flex space-x-1">
-          <div className="animate-bounce font-bold text-white">Dengue</div>
-          <div className="animate-bounce font-bold text-white delay-75">
-            portal
+          <div className="animate-bounce font-bold text-light-blue-hover">
+            {t("dengue")}
           </div>
-          <div className="animate-bounce font-bold text-white delay-100">
-            is
+          <div className="animate-bounce font-bold text-light-blue-hover delay-75">
+            {t("portal")}
           </div>
-          <div className="animate-bounce font-bold text-white delay-150">
-            loading
+          <div className="animate-bounce font-bold text-light-blue-hover delay-100">
+            {t("is")}
           </div>
-          <div className="animate-bounce font-bold text-white delay-200">
+          <div className="animate-bounce font-bold text-light-blue-hover delay-150">
+            {t("loading")}
+          </div>
+          <div className="animate-bounce font-bold text-light-blue-hover delay-200">
             ...
           </div>
         </div>
