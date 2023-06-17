@@ -114,14 +114,14 @@ const Component = React.memo(
       <>
         <div
           className={`relative flex items-center ${
-            selected ? "bg-gray-700" : ""
+            selected ? "bg-light-backgroud-gray" : ""
           }`}
         >
           {isRenaming && selectedConversation?.id === conversation.id ? (
-            <div className="group flex w-full items-center gap-3 rounded-md bg-gray-800 p-3">
+            <div className="group flex w-full items-center gap-3 rounded-md bg-light-blue-hover p-3">
               <IconMessage size={18} />
               <input
-                className="mr-12 flex-1 overflow-hidden text-ellipsis bg-transparent text-left text-[12.5px] leading-3 text-white outline-none"
+                className="mr-12 flex-1 overflow-hidden text-ellipsis bg-light-blue-hover text-left text-[12.5px] leading-3 text-light-blue-hover outline-none"
                 type="text"
                 value={renameValue}
                 onChange={(e) => setRenameValue(e.target.value)}
@@ -131,7 +131,7 @@ const Component = React.memo(
             </div>
           ) : (
             <button
-              className={`flex w-full cursor-pointer items-center gap-3 rounded-lg bg-light-orange p-3 text-sm text-white transition-colors duration-200 hover:bg-light-blue-hover hover:text-light-gray dark:text-black ${
+              className={`flex w-full cursor-pointer items-center gap-3 rounded-lg border border-light-gray bg-light-background-gray p-3 text-sm text-light-blue-hover transition-colors duration-200 hover:bg-light-gray dark:text-black ${
                 selectedConversation?.id === conversation.id
                   ? "bg-light-background-gray dark:bg-dark-blue"
                   : ""
@@ -154,7 +154,7 @@ const Component = React.memo(
 
           {(isDeleting || isRenaming) &&
             selectedConversation?.id === conversation.id && (
-              <div className="text-light-300 absolute right-1 z-10 flex">
+              <div className="text-light-blue-hover absolute right-1 z-10 flex">
                 <SidebarActionButton handleClick={_handleConfirm}>
                   <IconCheck size={18} color="text-light-green dark:white" />
                 </SidebarActionButton>
@@ -167,7 +167,7 @@ const Component = React.memo(
           {selectedConversation?.id === conversation.id &&
             !isDeleting &&
             !isRenaming && (
-              <div className="absolute right-1 z-10 flex text-gray-300">
+              <div className="absolute right-1 z-10 flex text-light-gray">
                 <SidebarActionButton handleClick={_handleOpenRenameModal}>
                   <IconPencil size={18} color="gray" />
                 </SidebarActionButton>
