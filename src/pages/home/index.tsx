@@ -204,7 +204,7 @@ const Component: React.FC = () => {
                   onSearch={_handleSearchConversation}
                 />
               </div>
-              <div className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-white/20 bg-dark-orange p-4 text-sm text-light-white transition-colors duration-200">
+              <div className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-light-white bg-light-button-green p-4 text-sm text-light-white transition-colors duration-200 hover:bg-light-button-green-hover">
                 <div
                   data-tour="step1"
                   className="flex cursor-pointer items-center"
@@ -229,7 +229,7 @@ const Component: React.FC = () => {
                 createNewConversation={createNewConversation}
               />
               <div className="grow"></div>
-              <div className="flex border-t border-gray-800 p-4 pt-8 dark:border-dark-gray">
+              <div className="flex border-t border-light-gray p-4 pt-8 shadow dark:border-dark-gray">
                 <div className="flex flex-col gap-2">
                   <Link
                     href={"/health-record"}
@@ -275,11 +275,11 @@ const Component: React.FC = () => {
               </div>
             </section>
             <section
-              className={`flex flex-auto flex-col border border-gray-800 dark:border-dark-gray ${
+              className={`flex flex-auto flex-col border border-light-gray shadow dark:border-dark-gray ${
                 isMobile ? "" : "w-full"
               }`}
             >
-              <div className="flex flex-none flex-row items-center justify-between border-b border-gray-800 px-6 py-4 shadow dark:border-dark-gray">
+              <div className="flex flex-none flex-row items-center justify-between border-b border-light-gray px-6 py-4 shadow dark:border-dark-gray">
                 <div className="flex flex-col">
                   <div data-tour="step2" className="flex items-center">
                     <span className="mb-2 mr-2 text-xl font-bold">

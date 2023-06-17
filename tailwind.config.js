@@ -5,10 +5,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "light-blue-hover": "#162549", //hover button and text
-        "light-blue": "#002248",
+        "light-blue-hover": "#162549", //text
+        "light-blue": "#162539",
+        "light-button-green": "#14a27d", //hover button
+        "light-button-green-hover": "#0e9272", // button
         "light-orange": "#db8414", // primary button
-        "light-gray": "#50514c", //secondary button
+        "light-gray": "#e5e5e5", //secondary button
         "light-nude": "#e3ece3",
         "light-white": "#ffffff", //text
         "light-maroon": "#872c45",

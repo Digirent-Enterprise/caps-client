@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 
 import { INavbarProps } from "@/components/admin-dashboard/navbar/type";
+
 import { isWindowAvailable } from "@/utils/navigation";
 
 const Component = (props: INavbarProps) => {
