@@ -2,10 +2,11 @@ import React from "react";
 
 import { Box, Grid } from "@chakra-ui/react";
 
-import Banner from "@/shared/banner";
 import GeneralInformation from "@/shared/general-information";
 import AdminLayout from "@/shared/layout/admin";
 import Upload from "@/shared/upload";
+
+import Banner from "@/shared/banner";
 
 const Component = () => {
   return (
