@@ -10,10 +10,18 @@ import Link from "next/link";
 
 import { AuthContext } from "@/contexts/auth-context";
 import useDevice from "@/hooks/useDevice";
+import {IDashboardSidebarProps} from "@/components/dashboard-sidebar/type";
+import {DashboardContentTabs} from "@/components/dashboard-content/type";
 
-const Component = React.memo(() => {
+const Component = React.memo((props: IDashboardSidebarProps) => {
   const { isMobile } = useDevice();
+  const { tab, onChangeTab } = props
   const { user, signOut } = useContext(AuthContext);
+
+  const _onChangeTab = (tab: DashboardContentTabs) => {
+    if (onChangeTab) onChangeTab(tab)
+  }
+
 
   return (
     <section
@@ -39,15 +47,15 @@ const Component = React.memo(() => {
       </div>
       <div className="flex border-t border-gray-800 p-3">
         <div className="flex w-full flex-col gap-3">
-          <Link
-            href={"/health-record"}
-            className="flex w-full cursor-pointer flex-row items-center gap-1 bg-gray-800 p-2"
+          <div
+            className={`flex w-full cursor-pointer flex-row items-center gap-1 p-2 ${tab === 'MyGeneralHealthStatistics' ? 'bg-gray-800' : ''}`}
+            onClick={() => _onChangeTab('MyGeneralHealthStatistics')}
           >
             <IconDeviceIpadHeart />
             <span className="ml-2 cursor-pointer text-sm text-white">
               My General Heath Statistic
             </span>
-          </Link>
+          </div>
           <Link
             href={"/health-record"}
             className="flex cursor-pointer flex-row items-center gap-1 p-2 opacity-25"
@@ -57,15 +65,15 @@ const Component = React.memo(() => {
               My Health History
             </span>
           </Link>
-          <Link
-            href={"/health-record"}
-            className="flex cursor-pointer flex-row items-center gap-1 p-2 opacity-25"
+          <div
+            className={`flex cursor-pointer flex-row items-center gap-1 p-2 ${ tab === 'MySecretRecommendation' ? 'bg-gray-800' : ''}`}
+            onClick={() => _onChangeTab('MySecretRecommendation')}
           >
             <IconBellPlusFilled />
             <span className="ml-2 cursor-pointer text-sm text-white">
               My secret recommendations
             </span>
-          </Link>
+          </div>
         </div>
       </div>
       <div className="flex-none p-4"></div>

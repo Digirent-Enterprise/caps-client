@@ -29,35 +29,35 @@ interface CustomAppProps extends AppProps {
 function App({ Component, pageProps, router, err }: CustomAppProps) {
   const [loading, setLoading] = useImmer<boolean>(false);
 
-  useEffect(() => {
-    const handleStart = () => setLoading(true);
-
-    const handleComplete = () => setLoading(false);
-
-    router.events.on("routeChangeStart", handleStart);
-
-    router.events.on("routeChangeComplete", handleComplete);
-
-    router.events.on("routeChangeError", handleComplete);
-
-    return () => {
-      router.events.off("routeChangeStart", handleStart);
-
-      router.events.off("routeChangeComplete", handleComplete);
-
-      router.events.off("routeChangeError", handleComplete);
-    };
-  }, [router, setLoading]);
+  // useEffect(() => {
+  //   const handleStart = () => setLoading(true);
+  //
+  //   const handleComplete = () => setLoading(false);
+  //
+  //   router.events.on("routeChangeStart", handleStart);
+  //
+  //   router.events.on("routeChangeComplete", handleComplete);
+  //
+  //   router.events.on("routeChangeError", handleComplete);
+  //
+  //   return () => {
+  //     router.events.off("routeChangeStart", handleStart);
+  //
+  //     router.events.off("routeChangeComplete", handleComplete);
+  //
+  //     router.events.off("routeChangeError", handleComplete);
+  //   };
+  // }, [router, setLoading]);
 
   return (
     <AnimatePresence>
-      <motion.div
-        key={router.route}
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: 100 }}
-        transition={{ duration: 0.5 }}
-      >
+      {/*<motion.div*/}
+      {/*  key={router.route}*/}
+      {/*  initial={{ opacity: 0, x: -100 }}*/}
+      {/*  animate={{ opacity: 1, x: 0 }}*/}
+      {/*  exit={{ opacity: 0, x: 100 }}*/}
+      {/*  transition={{ duration: 0.5 }}*/}
+      {/*>*/}
         <div className={inter.className}>
           <ChakraProvider theme={theme}>
             <SessionProvider>
@@ -75,7 +75,7 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
           <Loading loadingProps={loading} />
           <ToastContainer />
         </div>
-      </motion.div>
+      {/*</motion.div>*/}
     </AnimatePresence>
   );
 }
