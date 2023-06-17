@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
+
 import { Progress } from "@nextui-org/react";
+import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
 import DashboardPieChart from "@/components/dashboard-pie-chart";
@@ -11,7 +13,6 @@ import useDevice from "@/hooks/useDevice";
 import ContainerCard from "@/shared/chart-container-card";
 import HealthStatusPopupModal from "@/shared/health-status-popup-modal";
 import StatusModal from "@/shared/status-modal";
-import { useTranslation } from "next-i18next";
 const Component = React.memo(() => {
   const { t } = useTranslation("health_record");
   const { isMobile } = useDevice();
@@ -46,7 +47,7 @@ const Component = React.memo(() => {
 
   return (
     <section
-      className={`mx-4 flex flex-auto flex-col overflow-y-scroll border border-light-gray px-8 shadow-accent-dark hide-scrollbar ${
+      className={`hide-scrollbar mx-4 flex flex-auto flex-col overflow-y-scroll border border-light-gray px-8 shadow-accent-dark ${
         isMobile ? "" : "w-full"
       }`}
     >
@@ -66,7 +67,7 @@ const Component = React.memo(() => {
           />
         </div>
 
-        <div className="absolute -bottom-6 left-0 flex h-2/3 w-full text-light-white flex-col items-start justify-start bg-transparent/10 p-4 pt-2 drop-shadow-md backdrop-blur-xl">
+        <div className="absolute -bottom-6 left-0 flex h-2/3 w-full flex-col items-start justify-start bg-transparent/10 p-4 pt-2 text-light-white drop-shadow-md backdrop-blur-xl">
           <div className="mt-3 text-3xl font-semibold text-white ">
             {t("welcome_back")} {user?.name}
           </div>

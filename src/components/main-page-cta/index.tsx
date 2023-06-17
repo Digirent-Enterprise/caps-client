@@ -97,7 +97,7 @@ const Component = memo(() => {
   };
   return (
     <div className="mt-4 flex w-full flex-col items-center justify-center bg-light-background-gray px-36 dark:bg-dark-blue">
-      <div className="text-light-blue-hover text-4xl dark:text-dark-orange-heading">
+      <div className="text-4xl text-light-blue-hover dark:text-dark-orange-heading">
         {t("how_can_we_help_you")}
       </div>
       <div className="mt-2 flex flex-row gap-5">
@@ -116,12 +116,12 @@ const Component = memo(() => {
         </button>
       </div>
       <div className="mt-5 md:w-full lg:w-2/3">
-        <div className="text-light-blue-hover flex w-full flex-row flex-wrap items-center justify-center gap-10 dark:text-dark-orange ">
+        <div className="flex w-full flex-row flex-wrap items-center justify-center gap-10 text-light-blue-hover dark:text-dark-orange ">
           {(tab === 0 ? ImmediateActions : LongTermActions).map((action) => {
             if (getActionIcon(action))
               return (
                 <div className="flex flex-col items-center justify-center gap-2 text-center">
-                  <div className="w-fit rounded-full bg-light-background-gray border border-light-blue-hover p-5">
+                  <div className="w-fit rounded-full border border-light-blue-hover bg-light-background-gray p-5">
                     {getActionIcon(action)}
                   </div>
                   <div className="font-bold">{action}</div>

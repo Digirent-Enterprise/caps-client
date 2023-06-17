@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useMemo } from "react";
+
 import { useTranslation } from "next-i18next";
+
 import { LoadingContext } from "@/contexts/loading-context";
 
 const Component = React.memo((props: { loadingProps?: boolean }) => {

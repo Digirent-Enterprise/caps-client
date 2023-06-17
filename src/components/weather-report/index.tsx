@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+
 import { useTranslation } from "next-i18next";
+
 import { IWeatherData } from "@/components/weather-report/type";
 import useDevice from "@/hooks/useDevice";
 import { showToast } from "@/utils/toast";

@@ -8,8 +8,9 @@ import {
   IconMoodCry,
   IconMoodSmile,
 } from "@tabler/icons-react";
-import Modal from "react-modal";
 import { useTranslation } from "next-i18next";
+import Modal from "react-modal";
+
 import useDynamicHealth from "@/hooks/dynamic-health";
 import { DynamicHealthNS } from "@/services/dynamic-health/type";
 import {
@@ -138,7 +139,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
               multiple
               value={symptoms}
               onChange={_handleSymptomsChange}
-              className="w-full rounded-lg border border-light-gray px-3 py-2 shadow-sm focus:outline-none focus:ring-2 hide-scrollbar"
+              className="hide-scrollbar w-full rounded-lg border border-light-gray px-3 py-2 shadow-sm focus:outline-none focus:ring-2"
             >
               {allSymptoms.map((symptom) => (
                 <option key={symptom} value={symptom}>
@@ -150,13 +151,13 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
         )}
         <div className="flex justify-end gap-1">
           <button
-            className="bg-light-background-gray border border-light-gray mt-6 rounded-lg px-4 py-2 font-medium text-light-blue-hover transition-colors duration-200 ease-in-out hover:bg-light-gray focus:outline-none focus:ring-2 dark:bg-dark-red"
+            className="mt-6 rounded-lg border border-light-gray bg-light-background-gray px-4 py-2 font-medium text-light-blue-hover transition-colors duration-200 ease-in-out hover:bg-light-gray focus:outline-none focus:ring-2 dark:bg-dark-red"
             onClick={onRequestClose}
           >
             {t("cancel")}
           </button>
           <button
-            className="bg-light-button-green focus:ring-blue mt-6 rounded-lg px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-light-button-green-hover focus:outline-none focus:ring-2 dark:bg-dark-blue"
+            className="focus:ring-blue mt-6 rounded-lg bg-light-button-green px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-light-button-green-hover focus:outline-none focus:ring-2 dark:bg-dark-blue"
             onClick={_handleSubmit}
           >
             {t("submit")}

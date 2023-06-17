@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+
 import { DynamicHealthNS } from "@/services/dynamic-health/type";
 
 export interface IHealthStatusPopupModalProps {

@@ -27,7 +27,6 @@ const Component = React.memo((props: ISelectOptionProps) => {
             <label className="inline-flex cursor-pointer items-center">
               <input
                 type={type}
-                className="text-light-hover-blue"
                 value={option.value}
                 checked={selectedOption === option}
                 onChange={() => _handleChange(option)}

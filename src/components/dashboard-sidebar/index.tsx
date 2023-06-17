@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useTranslation } from "next-i18next";
+
 import {
   IconArrowBack,
   IconBellPlusFilled,
@@ -7,6 +7,7 @@ import {
   IconHistory,
 } from "@tabler/icons-react";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 import { AuthContext } from "@/contexts/auth-context";
 import useDevice from "@/hooks/useDevice";
@@ -23,7 +24,7 @@ const Component = React.memo(() => {
       } flex-none flex-col overflow-auto border-r border-light-gray transition-all duration-300 ease-in-out  md:w-1/3 lg:max-w-sm `}
     >
       <div className="flex flex-col justify-start gap-1 p-4">
-        <p className="hidden text-light-blue-hover text-lg font-bold md:block">
+        <p className="hidden text-lg font-bold text-light-blue-hover md:block">
           {t("welcome")} {user?.name}
         </p>
       </div>
@@ -42,7 +43,7 @@ const Component = React.memo(() => {
         <div className="flex w-full flex-col gap-3">
           <Link
             href={"/health-record"}
-            className="flex w-full cursor-pointer flex-row items-center gap-1 text-light-white bg-light-button-green p-2"
+            className="flex w-full cursor-pointer flex-row items-center gap-1 bg-light-button-green p-2 text-light-white"
           >
             <IconDeviceIpadHeart />
             <span className="ml-2 cursor-pointer text-sm text-light-white">

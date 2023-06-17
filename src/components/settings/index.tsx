@@ -122,7 +122,7 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                   <div className="mt-6 flex justify-end">
                     <button
                       type="button"
-                      className="ml-4 rounded-md bg-light-background-gray border border-light-gray px-4 py-2 text-light-blue-hover hover:bg-light-gray focus:outline-none dark:hover:bg-dark-orange-hover"
+                      className="ml-4 rounded-md border border-light-gray bg-light-background-gray px-4 py-2 text-light-blue-hover hover:bg-light-gray focus:outline-none dark:hover:bg-dark-orange-hover"
                       onClick={onClose}
                     >
                       {t("cancel")}
