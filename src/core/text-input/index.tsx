@@ -40,7 +40,7 @@ const Component = React.memo((props: IInputProps) => {
   return (
     <div className="mb-5 space-y-1">
       <label
-        className="mb-2 block font-medium text-light-blue-hover"
+        className="mb-2 block font-bold text-light-blue-hover"
         htmlFor={name}
       >
         {label}
