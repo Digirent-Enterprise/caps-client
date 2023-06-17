@@ -154,7 +154,7 @@ const Component = React.memo(
 
           {(isDeleting || isRenaming) &&
             selectedConversation?.id === conversation.id && (
-              <div className="text-light-blue-hover absolute right-1 z-10 flex">
+              <div className="absolute right-1 z-10 flex text-light-blue-hover">
                 <SidebarActionButton handleClick={_handleConfirm}>
                   <IconCheck size={18} color="text-light-green dark:white" />
                 </SidebarActionButton>

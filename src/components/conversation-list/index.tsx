@@ -95,7 +95,7 @@ const Component: React.FC<IConversationListProps> = (
 
   if (!Object.keys(groupedConversations).length)
     return (
-      <div className="text-light-blue-hover m-4 font-bold">
+      <div className="m-4 font-bold text-light-blue-hover">
         {t("empty_conversation")}
       </div>
     );

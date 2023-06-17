@@ -204,7 +204,7 @@ const Component: React.FC = () => {
                   onSearch={_handleSearchConversation}
                 />
               </div>
-              <div className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-light-white bg-light-button-green hover:bg-light-button-green-hover p-4 text-sm text-light-white transition-colors duration-200">
+              <div className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-light-white bg-light-button-green p-4 text-sm text-light-white transition-colors duration-200 hover:bg-light-button-green-hover">
                 <div
                   data-tour="step1"
                   className="flex cursor-pointer items-center"
@@ -229,7 +229,7 @@ const Component: React.FC = () => {
                 createNewConversation={createNewConversation}
               />
               <div className="grow"></div>
-              <div className="flex border-t border-light-gray shadow p-4 pt-8 dark:border-dark-gray">
+              <div className="flex border-t border-light-gray p-4 pt-8 shadow dark:border-dark-gray">
                 <div className="flex flex-col gap-2">
                   <Link
                     href={"/health-record"}
