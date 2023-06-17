@@ -9,13 +9,20 @@ import {
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
+import { DashboardContentTabs } from "@/components/dashboard-content/type";
+import { IDashboardSidebarProps } from "@/components/dashboard-sidebar/type";
 import { AuthContext } from "@/contexts/auth-context";
 import useDevice from "@/hooks/useDevice";
 
-const Component = React.memo(() => {
+const Component = React.memo((props: IDashboardSidebarProps) => {
   const { t } = useTranslation("health_record");
   const { isMobile } = useDevice();
+  const { tab, onChangeTab } = props;
   const { user, signOut } = useContext(AuthContext);
+
+  const _onChangeTab = (tab: DashboardContentTabs) => {
+    if (onChangeTab) onChangeTab(tab);
+  };
 
   return (
     <section
@@ -41,15 +48,17 @@ const Component = React.memo(() => {
       </div>
       <div className="flex border-t border-light-gray p-3">
         <div className="flex w-full flex-col gap-3">
-          <Link
-            href={"/health-record"}
-            className="flex w-full cursor-pointer flex-row items-center gap-1 bg-light-button-green p-2 text-light-white"
+          <div
+            className={`flex w-full cursor-pointer flex-row items-center text-light-white gap-1 p-2 ${
+              tab === "MyGeneralHealthStatistics" ? "bg-light-button-green" : ""
+            }`}
+            onClick={() => _onChangeTab("MyGeneralHealthStatistics")}
           >
             <IconDeviceIpadHeart />
             <span className="ml-2 cursor-pointer text-sm text-light-white">
               {t("my_general")}
             </span>
-          </Link>
+          </div>
           <Link
             href={"/health-record"}
             className="flex cursor-pointer flex-row items-center gap-1 p-2 opacity-25"
@@ -59,15 +68,17 @@ const Component = React.memo(() => {
               {t("my_health")}
             </span>
           </Link>
-          <Link
-            href={"/health-record"}
-            className="flex cursor-pointer flex-row items-center gap-1 p-2 opacity-25"
+          <div
+            className={`flex cursor-pointer flex-row items-center gap-1 p-2 ${
+              tab === "MySecretRecommendation" ? "bg-gray-800" : ""
+            }`}
+            onClick={() => _onChangeTab("MySecretRecommendation")}
           >
             <IconBellPlusFilled />
             <span className="ml-2 cursor-pointer text-sm text-light-blue-hover">
               {t("my_secret")}
             </span>
-          </Link>
+          </div>
         </div>
       </div>
       <div className="flex-none p-4"></div>

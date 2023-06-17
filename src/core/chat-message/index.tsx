@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 import { IconVolume2 } from "@tabler/icons-react";
+import axios from "axios";
 
 import { IChatMessageProps } from "@/core/chat-message/type";
 
 const Component = React.memo((props: IChatMessageProps) => {
-  const { conservationId, content, senderType } = props;
+  const { conservationId, content, senderType, language } = props;
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
-
   const containerClasses = {
     chatbot: "justify-start",
     user: "items-center flex-row-reverse",
@@ -23,37 +22,30 @@ const Component = React.memo((props: IChatMessageProps) => {
   const containerClass = containerClasses[senderType];
   const messageClass = messageClasses[senderType];
 
-  const _speakMessage = () => {
-    const utterance = new SpeechSynthesisUtterance(content);
+  const _speak = async () => {
+    const api = "https://api.fpt.ai/hmi/tts/v5";
+    const response = await axios.post(api, content, {
+      headers: {
+        "api-key": "ZGnYwVUSYDwW3Wy7l9UFLBCG0XH03SqB",
+        speed: "",
+        voice: "linhsan",
+      },
+    });
 
-    utterance.voice = voices.find((voice) => voice.lang === "vi-VN") || null;
-    utterance.lang = "vi";
-
-    speechSynthesis.speak(utterance);
-
-    utterance.onend = () => {
-      setIsSpeaking(false);
-    };
+    if (response) {
+      try {
+        const audio = new Audio(response.data.async);
+        await audio.play();
+      } catch (e) {}
+    }
+    setIsSpeaking(false);
   };
 
   useEffect(() => {
-    const handleVoicesChanged = () => {
-      const allVoices = speechSynthesis.getVoices();
-      setVoices(allVoices);
-    };
-
-    speechSynthesis.addEventListener("voiceschanged", handleVoicesChanged);
-
-    return () => {
-      speechSynthesis.removeEventListener("voiceschanged", handleVoicesChanged);
-    };
-  }, []);
-
-  useEffect(() => {
     if (isSpeaking) {
-      _speakMessage();
+      _speak();
     }
-  }, [isSpeaking, content]);
+  }, [isSpeaking]);
 
   return (
     <div
@@ -66,15 +58,20 @@ const Component = React.memo((props: IChatMessageProps) => {
         >
           <div style={{ display: "flex", alignItems: "center" }}>
             <p>{content}</p>
-            <button
-              className="ml-2"
-              onClick={() => setIsSpeaking(true)}
-              aria-label="Speak"
-            >
-              <div className="text-white dark:text-dark-blue">
-                <IconVolume2 />
-              </div>
-            </button>
+            {language && language === "vi" && (
+              <button
+                className="ml-2"
+                onClick={() => {
+                  setIsSpeaking(true);
+                }}
+                disabled={isSpeaking}
+                aria-label="Speak"
+              >
+                <div className="text-black dark:text-dark-blue">
+                  <IconVolume2 />
+                </div>
+              </button>
+            )}
           </div>
         </div>
       </div>
