@@ -1,11 +1,13 @@
 import React, { memo, useContext, useEffect, useMemo, useRef } from "react";
-import WeatherReport from "@/components/weather-report";
+
+import { useImmer } from "use-immer";
+
+import DashboardAverageHealthScore from "@/components/dashboard-average-health-score";
 import DashboardPieChart from "@/components/dashboard-pie-chart";
 import DashboardStatusChart from "@/components/dashboard-status-chart";
-import DashboardAverageHealthScore from "@/components/dashboard-average-health-score";
-import HealthStatusPopupModal from "@/shared/health-status-popup-modal";
-import { useImmer } from "use-immer";
+import WeatherReport from "@/components/weather-report";
 import { AuthContext } from "@/contexts/auth-context";
+import HealthStatusPopupModal from "@/shared/health-status-popup-modal";
 
 const Component = memo(() => {
   const cloudRef = useRef<HTMLDivElement | null>(null);
@@ -90,4 +92,4 @@ const Component = memo(() => {
 });
 
 Component.displayName = "DashboardMyGeneralHealthStatistic";
-export default Component
+export default Component;

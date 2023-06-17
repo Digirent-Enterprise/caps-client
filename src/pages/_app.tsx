@@ -58,23 +58,23 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
       {/*  exit={{ opacity: 0, x: 100 }}*/}
       {/*  transition={{ duration: 0.5 }}*/}
       {/*>*/}
-        <div className={inter.className}>
-          <ChakraProvider theme={theme}>
-            <SessionProvider>
-              <LoadingProvider>
-                <AuthProvider>
-                  <ConversationProvider>
-                    <ThemeProvider>
-                      <Component {...pageProps} err={err} />
-                    </ThemeProvider>
-                  </ConversationProvider>
-                </AuthProvider>
-              </LoadingProvider>
-            </SessionProvider>
-          </ChakraProvider>
-          <Loading loadingProps={loading} />
-          <ToastContainer />
-        </div>
+      <div className={inter.className}>
+        <ChakraProvider theme={theme}>
+          <SessionProvider>
+            <LoadingProvider>
+              <AuthProvider>
+                <ConversationProvider>
+                  <ThemeProvider>
+                    <Component {...pageProps} err={err} />
+                  </ThemeProvider>
+                </ConversationProvider>
+              </AuthProvider>
+            </LoadingProvider>
+          </SessionProvider>
+        </ChakraProvider>
+        <Loading loadingProps={loading} />
+        <ToastContainer />
+      </div>
       {/*</motion.div>*/}
     </AnimatePresence>
   );

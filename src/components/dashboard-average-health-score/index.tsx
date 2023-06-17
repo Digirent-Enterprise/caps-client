@@ -1,8 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+
 import { CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
-import ContainerCard from "@/shared/chart-container-card";
-import useDynamicHealth from "@/hooks/dynamic-health";
 import { isEmpty } from "lodash";
+
+import useDynamicHealth from "@/hooks/dynamic-health";
+import ContainerCard from "@/shared/chart-container-card";
 
 const Component = React.memo(() => {
   const { myStatuses, getDynamicHealth } = useDynamicHealth();
@@ -12,7 +14,7 @@ const Component = React.memo(() => {
     if (averageScore > 30 && averageScore < 60) return "#db8414";
     if (averageScore > 60) return "#2f855a";
     return "red.400";
-  }, [averageScore])
+  }, [averageScore]);
 
   useEffect(() => {
     if (isEmpty(myStatuses)) {
@@ -48,13 +50,13 @@ const Component = React.memo(() => {
             General health score
           </div>
           <div />
-          <div className="w-full h-full">
+          <div className="h-full w-full">
             <CircularProgress
               size="100%"
               value={averageScore}
               color={colorRender}
               thickness="15%"
-              trackColor='#162549'
+              trackColor="#162549"
             >
               <CircularProgressLabel className="text-4xl font-bold">
                 {averageScore}

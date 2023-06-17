@@ -1,5 +1,7 @@
-export type DashboardContentTabs = 'MyGeneralHealthStatistics' | 'MySecretRecommendation'
+export type DashboardContentTabs =
+  | "MyGeneralHealthStatistics"
+  | "MySecretRecommendation";
 
 export interface IDashboardContentProps {
-    tab?: DashboardContentTabs;
+  tab?: DashboardContentTabs;
 }

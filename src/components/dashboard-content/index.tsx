@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useMemo, useRef } from "react";
-import useDevice from "@/hooks/useDevice";
+
 import { IDashboardContentProps } from "@/components/dashboard-content/type";
 import DashboardMyGeneralHealthStatistic from "@/components/dashboard-my-general-health-statistic";
+import useDevice from "@/hooks/useDevice";
 
 const Component = React.memo((props: IDashboardContentProps) => {
   const { tab = "MyGeneralHealthStatistics" } = props;
