@@ -16,7 +16,6 @@ const Component: React.FC<IMessageInputProps> = ({
   const [isHealthStatusModalOpen, setIsHealthStatusPopupModalOpen] =
     useState<boolean>(false);
   const [isRecording, setIsRecording] = useState(false);
-  const [transcript, setTranscript] = useState<string>("");
   const [selectedLanguage, setSelectedLanguage] = useState<string>("");
   const inputRef = useRef<HTMLInputElement>(null);
 
