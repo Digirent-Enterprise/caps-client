@@ -69,8 +69,8 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
             </span>
           </div>
           <Link
-              href={"/health-record"}
-              className="flex cursor-pointer flex-row items-center gap-1 p-2 opacity-25"
+            href={"/health-record"}
+            className="flex cursor-pointer flex-row items-center gap-1 p-2 opacity-25"
           >
             <IconHistory />
             <span className="ml-2 cursor-pointer text-sm text-white">

@@ -18,9 +18,9 @@ const Component = React.memo((props: IDashboardContentProps) => {
         <DashboardMyGeneralHealthStatistic />
       )}
       {tab === "MySecretRecommendation" && (
-        <div className="w-full h-full flex flex-col gap-2 mt-4">
-          <div className="w-full h-1/4">
-            <div className="w-1/4 h-full bg-red"></div>
+        <div className="mt-4 flex h-full w-full flex-col gap-2">
+          <div className="h-1/4 w-full">
+            <div className="h-full w-1/4 bg-red"></div>
           </div>
         </div>
       )}
