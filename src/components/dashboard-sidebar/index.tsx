@@ -57,15 +57,6 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
               My General Heath Statistic
             </span>
           </div>
-          <Link
-            href={"/health-record"}
-            className="flex cursor-pointer flex-row items-center gap-1 p-2 opacity-25"
-          >
-            <IconHistory />
-            <span className="ml-2 cursor-pointer text-sm text-white">
-              My Health History
-            </span>
-          </Link>
           <div
             className={`flex cursor-pointer flex-row items-center gap-1 p-2 ${
               tab === "MySecretRecommendation" ? "bg-gray-800" : ""
@@ -74,9 +65,18 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
           >
             <IconBellPlusFilled />
             <span className="ml-2 cursor-pointer text-sm text-white">
-              My secret recommendations
+              General recommendations
             </span>
           </div>
+          <Link
+              href={"/health-record"}
+              className="flex cursor-pointer flex-row items-center gap-1 p-2 opacity-25"
+          >
+            <IconHistory />
+            <span className="ml-2 cursor-pointer text-sm text-white">
+              My Health History
+            </span>
+          </Link>
         </div>
       </div>
       <div className="flex-none p-4"></div>

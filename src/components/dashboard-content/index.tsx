@@ -17,6 +17,13 @@ const Component = React.memo((props: IDashboardContentProps) => {
       {tab === "MyGeneralHealthStatistics" && (
         <DashboardMyGeneralHealthStatistic />
       )}
+      {tab === "MySecretRecommendation" && (
+        <div className="w-full h-full flex flex-col gap-2 mt-4">
+          <div className="w-full h-1/4">
+            <div className="w-1/4 h-full bg-red"></div>
+          </div>
+        </div>
+      )}
     </section>
   );
 });
