@@ -49,7 +49,7 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
             leaveTo="-translate-x-full"
           >
             <div className="w-full max-w-screen-md">
-              <div className="relative rounded-lg bg-light-background-gray p-8 shadow-xl dark:bg-dark-blue">
+              <div className="relative rounded-lg bg-light-background-gray p-8 shadow-xl dark:bg-dark-gray-heavy">
                 <div className="mb-4 flex items-center justify-between ">
                   <h2 className="ml-4 text-xl font-semibold text-light-blue-hover dark:text-dark-white">
                     {t("settings")}

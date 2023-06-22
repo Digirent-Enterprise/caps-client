@@ -37,20 +37,20 @@ const Component: React.FC<IBadgeListInputProps> = ({
   };
 
   let inputClassNames =
-    "w-full rounded-lg border border-light-border-gray dark:bg-dark-blue p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-green dark:focus:ring-dark-orange";
+    "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-green dark:text-dark-white dark:focus:ring-dark-orange";
 
   if (errorMessage) {
     inputClassNames =
-      "w-full rounded-lg border border-red p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-green dark:focus:ring-dark-orange";
+      "w-full rounded-lg border border-red p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-green dark:text-dark-white dark:focus:ring-dark-orange";
   } else {
     inputClassNames =
-      "w-full rounded-lg border border-light-border-gray dark:bg-dark-blue p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-green dark:focus:ring-dark-orange";
+      "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-green dark:text-dark-white dark:focus:ring-dark-orange";
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label className="text-light-hover-blue mb-2 block font-bold">
+        <label className="text-light-hover-blue dark:text-dark-white mb-2 block font-bold">
           {label}
         </label>
         <input
@@ -67,11 +67,11 @@ const Component: React.FC<IBadgeListInputProps> = ({
         {badges.map((badge, index) => (
           <div
             key={index}
-            className="bg-light-button-green m-1 inline-flex items-center rounded-lg px-3 py-1 text-white dark:bg-dark-orange"
+            className="bg-light-button-green m-1 inline-flex items-center rounded-lg px-3 py-1 text-light-background-gray dark:bg-dark-orange"
           >
             {badge.value}
             <button className="ml-2" onClick={() => handleDelete(badge)}>
-              <IconX className="h-4 w-4 text-white" />
+              <IconX className="h-4 w-4 text-light-background-gray" />
             </button>
           </div>
         ))}

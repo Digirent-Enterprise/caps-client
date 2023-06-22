@@ -64,7 +64,7 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
             <LoadingProvider>
               <AuthProvider>
                 <ConversationProvider>
-                  <ThemeProvider>
+                  <ThemeProvider attribute="class">
                     <Component {...pageProps} err={err} />
                   </ThemeProvider>
                 </ConversationProvider>

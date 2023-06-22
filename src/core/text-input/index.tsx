@@ -23,7 +23,7 @@ const Component = React.memo((props: IInputProps) => {
     }
   };
   let inputClassNames =
-    "w-full rounded-lg border border-light-border-gray dark:bg-dark-blue focus:border-transparent p-2 focus:outline-none focus:ring-2 focus:ring-light-button-green dark:focus:ring-dark-orange";
+    "w-full rounded-lg border border-light-border-gray focus:border-transparent p-2 focus:outline-none focus:ring-2 focus:ring-light-button-green dark:focus:ring-dark-orange dark:bg-dark-gray dark:text-dark-white";
 
   if (isMobile) {
     inputClassNames += " py-2";
@@ -31,16 +31,16 @@ const Component = React.memo((props: IInputProps) => {
 
   if (errorMessage) {
     inputClassNames =
-      "w-full rounded-lg border border-red p-2 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-light-button-green dark:focus:ring-dark-orange";
+      "w-full rounded-lg border border-red p-2 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-light-button-green dark:focus:ring-dark-orange dark:bg-dark-gray-heavy dark:text-dark-white";
   } else {
     inputClassNames =
-      "w-full rounded-lg border border-light-border-gray dark:bg-dark-blue focus:border-transparent p-2 focus:outline-none focus:ring-2 focus:ring-light-button-green dark:focus:ring-dark-orange";
+      "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy focus:border-transparent p-2 focus:outline-none focus:ring-2 focus:ring-light-button-green dark:focus:ring-dark-orange dark:text-dark-white";
   }
 
   return (
     <div className="mb-5 space-y-1">
       <label
-        className="mb-2 block font-bold text-light-blue-hover"
+        className="mb-2 block font-bold text-light-blue-hover dark:text-dark-white"
         htmlFor={name}
       >
         {label}
