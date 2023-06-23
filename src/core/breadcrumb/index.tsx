@@ -16,7 +16,7 @@ const Component: React.FC<IBreadcrumbProps> = ({ items, currentPage }) => {
                 {item.label}
               </Link>
             ) : (
-              <span className="text-gray-500">
+              <span className="text-gray-500 dark:text-dark-orange">
                 {currentPage ? currentPage : item.label}
               </span>
             )}

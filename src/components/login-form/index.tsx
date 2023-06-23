@@ -53,14 +53,14 @@ const Component = React.memo(() => {
         {t("login_heading")}
       </div>
       <button
-        className="focus:ring-blue text-light-hover-blue flex cursor-pointer items-center justify-center rounded border border-solid border-light-gray bg-light-background-gray px-4 py-2 font-bold hover:bg-light-gray dark:hover:bg-dark-gray dark:bg-dark-gray-heavy dark:text-dark-white focus:ring-2"
+        className="focus:ring-blue text-light-hover-blue flex cursor-pointer items-center justify-center rounded border border-solid border-light-gray bg-light-background-gray px-4 py-2 font-bold hover:bg-light-gray focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
         onClick={() => signIn("facebook")}
       >
         <IconBrandFacebook className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>
       </button>
       <button
-        className="focus:ring-blue text-light-hover-blue mt-4 flex cursor-pointer items-center justify-center rounded border border-solid border-light-gray bg-light-background-gray px-4 py-2 font-bold hover:bg-light-gray focus:ring-2  dark:hover:bg-dark-gray dark:bg-dark-gray-heavy dark:text-dark-white"
+        className="focus:ring-blue text-light-hover-blue mt-4 flex cursor-pointer items-center justify-center rounded border border-solid border-light-gray bg-light-background-gray px-4 py-2 font-bold hover:bg-light-gray focus:ring-2  dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
         onClick={() => signIn("google")}
       >
         <IconBrandGoogle className="mr-2 h-8 w-8" />

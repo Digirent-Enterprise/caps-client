@@ -20,7 +20,7 @@ const Component = React.memo((props: ITextareaProps) => {
     <div className="mb-4 flex w-full flex-col">
       <label
         htmlFor={value}
-        className="text-light-hover-blue dark:text-dark-white mb-2 font-bold"
+        className="text-light-hover-blue mb-2 font-bold dark:text-dark-white"
       >
         {label}
       </label>

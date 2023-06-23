@@ -13,33 +13,41 @@ const Component: React.FC = () => {
   const currentPage = router.pathname;
 
   return (
-    <div className="bg-background-gray flex min-h-screen flex-col dark:bg-dark-blue">
+    <div className="bg-background-gray flex min-h-screen flex-col dark:bg-dark-gray-heavy">
       <div className="my-10">
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
         <div className="mx-auto  mt-10 max-w-3xl">
           <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-dark-orange">
             {t("features")}
           </h2>
-          <div className="bg-background-gray rounded p-4 shadow dark:bg-dark-blue">
+          <div className="bg-background-gray rounded p-4 shadow dark:bg-dark-gray-heavy">
             <h3 className="mb-2 text-xl font-bold text-light-blue-hover dark:text-dark-white">
               {t("support_natural_language")}
             </h3>
-            <p>{t("support_natural_language_description")}</p>
+            <p className="dark:text-dark-white">
+              {t("support_natural_language_description")}
+            </p>
 
             <h3 className="my-2 text-xl font-bold text-light-blue-hover dark:text-dark-white">
               {t("what_languages")}
             </h3>
-            <p>{t("what_languages_description")}</p>
+            <p className="dark:text-dark-white">
+              {t("what_languages_description")}
+            </p>
 
             <h3 className="my-2 text-xl font-bold text-light-blue-hover dark:text-dark-white">
               {t("key_features")}
             </h3>
-            <p>{t("key_features_description")}</p>
+            <p className="dark:text-dark-white">
+              {t("key_features_description")}
+            </p>
 
             <h3 className="my-2 text-xl font-bold text-light-blue-hover dark:text-dark-white">
               {t("new_feature")}
             </h3>
-            <p>{t("new_feature_description")}</p>
+            <p className="dark:text-dark-white">
+              {t("new_feature_description")}
+            </p>
           </div>
         </div>
       </div>

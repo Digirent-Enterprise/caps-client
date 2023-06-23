@@ -69,10 +69,10 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                       {tabs.map((tab) => (
                         <button
                           key={tab.id}
-                          className={`px-4 py-2 text-left text-light-text-modal hover:text-light-blue-hover focus:outline-none dark:text-dark-white dark:hover:text-light-text-modal ${
+                          className={`px-4 py-2 text-left focus:outline-none ${
                             selectedTab === tab.id
-                              ? "light-blue-hover font-medium"
-                              : ""
+                              ? "text-light-blue-hover dark:text-dark-orange font-bold"
+                              : "text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-dark-orange"
                           }`}
                           onClick={() => setSelectedTab(tab.id)}
                         >
@@ -113,8 +113,8 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                 <div className="mt-6 flex items-center justify-between">
                   <div className="flex items-center">
                     <Link href="/faq" className="flex items-center">
-                      <IconExternalLink className="ml-4 h-4 w-4 text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-light-text-modal" />
-                      <span className="ml-2 text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-light-text-modal">
+                      <IconExternalLink className="ml-4 h-4 w-4 text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-dark-orange" />
+                      <span className="ml-2 text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-dark-orange">
                         {t("help_faq")}
                       </span>
                     </Link>
@@ -122,7 +122,7 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                   <div className="mt-6 flex justify-end">
                     <button
                       type="button"
-                      className="ml-4 rounded-md border border-light-gray bg-light-background-gray px-4 py-2 text-light-blue-hover hover:bg-light-gray focus:outline-none dark:hover:bg-dark-orange-hover"
+                      className="ml-4 rounded-md border border-light-gray bg-light-background-gray px-4 py-2 text-light-blue-hover hover:bg-light-gray focus:outline-none dark:hover:bg-dark-orange-hover dark:text-dark-white dark:bg-dark-gray-heavy"
                       onClick={onClose}
                     >
                       {t("cancel")}
@@ -130,7 +130,7 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                     <div className="ml-2">
                       <button
                         type="button"
-                        className="rounded-md bg-light-button-green px-4 py-2 text-light-background-gray hover:bg-light-button-green-hover focus:outline-none dark:bg-light-maroon  dark:hover:bg-dark-orange-hover"
+                        className="rounded-md bg-light-button-green px-4 py-2 text-light-background-gray hover:bg-light-button-green-hover focus:outline-none dark:hover:bg-dark-orange-hover dark:bg-dark-orange"
                         onClick={onClose}
                       >
                         {t("save")}
