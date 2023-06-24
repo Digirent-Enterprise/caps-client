@@ -1,16 +1,23 @@
 import { useState, useEffect } from "react";
 
+import { useTranslation } from "next-i18next";
+
 import { IWeatherData } from "@/components/weather-report/type";
 import useDevice from "@/hooks/useDevice";
 import { showToast } from "@/utils/toast";
 
 const Component = (props: { classes?: string }) => {
+  const { t } = useTranslation("health_record");
   const { classes } = props;
   const [weather, setWeather] = useState<IWeatherData | null>(null);
   const { isMobile } = useDevice();
   const iconSize = isMobile ? 40 : 60;
-  const temperatureFontSize = isMobile ? "text-sm" : "text-md";
-  const locationFontSize = isMobile ? "text-sm" : "text-base";
+  const temperatureFontSize = isMobile
+    ? "text-sm text-light-white"
+    : "text-md text-light-white";
+  const locationFontSize = isMobile
+    ? "text-sm text-light-white"
+    : "text-base text-light-white";
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -27,16 +34,16 @@ const Component = (props: { classes?: string }) => {
             });
         },
         (error: GeolocationPositionError) => {
-          showToast("error", "User denied geolocation");
+          showToast("error", t("user_denied"));
         }
       );
     } else {
-      showToast("error", "Geolocation is not supported by this browser.");
+      showToast("error", t("geolocation"));
     }
   }, []);
 
   if (!weather) {
-    return <div>Loading...</div>;
+    return <div>{t("loading")}</div>;
   }
 
   const temperature = Math.round(weather?.main?.temp - 273.15);
@@ -61,8 +68,12 @@ const Component = (props: { classes?: string }) => {
         />
       </div>
       <div>
-        <div className={temperatureFontSize}>Temperature: {temperature} °C</div>
-        <div className={locationFontSize}>Location: {location}</div>
+        <div className={temperatureFontSize}>
+          {t("location")} {temperature} °C
+        </div>
+        <div className={locationFontSize}>
+          {t("location")} {location}
+        </div>
       </div>
     </div>
   );

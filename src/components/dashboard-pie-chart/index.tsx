@@ -15,7 +15,7 @@ import ContainerCard from "@/shared/chart-container-card";
 import { formatDateTime } from "@/utils/common";
 
 Chart.register(...registerables);
-Chart.defaults.color = "#44687E";
+Chart.defaults.color = "#ffffff";
 const Component = React.memo((props: IDashboardPieChart) => {
   const { type } = props;
   const {

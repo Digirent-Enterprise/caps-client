@@ -10,6 +10,7 @@ import Dashboard from "@/pages/admin/dashboard";
 import Management from "@/pages/admin/management";
 import Notifications from "@/pages/admin/notifications";
 import Profile from "@/pages/admin/profile";
+
 import { IRoute } from "@/types/globals/navigation";
 
 const routes: IRoute[] = [

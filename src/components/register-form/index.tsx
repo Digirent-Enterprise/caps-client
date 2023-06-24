@@ -83,7 +83,7 @@ const Component = React.memo(() => {
       .string()
       .required("Password is required")
       .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+        /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+/,
         "Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character"
       )
       .min(8, "Password must be at least 8 characters")
@@ -191,7 +191,7 @@ const Component = React.memo(() => {
       <label className="text-xl">
         {t("have_account")}{" "}
         <Link href={"/auth/login"}>
-          <span className="text-blue">{t("sign_in")}</span>
+          <span className="text-light-button-green">{t("sign_in")}</span>
         </Link>
       </label>
     </div>

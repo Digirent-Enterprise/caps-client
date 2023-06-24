@@ -22,12 +22,12 @@ const Component = () => {
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
         <div className="mx-auto mt-10 max-w-3xl">
           <div className="flex flex-col gap-5">
-            <section className="bg-background-gray flex flex-col rounded-xl border border-solid border-light-blue-hover p-2 dark:border-dark-white dark:bg-dark-blue sm:p-3">
+            <section className="bg-background-gray flex flex-col rounded-xl border border-solid border-light-gray p-2 dark:border-dark-white dark:bg-dark-blue sm:p-3">
               {questions.map((question) => (
                 <div
                   key={question.id}
                   onClick={() => _handleQuestionClick(question)}
-                  className={`group/article flex flex-row justify-between gap-2 rounded-lg px-3 py-2 text-light-blue-hover no-underline transition duration-250 ease-linear hover:bg-light-border-gray hover:text-light-background-gray dark:text-dark-white dark:hover:text-dark-orange sm:py-3 ${
+                  className={`group/article flex flex-row justify-between gap-2 rounded-lg px-3 py-2 text-light-blue-hover no-underline transition duration-250 ease-linear hover:bg-light-button-green-hover hover:text-light-background-gray dark:text-dark-white dark:hover:text-dark-orange sm:py-3 ${
                     question.title === currentPage ? "current-page" : ""
                   }`}
                 >

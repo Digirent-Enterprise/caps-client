@@ -1,0 +1,8 @@
+{
+  "create": "Tạo cuộc trò chuyện mới",
+  "name": "Tên cuộc trò chuyện",
+  "create_name": "Nhập tên cuộc trò chuyện",
+  "model": "Loại mô hình",
+  "cancel": "Hủy",
+  "save": "Lưu"
+}

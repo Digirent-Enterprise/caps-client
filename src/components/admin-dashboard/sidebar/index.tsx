@@ -21,6 +21,7 @@ import {
   ISidebarResponsiveProps,
 } from "@/components/admin-dashboard/sidebar/type";
 import { renderThumb, renderTrack, renderView } from "@/core/scrollbar";
+
 import { isWindowAvailable } from "@/utils/navigation";
 
 const Component = (props: ISidebarProps) => {

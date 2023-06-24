@@ -53,22 +53,22 @@ const Component = React.memo(() => {
         {t("login_heading")}
       </div>
       <button
-        className="focus:ring-blue flex cursor-pointer items-center justify-center rounded bg-[#1778f2] px-4 py-2 font-bold text-white hover:bg-[#3b5998] focus:ring-2"
+        className="focus:ring-blue text-light-hover-blue flex cursor-pointer items-center justify-center rounded border border-solid border-light-gray bg-light-background-gray px-4 py-2 font-bold hover:bg-light-gray focus:ring-2"
         onClick={() => signIn("facebook")}
       >
         <IconBrandFacebook className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>
       </button>
       <button
-        className="focus:ring-blue mt-4 flex cursor-pointer items-center justify-center rounded bg-[#EA4335] px-4 py-2 font-bold text-white hover:bg-[#DB4437] focus:ring-2"
+        className="focus:ring-blue text-light-hover-blue mt-4 flex cursor-pointer items-center justify-center rounded border border-solid border-light-gray bg-light-background-gray px-4 py-2 font-bold hover:bg-light-gray focus:ring-2"
         onClick={() => signIn("google")}
       >
         <IconBrandGoogle className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>
       </button>
-      <div className="inline-flex w-full items-center justify-center">
+      <div className="inline-flex w-full items-center justify-center text-light-blue-hover">
         <hr className="my-8 h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
-        <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 font-medium text-gray-900 dark:bg-dark-blue dark:text-dark-white">
+        <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 font-medium text-light-blue-hover dark:bg-dark-blue dark:text-dark-white">
           {t("or")}
         </span>
       </div>
@@ -97,7 +97,7 @@ const Component = React.memo(() => {
       <label className="text-xl">
         {t("have_not_registered")}{" "}
         <Link href={"/auth/register"}>
-          <span className="text-light-text-heading dark:text-dark-white">
+          <span className="text-light-button-green dark:text-dark-white">
             {t("register")}
           </span>
         </Link>

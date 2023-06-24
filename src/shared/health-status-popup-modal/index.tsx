@@ -8,6 +8,7 @@ import {
   IconMoodCry,
   IconMoodSmile,
 } from "@tabler/icons-react";
+import { useTranslation } from "next-i18next";
 import Modal from "react-modal";
 
 import useDynamicHealth from "@/hooks/dynamic-health";
@@ -24,6 +25,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
   isOpen,
   onRequestClose,
 }) => {
+  const { t } = useTranslation("update_health");
   const [feeling, setFeeling] = useState<DynamicHealthNS.Status>("Good");
   const [symptoms, setSymptoms] = useState<string[]>([]);
   const { addDynamicHealth } = useDynamicHealth();
@@ -48,31 +50,35 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
 
   const feelingIcons: FeelingIcons = [
     {
-      label: "Critical",
+      label: t("critical"),
       icon: <IconMoodCry size={50} className=" text-red" />,
     },
     {
-      label: "Poor",
-      icon: <IconMoodConfuzed size={50} className="text-orange" />,
+      label: t("poor"),
+      icon: <IconMoodConfuzed size={50} className="text-light-orange" />,
     },
     {
-      label: "Not Good",
-      icon: <IconMoodEmpty size={50} className="text-yellow" />,
+      label: t("not_good"),
+      icon: <IconMoodEmpty size={50} className="text-light-yellow" />,
     },
     {
-      label: "Fair",
-      icon: <IconMoodSmile size={50} className="text-blue" />,
+      label: t("fair"),
+      icon: <IconMoodSmile size={50} className="text-light-button-green" />,
     },
     {
-      label: "Good",
-      icon: <IconMoodHappy size={50} className="text-green" />,
+      label: t("good"),
+      icon: (
+        <IconMoodHappy size={50} className="text-light-button-green-hover" />
+      ),
     },
   ];
 
   const isShowSymptoms = useMemo(() => {
     return (
       feeling &&
-      (feeling === "Critical" || feeling === "Poor" || feeling === "Not Good")
+      (feeling === t("critical") ||
+        feeling === t("poor") ||
+        feeling === t("not_good"))
     );
   }, [feeling]);
 
@@ -84,13 +90,13 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
     >
       <div
         id="health-status-popup-modal"
-        className="drounded-lg bg-white p-8 shadow-lg dark:bg-dark-blue"
+        className="rounded-lg bg-white p-8 shadow-lg dark:bg-dark-blue"
       >
         <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Update Health Status</h2>
+          <h2 className="text-2xl font-bold">{t("update")}</h2>
           <button
             onClick={onRequestClose}
-            className="text-gray-600 hover:text-gray-800 dark:text-dark-white"
+            className="text-light-gray hover:text-light-blue-hover dark:text-dark-white"
           >
             <IconX />
           </button>
@@ -98,9 +104,9 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
         <div className="mb-4">
           <label
             htmlFor="feeling"
-            className="mb-2 block font-bold text-gray-700 dark:text-dark-white"
+            className="mb-2 block font-bold text-light-blue-hover dark:text-dark-white"
           >
-            How are you feeling today?
+            {t("how")}
           </label>
           <div className="flex justify-between">
             {feelingIcons.map((feelingIcon) => {
@@ -110,7 +116,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
                   onClick={() => setFeeling(feelingIcon.label)}
                   className={`flex flex-col items-center ${
                     feeling === feelingIcon.label
-                      ? "bg-gray-200 dark:bg-dark-orange"
+                      ? "bg-light-gray dark:bg-dark-orange"
                       : ""
                   } cursor-pointer rounded-lg p-2 transition-colors duration-200 ease-in-out`}
                 >
@@ -126,14 +132,14 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
         {isShowSymptoms && (
           <div className="mt-6">
             <label htmlFor="symptoms" className="mb-2 block font-medium">
-              Select any symptoms you are experiencing (select multiple)
+              {t("select")}
             </label>
             <select
               id="symptoms"
               multiple
               value={symptoms}
               onChange={_handleSymptomsChange}
-              className="focus:ring-blue w-full rounded-lg border px-3 py-2 shadow-sm focus:border-transparent focus:outline-none focus:ring-2"
+              className="hide-scrollbar w-full rounded-lg border border-light-gray px-3 py-2 shadow-sm focus:outline-none focus:ring-2"
             >
               {allSymptoms.map((symptom) => (
                 <option key={symptom} value={symptom}>
@@ -145,16 +151,16 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
         )}
         <div className="flex justify-end gap-1">
           <button
-            className="focus:ring-opacity/50 bg-blue focus:ring-blue mt-6 rounded-lg px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-blue-600 focus:outline-none focus:ring-2 dark:bg-dark-red"
+            className="mt-6 rounded-lg border border-light-gray bg-light-background-gray px-4 py-2 font-medium text-light-blue-hover transition-colors duration-200 ease-in-out hover:bg-light-gray focus:outline-none focus:ring-2 dark:bg-dark-red"
             onClick={onRequestClose}
           >
-            Cancel
+            {t("cancel")}
           </button>
           <button
-            className="focus:ring-opacity/50 bg-darker-blue focus:ring-blue mt-6 rounded-lg px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-blue-600 focus:outline-none focus:ring-2 dark:bg-dark-blue"
+            className="focus:ring-blue mt-6 rounded-lg bg-light-button-green px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-light-button-green-hover focus:outline-none focus:ring-2 dark:bg-dark-blue"
             onClick={_handleSubmit}
           >
-            Submit
+            {t("submit")}
           </button>
         </div>
       </div>

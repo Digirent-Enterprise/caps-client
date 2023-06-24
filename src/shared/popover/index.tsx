@@ -11,7 +11,9 @@ const Component: React.FC<IPopoverProps> = ({ options }) => {
       {({ open }) => (
         <>
           <Popover.Button className="focus:outline-none">
-            <IconDots color="white" />
+            <div className="text-light-blue-hover">
+              <IconDots />
+            </div>
           </Popover.Button>
 
           <Transition
@@ -28,7 +30,7 @@ const Component: React.FC<IPopoverProps> = ({ options }) => {
               static
               className="absolute left-1/2 z-10 mt-2 w-48 -translate-x-1/2  px-2 sm:px-0"
             >
-              <div className="rounded-md bg-white shadow-md">
+              <div className="rounded-md bg-light-white shadow-md">
                 <div className="py-1">
                   {options.map((option) => (
                     <button
