@@ -49,7 +49,7 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
       <div className="flex border-t border-light-gray p-3">
         <div className="flex w-full flex-col gap-3">
           <div
-            className={`flex w-full cursor-pointer flex-row items-center text-light-white gap-1 p-2 ${
+            className={`flex w-full cursor-pointer flex-row items-center gap-1 p-2 text-light-white ${
               tab === "MyGeneralHealthStatistics" ? "bg-light-button-green" : ""
             }`}
             onClick={() => _onChangeTab("MyGeneralHealthStatistics")}

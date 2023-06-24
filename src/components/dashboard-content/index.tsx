@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useMemo, useRef } from "react";
 
 import { useTranslation } from "next-i18next";
+
 import { IDashboardContentProps } from "@/components/dashboard-content/type";
 import DashboardMyGeneralHealthStatistic from "@/components/dashboard-my-general-health-statistic";
 import useDevice from "@/hooks/useDevice";

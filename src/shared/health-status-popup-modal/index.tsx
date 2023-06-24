@@ -90,7 +90,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
     >
       <div
         id="health-status-popup-modal"
-        className="drounded-lg bg-white p-8 shadow-lg dark:bg-dark-blue"
+        className="rounded-lg bg-white p-8 shadow-lg dark:bg-dark-blue"
       >
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-2xl font-bold">{t("update")}</h2>

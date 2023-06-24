@@ -13,14 +13,14 @@ const Component: React.FC = () => {
   const currentPage = router.pathname;
 
   return (
-    <div className="bg-background-gray flex min-h-screen flex-col dark:bg-dark-blue">
+    <div className="flex min-h-screen flex-col dark:bg-dark-blue">
       <div className="mb-10">
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
-        <div className="bg-background-gray mx-auto mt-10 max-w-3xl dark:bg-dark-blue">
+        <div className="mx-auto mt-10 max-w-3xl dark:bg-dark-blue">
           <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-dark-orange">
             {t("account")}
           </h2>
-          <div className="bg-background-gray rounded p-4  shadow dark:bg-dark-blue">
+          <div className="rounded p-4 shadow dark:bg-dark-blue">
             <h3 className="mb-2 text-xl font-bold text-light-blue-hover dark:text-dark-white">
               {t("creating_account")}
             </h3>
