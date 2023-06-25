@@ -29,7 +29,7 @@ const Component = React.memo((props: ISearchInputProps) => {
         />
       )}
       <input
-        className={`w-full rounded-md border border-light-gray py-2 pl-3 dark:border-dark-gray-heavy dark:bg-dark-gray-heavy ${
+        className={`w-full rounded-md border border-light-gray py-2 pl-3 dark:border-dark-gray-heavy dark:bg-dark-gray ${
           isMobile ? "pr-6" : "pr-10"
         } text-light-blue-hover transition duration-300 ease-in focus:bg-light-gray focus:shadow-md focus:outline-none dark:text-dark-white`}
         type="text"

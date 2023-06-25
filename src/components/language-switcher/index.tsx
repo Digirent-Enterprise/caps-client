@@ -41,7 +41,7 @@ const Component: React.FC = () => {
             className={`rounded-lg p-2 ${
               currentLocale?.locale === locale
                 ? "bg-light-button-green text-light-background-gray dark:bg-dark-orange dark:text-dark-white"
-                : "bg-light-background-gray text-light-blue-hover dark:border dark:border-dark-white dark:text-dark-white dark:bg-dark-gray-heavy"
+                : "bg-light-background-gray text-light-blue-hover dark:border dark:border-dark-white dark:bg-dark-gray-heavy dark:text-dark-white"
             }`}
             onClick={_handleChangeLanguage(locale)}
           >

@@ -114,10 +114,10 @@ const Component = React.memo(
       <>
         <div className="relative flex items-center">
           {isRenaming && selectedConversation?.id === conversation.id ? (
-            <div className="group flex w-full items-center gap-3 rounded-md bg-light-gray p-3">
+            <div className="group flex w-full items-center gap-3 rounded-md bg-light-gray dark:bg-dark-orange p-3">
               <IconMessage size={18} />
               <input
-                className="mr-12 flex-1 overflow-hidden text-ellipsis bg-light-gray text-left text-[12.5px] leading-3 text-light-blue-hover outline-none"
+                className="mr-12 flex-1 overflow-hidden text-ellipsis bg-light-gray text-left text-[12.5px] leading-3 text-light-blue-hover dark:bg-dark-orange outline-none"
                 type="text"
                 value={renameValue}
                 onChange={(e) => setRenameValue(e.target.value)}
@@ -129,8 +129,8 @@ const Component = React.memo(
             <button
               className={`flex w-full cursor-pointer items-center gap-3 rounded-lg border border-light-gray p-3 text-sm text-light-blue-hover transition-colors duration-200 dark:text-black ${
                 selectedConversation?.id === conversation.id
-                  ? "bg-light-button-green hover:bg-light-button-green-hover dark:bg-dark-blue"
-                  : "bg-light-background-gray hover:bg-light-gray"
+                  ? "bg-light-button-green hover:bg-light-button-green-hover dark:bg-dark-orange dark:border-dark-gray-heavy"
+                  : "bg-light-background-gray hover:bg-light-gray dark:bg-dark-gray-heavy dark:border-dark-white dark:text-dark-white"
               }`}
               draggable="true"
               onDragStart={(e) => _handleDragStart(e, conversation)}
@@ -140,7 +140,7 @@ const Component = React.memo(
                 className={`${
                   selectedConversation?.id === conversation.id
                     ? "text-light-white"
-                    : "text-light-gray"
+                    : "text-light-gray dark:text-dark-white"
                 }`}
               />
               <div
@@ -172,15 +172,24 @@ const Component = React.memo(
             !isRenaming && (
               <div className="absolute right-1 z-10 flex text-light-gray">
                 <SidebarActionButton handleClick={_handleOpenRenameModal}>
-                  <IconPencil size={18} className="text-light-white" />
+                  <IconPencil
+                    size={18}
+                    className="text-light-white dark:text-dark-white"
+                  />
                 </SidebarActionButton>
                 <SidebarActionButton
                   handleClick={_handleShareConversationModal}
                 >
-                  <IconShare2 size={18} className="text-light-white" />
+                  <IconShare2
+                    size={18}
+                    className="text-light-white dark:text-dark-white"
+                  />
                 </SidebarActionButton>
                 <SidebarActionButton handleClick={_handleOpenDeleteModal}>
-                  <IconTrash size={18} className="text-light-white" />
+                  <IconTrash
+                    size={18}
+                    className="text-light-white dark:text-dark-white"
+                  />
                 </SidebarActionButton>
               </div>
             )}
