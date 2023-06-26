@@ -14,7 +14,7 @@ const Component = React.memo((props: { loadingProps?: boolean }) => {
 
   return (
     <div className="absolute z-50 flex h-screen w-screen items-center justify-center bg-transparent backdrop-blur-sm">
-      <div className="bg-grey flex h-1/4 w-1/6 flex-col items-center justify-center gap-10  rounded-md shadow-2xl">
+      <div className="flex h-1/4 w-1/6 flex-col items-center justify-center gap-10  rounded-md shadow-2xl">
         <div role="status">
           <img
             alt="loading"

@@ -29,7 +29,7 @@ const Component = React.memo(() => {
         <div className=" ml-auto mr-32 w-2/3 font-semibold  text-light-blue-hover dark:text-dark-white">
           <div className="flex w-full flex-nowrap items-center justify-end gap-5">
             <Link href={"/landing-page"}>
-              <div className="ho mr-2 w-fit text-center"> {t("home")} </div>
+              <div className="mr-2 w-fit text-center"> {t("home")} </div>
             </Link>
             <Link href={"/auth/login"}>
               <div className="mr-2 w-fit text-center"> {t("login")} </div>

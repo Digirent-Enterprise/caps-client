@@ -30,13 +30,14 @@ import withAuth from "@/hoc/withLogin";
 import useConversation from "@/hooks/conversation/useConversation";
 import useMessage from "@/hooks/message/useMessage";
 import useDevice from "@/hooks/useDevice";
-import { MessageNS } from "@/services/message/type";
 import CommandPalette from "@/shared/command-palette";
 import ConversationModal from "@/shared/conversation-modal";
 import DefaultChatMessage from "@/shared/default-chat-message";
 import Popover from "@/shared/popover";
 import SearchInput from "@/shared/search-input";
 import StatusModal from "@/shared/status-modal";
+import { exportConversationToJson } from "@/utils/json";
+import { exportConversationToMarkdown } from "@/utils/markdown";
 import { formatModelOption } from "@/utils/models";
 
 const Component: React.FC = () => {
@@ -132,21 +133,12 @@ const Component: React.FC = () => {
     };
 
     const _handleExportJson = async () => {
-      try {
-        const json = JSON.stringify(messages);
-        console.log(messages, "mess");
-        const blob = new Blob([json], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "messages.json";
-        link.click();
-      } catch (error) {
-        console.error("Error exporting messages:", error);
-      }
+      await exportConversationToJson(messages);
     };
 
-    const _handleExportMarkdown = () => {};
+    const _handleExportMarkdown = () => {
+      exportConversationToMarkdown(messages);
+    };
 
     const exportOptions = [
       {
@@ -171,7 +163,9 @@ const Component: React.FC = () => {
     }, [user]);
 
     useEffect(() => {
-      getAllMessages({ conversationId: selectedConversation.id });
+      selectedConversation
+        ? getAllMessages({ conversationId: selectedConversation.id })
+        : null;
     }, []);
 
     return (
