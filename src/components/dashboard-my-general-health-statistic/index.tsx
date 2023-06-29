@@ -46,7 +46,7 @@ const Component = memo(() => {
     <>
       <div
         ref={containerRef}
-        className="relative mt-5 h-auto min-h-[15rem] w-1/3 overflow-hidden rounded-xl bg-[#2d325a] p-10 md:w-full"
+        className="relative mt-5 h-auto min-h-[15rem] w-1/3 overflow-hidden rounded-xl bg-[#2d325a] dark:bg-dark-gray p-10 md:w-full"
       >
         <WeatherReport classes="absolute top-1 right-0 p-4 bg-[#475D78] bg-opacity-0 rounded-xl" />
         <div
@@ -55,23 +55,23 @@ const Component = memo(() => {
           style={{ top: "-5rem", left: "-2rem" }}
         >
           <img
-            className="h-auto w-28 opacity-10 "
+            className="h-auto w-28 opacity-10 dark:opacity-50"
             src={"/static/dashboard/cloud.png"}
           />
         </div>
 
         <div className="absolute -bottom-6 left-0 flex h-2/3 w-full flex-col items-start justify-start bg-transparent/10 p-4 pt-2 drop-shadow-md backdrop-blur-xl">
-          <div className="mt-3 text-3xl font-semibold text-white ">
+          <div className="mt-3 text-3xl font-semibold text-light-background-gray dark:text-dark-white">
             Welcome back, {user?.name}
           </div>
-          <div>
+          <div className="text-light-background-gray dark:text-dark-white">
             We are always happy to hear from you. Taking care of your health is
             our pleasure.
           </div>
-          <div className="flex flex-row gap-1">
+          <div className="flex flex-row gap-1 text-light-background-gray dark:text-dark-white">
             Please let DICA know your
             <div
-              className="text-main-blue animate-pulse cursor-pointer"
+              className="text-main-blue animate-pulse cursor-pointer text-light-background-gray dark:text-dark-white"
               onClick={_openModal}
             >
               latest status

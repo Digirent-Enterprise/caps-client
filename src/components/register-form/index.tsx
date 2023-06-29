@@ -131,8 +131,8 @@ const Component = React.memo(() => {
     <div
       className={
         isDesktop
-          ? "flex w-2/5 flex-col gap-4 bg-light-background-gray dark:bg-dark-blue"
-          : "flex w-full flex-col gap-1 bg-light-background-gray dark:bg-dark-blue"
+          ? "flex w-2/5 flex-col gap-4 bg-light-background-gray dark:bg-dark-gray-heavy"
+          : "flex w-full flex-col gap-1 bg-light-background-gray dark:bg-dark-gray-heavy"
       }
     >
       <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
@@ -188,10 +188,12 @@ const Component = React.memo(() => {
       <Button onClick={_handleSubmitForm} mode="primary">
         {t("register")}
       </Button>
-      <label className="text-xl">
+      <label className="text-xl dark:text-dark-white">
         {t("have_account")}{" "}
         <Link href={"/auth/login"}>
-          <span className="text-light-button-green">{t("sign_in")}</span>
+          <span className="text-light-button-green dark:text-dark-orange">
+            {t("sign_in")}
+          </span>
         </Link>
       </label>
     </div>

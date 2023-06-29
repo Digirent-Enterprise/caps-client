@@ -28,25 +28,25 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
     <section
       className={`group flex ${
         isMobile ? "h-full" : ""
-      } flex-none flex-col overflow-auto border-r border-light-gray transition-all duration-300 ease-in-out  md:w-1/3 lg:max-w-sm `}
+      } flex-none flex-col overflow-auto border-r border-light-gray transition-all duration-300 ease-in-out  md:w-1/3 lg:max-w-sm dark:bg-dark-gray-heavy dark:border-dark-gray `}
     >
       <div className="flex flex-col justify-start gap-1 p-4">
-        <p className="hidden text-lg font-bold text-light-blue-hover md:block">
+        <p className="hidden text-lg font-bold text-light-blue-hover dark:text-dark-white md:block">
           {t("welcome")} {user?.name}
         </p>
       </div>
-      <div className="my-2 flex border-t border-light-gray p-2">
+      <div className="my-2 flex border-t border-light-gray dark:text-dark-white dark:border-dark-gray p-2">
         <Link
           href={"/home"}
           className="flex cursor-pointer flex-row items-center justify-start gap-1"
         >
           <IconArrowBack />
-          <span className="ml-2 cursor-pointer text-lg text-light-blue-hover">
+          <span className="ml-2 cursor-pointer text-lg text-light-blue-hover dark:text-dark-white">
             {t("back")}
           </span>
         </Link>
       </div>
-      <div className="flex border-t border-light-gray p-3">
+      <div className="flex border-t border-light-gray dark:border-dark-gray p-3">
         <div className="flex w-full flex-col gap-3">
           <div
             className={`flex w-full cursor-pointer flex-row items-center gap-1 p-2 text-light-white ${
@@ -63,19 +63,21 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
             href={"/health-record"}
             className="flex cursor-pointer flex-row items-center gap-1 p-2 opacity-25"
           >
-            <IconHistory />
-            <span className="ml-2 cursor-pointer text-sm text-light-blue-hover">
+            <IconHistory className="text-light-background-gray dark:text-dark-white" />
+            <span className="ml-2 cursor-pointer text-sm text-light-blue-hover dark:text-dark-white">
               {t("my_health")}
             </span>
           </Link>
           <div
             className={`flex cursor-pointer flex-row items-center gap-1 p-2 ${
-              tab === "MySecretRecommendation" ? "bg-gray-800" : ""
+              tab === "MySecretRecommendation"
+                ? "bg-gray-800 dark:bg-dark-orange"
+                : ""
             }`}
             onClick={() => _onChangeTab("MySecretRecommendation")}
           >
-            <IconBellPlusFilled />
-            <span className="ml-2 cursor-pointer text-sm text-light-blue-hover">
+            <IconBellPlusFilled className="text-light-background-gray dark:text-dark-white" />
+            <span className="ml-2 cursor-pointer text-sm text-light-blue-hover dark:text-dark-white">
               {t("my_secret")}
             </span>
           </div>
