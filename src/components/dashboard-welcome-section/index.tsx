@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useMemo, useRef } from "react";
 
+import { isEmpty } from "lodash";
 import { useImmer } from "use-immer";
 
 import DashboardCreateDiagnosisModal from "@/components/dashboard-create-diagnosis-modal";
@@ -7,7 +8,6 @@ import { IDashboardWelcomeSection } from "@/components/dashboard-welcome-section
 import WeatherReport from "@/components/weather-report";
 import { AuthContext } from "@/contexts/auth-context";
 import HealthStatusPopupModal from "@/shared/health-status-popup-modal";
-import {isEmpty} from "lodash";
 
 const Component = React.memo((props: IDashboardWelcomeSection) => {
   const { user, page, useChatBot } = props;
@@ -109,13 +109,13 @@ const Component = React.memo((props: IDashboardWelcomeSection) => {
         </div>
       </div>
       <HealthStatusPopupModal isOpen={open} onRequestClose={_onCloseModal} />
-      {!isEmpty(useChatBot) &&
+      {!isEmpty(useChatBot) && (
         <DashboardCreateDiagnosisModal
           open={openDiagnosisModal}
           onClose={_onCloseDiagnosisModal}
           useChatBot={useChatBot}
         />
-      }
+      )}
     </>
   );
 });

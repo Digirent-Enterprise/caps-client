@@ -11,7 +11,7 @@ import Button from "@/core/button";
 import useChatBotHook from "@/hooks/chat-bot/useChatbot";
 const Component = React.memo((props: IDashboardCreateDiagnosisModal) => {
   const { open: isOpen, onClose, img, useChatBot } = props;
-  const { diagnosisLoading, diagnosis } = useChatBot!
+  const { diagnosisLoading, diagnosis } = useChatBot!;
   const [checked, setChecked] = useImmer<boolean>(false);
   const [tempDiagnosis, setTempDiagnosis] = useImmer<
     DiagnosisNS.Diagnosis | undefined
