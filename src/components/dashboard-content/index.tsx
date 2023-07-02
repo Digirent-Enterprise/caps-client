@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useMemo, useRef } from "react";
 
 import { IDashboardContentProps } from "@/components/dashboard-content/type";
 import DashboardMyGeneralHealthStatistic from "@/components/dashboard-my-general-health-statistic";
+import DashboardOverviewDiagnosis from "@/components/dashboard-overview-diagnosis";
 import useDevice from "@/hooks/useDevice";
 
 const Component = React.memo((props: IDashboardContentProps) => {
@@ -17,13 +18,7 @@ const Component = React.memo((props: IDashboardContentProps) => {
       {tab === "MyGeneralHealthStatistics" && (
         <DashboardMyGeneralHealthStatistic />
       )}
-      {tab === "MySecretRecommendation" && (
-        <div className="mt-4 flex h-full w-full flex-col gap-2">
-          <div className="h-1/4 w-full">
-            <div className="h-full w-1/4 bg-red"></div>
-          </div>
-        </div>
-      )}
+      {tab === "MySecretRecommendation" && <DashboardOverviewDiagnosis />}
     </section>
   );
 });

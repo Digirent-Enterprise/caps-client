@@ -47,7 +47,7 @@ const Component = React.memo(() => {
       chart={
         <div className="h-full w-full">
           <div className="w-full p-1 text-center text-lg font-bold text-white">
-            General health score
+            Average health score
           </div>
           <div />
           <div className="h-full w-full">

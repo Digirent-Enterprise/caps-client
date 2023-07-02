@@ -104,7 +104,7 @@ const Component: React.FC<IConversationListProps> = (
     <div
       className={`mt-4 flex ${
         isDesktop ? "flex-col" : "scroll-m-2"
-      } gap-2 overflow-y-scroll border-b-light-gray p-2`}
+      } hide-scrollbar gap-2 overflow-y-scroll border-b-light-gray p-2`}
     >
       {Object.keys(groupedConversations).map((label) => (
         <div key={label}>

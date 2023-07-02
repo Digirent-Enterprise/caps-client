@@ -14,6 +14,7 @@ module.exports = {
         "light-nude": "#e3ece3",
         "light-white": "#ffffff", //text
         "light-maroon": "#872c45",
+        "light-yellow": "#fde047",
         "light-border-gray": "#d1d5db",
         "light-green": "#2f855a",
         "light-text-heading": "#002248",

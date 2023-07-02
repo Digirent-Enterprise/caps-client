@@ -23,7 +23,7 @@ const Component = React.memo((props: ISearchInputProps) => {
         <IconSearch
           className={`absolute ${
             isMobile ? "right-2" : "right-4"
-          } cursor-pointer hover:text-neutral-400 dark:text-light-blue-hover`}
+          } cursor-pointer text-light-button-green hover:text-light-button-green-hover dark:text-light-blue-hover`}
           size={18}
           onClick={_clearSearch}
         />

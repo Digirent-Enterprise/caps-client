@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
+import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { useImmer } from "use-immer";
 
 import axios from "@/axios";
 import { LoadingContext } from "@/contexts/loading-context";
+import useUser from "@/hooks/user/useUser";
 import { LocalStorageService } from "@/services/local-storage";
 import { LocalStorageKeys } from "@/services/local-storage/constant";
 import {
@@ -22,6 +24,7 @@ export const useAuth = (): AuthContextData => useContext(AuthContext);
 export const AuthProvider = (props: IAuthContextProps) => {
   const { children } = props;
   const [user, setUser] = useState<IUser | null>(null);
+  const { getUser } = useUser();
   const [accessToken, setAccessToken] = useImmer<string>("");
   const [refreshToken, setRefreshToken] = useImmer<string>("");
   const { setLoading } = useContext(LoadingContext);
@@ -52,6 +55,12 @@ export const AuthProvider = (props: IAuthContextProps) => {
     axios.defaults.headers.common["Authorization"] = ``;
   };
 
+  const _initUser = async () => {
+    const newUser = await getUser();
+    console.log("new user");
+    if (!isEmpty(newUser)) setUser(user);
+  };
+
   useEffect(() => {
     const storage = LocalStorageService.getInstance();
     const storedAccessToken = storage.getItem(LocalStorageKeys.access_token);
@@ -61,6 +70,9 @@ export const AuthProvider = (props: IAuthContextProps) => {
       setAxiosAuthHeader(storedAccessToken);
       setAccessToken(storedAccessToken);
       setRefreshToken(storedRefreshToken);
+    }
+    if (isEmpty(user)) {
+      _initUser();
     }
   }, []);
 

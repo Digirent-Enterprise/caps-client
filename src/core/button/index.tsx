@@ -8,7 +8,7 @@ const Component = React.memo((props: IButtonProps) => {
     if (mode === "primary") {
       return "bg-light-button-green text-white hover:bg-light-button-green-hover border-white dark:border-dark-blue dark:bg-light-maroon dark:hover:bg-dark-orange-hover";
     }
-    return "bg-light-background-gray text-light-blue-hover border-solid border-light-gray dark:border-dark-blue hover:bg-light-gray dark:hover:bg-dark-orange-hover";
+    return "bg-light-blue text-white border-solid border-light-gray dark:border-dark-blue hover:bg-light-blue-hover dark:hover:light-blue-hover";
   }, [mode]);
 
   const sizeClass = useMemo(() => {
@@ -22,6 +22,13 @@ const Component = React.memo((props: IButtonProps) => {
     }
   }, [size]);
 
+  const disableClass = useMemo(() => {
+    if (disabled) {
+      return "opacity-50 cursor-not-allowed";
+    }
+    return "";
+  }, [disabled]);
+
   const _onClick = () => {
     if (onClick) onClick();
   };
@@ -29,7 +36,7 @@ const Component = React.memo((props: IButtonProps) => {
   return (
     <button
       disabled={disabled}
-      className={`mb-5 w-full rounded-md border border-solid ${colorClass} ${sizeClass}`}
+      className={`mb-5 w-full rounded-md border border-solid ${colorClass} ${sizeClass} ${disableClass}`}
       onClick={_onClick}
     >
       {children}

@@ -10,7 +10,7 @@ const ContainerCard = (props: ICompProps) => {
       padding="3%"
       minH="20rem"
       borderRadius="14"
-      backgroundColor="#2d325a"
+      backgroundColor="#14a27d"
       textAlign="center"
     >
       {chart}

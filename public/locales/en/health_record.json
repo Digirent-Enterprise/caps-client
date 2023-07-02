@@ -1,0 +1,20 @@
+{
+  "welcome": "Welcome,",
+  "back": "Back to Chat Assistant",
+  "my_general": "My General Heath Statistic",
+  "my_health": "Overview diagnosis of my health",
+  "my_secret": "My secret recommendations",
+  "welcome_back": "Welcome back,",
+  "we_are": "We are always happy to hear from you. Taking care of your health is our pleasure.",
+  "please_let": "Please let DICA know your",
+  "latest_status": "latest status",
+  "my_record": "My record symptons",
+  "my_recorded": "My recorded statuses",
+  "my_health_status": "My health status over time",
+  "general_score": "General score",
+  "temperature": "Temperature:",
+  "location": "Location:",
+  "geolocation": "Geolocation is not supported by this browser.",
+  "user_denied": "User denied geolocation",
+  "loading": "Loading..."
+}

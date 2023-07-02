@@ -10,9 +10,11 @@ import { showToast } from "@/utils/toast";
 
 export const API_BASE_URL = "http://localhost:3003";
 
+const TWENTY_MINUTES = 20 * 60 * 1000;
+
 const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000,
+  timeout: TWENTY_MINUTES,
 });
 
 api.interceptors.response.use(
@@ -49,7 +51,6 @@ api.interceptors.response.use(
     } else {
       showToast("error", `Request error: ${error.message}`);
     }
-
     return Promise.reject(error);
   }
 );

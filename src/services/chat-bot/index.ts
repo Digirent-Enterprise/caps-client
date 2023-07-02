@@ -1,0 +1,11 @@
+import axios from "@/axios";
+
+export default class ChatBotService {
+  static generalDiagnosis = (): Promise<DiagnosisNS.DiagnosisResults> => {
+    return axios.get(`/chat-bot/diagnosis/`);
+  };
+
+  static createNewDiagnosis = (): Promise<DiagnosisNS.Diagnosis> => {
+    return axios.post(`/chat-bot/diagnosis/create`);
+  };
+}
