@@ -8,4 +8,8 @@ export default class ChatBotService {
   static createNewDiagnosis = (): Promise<DiagnosisNS.Diagnosis> => {
     return axios.post(`/chat-bot/diagnosis/create`);
   };
+
+  static couldGetDiagnosis = (): Promise<DiagnosisNS.CouldGetDiagnosis> => {
+    return axios.get(`/chat-bot/diagnosis/status`);
+  }
 }

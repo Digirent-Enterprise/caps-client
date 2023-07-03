@@ -4,5 +4,9 @@ namespace DiagnosisNS {
     createdAt: string;
   };
 
+  export type CouldGetDiagnosis = {
+    couldDiagnosis: boolean,
+  }
+
   export type DiagnosisResults = Diagnosis[];
 }
