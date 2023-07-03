@@ -186,7 +186,7 @@ const Component: React.FC = () => {
               } w-80 flex-none flex-col overflow-auto transition-all duration-300 ease-in-out md:w-1/6 lg:max-w-sm`}
             >
               <div className="flex flex-none flex-row items-center justify-between p-4">
-                <p className="text-light-hover-blue dark:text-dark-white hidden font-bold md:block">
+                <p className="text-light-hover-blue hidden font-bold dark:text-dark-white md:block">
                   {t("welcome")} {user?.name}
                 </p>
               </div>
@@ -198,7 +198,7 @@ const Component: React.FC = () => {
                   onSearch={_handleSearchConversation}
                 />
               </div>
-              <div className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-light-white bg-light-button-green p-4 text-sm text-light-white transition-colors duration-200 dark:border-dark-gray-heavy hover:bg-light-button-green-hover">
+              <div className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-light-white bg-light-button-green p-4 text-sm text-light-white transition-colors duration-200 hover:bg-light-button-green-hover dark:border-dark-gray-heavy">
                 <div
                   data-tour="step1"
                   className="flex cursor-pointer items-center"

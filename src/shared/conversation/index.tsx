@@ -114,10 +114,10 @@ const Component = React.memo(
       <>
         <div className="relative flex items-center">
           {isRenaming && selectedConversation?.id === conversation.id ? (
-            <div className="group flex w-full items-center gap-3 rounded-md bg-light-gray dark:bg-dark-orange p-3">
+            <div className="group flex w-full items-center gap-3 rounded-md bg-light-gray p-3 dark:bg-dark-orange">
               <IconMessage size={18} />
               <input
-                className="mr-12 flex-1 overflow-hidden text-ellipsis bg-light-gray text-left text-[12.5px] leading-3 text-light-blue-hover dark:bg-dark-orange outline-none"
+                className="mr-12 flex-1 overflow-hidden text-ellipsis bg-light-gray text-left text-[12.5px] leading-3 text-light-blue-hover outline-none dark:bg-dark-orange"
                 type="text"
                 value={renameValue}
                 onChange={(e) => setRenameValue(e.target.value)}
@@ -129,8 +129,8 @@ const Component = React.memo(
             <button
               className={`flex w-full cursor-pointer items-center gap-3 rounded-lg border border-light-gray p-3 text-sm text-light-blue-hover transition-colors duration-200 dark:text-black ${
                 selectedConversation?.id === conversation.id
-                  ? "bg-light-button-green hover:bg-light-button-green-hover dark:bg-dark-orange dark:border-dark-gray-heavy"
-                  : "bg-light-background-gray hover:bg-light-gray dark:bg-dark-gray-heavy dark:border-dark-white dark:text-dark-white"
+                  ? "bg-light-button-green hover:bg-light-button-green-hover dark:border-dark-gray-heavy dark:bg-dark-orange"
+                  : "bg-light-background-gray hover:bg-light-gray dark:border-dark-white dark:bg-dark-gray-heavy dark:text-dark-white"
               }`}
               draggable="true"
               onDragStart={(e) => _handleDragStart(e, conversation)}

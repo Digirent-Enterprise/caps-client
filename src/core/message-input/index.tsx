@@ -74,7 +74,7 @@ const Component: React.FC<IMessageInputProps> = ({
         <Popover className="relative">
           {({ open }) => (
             <>
-              <Popover.Button className="text-blue hover:text-blue mx-2 flex h-6 w-6 shrink-0focus:outline-none">
+              <Popover.Button className="text-blue hover:text-blue shrink-0focus:outline-none mx-2 flex h-6 w-6">
                 {isRecording ? (
                   <div className="h-4 w-4 animate-spin rounded-full border-t-2 border-light-gray opacity-60 dark:border-neutral-100"></div>
                 ) : (
@@ -94,11 +94,11 @@ const Component: React.FC<IMessageInputProps> = ({
                 leaveTo="opacity-0 translate-y-1 scale-95"
               >
                 <Popover.Panel className="absolute bottom-full z-10 m-4">
-                  <div className="rounded-lg bg-light-background-gray dark:bg-dark-gray py-2 shadow-lg">
+                  <div className="rounded-lg bg-light-background-gray py-2 shadow-lg dark:bg-dark-gray">
                     {languageOptions.map((option) => (
                       <button
                         key={option.value}
-                        className="block w-full px-4 py-2 text-left text-black dark:text-dark-white hover:bg-gray-200 dark:hover:bg-dark-orange"
+                        className="block w-full px-4 py-2 text-left text-black hover:bg-gray-200 dark:text-dark-white dark:hover:bg-dark-orange"
                         onClick={() => option.onClick()}
                       >
                         {option.label}
