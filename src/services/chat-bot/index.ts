@@ -11,5 +11,5 @@ export default class ChatBotService {
 
   static couldGetDiagnosis = (): Promise<DiagnosisNS.CouldGetDiagnosis> => {
     return axios.get(`/chat-bot/diagnosis/status`);
-  }
+  };
 }

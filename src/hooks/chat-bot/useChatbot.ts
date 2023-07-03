@@ -20,7 +20,6 @@ const useChatBot = (): ChatBotResult => {
     useImmer<DiagnosisNS.DiagnosisResults>([]);
 
   const getDiagnosisResults = async () => {
-
     try {
       setLoading(true);
       const response = await ChatBotService.generalDiagnosis();

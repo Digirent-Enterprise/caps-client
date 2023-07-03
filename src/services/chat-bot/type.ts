@@ -5,8 +5,8 @@ namespace DiagnosisNS {
   };
 
   export type CouldGetDiagnosis = {
-    couldDiagnosis: boolean,
-  }
+    couldDiagnosis: boolean;
+  };
 
   export type DiagnosisResults = Diagnosis[];
 }
