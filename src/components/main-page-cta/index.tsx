@@ -24,7 +24,8 @@ import {
 import { Icon } from "@tabler/icons-react";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
-
+import Accordion from "./accordion";
+import ImageCardContainer from "./news-card";
 import {
   ImmediateActions,
   LongTermActions,
@@ -95,6 +96,21 @@ const Component = memo(() => {
         return null;
     }
   };
+  const accordionItems = [
+    {
+      title: "Accordion Item 1",
+      content: "Content for Accordion Item 1",
+    },
+    {
+      title: "Accordion Item 2",
+      content: "Content for Accordion Item 2",
+    },
+    {
+      title: "Accordion Item 3",
+      content: "Content for Accordion Item 3",
+    },
+  ];
+
   return (
     <div className="mt-4 flex w-full flex-col items-center justify-center bg-light-background-gray px-36 dark:bg-dark-gray-heavy">
       <div className="text-4xl text-light-blue-hover dark:text-dark-orange">
@@ -131,50 +147,47 @@ const Component = memo(() => {
         </div>
         <div></div>
       </div>
-      <div className="text-4xl text-light-blue-hover dark:text-dark-orange">
-        Save, earn and invest, all in one app
-      </div>
-      <div className="from-1% h-90 w-70 flex items-center justify-center rounded-3xl px-2	">
-        <div className="flex-40">
-          <div>
-            <h1 className="mb-2 text-2xl font-bold">SAVINGS</h1>
-            <p className="mb-4 text-lg">Singlife Account</p>
-            <p className="mb-4 text-sm">
+      <div className="mt-5 from-1% h-90 w-70 flex items-center justify-center px-2">
+        <div className="flex-40 relative rounded-3xl hover:opacity-100 transition duration-300">
+          <div className="absolute top-0 left-0 z-10 p-4">
+            <h1 className="mb-2 text-2xl font-bold text-white">SAVINGS</h1>
+            <p className="mb-4 text-lg text-white">Singlife Account</p>
+            <p className="mb-4 text-sm text-white">
               The insurance savings plan that gives you up to 3.5% p.a.* return
               on your first S$10,000. Save, spend, earn and be insured all in
               one app. *Terms and Conditions apply. For a limited time only.
             </p>
           </div>
           <img
-            className="h-full w-full transform-gpu rounded-3xl object-cover transition-transform duration-300 hover:scale-110"
+            className="h-full w-full transform-gpu rounded-3xl object-cover transition-transform duration-300 hover:scale-110 hover:transform"
             src={"/static/landing/woman.png"}
             alt="Your Image"
           />
         </div>
-        <div className="flex-40">
-          <div>
-            <h1 className="mb-2 text-2xl font-bold">SAVINGS</h1>
-            <p className="mb-4 text-lg">Singlife Account</p>
-            <p className="mb-4 text-sm">
+        <div className="flex-40 relative rounded-3xl ml-20 hover:opacity-100 transition duration-300">
+          <div className="absolute top-0 left-0 z-10 p-4">
+            <h1 className="mb-2 text-2xl font-bold text-white">SAVINGS</h1>
+            <p className="mb-4 text-lg text-white">Singlife Account</p>
+            <p className="mb-4 text-sm text-white">
               The insurance savings plan that gives you up to 3.5% p.a.* return
               on your first S$10,000. Save, spend, earn and be insured all in
               one app. *Terms and Conditions apply. For a limited time only.
             </p>
           </div>
           <img
-            className="h-full w-full transform-gpu rounded-3xl object-cover transition-transform duration-300 hover:scale-110"
+            className="h-full w-full transform-gpu rounded-3xl object-cover transition-transform duration-300 hover:scale-110 hover:transform"
             src={"/static/landing/kid.png"}
             alt="Your Image"
           />
         </div>
-        {/* <img
-          className="h-full w-full rounded-3xl object-contain transition-transform duration-300 transform-gpu hover:scale-110"
-          src={"/static/landing/kid.png"}
-        />
-        <img
-          className="h-full w-full rounded-3xl object-cover transition-transform duration-300 transform-gpu hover:scale-110"
-          src={"/static/landing/woman.png"}
-        /> */}
+      </div>
+      <div className="mt-5 container w-full mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">Newsroom</h1>
+        <ImageCardContainer />
+      </div>
+      <div className="mt-5 container w-full mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">Frequently Asked Questions</h1>
+        <Accordion items={accordionItems} />
       </div>
     </div>
   );
