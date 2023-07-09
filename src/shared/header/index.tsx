@@ -20,7 +20,7 @@ const Component = React.memo(() => {
   return (
     <header
       data-testid="header"
-      className="h-22 fixed top-0 z-10 w-full bg-light-white bg-opacity-60 p-2 shadow-amber-50"
+      className="h-22 fixed top-0 z-10 w-full bg-light-white bg-opacity-60 p-2 shadow-amber-50 dark:bg-dark-gray"
     >
       <div className="flex w-full flex-row content-between items-center gap-2">
         <div className="ml-32 w-40">
@@ -37,7 +37,7 @@ const Component = React.memo(() => {
         <div className=" ml-auto mr-32 w-2/3 font-semibold  text-light-blue-hover dark:text-dark-white">
           <div className="flex w-full flex-nowrap items-center justify-end gap-5">
             <Link href={"/landing-page"}>
-              <div className="ho mr-2 w-fit text-center"> {t("home")} </div>
+              <div className="mr-2 w-fit text-center"> {t("home")} </div>
             </Link>
             {isEmpty(user) && (
               <>

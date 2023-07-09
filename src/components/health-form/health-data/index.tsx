@@ -271,9 +271,9 @@ const Component = () => {
 
   const containerClass = useMemo(() => {
     if (isMobile) {
-      return "flex bg-light-background-gray dark:bg-dark-blue flex-col min-h-screen px-5 py-10";
+      return "flex bg-light-background-gray dark:bg-dark-gray-heavy flex-col min-h-screen px-5 py-10";
     } else {
-      return "flex bg-light-background-gray dark:bg-dark-blue min-h-screen items-center justify-center py-5 px-2";
+      return "flex bg-light-background-gray dark:bg-dark-gray-heavy min-h-screen items-center justify-center py-5 px-2";
     }
   }, [isMobile]);
 
@@ -304,7 +304,7 @@ const Component = () => {
   return (
     <div className={containerClass}>
       <div className={formClass}>
-        <div className="text-light-hover-blue mb-10 text-center text-5xl font-bold tracking-normal dark:text-dark-orange-heading">
+        <div className="text-light-hover-blue mb-10 text-center text-5xl font-bold tracking-normal dark:text-dark-orange">
           {t("health_form")}
         </div>
         <div className="w-full">

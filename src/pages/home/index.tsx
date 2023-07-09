@@ -30,13 +30,14 @@ import withAuth from "@/hoc/withLogin";
 import useConversation from "@/hooks/conversation/useConversation";
 import useMessage from "@/hooks/message/useMessage";
 import useDevice from "@/hooks/useDevice";
-import { MessageNS } from "@/services/message/type";
 import CommandPalette from "@/shared/command-palette";
 import ConversationModal from "@/shared/conversation-modal";
 import DefaultChatMessage from "@/shared/default-chat-message";
 import Popover from "@/shared/popover";
 import SearchInput from "@/shared/search-input";
 import StatusModal from "@/shared/status-modal";
+import { exportConversationToJson } from "@/utils/json";
+import { exportConversationToMarkdown } from "@/utils/markdown";
 import { formatModelOption } from "@/utils/models";
 
 const Component: React.FC = () => {
@@ -132,21 +133,12 @@ const Component: React.FC = () => {
     };
 
     const _handleExportJson = async () => {
-      try {
-        const json = JSON.stringify(messages);
-        console.log(messages, "mess");
-        const blob = new Blob([json], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "messages.json";
-        link.click();
-      } catch (error) {
-        console.error("Error exporting messages:", error);
-      }
+      await exportConversationToJson(messages);
     };
 
-    const _handleExportMarkdown = () => {};
+    const _handleExportMarkdown = () => {
+      exportConversationToMarkdown(messages);
+    };
 
     const exportOptions = [
       {
@@ -171,12 +163,14 @@ const Component: React.FC = () => {
     }, [user]);
 
     useEffect(() => {
-      getAllMessages({ conversationId: selectedConversation.id });
+      selectedConversation
+        ? getAllMessages({ conversationId: selectedConversation.id })
+        : null;
     }, []);
 
     return (
       <div
-        className={`text-light-hover-blue flex h-screen w-full overflow-hidden bg-light-background-gray antialiased dark:bg-dark-blue dark:text-dark-white ${
+        className={`text-light-hover-blue flex h-screen w-full overflow-hidden bg-light-background-gray antialiased dark:bg-dark-gray-heavy dark:text-dark-white ${
           isMobile ? "flex-col" : ""
         }`}
       >
@@ -192,7 +186,7 @@ const Component: React.FC = () => {
               } w-80 flex-none flex-col overflow-auto transition-all duration-300 ease-in-out md:w-1/6 lg:max-w-sm`}
             >
               <div className="flex flex-none flex-row items-center justify-between p-4">
-                <p className="text-light-hover-blue hidden font-bold md:block">
+                <p className="text-light-hover-blue dark:text-dark-white hidden font-bold md:block">
                   {t("welcome")} {user?.name}
                 </p>
               </div>
@@ -204,7 +198,7 @@ const Component: React.FC = () => {
                   onSearch={_handleSearchConversation}
                 />
               </div>
-              <div className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-light-white bg-light-button-green p-4 text-sm text-light-white transition-colors duration-200 hover:bg-light-button-green-hover">
+              <div className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-light-white bg-light-button-green p-4 text-sm text-light-white transition-colors duration-200 dark:border-dark-gray-heavy hover:bg-light-button-green-hover">
                 <div
                   data-tour="step1"
                   className="flex cursor-pointer items-center"
@@ -279,7 +273,7 @@ const Component: React.FC = () => {
                 isMobile ? "" : "w-full"
               }`}
             >
-              <div className="flex flex-none flex-row items-center justify-between border-b border-light-gray px-6 py-4 shadow dark:border-dark-gray">
+              <div className="dark:text-gray flex flex-none flex-row items-center justify-between border-b border-light-gray px-6 py-4 shadow dark:border-dark-gray">
                 <div className="flex flex-col">
                   <div data-tour="step2" className="flex items-center">
                     <span className="mb-2 mr-2 text-xl font-bold">

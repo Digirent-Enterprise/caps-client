@@ -1,5 +1,4 @@
 import { memo } from "react";
-
 import MainPageCarousel from "@/components/main-page-carousel";
 import MainPageCta from "@/components/main-page-cta";
 import withLayout from "@/hoc/withLayout";

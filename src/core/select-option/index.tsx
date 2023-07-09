@@ -20,11 +20,13 @@ const Component = React.memo((props: ISelectOptionProps) => {
 
   return (
     <div className="mb-5">
-      <div className="text-light-hover-blue mb-2 block font-bold">{title}</div>
+      <div className="text-light-hover-blue mb-2 block font-bold dark:text-dark-white">
+        {title}
+      </div>
       <div className="flex flex-wrap gap-2">
         {options.map((option, index) => (
           <div key={index}>
-            <label className="inline-flex cursor-pointer items-center">
+            <label className="inline-flex cursor-pointer items-center text-light-blue-hover dark:text-dark-white">
               <input
                 type={type}
                 value={option.value}

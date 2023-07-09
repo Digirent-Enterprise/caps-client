@@ -13,18 +13,18 @@ const Component: React.FC = () => {
   const currentPage = router.pathname;
 
   return (
-    <div className="bg-background-gray flex min-h-screen flex-col dark:bg-dark-blue">
+    <div className="bg-background-gray flex min-h-screen flex-col dark:bg-dark-gray-heavy">
       <div className="my-10">
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
         <div className="mx-auto mt-10 max-w-3xl">
           <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-dark-orange">
             {t("release")}
           </h2>
-          <div className="bg-background-gray rounded p-4 shadow dark:bg-dark-blue">
+          <div className="bg-background-gray rounded p-4 shadow dark:bg-dark-gray-heavy">
             <h3 className="mb-2 text-xl font-bold text-light-blue-hover dark:text-dark-white">
               {t("version_1.0.0")}
             </h3>
-            <ul className="list-inside list-disc">
+            <ul className="list-inside list-disc dark:text-dark-white">
               <li>{t("version_1.0.0_description")}</li>
               <li>{t("version_1.0.0_description2")}</li>
               <li>{t("version_1.1.0_description3")}</li>
@@ -33,7 +33,7 @@ const Component: React.FC = () => {
             <h3 className="my-4 text-xl font-bold text-light-blue-hover dark:text-dark-white">
               {t("version_1.1.0")}
             </h3>
-            <ul className="list-inside list-disc">
+            <ul className="list-inside list-disc dark:text-dark-white">
               <li>{t("version_1.1.0_description")}</li>
               <li>{t("version_1.1.0_description2")}</li>
               <li>{t("version_1.1.0_description3")}</li>
@@ -43,14 +43,16 @@ const Component: React.FC = () => {
             <h3 className="my-4 text-xl font-bold text-light-blue-hover dark:text-dark-white">
               {t("version_1.2.0")}
             </h3>
-            <ul className="list-inside list-disc">
+            <ul className="list-inside list-disc dark:text-dark-white">
               <li>{t("version_1.2.0_description")}</li>
               <li>{t("version_1.2.0_description2")}</li>
               <li>{t("version_1.2.0_description3")}</li>
             </ul>
 
-            <h3 className="my-4 text-xl font-bold">{t("version_1.3.0")}</h3>
-            <ul className="list-inside list-disc">
+            <h3 className="my-4 text-xl font-bold dark:text-dark-white">
+              {t("version_1.3.0")}
+            </h3>
+            <ul className="list-inside list-disc dark:text-dark-white">
               <li>{t("version_1.3.0_description")}</li>
               <li>{t("version_1.3.0_description2")}</li>
               <li>{t("version_1.3.0_description3")}</li>

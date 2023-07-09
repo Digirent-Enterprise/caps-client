@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./src/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}", './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: "class",
   theme: {
     extend: {
@@ -26,11 +26,12 @@ module.exports = {
         "light-search-text-white": "#50514c",
         "light-input-gray": "#50514c",
         "light-input-hover-gray": "#872c45",
-        "dark-orange-hover": "#DB8E2A", //hover button
-        "dark-orange": "#db8414", // primary button
+        "dark-orange-hover": "#0e9272", //hover button
+        "dark-orange": "#14a27d", // primary button
         "dark-blue": "#162549", //background
         "dark-header-footer": "#162549", //header footer
-        "dark-gray": "#9C9E95",
+        "dark-gray-heavy": "#0e1629",
+        "dark-gray": "#1e293b",
         "dark-white": "#ffffff", //text
         "dark-red": "#dc2626",
         "dark-orange-heading": "#db8414", //text heading
