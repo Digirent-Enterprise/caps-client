@@ -1,5 +1,6 @@
+const path = require("path");
+
 const { i18n } = require("./next-i18next.config");
-const path = require('path')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,7 +11,7 @@ const nextConfig = {
     PROJECT_ROOT: __dirname,
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, 'style')],
+    includePaths: [path.join(__dirname, "style")],
   },
 };
 

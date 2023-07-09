@@ -14,7 +14,7 @@ const Component = React.memo((props: IDashboardContentProps) => {
 
   return (
     <section
-      className={`hide-scrollbar mx-4 flex flex-auto flex-col overflow-y-scroll border border-light-gray dark:border-dark-gray dark:bg-dark-gray-heavy px-8 shadow-accent-dark ${
+      className={`hide-scrollbar mx-4 flex flex-auto flex-col overflow-y-scroll border border-light-gray px-8 shadow-accent-dark dark:border-dark-gray dark:bg-dark-gray-heavy ${
         isMobile ? "" : "w-full"
       }`}
     >

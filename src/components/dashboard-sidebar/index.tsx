@@ -28,14 +28,14 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
     <section
       className={`group flex ${
         isMobile ? "h-full" : ""
-      } flex-none flex-col overflow-auto border-r border-light-gray transition-all duration-300 ease-in-out  md:w-1/3 lg:max-w-sm dark:bg-dark-gray-heavy dark:border-dark-gray `}
+      } flex-none flex-col overflow-auto border-r border-light-gray transition-all duration-300 ease-in-out  dark:border-dark-gray dark:bg-dark-gray-heavy md:w-1/3 lg:max-w-sm `}
     >
       <div className="flex flex-col justify-start gap-1 p-4">
         <p className="hidden text-lg font-bold text-light-blue-hover dark:text-dark-white md:block">
           {t("welcome")} {user?.name}
         </p>
       </div>
-      <div className="my-2 flex border-t border-light-gray dark:text-dark-white dark:border-dark-gray p-2">
+      <div className="my-2 flex border-t border-light-gray p-2 dark:border-dark-gray dark:text-dark-white">
         <Link
           href={"/home"}
           className="flex cursor-pointer flex-row items-center justify-start gap-1"
@@ -46,7 +46,7 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
           </span>
         </Link>
       </div>
-      <div className="flex border-t border-light-gray dark:border-dark-gray p-3">
+      <div className="flex border-t border-light-gray p-3 dark:border-dark-gray">
         <div className="flex w-full flex-col gap-3">
           <div
             className={`flex w-full cursor-pointer flex-row items-center gap-1 p-2 text-light-white ${

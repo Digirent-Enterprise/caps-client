@@ -144,7 +144,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
               multiple
               value={symptoms}
               onChange={_handleSymptomsChange}
-              className="hide-scrollbar w-full rounded-lg border border-light-gray px-3 py-2 shadow-sm dark:bg-dark-gray dark:text-dark-white focus:outline-none focus:ring-2"
+              className="hide-scrollbar w-full rounded-lg border border-light-gray px-3 py-2 shadow-sm focus:outline-none focus:ring-2 dark:bg-dark-gray dark:text-dark-white"
             >
               {allSymptoms.map((symptom) => (
                 <option key={symptom} value={symptom}>

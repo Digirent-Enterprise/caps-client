@@ -121,7 +121,7 @@ const Component = memo(() => {
             if (getActionIcon(action))
               return (
                 <div className="flex flex-col items-center justify-center gap-2 text-center">
-                  <div className="w-fit rounded-full border border-light-blue-hover bg-light-background-gray dark:border-dark-orange dark:bg-dark-gray-heavy p-5">
+                  <div className="w-fit rounded-full border border-light-blue-hover bg-light-background-gray p-5 dark:border-dark-orange dark:bg-dark-gray-heavy">
                     {getActionIcon(action)}
                   </div>
                   <div className="font-bold">{action}</div>
