@@ -91,7 +91,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
             isMobile ? "h-full" : "flex-auto"
           } hide-scrollbar flex-col overflow-y-scroll border-l border-light-gray dark:border-dark-gray`}
         >
-          <div data-tour={props.dataTourOne} className="flex-1 p-4">
+          <div data-tour={props.dataTourOne} className="relative flex-1 p-4">
             {messages.map((message, index) => (
               <ChatMessage
                 key={index}
@@ -102,12 +102,28 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
               />
             ))}
             <div ref={messagesEndRef}></div>
+
             {messages &&
             messages.length &&
             messages[messages.length - 1].sender ===
               MessageNS.SenderType.USER ? (
-              <div className="text-light-blue-hover dark:text-dark-white">
-                The chat advisor is typing...
+              <div className="absolute bottom-0.5 ml-1 flex flex-row items-center justify-center gap-2">
+                <img
+                  className="h-12 w-12 rounded-full bg-light-button-green p-2 dark:bg-dark-orange"
+                  src={"/static/chat_logo.svg"}
+                />
+                <div className="flex flex-row">
+                  <div className="animate-bounce text-6xl text-gray-500 delay-75">
+                    .
+                  </div>
+                  <div className="animate-bounce text-6xl  text-gray-500 delay-100">
+                    .
+                  </div>
+                  <div className="delay-125 animate-bounce  text-6xl text-gray-500">
+                    .
+                  </div>
+                  {/*<div className="text-gray-500 animate-bounce  text-4xl delay-150">.</div>*/}
+                </div>
               </div>
             ) : null}
           </div>

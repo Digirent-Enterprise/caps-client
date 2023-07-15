@@ -46,27 +46,31 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
           </span>
         </Link>
       </div>
-      <div className="flex border-t border-light-gray p-3 dark:border-dark-gray">
+      <div className="flex border-t p-3">
         <div className="flex w-full flex-col gap-3">
           <div
-            className={`flex w-full cursor-pointer flex-row items-center gap-1 p-2 text-light-white ${
-              tab === "MyGeneralHealthStatistics" ? "bg-light-button-green" : ""
+            className={`flex w-full cursor-pointer flex-row items-center gap-1 p-2 shadow-2xl ${
+              tab === "MyGeneralHealthStatistics"
+                ? "bg-light-secondary-button text-white shadow-inner"
+                : "text-black"
             }`}
             onClick={() => _onChangeTab("MyGeneralHealthStatistics")}
           >
             <IconDeviceIpadHeart className="text-black" />
-            <span className="ml-2 cursor-pointer text-sm text-black">
+            <span className="ml-2 cursor-pointer text-sm">
               {t("my_general")}
             </span>
           </div>
           <div
-            className={`flex w-full cursor-pointer flex-row items-center gap-1 p-2 ${
-              tab === "MySecretRecommendation" ? "bg-light-button-green" : ""
+            className={`flex w-full cursor-pointer  flex-row items-center gap-1 p-2 shadow-2xl ${
+              tab === "MySecretRecommendation"
+                ? "bg-light-secondary-button text-white shadow-inner"
+                : "text-black"
             }`}
             onClick={() => _onChangeTab("MySecretRecommendation")}
           >
-            <IconBellPlusFilled className="text-black dark:text-dark-white" />
-            <span className="ml-2 cursor-pointer text-sm text-light-blue-hover  dark:text-dark-white">
+            <IconBellPlusFilled className="text-black" />
+            <span className="ml-2 cursor-pointer text-sm">
               {t("my_health")}
             </span>
           </div>

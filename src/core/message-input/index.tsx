@@ -70,7 +70,7 @@ const Component: React.FC<IMessageInputProps> = ({
 
   return (
     <div className="flex-none">
-      <div className="flex flex-row items-center p-4">
+      <div className="flex flex-row items-center p-2 pb-4">
         <Popover className="relative">
           {({ open }) => (
             <>
@@ -78,7 +78,7 @@ const Component: React.FC<IMessageInputProps> = ({
                 {isRecording ? (
                   <div className="h-4 w-4 animate-spin rounded-full border-t-2 border-light-gray opacity-60 dark:border-neutral-100"></div>
                 ) : (
-                  <div className="text-light-button-green">
+                  <div className="text-light-primary-icon">
                     <IconMicrophone />
                   </div>
                 )}
@@ -113,7 +113,7 @@ const Component: React.FC<IMessageInputProps> = ({
         <input
           data-tour={dataTourTwo}
           ref={inputRef}
-          className="w-full rounded-full border border-light-gray bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:shadow-md focus:outline-none dark:bg-dark-gray-heavy dark:text-dark-white dark:focus:bg-dark-gray"
+          className="w-full rounded-full border-2 border-light-gray bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:shadow-md focus:outline-none dark:bg-dark-gray-heavy dark:text-dark-white dark:focus:bg-dark-gray"
           value={message}
           onChange={(e) => onValueChange(e.target.value)}
           onKeyDown={handleKeyDown}
@@ -121,17 +121,17 @@ const Component: React.FC<IMessageInputProps> = ({
         />
         <button
           type="button"
-          className="mx-2 flex h-6 w-6 shrink-0 text-light-button-green hover:text-light-button-green-hover focus:outline-none"
+          className="mx-2 flex h-6 w-6 shrink-0 text-light-primary-icon hover:text-light-button-green-hover focus:outline-none"
           onClick={message ? handleSend : () => {}}
         >
-          <IconSend color="green" />
+          <IconSend />
         </button>
         <button
           type="button"
-          className="text-blue hover:text-blue mx-2 flex h-6 w-6 shrink-0 focus:outline-none"
+          className="hover:text-blue mx-2 flex h-6 w-6 shrink-0 text-light-primary-icon focus:outline-none"
           onClick={() => setIsHealthStatusPopupModalOpen(true)}
         >
-          <IconHeartbeat color="green" />
+          <IconHeartbeat />
         </button>
         <HealthStatusPopupModal
           isOpen={isHealthStatusModalOpen}

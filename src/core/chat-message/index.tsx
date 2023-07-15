@@ -15,8 +15,8 @@ const Component = React.memo((props: IChatMessageProps) => {
 
   const messageClasses = {
     chatbot:
-      "bg-light-button-green dark:bg-dark-orange rounded-3xl text-white dark:text-dark-white dark:bg-dark-orange",
-    user: "bg-light-button-green-hover dark:bg-dark-white rounded-3xl text-dark-white dark:text-dark-white dark:bg-dark-orange-hover",
+      "bg-light-chatbot-message dark:bg-dark-orange rounded-3xl text-white dark:text-dark-white dark:bg-dark-orange shadow-lg hover:cursor-pointer",
+    user: "bg-light-user-message dark:bg-dark-white rounded-3xl text-dark-white dark:text-dark-white dark:bg-dark-orange-hover shadow-lg hover:cursor-pointer",
   };
 
   const containerClass = containerClasses[senderType];

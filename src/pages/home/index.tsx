@@ -198,7 +198,12 @@ const Component: React.FC = () => {
                   onSearch={_handleSearchConversation}
                 />
               </div>
-              <div className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border border-light-white bg-light-button-green p-4 text-sm text-light-white transition-colors duration-200 hover:bg-light-button-green-hover dark:border-dark-gray-heavy">
+              <div
+                className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border
+              border-light-white bg-light-primary-button
+              p-4 text-sm text-light-white transition-colors
+               duration-200 hover:bg-light-button-green-hover dark:border-dark-gray-heavy"
+              >
                 <div
                   data-tour="step1"
                   className="flex cursor-pointer items-center"

@@ -11,8 +11,15 @@ module.exports = {
       colors: {
         "light-blue-hover": "#162549", //text
         "light-blue": "#162539",
-        "light-button-green": "#14a27d", //hover button
-        "light-button-green-hover": "#0e9272", // button
+        "light-button-green": "#213363", //hover button
+        "light-primary-button": "#213363", //hover button
+        "light-primary-icon": "#213363", //hover button
+        "light-button-green-hover": "#2069ad", // button
+        "light-user-message": "#2069ad", // button
+        "light-chatbot-message": "#545b77", // button
+        "light-secondary-button": "#9ca3af",
+        "light-primary-border": "#9ca3af",
+
         "light-orange": "#db8414", // primary button
         "light-gray": "#e5e5e5", //secondary button
         "light-nude": "#e3ece3",
@@ -20,11 +27,12 @@ module.exports = {
         "light-maroon": "#872c45",
         "light-yellow": "#fde047",
         "light-border-gray": "#d1d5db",
-        "light-green": "#2f855a",
-        "light-text-heading": "#002248",
+        "light-green": "#213363",
+        "light-text-heading": "#213363",
+        "light-text": "#213363",
         "light-text-paragraph": "#0d0505",
         "light-text-modal": "#9ca3af", //text in settings modal
-        "light-background-gray": "#ffffff", // background
+        "light-background-gray": "#eee", // background
         "light-search-gray": "#50514c",
         "light-header-footer": "#db8414", //header footer
         "light-search-text-white": "#50514c",
@@ -41,15 +49,15 @@ module.exports = {
         "dark-orange-heading": "#db8414", //text heading
         red: "#dc2626",
         primary: {
-          DEFAULT: "#292D3E",
+          DEFAULT: "#b5c2c9",
           dark: "#2f3447",
-          light: "#eeeeef",
+          light: "#b5c2c9",
         },
         accent: {
-          DEFAULT: "#373d53",
+          DEFAULT: "#b5c2c9",
           hover: "#474e6c",
           dark: "#454c69",
-          light: "#eeeeef",
+          light: "#b5c2c9",
         },
       },
       transitionDuration: {
