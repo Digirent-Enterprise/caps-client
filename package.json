@@ -64,7 +64,7 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "^0.3.0",
+    "@slicemachine/adapter-next": "^0.3.6",
     "@tailwindcss/typography": "^0.5.9",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
