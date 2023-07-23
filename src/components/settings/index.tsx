@@ -10,6 +10,7 @@ import LanguageSwitcher from "@/components/language-switcher";
 import { tabs } from "@/components/settings/constant";
 import { ISettingsModalProps } from "@/components/settings/type";
 import ThemeSwitcher from "@/components/theme-switcher";
+import Button from "@/core/button";
 import Switcher from "@/core/switcher";
 
 const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
@@ -37,7 +38,7 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-light-text-modal bg-opacity-75 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-light-text-modal transition-opacity" />
           </Transition.Child>
 
           <Transition.Child
@@ -72,8 +73,8 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                           key={tab.id}
                           className={`px-4 py-2 text-left focus:outline-none ${
                             selectedTab === tab.id
-                              ? "font-bold text-light-blue-hover dark:text-dark-orange"
-                              : "text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-dark-orange"
+                              ? "font-bold text-light-blue-hover dark:text-dark-green"
+                              : "text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-dark-green"
                           }`}
                           onClick={() => setSelectedTab(tab.id)}
                         >
@@ -114,28 +115,20 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                 <div className="mt-6 flex items-center justify-between">
                   <div className="flex items-center">
                     <Link href="/faq" className="flex items-center">
-                      <IconExternalLink className="ml-4 h-4 w-4 text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-dark-orange" />
-                      <span className="ml-2 text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-dark-orange">
+                      <IconExternalLink className="ml-4 h-4 w-4 text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-dark-green" />
+                      <span className="ml-2 text-light-text-modal hover:text-light-blue-hover dark:text-dark-white dark:hover:text-dark-green">
                         {t("help_faq")}
                       </span>
                     </Link>
                   </div>
                   <div className="mt-6 flex justify-end">
-                    <button
-                      type="button"
-                      className="ml-4 rounded-md border border-light-gray bg-light-background-gray px-4 py-2 text-light-blue-hover hover:bg-light-gray focus:outline-none dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-orange-hover"
-                      onClick={onClose}
-                    >
+                    <Button onClick={onClose} mode="secondary">
                       {t("cancel")}
-                    </button>
+                    </Button>
                     <div className="ml-2">
-                      <button
-                        type="button"
-                        className="rounded-md bg-light-button-green px-4 py-2 text-light-background-gray hover:bg-light-button-green-hover focus:outline-none dark:bg-dark-orange dark:hover:bg-dark-orange-hover"
-                        onClick={onClose}
-                      >
+                      <Button onClick={onClose} mode="primary">
                         {t("save")}
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>

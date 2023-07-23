@@ -23,15 +23,15 @@ const Component = React.memo((props: ISearchInputProps) => {
         <IconSearch
           className={`absolute ${
             isMobile ? "right-2" : "right-4"
-          } cursor-pointer text-light-button-green hover:text-light-button-green-hover dark:text-dark-white`}
+          } cursor-pointer text-light-button-blue hover:text-light-button-blue-hover dark:text-dark-white`}
           size={18}
           onClick={_clearSearch}
         />
       )}
       <input
-        className={`w-full rounded-md border border-light-gray py-2 pl-3 dark:border-dark-gray-heavy dark:bg-dark-gray ${
+        className={`w-full rounded-md border py-2 pl-3 dark:border-dark-gray-heavy dark:bg-dark-gray ${
           isMobile ? "pr-6" : "pr-10"
-        } text-light-blue-hover transition duration-300 ease-in focus:bg-light-gray focus:shadow-md focus:outline-none dark:text-dark-white`}
+        } text-light-blue-hover transition duration-300 ease-in focus:shadow-md focus:outline-none dark:text-dark-white`}
         type="text"
         placeholder={isMobile ? "" : placeholder}
         value={searchTerm}

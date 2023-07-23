@@ -130,7 +130,7 @@ const Component = () => {
                       options={SORT_BY_OPTIONS}
                     />
                   </div>
-                  <div className="mr-auto:important sm:mr-0:important w-40">
+                  <div className="w-40">
                     <ListBox
                       label="Show Only"
                       selectedOption={currentFilter}
@@ -145,7 +145,7 @@ const Component = () => {
             <span className="mb-28 rounded-md text-center sm:mb-20">
               <button
                 type="button"
-                className="focus:shadow-outline-orange inline-flex items-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out hover:bg-orange-500 focus:border-orange-700 focus:outline-none active:bg-orange-700"
+                className="inline-flex items-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out hover:bg-orange-500 focus:border-orange-700 focus:outline-none active:bg-orange-700"
                 onClick={() => setTotalStories(totalStories + STORIES_OFFSET)}
               >
                 Load More

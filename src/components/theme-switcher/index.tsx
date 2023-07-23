@@ -11,8 +11,8 @@ const Component: React.FC = () => {
   const getCheckIcon = (selected: boolean) => {
     if (selected) {
       return (
-        <div className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-light-button-green">
-          <IconCheck className="h-4 w-4 bg-light-button-green text-white" />
+        <div className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-light-button-blue">
+          <IconCheck className="h-4 w-4 bg-light-button-blue text-white" />
         </div>
       );
     }
@@ -30,7 +30,7 @@ const Component: React.FC = () => {
           <div className="relative mr-4">
             <div
               className={`rounded border-2 ${
-                theme === "system" ? "border-light-button-green" : ""
+                theme === "system" ? "border-light-button-blue" : ""
               }`}
               onClick={() => setTheme("system")}
             >
@@ -49,7 +49,7 @@ const Component: React.FC = () => {
           <div className="relative mr-4">
             <div
               className={`rounded border-2 ${
-                theme === "light" ? "border-light-button-green" : ""
+                theme === "light" ? "border-light-button-blue" : ""
               }`}
               onClick={() => setTheme("light")}
             >
@@ -68,7 +68,7 @@ const Component: React.FC = () => {
           <div className="relative">
             <div
               className={`rounded border-2 ${
-                theme === "dark" ? "border-light-button-green" : ""
+                theme === "dark" ? "border-light-button-blue" : ""
               }`}
               onClick={() => setTheme("dark")}
             >

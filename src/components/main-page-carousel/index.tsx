@@ -20,7 +20,7 @@ const Component = memo(() => {
       autoPlay={false}
       showStatus={false}
     >
-      <div className="flex w-full items-center justify-center bg-light-background-gray dark:bg-dark-gray-heavy sm:mt-1 md:mt-1 lg:mt-2 lg:px-36">
+      <div className="flex w-full items-center justify-center bg-light-background-gray dark:bg-dark-gray-heavy lg:px-36">
         <div className="from-1% relative flex min-h-max w-full items-center justify-center rounded-3xl rounded-b-[20%] bg-gradient-to-r from-[#169cd6] via-sky-500 via-30%  to-emerald-500 to-100% px-2	">
           <img
             className="Cmd:w-full absolute left-0 top-[20%] h-auto sm:w-[80%] sm:pb-2 md:pb-5 lg:w-1/3 lg:pb-10 "

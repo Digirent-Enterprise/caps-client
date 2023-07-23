@@ -11,23 +11,21 @@ module.exports = {
       colors: {
         "light-blue-hover": "#162549", //text
         "light-blue": "#162539",
-        "light-button-green": "#213363", //hover button
+        "light-button-blue": "#213363", //hover button
         "light-primary-button": "#213363", //hover button
         "light-primary-icon": "#213363", //hover button
-        "light-button-green-hover": "#2069ad", // button
+        "light-button-blue-hover": "#2069ad", // button
         "light-user-message": "#2069ad", // button
         "light-chatbot-message": "#545b77", // button
         "light-secondary-button": "#9ca3af",
         "light-primary-border": "#9ca3af",
 
-        "light-orange": "#db8414", // primary button
-        "light-gray": "#e5e5e5", //secondary button
         "light-nude": "#e3ece3",
         "light-white": "#ffffff", //text
         "light-maroon": "#872c45",
         "light-yellow": "#fde047",
         "light-border-gray": "#d1d5db",
-        "light-green": "#213363",
+        "light-bg-blue": "#213363",
         "light-text-heading": "#213363",
         "light-text": "#213363",
         "light-text-paragraph": "#0d0505",
@@ -38,15 +36,16 @@ module.exports = {
         "light-search-text-white": "#50514c",
         "light-input-gray": "#50514c",
         "light-input-hover-gray": "#872c45",
-        "dark-orange-hover": "#0e9272", //hover button
-        "dark-orange": "#14a27d", // primary button
+        "dark-green-hover": "#0e9272", //hover button
+        "dark-green": "#14a27d", // primary button
+        "dark-bg-primary": "#202123",
         "dark-blue": "#162549", //background
         "dark-header-footer": "#162549", //header footer
         "dark-gray-heavy": "#0e1629",
         "dark-gray": "#1e293b",
         "dark-white": "#ffffff", //text
         "dark-red": "#dc2626",
-        "dark-orange-heading": "#db8414", //text heading
+        "dark-green-heading": "#db8414", //text heading
         red: "#dc2626",
         primary: {
           DEFAULT: "#b5c2c9",
