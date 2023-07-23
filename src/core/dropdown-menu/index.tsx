@@ -10,7 +10,7 @@ const Component = React.memo((props: IDropDownMenuProps) => {
         {label}
       </label>
       <select
-        className="w-full rounded-md border border-light-gray bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:border-light-gray focus:bg-light-background-gray focus:shadow-md focus:outline-none"
+        className="border-light-gray focus:border-light-gray w-full rounded-md border bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:bg-light-background-gray focus:shadow-md focus:outline-none"
         value={selectedValue}
         onChange={(event) => onChange(event.target.value)}
       >

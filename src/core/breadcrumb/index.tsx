@@ -11,12 +11,12 @@ const Component: React.FC<IBreadcrumbProps> = ({ items, currentPage }) => {
             {item.href ? (
               <Link
                 href={item.href}
-                className="text-light-button-green hover:text-light-button-green-hover dark:text-dark-white dark:hover:text-dark-orange"
+                className="text-light-button-blue hover:text-light-button-blue-hover dark:text-dark-white dark:hover:text-light-button-blue-hover"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className="text-gray-500 dark:text-dark-orange">
+              <span className="text-gray-500 dark:text-light-button-blue-hover">
                 {currentPage ? currentPage : item.label}
               </span>
             )}

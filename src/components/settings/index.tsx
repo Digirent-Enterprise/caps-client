@@ -37,7 +37,7 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-light-text-modal bg-opacity-75 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-light-text-modal transition-opacity" />
           </Transition.Child>
 
           <Transition.Child
@@ -123,7 +123,7 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                   <div className="mt-6 flex justify-end">
                     <button
                       type="button"
-                      className="ml-4 rounded-md border border-light-gray bg-light-background-gray px-4 py-2 text-light-blue-hover hover:bg-light-gray focus:outline-none dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-orange-hover"
+                      className="border-light-gray hover:bg-light-gray ml-4 rounded-md border bg-light-background-gray px-4 py-2 text-light-blue-hover focus:outline-none dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-orange-hover"
                       onClick={onClose}
                     >
                       {t("cancel")}
@@ -131,7 +131,7 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                     <div className="ml-2">
                       <button
                         type="button"
-                        className="rounded-md bg-light-button-green px-4 py-2 text-light-background-gray hover:bg-light-button-green-hover focus:outline-none dark:bg-dark-orange dark:hover:bg-dark-orange-hover"
+                        className="rounded-md bg-light-button-blue px-4 py-2 text-light-background-gray hover:bg-light-button-blue-hover focus:outline-none dark:bg-dark-orange dark:hover:bg-dark-orange-hover"
                         onClick={onClose}
                       >
                         {t("save")}

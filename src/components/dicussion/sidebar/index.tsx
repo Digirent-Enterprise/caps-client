@@ -116,7 +116,7 @@ const Component = () => {
         <Disclosure>
           {({ open }) => (
             <>
-              <Disclosure.Button className="mt-4 flex w-full items-center justify-between rounded-lg bg-white px-4 py-2 text-left text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
+              <Disclosure.Button className="mt-4 flex w-full items-center justify-between rounded-lg bg-white px-4 py-2 text-left text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-blue-500">
                 <span>Tags</span>
                 {open ? (
                   <IconArrowNarrowUp className="h-5 w-5" />

@@ -11,7 +11,7 @@ const Component: React.FC<IPopoverProps> = ({ options }) => {
       {({ open }) => (
         <>
           <Popover.Button className="focus:outline-none">
-            <div className="text-light-blue-hover">
+            <div className="text-black dark:text-light-white">
               <IconDots />
             </div>
           </Popover.Button>

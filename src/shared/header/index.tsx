@@ -20,7 +20,7 @@ const Component = React.memo(() => {
   return (
     <header
       data-testid="header"
-      className="h-22 fixed top-0 z-10 w-full bg-light-white bg-opacity-60 p-2 shadow-amber-50 dark:bg-dark-gray"
+      className="fixed top-0 z-10 w-full bg-light-white bg-opacity/60 p-2 shadow-amber-50 dark:bg-dark-gray"
     >
       <div className="flex w-full flex-row content-between items-center gap-2">
         <div className="ml-32 w-40">
@@ -29,7 +29,7 @@ const Component = React.memo(() => {
               src={"/static/dica.png"}
               width={331}
               height={137}
-              className="h-17 w-40 bg-transparent"
+              className="w-40 bg-transparent"
               alt="dica_logo"
             />
           </Link>

@@ -53,14 +53,14 @@ const Component = React.memo(() => {
         {t("login_heading")}
       </div>
       <button
-        className="focus:ring-blue text-light-hover-blue flex cursor-pointer items-center justify-center rounded border border-solid border-light-gray bg-light-background-gray px-4 py-2 font-bold hover:bg-light-gray focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
+        className="focus:ring-blue text-light-text border-light-gray hover:bg-light-gray flex cursor-pointer items-center justify-center rounded border border-solid bg-light-background-gray px-4 py-2 font-bold focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
         onClick={() => signIn("facebook")}
       >
         <IconBrandFacebook className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>
       </button>
       <button
-        className="focus:ring-blue text-light-hover-blue mt-4 flex cursor-pointer items-center justify-center rounded border border-solid border-light-gray bg-light-background-gray px-4 py-2 font-bold hover:bg-light-gray focus:ring-2  dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
+        className="focus:ring-blue text-light-text border-light-gray hover:bg-light-gray mt-4 flex cursor-pointer items-center justify-center rounded border border-solid bg-light-background-gray px-4 py-2 font-bold focus:ring-2  dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
         onClick={() => signIn("google")}
       >
         <IconBrandGoogle className="mr-2 h-8 w-8" />
@@ -94,10 +94,10 @@ const Component = React.memo(() => {
       <Button onClick={_handleSubmit} mode="primary">
         {t("login_description")}
       </Button>
-      <label className="text-xl text-light-button-green dark:text-dark-white">
+      <label className="text-xl text-light-button-blue dark:text-dark-white">
         {t("have_not_registered")}{" "}
         <Link href={"/auth/register"}>
-          <span className="text-light-button-green dark:text-dark-orange">
+          <span className="text-light-button-blue dark:text-dark-orange">
             {t("register")}
           </span>
         </Link>
