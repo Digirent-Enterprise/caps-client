@@ -10,10 +10,10 @@ const Component = React.memo((props: ITextareaProps) => {
 
   if (errorMessage) {
     inputClassNames =
-      "w-full rounded-lg border border-red p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-blue dark:bg-dark-gray-heavy dark:text-dark-white dark:focus:ring-dark-orange";
+      "w-full rounded-lg border border-red p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-blue dark:bg-dark-gray-heavy dark:text-dark-white";
   } else {
     inputClassNames =
-      "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-blue dark:text-dark-white dark:focus:ring-dark-orange";
+      "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-blue dark:text-dark-white";
   }
 
   return (

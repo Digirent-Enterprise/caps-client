@@ -67,7 +67,7 @@ const Component: React.FC<IBadgeListInputProps> = ({
         {badges.map((badge, index) => (
           <div
             key={index}
-            className="m-1 inline-flex items-center rounded-lg bg-light-button-blue px-3 py-1 text-light-background-gray dark:bg-dark-orange"
+            className="m-1 inline-flex items-center rounded-lg bg-light-button-blue px-3 py-1 text-light-background-gray dark:bg-light-primary-button"
           >
             {badge.value}
             <button className="ml-2" onClick={() => handleDelete(badge)}>

@@ -8,7 +8,7 @@ const Component = React.memo((props: IButtonProps) => {
     if (mode === "primary") {
       return "bg-light-button-blue text-white hover:bg-light-button-blue-hover border-white dark:border-dark-blue dark:bg-dark-orange  dark:hover:bg-dark-orange-hover";
     }
-    return "bg-light-background-gray text-light-blue-hover border-solid border-light-gray dark:border-dark-white hover:bg-light-gray dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-orange-hover";
+    return "bg-light-background-gray text-light-blue-hover border-solid border-light-gray dark:border-dark-white hover:bg-light-gray dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:light-button-blue-hover";
   }, [mode]);
 
   const sizeClass = useMemo(() => {

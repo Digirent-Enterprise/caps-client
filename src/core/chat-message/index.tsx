@@ -67,7 +67,7 @@ const Component = React.memo((props: IChatMessageProps) => {
                 disabled={isSpeaking}
                 aria-label="Speak"
               >
-                <div className="text-black dark:text-dark-orange">
+                <div className="text-black dark:text-dark-white">
                   <IconVolume2 />
                 </div>
               </button>
