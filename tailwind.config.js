@@ -36,8 +36,8 @@ module.exports = {
         "light-search-text-white": "#50514c",
         "light-input-gray": "#50514c",
         "light-input-hover-gray": "#872c45",
-        "dark-orange-hover": "#0e9272", //hover button
-        "dark-orange": "#14a27d", // primary button
+        "dark-green-hover": "#0e9272", //hover button
+        "dark-green": "#14a27d", // primary button
         "dark-bg-primary": "#202123",
         "dark-blue": "#162549", //background
         "dark-header-footer": "#162549", //header footer
@@ -45,7 +45,7 @@ module.exports = {
         "dark-gray": "#1e293b",
         "dark-white": "#ffffff", //text
         "dark-red": "#dc2626",
-        "dark-orange-heading": "#db8414", //text heading
+        "dark-green-heading": "#db8414", //text heading
         red: "#dc2626",
         primary: {
           DEFAULT: "#b5c2c9",

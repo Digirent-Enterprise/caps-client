@@ -39,7 +39,7 @@ const Component = memo(() => {
     return "rounded-full bg-light-button-blue dark:bg-light-button-blue p-4 px-8 text-light-background-gray min-w-fit dark:hover:bg-light-button-blue-hover hover:bg-light-button-blue-hover transition-colors font-bold";
   }, []);
   const inactiveClass = useMemo(() => {
-    return "rounded-full bg-light-background-gray border border-light-gray p-4 px-8 text-light-blue-hover min-w-fit hover:bg-light-gray transition-colors font-bold dark:text-dark-white dark:bg-dark-gray-heavy dark:hover:bg-dark-gray";
+    return "rounded-full bg-light-background-gray border border-gray-400 p-4 px-8 text-light-blue-hover min-w-fit hover:bg-light-gray transition-colors font-bold dark:text-dark-white dark:bg-dark-gray-heavy dark:hover:bg-dark-gray";
   }, []);
 
   const iconClass = useMemo(() => {

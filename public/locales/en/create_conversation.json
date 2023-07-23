@@ -1,7 +1,7 @@
 {
   "create": "Create a new conversation",
   "name": "Conversation name",
-  "enter_name": "Enter conversation name",
+  "create_name": "Enter conversation name",
   "model": "Model type",
   "cancel": "Cancel",
   "save": "Save"

@@ -53,22 +53,22 @@ const Component = React.memo(() => {
         {t("login_heading")}
       </div>
       <button
-        className="focus:ring-blue text-light-text border-light-gray hover:bg-light-gray flex cursor-pointer items-center justify-center rounded border border-solid bg-light-background-gray px-4 py-2 font-bold focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
+        className="border-gray-400 flex cursor-pointer items-center justify-center rounded border  px-4 py-2 font-bold text-white dark:text-dark-white bg-[#4267B2] hover:bg-[#3b5998]"
         onClick={() => signIn("facebook")}
       >
         <IconBrandFacebook className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>
       </button>
       <button
-        className="focus:ring-blue text-light-text border-light-gray hover:bg-light-gray mt-4 flex cursor-pointer items-center justify-center rounded border border-solid bg-light-background-gray px-4 py-2 font-bold focus:ring-2  dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
         onClick={() => signIn("google")}
+        className="text-light-text border-gray-400 mt-4 flex cursor-pointer items-center justify-center rounded border  px-4 py-2 font-bold dark:text-dark-white bg-[#EA4335] hover:bg-[#C20806]"
       >
         <IconBrandGoogle className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>
       </button>
       <div className="inline-flex w-full items-center justify-center text-light-blue-hover">
         <hr className="my-8 h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
-        <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 font-medium text-light-blue-hover dark:bg-dark-gray dark:text-dark-white">
+        <span className="absolute left-1/2 -translate-x-1/2 px-3 font-medium text-light-blue-hover dark:text-dark-white">
           {t("or")}
         </span>
       </div>
@@ -97,7 +97,7 @@ const Component = React.memo(() => {
       <label className="text-xl text-light-button-blue dark:text-dark-white">
         {t("have_not_registered")}{" "}
         <Link href={"/auth/register"}>
-          <span className="text-light-button-blue dark:text-dark-orange">
+          <span className="text-light-button-blue dark:text-light-user-message">
             {t("register")}
           </span>
         </Link>

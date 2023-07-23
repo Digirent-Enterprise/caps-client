@@ -118,7 +118,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
                   onClick={() => setFeeling(feelingIcon.label)}
                   className={`flex flex-col items-center dark:text-dark-white ${
                     feeling === feelingIcon.label
-                      ? "bg-light-gray dark:bg-dark-orange"
+                      ? "bg-light-gray dark:bg-dark-green"
                       : ""
                   } cursor-pointer rounded-lg p-2 transition-colors duration-200 ease-in-out`}
                 >
@@ -144,7 +144,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
               multiple
               value={symptoms}
               onChange={_handleSymptomsChange}
-              className="hide-scrollbar border-light-gray w-full rounded-lg border px-3 py-2 text-light-text shadow-sm focus:outline-none focus:ring-2 dark:bg-dark-gray dark:text-dark-white"
+              className="hide-scrollbar border-gray-400 w-full rounded-lg border px-3 py-2 text-light-text shadow-sm focus:outline-none focus:ring-2 dark:bg-dark-gray dark:text-dark-white"
             >
               {allSymptoms.map((symptom) => (
                 <option key={symptom} value={symptom}>
@@ -156,13 +156,13 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
         )}
         <div className="flex justify-end gap-2">
           <button
-            className="border-light-gray mt-6 rounded-md border px-4 py-2 font-medium text-light-blue-hover transition-colors duration-200 ease-in-out hover:bg-light-background-gray focus:outline-none focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-orange-hover"
+            className="border-gray-400 mt-6 rounded-md border px-4 py-2 font-medium text-light-blue-hover transition-colors duration-200 ease-in-out hover:bg-light-background-gray focus:outline-none focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-green-hover"
             onClick={onRequestClose}
           >
             {t("cancel")}
           </button>
           <button
-            className="mt-6 rounded-md bg-light-primary-button px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-light-button-blue-hover focus:outline-none focus:ring-2 dark:bg-dark-orange dark:text-dark-white dark:hover:bg-dark-orange-hover"
+            className="mt-6 rounded-md bg-light-primary-button px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-light-button-blue-hover focus:outline-none focus:ring-2 dark:bg-dark-green dark:text-dark-white dark:hover:bg-dark-green-hover"
             onClick={_handleSubmit}
           >
             {t("submit")}

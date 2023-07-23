@@ -191,7 +191,7 @@ const Component = React.memo(() => {
       <label className="text-xl dark:text-dark-white">
         {t("have_account")}{" "}
         <Link href={"/auth/login"}>
-          <span className="text-light-button-blue dark:text-dark-orange">
+          <span className="text-light-button-blue dark:text-light-user-message">
             {t("sign_in")}
           </span>
         </Link>

@@ -158,7 +158,7 @@ const Component = React.memo((props: IDashboardCreateDiagnosisModal) => {
                     {!diagnosisLoading && (
                       <button
                         type="button"
-                        className="ml-4 rounded-md border bg-light-background-gray px-4 py-2 text-light-blue-hover focus:outline-none dark:hover:bg-dark-orange-hover"
+                        className="ml-4 rounded-md border bg-light-background-gray px-4 py-2 text-light-blue-hover focus:outline-none dark:hover:bg-dark-green-hover"
                         onClick={onClose}
                       >
                         Cancel

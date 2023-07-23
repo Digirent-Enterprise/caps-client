@@ -6,7 +6,7 @@ const Component = React.memo((props: ITextareaProps) => {
   const { value, label, onChange, errorMessage } = props;
 
   let inputClassNames =
-    "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-blue dark:text-dark-white dark:focus:ring-dark-orange";
+    "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-blue dark:text-dark-white dark:focus:ring-dark-green";
 
   if (errorMessage) {
     inputClassNames =

@@ -13,7 +13,7 @@ const Component = () => {
       }`}
     >
       <div className="mb-8">
-        <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-dark-orange">
+        <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-dark-green">
           {t("form_instructions")}
         </h2>
         <div className="mb-4">

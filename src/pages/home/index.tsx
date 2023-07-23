@@ -210,7 +210,7 @@ const Component: React.FC = () => {
                   onClick={_handleOpenConversationModal}
                 >
                   <IconPlus />
-                  <span className="ml-2 text-black dark:text-white">
+                  <span className="ml-2 text-white">
                     {t("new_conversation")}
                   </span>
                 </div>
@@ -228,14 +228,14 @@ const Component: React.FC = () => {
                 createNewConversation={createNewConversation}
               />
               <div className="grow"></div>
-              <div className="border-light-gray flex border-t p-4 pt-8 shadow dark:border-dark-gray">
+              <div className="border-gray-400 flex border-t p-4 pt-8 shadow">
                 <div className="flex flex-col gap-2">
                   <Link
                     href={"/health-record"}
                     className="flex cursor-pointer flex-row items-center gap-1"
                   >
                     <IconDeviceIpadHeart />
-                    <span className="text-light-text ml-2 cursor-pointer text-sm">
+                    <span className="text-light-text ml-2 cursor-pointer text-sm dark:text-white">
                       {t("my_health")}
                     </span>
                   </Link>
@@ -244,14 +244,14 @@ const Component: React.FC = () => {
                     className="flex cursor-pointer flex-row items-center gap-1"
                   >
                     <IconNews />
-                    <span className="text-light-text ml-2 cursor-pointer text-sm">
+                    <span className="text-light-text ml-2 cursor-pointer text-sm dark:text-white">
                       {t("news")}
                     </span>
                   </Link>
                   <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconSettings />
                     <span
-                      className="text-light-text ml-2 cursor-pointer text-sm"
+                      className="text-light-text ml-2 cursor-pointer text-sm dark:text-white"
                       onClick={_openSettingsModal}
                     >
                       {t("settings")}
@@ -264,7 +264,7 @@ const Component: React.FC = () => {
                   <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />
                     <span
-                      className="text-light-text ml-2 cursor-pointer text-sm"
+                      className="text-light-text ml-2 cursor-pointer text-sm dark:text-white"
                       onClick={signOut}
                     >
                       {t("logout")}
@@ -274,14 +274,14 @@ const Component: React.FC = () => {
               </div>
             </section>
             <section
-              className={`border-light-gray flex flex-auto flex-col border shadow dark:border-dark-gray ${
+              className={`border-gray-400 flex flex-auto flex-col border shadow dark:border-dark-gray ${
                 isMobile ? "" : "w-full"
               }`}
             >
-              <div className="dark:text-gray border-light-gray flex flex-none flex-row items-center justify-between border-b px-6 py-4 shadow dark:border-dark-gray">
+              <div className="dark:text-gray border-gray-400 flex flex-none flex-row items-center justify-between border-b px-6 py-4 shadow dark:border-dark-gray">
                 <div className="flex flex-col">
                   <div data-tour="step2" className="flex items-center">
-                    <span className="mb-2 mr-2 text-xl font-bold">
+                    <span className="mb-2 mr-2 text-xl font-bold dark:text-white">
                       Dengue Intelligent Chatbot Assistance
                     </span>
                     <Popover options={exportOptions} />

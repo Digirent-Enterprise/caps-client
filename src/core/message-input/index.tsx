@@ -76,7 +76,7 @@ const Component: React.FC<IMessageInputProps> = ({
             <>
               <Popover.Button className="hover:text-blue shrink-0focus:outline-none mx-2 flex h-6 w-6 text-light-blue">
                 {isRecording ? (
-                  <div className="border-light-gray h-4 w-4 animate-spin rounded-full border-t-2 opacity-60 dark:border-neutral-100"></div>
+                  <div className="border-gray-400 h-4 w-4 animate-spin rounded-full border-t-2 opacity-60 dark:border-neutral-100"></div>
                 ) : (
                   <div className="text-light-primary-icon dark:text-white">
                     <IconMicrophone />
@@ -98,7 +98,7 @@ const Component: React.FC<IMessageInputProps> = ({
                     {languageOptions.map((option) => (
                       <button
                         key={option.value}
-                        className="block w-full px-4 py-2 text-left text-black hover:bg-gray-200 dark:text-dark-white dark:hover:bg-dark-orange"
+                        className="block w-full px-4 py-2 text-left text-black hover:bg-gray-200 dark:text-dark-white dark:hover:bg-dark-green"
                         onClick={() => option.onClick()}
                       >
                         {option.label}
@@ -113,7 +113,7 @@ const Component: React.FC<IMessageInputProps> = ({
         <input
           data-tour={dataTourTwo}
           ref={inputRef}
-          className="border-light-gray w-full rounded-full border bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:shadow-md focus:outline-none dark:bg-dark-gray-heavy dark:text-dark-white dark:focus:bg-dark-gray"
+          className="border-gray-400 w-full rounded-full border bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:shadow-md focus:outline-none dark:bg-dark-gray-heavy dark:text-dark-white dark:focus:bg-dark-gray"
           value={message}
           onChange={(e) => onValueChange(e.target.value)}
           onKeyDown={handleKeyDown}

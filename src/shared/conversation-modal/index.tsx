@@ -55,28 +55,36 @@ const Component = React.memo((props: IConversationModalProps) => {
   }
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={onClose} style={CustomStyle}>
-      <div className="border-b-light-gray mb-2 flex border-b-2 bg-light-background-gray pb-2">
-        <h2 className="mr-auto text-xl font-bold text-light-blue-hover">
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      style={CustomStyle}
+      className="absolute bg-light-background-gray dark:bg-dark-gray-heavy"
+    >
+      <div className="border-b-light-gray mb-2 flex border-b-2 pb-2">
+        <h2 className="mr-auto text-xl font-bold text-light-blue-hover dark:text-white">
           {t("create")}
         </h2>
-        <button onClick={onClose} className="text-light-blue-hover">
+        <button
+          onClick={onClose}
+          className="text-light-blue-hover dark:text-white"
+        >
           <IconX />
         </button>
       </div>
 
       <div className="space-y-2">
-        <label className="mb-1 block font-medium text-light-blue-hover">
+        <label className="mb-1 block font-medium text-light-blue-hover dark:text-white">
           {t("name")}
         </label>
         <input
           type="text"
-          placeholder="Enter conversation name"
+          placeholder={t("create_name")}
           value={conversationName}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setConversationName(e.target.value)
           }
-          className={`border-light-gray focus:bg-light-gray w-full rounded-md border bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:shadow-md focus:outline-none ${
+          className={`border-gray-400 focus:bg-light-gray w-full rounded-md border bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:shadow-md focus:outline-none ${
             isMobile ? "text-sm" : ""
           }`}
         />
