@@ -64,13 +64,11 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
     },
     {
       label: t("fair"),
-      icon: <IconMoodSmile size={50} className="text-light-button-blue" />,
+      icon: <IconMoodSmile size={50} className="text-dark-green" />,
     },
     {
       label: t("good"),
-      icon: (
-        <IconMoodHappy size={50} className="text-light-button-blue-hover" />
-      ),
+      icon: <IconMoodHappy size={50} className="text-dark-green-hover" />,
     },
   ];
 
@@ -87,7 +85,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      className="flex h-full items-center justify-center dark:bg-dark-gray dark:bg-opacity-70"
+      className="flex h-full items-center justify-center dark:bg-dark-gray dark:bg-opacity/70"
     >
       <div
         id="health-status-popup-modal"
@@ -119,7 +117,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
                   onClick={() => setFeeling(feelingIcon.label)}
                   className={`flex flex-col items-center dark:text-dark-white ${
                     feeling === feelingIcon.label
-                      ? "bg-light-gray dark:bg-dark-green"
+                      ? "bg-light-gray dark:bg-light-button-blue-hover"
                       : ""
                   } cursor-pointer rounded-lg p-2 transition-colors duration-200 ease-in-out`}
                 >

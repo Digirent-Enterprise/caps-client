@@ -56,8 +56,8 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
             }`}
             onClick={() => _onChangeTab("MyGeneralHealthStatistics")}
           >
-            <IconDeviceIpadHeart className="text-black" />
-            <span className="ml-2 cursor-pointer text-sm">
+            <IconDeviceIpadHeart className="text-black dark:text-white" />
+            <span className="ml-2 cursor-pointer text-sm dark:text-white">
               {t("my_general")}
             </span>
           </div>
@@ -69,8 +69,8 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
             }`}
             onClick={() => _onChangeTab("MySecretRecommendation")}
           >
-            <IconBellPlusFilled className="text-black" />
-            <span className="ml-2 cursor-pointer text-sm">
+            <IconBellPlusFilled className="text-black dark:text-white" />
+            <span className="ml-2 cursor-pointer text-sm dark:text-white">
               {t("my_health")}
             </span>
           </div>

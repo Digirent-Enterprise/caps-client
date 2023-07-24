@@ -199,7 +199,7 @@ const Component: React.FC = () => {
                 />
               </div>
               <div
-                className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border
+                className="mx-4 flex-none cursor-pointer gap-3 rounded-md border
               border-light-white bg-light-primary-button p-4
               text-sm text-light-white transition-colors duration-200
                hover:bg-light-button-blue-hover dark:border-dark-gray-heavy dark:bg-light-primary-button"
@@ -278,7 +278,7 @@ const Component: React.FC = () => {
                 isMobile ? "" : "w-full"
               }`}
             >
-              <div className="dark:text-gray flex flex-none flex-row items-center justify-between border-b border-gray-400 px-6 py-4 shadow dark:border-dark-gray">
+              <div className="dark:text-light-gray flex flex-none flex-row items-center justify-between border-b border-gray-400 px-6 py-4 shadow dark:border-dark-gray">
                 <div className="flex flex-col">
                   <div data-tour="step2" className="flex items-center">
                     <span className="mb-2 mr-2 text-xl font-bold dark:text-white">

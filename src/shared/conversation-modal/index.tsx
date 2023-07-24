@@ -61,7 +61,7 @@ const Component = React.memo((props: IConversationModalProps) => {
       style={CustomStyle}
       className="absolute bg-light-background-gray dark:bg-dark-gray-heavy"
     >
-      <div className="border-b-light-gray mb-2 flex border-b-2 pb-2">
+      <div className="mb-2 flex border-b-2 border-b-light-gray pb-2">
         <h2 className="mr-auto text-xl font-bold text-light-blue-hover dark:text-white">
           {t("create")}
         </h2>
@@ -84,7 +84,7 @@ const Component = React.memo((props: IConversationModalProps) => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setConversationName(e.target.value)
           }
-          className={`focus:bg-light-gray w-full rounded-md border border-gray-400 bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:shadow-md focus:outline-none ${
+          className={`w-full rounded-md border border-gray-400 bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:bg-light-gray focus:shadow-md focus:outline-none ${
             isMobile ? "text-sm" : ""
           }`}
         />
