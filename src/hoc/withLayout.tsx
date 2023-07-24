@@ -15,7 +15,7 @@ export default function withLayout<P extends object>(
           <Header />
           <main
             data-testid="wrapped-component"
-            className="grow overflow-auto border-b border-gray-800 px-4  pb-10 pt-20"
+            className="grow overflow-auto w-full h-fit scroll-m-2 border-b border-gray-800 px-4 bg-light-background-gray pb-10 pt-32"
           >
             <WrappedComponent {...props} />
           </main>

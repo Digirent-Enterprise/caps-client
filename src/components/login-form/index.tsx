@@ -42,33 +42,31 @@ const Component = React.memo(() => {
   };
 
   return (
-    <div
-      className={
-        isDesktop
-          ? "flex w-2/5 flex-col gap-4 bg-light-background-gray dark:bg-dark-gray-heavy"
-          : "flex w-full flex-col gap-1 bg-light-background-gray dark:bg-dark-gray-heavy"
-      }
-    >
-      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
+    <div className="flex flex-col w-full md:w-2/5 gap-2 md:gap-4 sm:gap-1 p-2 md:p-0 bg-light-background-gray dark:bg-dark-gray-heavy">
+      <div className="mb-2 md:mb-[40px] w-full text-center text-2xl md:text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
         {t("login_heading")}
       </div>
       <button
-        className="focus:ring-blue text-light-hover-blue flex cursor-pointer items-center justify-center rounded border border-solid border-light-gray bg-light-background-gray px-4 py-2 font-bold hover:bg-light-gray focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
+        className="bg-light-button-green-hover focus:ring-blue text-light-hover-blue flex flex-wrap cursor-pointer items-center justify-center rounded border border-solid border-light-gray  px-3 py-1 md:px-4 md:py-2 font-bold hover:bg-light-gray focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
         onClick={() => signIn("facebook")}
       >
-        <IconBrandFacebook className="mr-2 h-8 w-8" />
-        <span className="whitespace-nowrap">{t("login_with_google")}</span>
+        <IconBrandFacebook className="mr-2 h-6 w-6 md:h-8 md:w-8 text-white" />
+        <span className="whitespace-nowrap text-xs md:text-base text-white">
+          {t("login_with_facebook")}
+        </span>
       </button>
       <button
-        className="focus:ring-blue text-light-hover-blue mt-4 flex cursor-pointer items-center justify-center rounded border border-solid border-light-gray bg-light-background-gray px-4 py-2 font-bold hover:bg-light-gray focus:ring-2  dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
+        className="bg-light-button-green-hover focus:ring-blue text-light-hover-blue mt-2 md:mt-4 flex flex-wrap cursor-pointer items-center justify-center rounded border border-solid border-light-gray  px-3 py-1 md:px-4 md:py-2 font-bold hover:bg-light-gray focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray"
         onClick={() => signIn("google")}
       >
-        <IconBrandGoogle className="mr-2 h-8 w-8" />
-        <span className="whitespace-nowrap">{t("login_with_google")}</span>
+        <IconBrandGoogle className="mr-2 h-6 w-6 md:h-8 md:w-8 text-white" />
+        <span className="whitespace-nowrap text-xs md:text-base text-white">
+          {t("login_with_google")}
+        </span>
       </button>
       <div className="inline-flex w-full items-center justify-center text-light-blue-hover">
-        <hr className="my-8 h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
-        <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 font-medium text-light-blue-hover dark:bg-dark-gray dark:text-dark-white">
+        <hr className="my-2 md:my-8 h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
+        <span className="absolute left-1/2 -translate-x-1/2 bg-white px-1 md:px-3 font-medium text-xs md:text-base text-light-blue-hover dark:bg-dark-gray dark:text-dark-white">
           {t("or")}
         </span>
       </div>
@@ -94,10 +92,10 @@ const Component = React.memo(() => {
       <Button onClick={_handleSubmit} mode="primary">
         {t("login_description")}
       </Button>
-      <label className="text-xl text-light-button-green dark:text-dark-white">
+      <label className="sm:text-sm md:text-md lg:text-lg text-light-button-green dark:text-dark-white">
         {t("have_not_registered")}{" "}
         <Link href={"/auth/register"}>
-          <span className="text-light-button-green dark:text-dark-orange">
+          <span className="text-light-button-green dark:text-dark-orange ">
             {t("register")}
           </span>
         </Link>

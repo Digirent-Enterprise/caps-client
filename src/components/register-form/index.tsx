@@ -62,6 +62,7 @@ const Component = React.memo(() => {
   interface ErrorMessages {
     [key: string]: string;
   }
+
   const [errorMessages, setErrorMessages] = useState<ErrorMessages>({});
 
   const schema = yup.object().shape({
@@ -128,16 +129,10 @@ const Component = React.memo(() => {
   };
 
   return (
-    <div
-      className={
-        isDesktop
-          ? "flex w-2/5 flex-col gap-4 bg-light-background-gray dark:bg-dark-gray-heavy"
-          : "flex w-full flex-col gap-1 bg-light-background-gray dark:bg-dark-gray-heavy"
-      }
-    >
-      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
-        {t("register")}
-      </div>
+      <div className="flex w-full h-full flex-col md:w-2/5 gap-2 md:gap-4 sm:gap-1 p-2 md:p-0 bg-light-background-gray dark:bg-dark-gray-heavy">
+        <div className="mb-2 md:mb-[40px] w-full text-center text-2xl md:text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
+          {t("register")}
+        </div>
       <TextInput
         label={t("full_name")}
         type="text"
@@ -185,10 +180,18 @@ const Component = React.memo(() => {
         options={GenderOptions}
         title={t("Gender")}
       />
-      <Button onClick={_handleSubmitForm} mode="primary">
+      <Button
+        onClick={_handleSubmitForm}
+        mode="primary"
+        className={`${isDesktop ? "my-4" : "my-2"}`}
+      >
         {t("register")}
       </Button>
-      <label className="text-xl dark:text-dark-white">
+      <label
+        className={`text-xl dark:text-dark-white ${
+          isDesktop ? "mb-0" : "mb-4"
+        }`}
+      >
         {t("have_account")}{" "}
         <Link href={"/auth/login"}>
           <span className="text-light-button-green dark:text-dark-orange">
