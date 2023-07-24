@@ -13,14 +13,14 @@ const Component: React.FC = () => {
   const currentPage = router.pathname;
 
   return (
-    <div className="bg-light-gray flex min-h-screen flex-col dark:bg-dark-gray-heavy">
+    <div className="flex min-h-screen flex-col bg-light-gray dark:bg-dark-gray-heavy">
       <div className="mb-10">
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
-        <div className="bg-light-gray mx-auto mt-10 max-w-3xl">
+        <div className="mx-auto mt-10 max-w-3xl bg-light-gray">
           <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-white">
             {t("general")}
           </h2>
-          <div className="bg-light-gray rounded py-4 shadow">
+          <div className="rounded bg-light-gray py-4 shadow">
             <h3 className="mb-2 text-xl font-bold text-light-blue-hover dark:text-dark-white">
               {t("what_dica")}
             </h3>

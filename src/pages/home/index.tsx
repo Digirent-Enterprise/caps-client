@@ -170,7 +170,7 @@ const Component: React.FC = () => {
 
     return (
       <div
-        className={`text-light-text flex h-screen w-full overflow-hidden bg-light-background-gray antialiased dark:bg-dark-gray-heavy dark:text-dark-white ${
+        className={`flex h-screen w-full overflow-hidden bg-light-background-gray text-light-text antialiased dark:bg-dark-gray-heavy dark:text-dark-white ${
           isMobile ? "flex-col" : ""
         }`}
       >
@@ -186,7 +186,7 @@ const Component: React.FC = () => {
               } w-80 flex-none flex-col overflow-auto transition-all duration-300 ease-in-out md:w-1/6 lg:max-w-sm`}
             >
               <div className="flex flex-none flex-row items-center justify-between p-4">
-                <p className="text-light-text hidden font-bold dark:text-dark-white md:block">
+                <p className="hidden font-bold text-light-text dark:text-dark-white md:block">
                   {t("welcome")} {user?.name}
                 </p>
               </div>
@@ -199,7 +199,7 @@ const Component: React.FC = () => {
                 />
               </div>
               <div
-                className="hover:light-input-hover-gray mx-4 flex-none cursor-pointer gap-3 rounded-md border
+                className="mx-4 flex-none cursor-pointer gap-3 rounded-md border
               border-light-white bg-light-primary-button p-4
               text-sm text-light-white transition-colors duration-200
                hover:bg-light-button-blue-hover dark:border-dark-gray-heavy dark:bg-light-primary-button"
@@ -228,14 +228,14 @@ const Component: React.FC = () => {
                 createNewConversation={createNewConversation}
               />
               <div className="grow"></div>
-              <div className="border-gray-400 flex border-t p-4 pt-8 shadow">
+              <div className="flex border-t border-gray-400 p-4 pt-8 shadow">
                 <div className="flex flex-col gap-2">
                   <Link
                     href={"/health-record"}
                     className="flex cursor-pointer flex-row items-center gap-1"
                   >
                     <IconDeviceIpadHeart />
-                    <span className="text-light-text ml-2 cursor-pointer text-sm dark:text-white">
+                    <span className="ml-2 cursor-pointer text-sm text-light-text dark:text-white">
                       {t("my_health")}
                     </span>
                   </Link>
@@ -244,14 +244,14 @@ const Component: React.FC = () => {
                     className="flex cursor-pointer flex-row items-center gap-1"
                   >
                     <IconNews />
-                    <span className="text-light-text ml-2 cursor-pointer text-sm dark:text-white">
+                    <span className="ml-2 cursor-pointer text-sm text-light-text dark:text-white">
                       {t("news")}
                     </span>
                   </Link>
                   <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconSettings />
                     <span
-                      className="text-light-text ml-2 cursor-pointer text-sm dark:text-white"
+                      className="ml-2 cursor-pointer text-sm text-light-text dark:text-white"
                       onClick={_openSettingsModal}
                     >
                       {t("settings")}
@@ -264,7 +264,7 @@ const Component: React.FC = () => {
                   <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />
                     <span
-                      className="text-light-text ml-2 cursor-pointer text-sm dark:text-white"
+                      className="ml-2 cursor-pointer text-sm text-light-text dark:text-white"
                       onClick={signOut}
                     >
                       {t("logout")}
@@ -274,11 +274,11 @@ const Component: React.FC = () => {
               </div>
             </section>
             <section
-              className={`border-gray-400 flex flex-auto flex-col border shadow dark:border-dark-gray ${
+              className={`flex flex-auto flex-col border border-gray-400 shadow dark:border-dark-gray ${
                 isMobile ? "" : "w-full"
               }`}
             >
-              <div className="dark:text-gray border-gray-400 flex flex-none flex-row items-center justify-between border-b px-6 py-4 shadow dark:border-dark-gray">
+              <div className="dark:text-light-gray flex flex-none flex-row items-center justify-between border-b border-gray-400 px-6 py-4 shadow dark:border-dark-gray">
                 <div className="flex flex-col">
                   <div data-tour="step2" className="flex items-center">
                     <span className="mb-2 mr-2 text-xl font-bold dark:text-white">

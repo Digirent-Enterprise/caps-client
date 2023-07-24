@@ -20,7 +20,7 @@ const Component = React.memo((props: ISelectOptionProps) => {
 
   return (
     <div className="mb-5">
-      <div className="text-light-text mb-2 block font-bold dark:text-dark-white">
+      <div className="mb-2 block font-bold text-light-text dark:text-dark-white">
         {title}
       </div>
       <div className="flex flex-wrap gap-2">

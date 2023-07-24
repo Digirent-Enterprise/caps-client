@@ -17,12 +17,12 @@ const Component = () => {
   };
 
   return (
-    <div className="bg-light-gray flex min-h-screen flex-col dark:bg-dark-gray-heavy">
+    <div className="flex min-h-screen flex-col bg-light-gray dark:bg-dark-gray-heavy">
       <div className="mb-10">
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
         <div className="mx-auto mt-10 max-w-3xl">
           <div className="flex flex-col gap-5">
-            <section className="border-gray-400 bg-light-gray flex flex-col rounded-xl border border-solid p-2 dark:border-dark-white dark:bg-dark-gray-heavy sm:p-3">
+            <section className="flex flex-col rounded-xl border border-solid border-gray-400 bg-light-gray p-2 dark:border-dark-white dark:bg-dark-gray-heavy sm:p-3">
               {questions.map((question) => (
                 <div
                   key={question.id}

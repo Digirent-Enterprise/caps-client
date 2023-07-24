@@ -12,7 +12,7 @@ const Component: React.FC<IBreadcrumbProps> = ({ currentPage }) => {
   return (
     <>
       <div className="bg-light-button-blue p-10 dark:bg-dark-bg-primary">
-        <div className="text-background-gray mx-auto flex max-w-3xl items-center dark:text-dark-white">
+        <div className="text-bg-light-gray mx-auto flex max-w-3xl items-center dark:text-dark-white">
           <h2 className="text-2xl font-bold text-light-background-gray">
             DICA
           </h2>

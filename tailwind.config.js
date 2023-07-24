@@ -19,6 +19,8 @@ module.exports = {
         "light-chatbot-message": "#545b77", // button
         "light-secondary-button": "#9ca3af",
         "light-primary-border": "#9ca3af",
+        "light-gray": "#f2f2f2",
+        "light-orange": "#db8414",
 
         "light-nude": "#e3ece3",
         "light-white": "#ffffff", //text
