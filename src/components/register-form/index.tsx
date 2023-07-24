@@ -129,10 +129,10 @@ const Component = React.memo(() => {
   };
 
   return (
-      <div className="flex w-full h-full flex-col md:w-2/5 gap-2 md:gap-4 sm:gap-1 p-2 md:p-0 bg-light-background-gray dark:bg-dark-gray-heavy">
-        <div className="mb-2 md:mb-[40px] w-full text-center text-2xl md:text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
-          {t("register")}
-        </div>
+    <div className="flex h-full w-full flex-col gap-2 bg-light-background-gray p-2 dark:bg-dark-gray-heavy sm:gap-1 md:w-2/5 md:gap-4 md:p-0">
+      <div className="mb-2 w-full text-center text-2xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white md:mb-[40px] md:text-3xl">
+        {t("register")}
+      </div>
       <TextInput
         label={t("full_name")}
         type="text"

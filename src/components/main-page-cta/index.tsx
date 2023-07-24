@@ -36,12 +36,16 @@ const Component = memo(() => {
   const [tab, setTab] = useImmer<number>(0);
 
   const activeClass = useMemo(() => {
-    return "rounded-full bg-light-button-green dark:bg-dark-orange p-4 px-8 text-light-background-gray min-w-fit" +
-        " dark:hover:bg-dark-orange-hover hover:bg-light-button-green-hover transition-colors font-bold";
+    return (
+      "rounded-full bg-light-button-green dark:bg-dark-orange p-4 px-8 text-light-background-gray min-w-fit" +
+      " dark:hover:bg-dark-orange-hover hover:bg-light-button-green-hover transition-colors font-bold"
+    );
   }, []);
   const inactiveClass = useMemo(() => {
-    return "rounded-full bg-light-background-gray border border-light-gray p-4 px-8 opacity-75 border-4" +
-        " text-light-blue-hover min-w-fit hover:bg-light-gray transition-colors font-bold dark:text-dark-white dark:bg-dark-gray-heavy dark:hover:bg-dark-gray";
+    return (
+      "rounded-full bg-light-background-gray border border-light-gray p-4 px-8 opacity-75 border-4" +
+      " text-light-blue-hover min-w-fit hover:bg-light-gray transition-colors font-bold dark:text-dark-white dark:bg-dark-gray-heavy dark:hover:bg-dark-gray"
+    );
   }, []);
 
   const iconClass = useMemo(() => {
@@ -98,11 +102,11 @@ const Component = memo(() => {
     }
   };
   return (
-    <div className="mt-4 flex flex-col items-center justify-center bg-light-background-gray px-6 md:px-12 lg:px-36 dark:bg-dark-gray-heavy">
-      <div className="text-center text-2xl md:text-3xl lg:text-4xl text-light-blue-hover dark:text-dark-orange">
+    <div className="mt-4 flex flex-col items-center justify-center bg-light-background-gray px-6 dark:bg-dark-gray-heavy md:px-12 lg:px-36">
+      <div className="text-center text-2xl text-light-blue-hover dark:text-dark-orange md:text-3xl lg:text-4xl">
         {t("how_can_we_help_you")}
       </div>
-      <div className="mt-2 flex flex-col md:flex-row gap-2 md:gap-5">
+      <div className="mt-2 flex flex-col gap-2 md:flex-row md:gap-5">
         <button
           className={`${tab === 0 ? activeClass : inactiveClass}`}
           onClick={() => setTab(0)}
@@ -117,12 +121,12 @@ const Component = memo(() => {
         </button>
       </div>
       <div className="mt-5 w-full lg:w-2/3">
-        <div className="flex flex-wrap justify-center gap-4 md:gap-10 text-light-blue-hover dark:text-dark-orange">
+        <div className="flex flex-wrap justify-center gap-4 text-light-blue-hover dark:text-dark-orange md:gap-10">
           {(tab === 0 ? ImmediateActions : LongTermActions).map((action) => {
             if (getActionIcon(action))
               return (
                 <div className="flex flex-col items-center justify-center gap-2 text-center">
-                  <div className="w-fit rounded-full border border-light-blue-hover bg-light-background-gray p-3 md:p-5 dark:border-dark-orange dark:bg-dark-gray-heavy">
+                  <div className="w-fit rounded-full border border-light-blue-hover bg-light-background-gray p-3 dark:border-dark-orange dark:bg-dark-gray-heavy md:p-5">
                     {getActionIcon(action)}
                   </div>
                   <div className="font-bold">{action}</div>
