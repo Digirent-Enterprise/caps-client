@@ -11,6 +11,7 @@ import {
 import { useTranslation } from "next-i18next";
 import Modal from "react-modal";
 
+import Button from "@/core/button";
 import useDynamicHealth from "@/hooks/dynamic-health";
 import { DynamicHealthNS } from "@/services/dynamic-health/type";
 import {
@@ -123,7 +124,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
                   } cursor-pointer rounded-lg p-2 transition-colors duration-200 ease-in-out`}
                 >
                   {feelingIcon.icon}
-                  <span className="text-sm font-semibold text-light-text">
+                  <span className="text-sm font-semibold text-light-text dark:text-white">
                     {feelingIcon.label}
                   </span>
                 </div>
@@ -154,19 +155,17 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
             </select>
           </div>
         )}
-        <div className="flex justify-end gap-2">
-          <button
-            className="border-gray-400 mt-6 rounded-md border px-4 py-2 font-medium text-light-blue-hover transition-colors duration-200 ease-in-out hover:bg-light-background-gray focus:outline-none focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-green-hover"
-            onClick={onRequestClose}
-          >
-            {t("cancel")}
-          </button>
-          <button
-            className="mt-6 rounded-md bg-light-primary-button px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-light-button-blue-hover focus:outline-none focus:ring-2 dark:bg-dark-green dark:text-dark-white dark:hover:bg-dark-green-hover"
-            onClick={_handleSubmit}
-          >
-            {t("submit")}
-          </button>
+        <div className="flex justify-end gap-2 mt-6">
+          <div className="w-1/3">
+            <Button onClick={onRequestClose} mode="secondary">
+              {t("cancel")}
+            </Button>
+          </div>
+          <div className="w-1/3">
+            <Button onClick={_handleSubmit} mode="primary">
+              {t("submit")}
+            </Button>
+          </div>
         </div>
       </div>
     </Modal>
