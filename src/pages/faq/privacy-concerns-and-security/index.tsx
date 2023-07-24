@@ -16,11 +16,11 @@ const Component: React.FC = () => {
     <div className="bg-light-gray flex min-h-screen flex-col dark:bg-dark-gray-heavy">
       <div className="mb-10">
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
-        <div className="bg-background-gray mx-auto mt-10 max-w-3xl dark:bg-dark-gray-heavy">
+        <div className="bg-light-gray mx-auto mt-10 max-w-3xl dark:bg-dark-gray-heavy">
           <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-white">
             {t("privacy")}
           </h2>
-          <div className="bg-background-gray rounded py-4 shadow dark:bg-dark-gray-heavy">
+          <div className="bg-light-gray rounded py-4 shadow dark:bg-dark-gray-heavy">
             <h3 className="mb-2 text-xl font-bold text-light-blue-hover dark:text-dark-white">
               {t("personal_secure")}
             </h3>
