@@ -70,7 +70,7 @@ const Component = React.memo((props: IDashboardDiagnosisDetail) => {
                   <div className="mt-6 flex justify-end">
                     <button
                       type="button"
-                      className="border-gray-400 hover:bg-light-gray ml-4 rounded-md border bg-light-background-gray px-4 py-2 text-light-blue-hover focus:outline-none dark:hover:bg-dark-green-hover"
+                      className="hover:bg-light-gray ml-4 rounded-md border border-gray-400 bg-light-background-gray px-4 py-2 text-light-blue-hover focus:outline-none dark:hover:bg-dark-green-hover"
                       onClick={onClose}
                     >
                       Cancel

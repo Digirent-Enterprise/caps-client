@@ -22,7 +22,7 @@ const Component = () => {
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
         <div className="mx-auto mt-10 max-w-3xl">
           <div className="flex flex-col gap-5">
-            <section className="border-gray-400 bg-light-gray flex flex-col rounded-xl border border-solid p-2 dark:border-dark-white dark:bg-dark-gray-heavy sm:p-3">
+            <section className="bg-light-gray flex flex-col rounded-xl border border-solid border-gray-400 p-2 dark:border-dark-white dark:bg-dark-gray-heavy sm:p-3">
               {questions.map((question) => (
                 <div
                   key={question.id}

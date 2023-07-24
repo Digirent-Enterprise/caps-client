@@ -145,7 +145,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
               multiple
               value={symptoms}
               onChange={_handleSymptomsChange}
-              className="hide-scrollbar border-gray-400 w-full rounded-lg border px-3 py-2 text-light-text shadow-sm focus:outline-none focus:ring-2 dark:bg-dark-gray dark:text-dark-white"
+              className="hide-scrollbar w-full rounded-lg border border-gray-400 px-3 py-2 text-light-text shadow-sm focus:outline-none focus:ring-2 dark:bg-dark-gray dark:text-dark-white"
             >
               {allSymptoms.map((symptom) => (
                 <option key={symptom} value={symptom}>
@@ -155,7 +155,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
             </select>
           </div>
         )}
-        <div className="flex justify-end gap-2 mt-6">
+        <div className="mt-6 flex justify-end gap-2">
           <div className="w-1/3">
             <Button onClick={onRequestClose} mode="secondary">
               {t("cancel")}

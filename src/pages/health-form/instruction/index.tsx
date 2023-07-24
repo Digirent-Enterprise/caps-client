@@ -2,7 +2,7 @@ import Instruction from "@/components/health-form/instruction";
 
 const Component = () => {
   return (
-    <div className="flex bg-light-background-gray dark:bg-dark-gray-heavy flex-col min-h-screen px-5 py-10">
+    <div className="flex min-h-screen flex-col bg-light-background-gray px-5 py-10 dark:bg-dark-gray-heavy">
       <Instruction />
     </div>
   );

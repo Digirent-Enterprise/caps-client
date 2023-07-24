@@ -53,7 +53,7 @@ const Component = React.memo(() => {
         {t("login_heading")}
       </div>
       <button
-        className="border-gray-400 flex cursor-pointer items-center justify-center rounded border  px-4 py-2 font-bold text-white dark:text-dark-white bg-[#4267B2] hover:bg-[#3b5998]"
+        className="flex cursor-pointer items-center justify-center rounded border border-gray-400  bg-[#4267B2] px-4 py-2 font-bold text-white hover:bg-[#3b5998] dark:text-dark-white"
         onClick={() => signIn("facebook")}
       >
         <IconBrandFacebook className="mr-2 h-8 w-8" />
@@ -61,7 +61,7 @@ const Component = React.memo(() => {
       </button>
       <button
         onClick={() => signIn("google")}
-        className="text-light-text border-gray-400 mt-4 flex cursor-pointer items-center justify-center rounded border  px-4 py-2 font-bold dark:text-dark-white bg-[#EA4335] hover:bg-[#C20806]"
+        className="mt-4 flex cursor-pointer items-center justify-center rounded border border-gray-400 bg-[#EA4335]  px-4 py-2 font-bold text-light-text hover:bg-[#C20806] dark:text-dark-white"
       >
         <IconBrandGoogle className="mr-2 h-8 w-8" />
         <span className="whitespace-nowrap">{t("login_with_google")}</span>

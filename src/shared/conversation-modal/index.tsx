@@ -84,7 +84,7 @@ const Component = React.memo((props: IConversationModalProps) => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setConversationName(e.target.value)
           }
-          className={`border-gray-400 focus:bg-light-gray w-full rounded-md border bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:shadow-md focus:outline-none ${
+          className={`focus:bg-light-gray w-full rounded-md border border-gray-400 bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:shadow-md focus:outline-none ${
             isMobile ? "text-sm" : ""
           }`}
         />
