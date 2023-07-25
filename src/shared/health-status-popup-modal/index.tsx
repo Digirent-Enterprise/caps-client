@@ -85,7 +85,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      className="flex h-full items-center justify-center dark:bg-dark-gray dark:bg-opacity/70"
+      className="dark:bg-opacity/70 flex h-full items-center justify-center dark:bg-dark-gray"
     >
       <div
         id="health-status-popup-modal"

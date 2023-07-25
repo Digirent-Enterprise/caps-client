@@ -45,30 +45,34 @@ const Component = React.memo(() => {
     <div
       className={
         isDesktop
-          ? "flex w-2/5 flex-col gap-4 bg-light-background-gray dark:bg-dark-gray-heavy"
-          : "flex w-full flex-col gap-1 bg-light-background-gray dark:bg-dark-gray-heavy"
+          ? "flex w-full flex-col gap-2 bg-light-background-gray p-2 dark:bg-dark-gray-heavy sm:gap-1 md:mb-[40px] md:w-2/5 md:gap-4  md:p-0"
+          : "mb-2 flex w-full flex-col gap-1 bg-light-background-gray  text-2xl dark:bg-dark-gray-heavy"
       }
     >
       <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
         {t("login_heading")}
       </div>
       <button
-        className="flex cursor-pointer items-center justify-center rounded border border-gray-400  bg-[#4267B2] px-4 py-2 font-bold text-white hover:bg-[#3b5998] dark:text-dark-white"
+        className="flex cursor-pointer items-center justify-center rounded border border-gray-400  bg-[#4267B2]  px-4 py-2 font-bold text-white hover:bg-[#3b5998] dark:text-dark-white"
         onClick={() => signIn("facebook")}
       >
-        <IconBrandFacebook className="mr-2 h-8 w-8" />
-        <span className="whitespace-nowrap">{t("login_with_google")}</span>
+        <IconBrandFacebook className="mr-2 h-6 w-6 text-white md:h-8 md:w-8" />
+        <span className="whitespace-nowrap text-xs text-white md:text-base">
+          {t("login_with_facebook")}
+        </span>
       </button>
       <button
         onClick={() => signIn("google")}
         className="mt-4 flex cursor-pointer items-center justify-center rounded border border-gray-400 bg-[#EA4335]  px-4 py-2 font-bold text-light-text hover:bg-[#C20806] dark:text-dark-white"
       >
-        <IconBrandGoogle className="mr-2 h-8 w-8" />
-        <span className="whitespace-nowrap">{t("login_with_google")}</span>
+        <IconBrandGoogle className="mr-2 h-6 w-6 text-white md:h-8 md:w-8" />
+        <span className="whitespace-nowrap text-xs text-white md:text-base">
+          {t("login_with_google")}
+        </span>
       </button>
       <div className="inline-flex w-full items-center justify-center text-light-blue-hover">
-        <hr className="my-8 h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
-        <span className="absolute left-1/2 -translate-x-1/2 px-3 font-medium text-light-blue-hover dark:text-dark-white">
+        <hr className="my-2 h-px w-full border-0 bg-gray-200 dark:bg-gray-700 md:my-8" />
+        <span className="absolute left-1/2 -translate-x-1/2 bg-white px-1 text-xs font-medium text-light-blue-hover dark:bg-dark-gray dark:text-dark-white md:px-3 md:text-base">
           {t("or")}
         </span>
       </div>
@@ -94,7 +98,7 @@ const Component = React.memo(() => {
       <Button onClick={_handleSubmit} mode="primary">
         {t("login_description")}
       </Button>
-      <label className="text-xl text-light-button-blue dark:text-dark-white">
+      <label className="md:text-md text-light-button-blue dark:text-dark-white sm:text-sm lg:text-lg">
         {t("have_not_registered")}{" "}
         <Link href={"/auth/register"}>
           <span className="text-light-button-blue dark:text-light-user-message">

@@ -74,7 +74,7 @@ const Component: React.FC<IMessageInputProps> = ({
         <Popover className="relative">
           {({ open }) => (
             <>
-              <Popover.Button className="hover:text-light-button-blue shrink-0 focus:outline-none mx-2 flex h-6 w-6 text-light-blue">
+              <Popover.Button className="mx-2 flex h-6 w-6 shrink-0 text-light-blue hover:text-light-button-blue focus:outline-none">
                 {isRecording ? (
                   <div className="h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400 opacity-60 dark:border-neutral-100"></div>
                 ) : (

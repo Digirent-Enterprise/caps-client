@@ -278,7 +278,7 @@ const Component: React.FC = () => {
                 isMobile ? "" : "w-full"
               }`}
             >
-              <div className="dark:text-light-gray flex flex-none flex-row items-center justify-between border-b border-gray-400 px-6 py-4 shadow dark:border-dark-gray">
+              <div className="flex flex-none flex-row items-center justify-between border-b border-gray-400 px-6 py-4 shadow dark:border-dark-gray dark:text-light-gray">
                 <div className="flex flex-col">
                   <div data-tour="step2" className="flex items-center">
                     <span className="mb-2 mr-2 text-xl font-bold dark:text-white">
