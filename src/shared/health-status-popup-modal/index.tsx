@@ -11,6 +11,7 @@ import {
 import { useTranslation } from "next-i18next";
 import Modal from "react-modal";
 
+import Button from "@/core/button";
 import useDynamicHealth from "@/hooks/dynamic-health";
 import { DynamicHealthNS } from "@/services/dynamic-health/type";
 import {
@@ -63,13 +64,11 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
     },
     {
       label: t("fair"),
-      icon: <IconMoodSmile size={50} className="text-light-button-green" />,
+      icon: <IconMoodSmile size={50} className="text-dark-green" />,
     },
     {
       label: t("good"),
-      icon: (
-        <IconMoodHappy size={50} className="text-light-button-green-hover" />
-      ),
+      icon: <IconMoodHappy size={50} className="text-dark-green-hover" />,
     },
   ];
 
@@ -86,11 +85,11 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      className="flex h-full items-center justify-center dark:bg-dark-gray dark:bg-opacity-70"
+      className="dark:bg-opacity/70 flex h-full items-center justify-center dark:bg-dark-gray"
     >
       <div
         id="health-status-popup-modal"
-        className="drounded-lg bg-white p-8 shadow-lg dark:bg-dark-gray-heavy"
+        className="rounded-lg bg-white p-8 shadow-lg dark:bg-dark-gray-heavy"
       >
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-light-text-heading dark:text-dark-white">
@@ -118,12 +117,12 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
                   onClick={() => setFeeling(feelingIcon.label)}
                   className={`flex flex-col items-center dark:text-dark-white ${
                     feeling === feelingIcon.label
-                      ? "bg-light-gray dark:bg-dark-orange"
+                      ? "bg-light-gray dark:bg-light-button-blue-hover"
                       : ""
                   } cursor-pointer rounded-lg p-2 transition-colors duration-200 ease-in-out`}
                 >
                   {feelingIcon.icon}
-                  <span className="text-sm font-semibold text-light-text">
+                  <span className="text-sm font-semibold text-light-text dark:text-white">
                     {feelingIcon.label}
                   </span>
                 </div>
@@ -144,7 +143,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
               multiple
               value={symptoms}
               onChange={_handleSymptomsChange}
-              className="hide-scrollbar w-full rounded-lg border border-light-gray px-3 py-2 text-light-text shadow-sm focus:outline-none focus:ring-2 dark:bg-dark-gray dark:text-dark-white"
+              className="hide-scrollbar w-full rounded-lg border border-gray-400 px-3 py-2 text-light-text shadow-sm focus:outline-none focus:ring-2 dark:bg-dark-gray dark:text-dark-white"
             >
               {allSymptoms.map((symptom) => (
                 <option key={symptom} value={symptom}>
@@ -154,19 +153,17 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
             </select>
           </div>
         )}
-        <div className="flex justify-end gap-2">
-          <button
-            className="mt-6 rounded-md border border-light-gray px-4 py-2 font-medium text-light-blue-hover transition-colors duration-200 ease-in-out hover:bg-light-background-gray focus:outline-none focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-orange-hover"
-            onClick={onRequestClose}
-          >
-            {t("cancel")}
-          </button>
-          <button
-            className="focus:ring-blue mt-6 rounded-md bg-light-primary-button px-4 py-2 font-medium text-white transition-colors duration-200 ease-in-out hover:bg-light-button-green-hover focus:outline-none focus:ring-2 dark:bg-dark-orange dark:text-dark-white dark:hover:bg-dark-orange-hover"
-            onClick={_handleSubmit}
-          >
-            {t("submit")}
-          </button>
+        <div className="mt-6 flex justify-end gap-2">
+          <div className="w-1/3">
+            <Button onClick={onRequestClose} mode="secondary">
+              {t("cancel")}
+            </Button>
+          </div>
+          <div className="w-1/3">
+            <Button onClick={_handleSubmit} mode="primary">
+              {t("submit")}
+            </Button>
+          </div>
         </div>
       </div>
     </Modal>

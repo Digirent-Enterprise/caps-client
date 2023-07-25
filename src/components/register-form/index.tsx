@@ -194,7 +194,7 @@ const Component = React.memo(() => {
       >
         {t("have_account")}{" "}
         <Link href={"/auth/login"}>
-          <span className="text-light-button-green dark:text-dark-orange">
+          <span className="text-light-button-blue dark:text-light-user-message">
             {t("sign_in")}
           </span>
         </Link>

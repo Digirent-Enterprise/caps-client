@@ -86,7 +86,7 @@ const Component = React.memo((props: IDashboardWelcomeSection) => {
             <div className="flex flex-row gap-1">
               Please let DICA know your
               <div
-                className="text-main-blue animate-pulse cursor-pointer"
+                className="cursor-pointer text-light-button-blue-hover underline"
                 onClick={_openModal}
               >
                 latest status
@@ -99,7 +99,7 @@ const Component = React.memo((props: IDashboardWelcomeSection) => {
               DICA is able to general diagnosis your health status based on your
               provided information.
               <div
-                className="text-main-blue animate-pulse cursor-pointer"
+                className="cursor-pointer text-light-button-blue-hover underline"
                 onClick={_openModal}
               >
                 Give us a try!

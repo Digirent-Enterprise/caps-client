@@ -28,14 +28,14 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
     <section
       className={`group flex ${
         isMobile ? "h-full" : ""
-      } flex-none flex-col overflow-auto border-r border-light-gray transition-all duration-300 ease-in-out  dark:border-dark-gray dark:bg-dark-gray-heavy md:w-1/3 lg:max-w-sm `}
+      } flex-none flex-col overflow-auto border-r transition-all duration-300 ease-in-out  dark:border-dark-gray dark:bg-dark-gray-heavy md:w-1/3 lg:max-w-sm `}
     >
       <div className="flex flex-col justify-start gap-1 p-4">
         <p className="hidden text-lg font-bold text-light-blue-hover dark:text-dark-white md:block">
           {t("welcome")} {user?.name}
         </p>
       </div>
-      <div className="my-2 flex border-t border-light-gray p-2 dark:border-dark-gray dark:text-dark-white">
+      <div className="my-2 flex border-t p-2 dark:border-dark-gray dark:text-dark-white">
         <Link
           href={"/home"}
           className="flex cursor-pointer flex-row items-center justify-start gap-1"
@@ -56,8 +56,8 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
             }`}
             onClick={() => _onChangeTab("MyGeneralHealthStatistics")}
           >
-            <IconDeviceIpadHeart className="text-black" />
-            <span className="ml-2 cursor-pointer text-sm">
+            <IconDeviceIpadHeart className="text-black dark:text-white" />
+            <span className="ml-2 cursor-pointer text-sm dark:text-white">
               {t("my_general")}
             </span>
           </div>
@@ -69,8 +69,8 @@ const Component = React.memo((props: IDashboardSidebarProps) => {
             }`}
             onClick={() => _onChangeTab("MySecretRecommendation")}
           >
-            <IconBellPlusFilled className="text-black" />
-            <span className="ml-2 cursor-pointer text-sm">
+            <IconBellPlusFilled className="text-black dark:text-white" />
+            <span className="ml-2 cursor-pointer text-sm dark:text-white">
               {t("my_health")}
             </span>
           </div>

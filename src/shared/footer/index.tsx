@@ -9,10 +9,10 @@ const Component = React.memo(() => {
   return (
     <footer
       data-testid="footer"
-      className="fixed bottom-0 h-10 w-full bg-light-background-gray bg-opacity-60  p-2 shadow-amber-50  dark:bg-dark-gray md:p-3"
+      className="bg-opacity/60 fixed bottom-0 h-14 w-full bg-light-blue p-4 dark:bg-dark-bg-primary md:p-3"
     >
-      <div className="mx-auto w-full max-w-screen-xl p-4 md:py-8">
-        <span className="block text-sm text-light-blue-hover dark:text-dark-white sm:text-center">
+      <div className="mx-auto w-full max-w-screen-xl">
+        <span className="block text-sm text-white dark:text-dark-white sm:text-center">
           © {new Date().getFullYear()}{" "}
           <Link href="/" className="hover:underline">
             DICA™

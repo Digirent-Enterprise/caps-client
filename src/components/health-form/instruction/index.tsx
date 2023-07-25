@@ -13,11 +13,13 @@ const Component = () => {
       }`}
     >
       <div className="mb-8">
-        <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-dark-orange">
+        <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-dark-green">
           {t("form_instructions")}
         </h2>
         <div className="mb-4">
-          <h3 className="mb-2 text-lg font-bold">{t("purpose")}</h3>
+          <h3 className="mb-2 text-lg font-bold dark:text-white">
+            {t("purpose")}
+          </h3>
           <p className="text-light-blue-hover dark:text-dark-white">
             {t("the_purpose_of_this_health_form")}
           </p>

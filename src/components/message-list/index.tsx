@@ -89,7 +89,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
           ref={ref}
           className={`flex ${
             isMobile ? "h-full" : "flex-auto"
-          } hide-scrollbar flex-col overflow-y-scroll border-l border-light-gray dark:border-dark-gray`}
+          } hide-scrollbar flex-col overflow-y-scroll border-l border-gray-400 dark:border-dark-gray`}
         >
           <div data-tour={props.dataTourOne} className="relative flex-1 p-4">
             {messages.map((message, index) => (
@@ -109,7 +109,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
               MessageNS.SenderType.USER ? (
               <div className="absolute bottom-0.5 ml-1 flex flex-row items-center justify-center gap-2">
                 <img
-                  className="h-12 w-12 rounded-full bg-light-button-green p-2 dark:bg-dark-orange"
+                  className="h-12 w-12 rounded-full bg-light-button-blue p-2 dark:bg-dark-green"
                   src={"/static/chat_logo.svg"}
                 />
                 <div className="flex flex-row">
@@ -119,7 +119,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
                   <div className="animate-bounce text-6xl  text-gray-500 delay-100">
                     .
                   </div>
-                  <div className="delay-125 animate-bounce  text-6xl text-gray-500">
+                  <div className="animate-bounce  text-6xl text-gray-500">
                     .
                   </div>
                   {/*<div className="text-gray-500 animate-bounce  text-4xl delay-150">.</div>*/}

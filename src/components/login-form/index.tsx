@@ -42,12 +42,18 @@ const Component = React.memo(() => {
   };
 
   return (
-    <div className="flex w-full flex-col gap-2 bg-light-background-gray p-2 dark:bg-dark-gray-heavy sm:gap-1 md:w-2/5 md:gap-4 md:p-0">
-      <div className="mb-2 w-full text-center text-2xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white md:mb-[40px] md:text-3xl">
+    <div
+      className={
+        isDesktop
+          ? "flex w-full flex-col gap-2 bg-light-background-gray p-2 dark:bg-dark-gray-heavy sm:gap-1 md:mb-[40px] md:w-2/5 md:gap-4  md:p-0"
+          : "mb-2 flex w-full flex-col gap-1 bg-light-background-gray  text-2xl dark:bg-dark-gray-heavy"
+      }
+    >
+      <div className="mb-[40px] w-full text-center text-3xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white">
         {t("login_heading")}
       </div>
       <button
-        className="focus:ring-blue text-light-hover-blue flex cursor-pointer flex-wrap items-center justify-center rounded border border-solid border-light-gray bg-light-button-green-hover  px-3 py-1 font-bold hover:bg-light-gray focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray md:px-4 md:py-2"
+        className="flex cursor-pointer items-center justify-center rounded border border-gray-400  bg-[#4267B2]  px-4 py-2 font-bold text-white hover:bg-[#3b5998] dark:text-dark-white"
         onClick={() => signIn("facebook")}
       >
         <IconBrandFacebook className="mr-2 h-6 w-6 text-white md:h-8 md:w-8" />
@@ -56,8 +62,8 @@ const Component = React.memo(() => {
         </span>
       </button>
       <button
-        className="focus:ring-blue text-light-hover-blue mt-2 flex cursor-pointer flex-wrap items-center justify-center rounded border border-solid border-light-gray bg-light-button-green-hover px-3  py-1 font-bold hover:bg-light-gray focus:ring-2 dark:bg-dark-gray-heavy dark:text-dark-white dark:hover:bg-dark-gray md:mt-4 md:px-4 md:py-2"
         onClick={() => signIn("google")}
+        className="mt-4 flex cursor-pointer items-center justify-center rounded border border-gray-400 bg-[#EA4335]  px-4 py-2 font-bold text-light-text hover:bg-[#C20806] dark:text-dark-white"
       >
         <IconBrandGoogle className="mr-2 h-6 w-6 text-white md:h-8 md:w-8" />
         <span className="whitespace-nowrap text-xs text-white md:text-base">
@@ -92,10 +98,10 @@ const Component = React.memo(() => {
       <Button onClick={_handleSubmit} mode="primary">
         {t("login_description")}
       </Button>
-      <label className="md:text-md text-light-button-green dark:text-dark-white sm:text-sm lg:text-lg">
+      <label className="md:text-md text-light-button-blue dark:text-dark-white sm:text-sm lg:text-lg">
         {t("have_not_registered")}{" "}
         <Link href={"/auth/register"}>
-          <span className="text-light-button-green dark:text-dark-orange ">
+          <span className="text-light-button-blue dark:text-light-user-message">
             {t("register")}
           </span>
         </Link>

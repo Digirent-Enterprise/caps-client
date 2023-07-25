@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header
       data-testid="header"
-      className="h-22 fixed top-0 z-10 w-full bg-light-white bg-opacity-60 p-2 shadow-amber-50 dark:bg-dark-gray"
+      className="bg-opacity/60 fixed top-0 z-10 w-full bg-light-white p-2 shadow-amber-50 dark:bg-dark-gray"
     >
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <Link href={"/"}>
@@ -27,7 +27,7 @@ const Header = () => {
               src={"/static/dica.png"}
               width={331}
               height={137}
-              className="h-17 w-40 bg-transparent"
+              className="w-40 bg-transparent"
               alt="dica_logo"
             />
           </div>

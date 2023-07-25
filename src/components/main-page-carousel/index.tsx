@@ -20,14 +20,12 @@ const Component = memo(() => {
       autoPlay={true}
       showStatus={false}
     >
-      <div className="flex w-full items-center justify-center sm:mt-1 md:mt-1 lg:mt-2 lg:px-36">
-        <div
-          className="from-1% relative flex min-h-max w-full items-center justify-center
-         rounded-b-[5%] bg-gradient-to-r from-[#169cd6] via-sky-500 via-30%  to-emerald-500 to-100% px-2"
-        >
+      <div className="flex w-full items-center justify-center bg-light-background-gray dark:bg-dark-gray-heavy sm:mt-1 md:mt-1 lg:mt-2 lg:px-36">
+        <div className="from-1% relative flex min-h-max w-full items-center justify-center rounded-3xl rounded-b-[20%] bg-gradient-to-r from-[#169cd6] via-sky-500 via-30%  to-emerald-500 to-100% px-2	">
           <img
             className="absolute left-0 top-[20%] h-auto sm:w-[80%] sm:pb-2 md:w-full md:pb-5 lg:w-1/3 lg:pb-10 "
             src={"/static/carousel/docker_cover.png"}
+            alt="cover"
           />
           <div className="absolute right-2 top-1/4 lg:w-2/3">
             <div className="md:text-md w-[10rem] text-white sm:w-[30rem] sm:text-sm md:w-[30rem] lg:w-2/3 lg:text-4xl">
@@ -36,7 +34,7 @@ const Component = memo(() => {
           </div>
         </div>
       </div>
-      <div className="flex w-full items-center justify-center sm:mt-1 md:mt-1 lg:mt-2 lg:px-36">
+      <div className=" flex w-full items-center justify-center bg-light-background-gray dark:bg-dark-gray-heavy sm:mt-1 md:mt-1 lg:mt-2 lg:px-36">
         <div className="from-1% relative flex min-h-max w-full items-center justify-center rounded-3xl rounded-b-[5%] bg-gradient-to-r from-[#169cd6] via-sky-500 via-30%  to-emerald-500 to-100% px-2	">
           <img
             className="absolute left-0 top-[20%] h-auto sm:w-[80%] sm:pb-2 md:w-full md:pb-5 lg:w-1/3 lg:pb-10 "
@@ -49,11 +47,12 @@ const Component = memo(() => {
           </div>
         </div>
       </div>
-      <div className="flex w-full items-center justify-center sm:mt-1 md:mt-1 lg:mt-2 lg:px-36">
-        <div className="from-1% relative flex min-h-max w-full items-center justify-center rounded-3xl rounded-b-[5%] bg-gradient-to-r from-[#169cd6] via-sky-500 via-30%  to-emerald-500 to-100% px-2	">
+      <div className="flex w-full items-center justify-center bg-light-background-gray  dark:bg-dark-gray-heavy sm:mt-1 md:mt-1 lg:mt-2  lg:px-36">
+        <div className="from-1% relative flex min-h-max w-full items-center justify-center rounded-3xl rounded-b-[20%] bg-gradient-to-r from-[#169cd6] via-sky-500 via-30%	 to-emerald-500 to-100%	 px-2	">
           <img
             className="absolute left-0 top-[20%] h-auto sm:w-[80%] sm:pb-2 md:w-full md:pb-5 lg:w-1/3 lg:pb-10 "
             src={"/static/carousel/bot.png"}
+            alt="cover"
           />
           <div className="absolute right-2 top-1/4 lg:w-2/3">
             <div className="md:text-md w-[10rem] text-white sm:w-[30rem] sm:text-sm md:w-[30rem] lg:w-2/3 lg:text-4xl">

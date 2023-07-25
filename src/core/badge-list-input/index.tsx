@@ -37,20 +37,20 @@ const Component: React.FC<IBadgeListInputProps> = ({
   };
 
   let inputClassNames =
-    "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-green dark:text-dark-white dark:focus:ring-dark-orange";
+    "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-blue dark:text-dark-white dark:focus:ring-dark-green";
 
   if (errorMessage) {
     inputClassNames =
-      "w-full rounded-lg border border-red p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-green dark:text-dark-white dark:focus:ring-dark-orange";
+      "w-full rounded-lg border border-red p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-blue dark:text-dark-white dark:focus:ring-dark-green";
   } else {
     inputClassNames =
-      "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-green dark:text-dark-white dark:focus:ring-dark-orange";
+      "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-blue dark:text-dark-white dark:focus:ring-dark-green";
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label className="text-light-hover-blue mb-2 block font-bold dark:text-dark-white">
+        <label className="mb-2 block font-bold dark:text-dark-white">
           {label}
         </label>
         <input
@@ -67,7 +67,7 @@ const Component: React.FC<IBadgeListInputProps> = ({
         {badges.map((badge, index) => (
           <div
             key={index}
-            className="m-1 inline-flex items-center rounded-lg bg-light-button-green px-3 py-1 text-light-background-gray dark:bg-dark-orange"
+            className="m-1 inline-flex items-center rounded-lg bg-light-button-blue px-3 py-1 text-light-background-gray dark:bg-light-primary-button"
           >
             {badge.value}
             <button className="ml-2" onClick={() => handleDelete(badge)}>
