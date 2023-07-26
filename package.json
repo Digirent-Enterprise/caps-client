@@ -87,6 +87,6 @@
     "jest-environment-jsdom": "^29.5.0",
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.2",
-    "tailwindcss-animate": "^1.0.5"
+    "tailwindcss-animate": "^1.0.6"
   }
 }
