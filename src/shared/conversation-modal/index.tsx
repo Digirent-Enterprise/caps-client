@@ -21,9 +21,9 @@ const Component = React.memo((props: IConversationModalProps) => {
     return renderChatBotOptions();
   }, []);
 
-  const models: ConversationNS.ChatbotType[] = Object.keys(
-    ConversationNS.ChatbotType
-  ).map((key) => ConversationNS.ChatbotType[key]);
+  // const models: ConversationNS.ChatbotType[] = Object.keys(
+  //   ConversationNS.ChatbotType
+  // ).map((key: string) => ConversationNS.ChatbotType[key]);
 
   const [selectedModel, setSelectedModel] =
     useState<ConversationNS.ChatbotType>(
