@@ -8,8 +8,6 @@ import {
   IconScreenshot,
   IconMarkdown,
   IconJson,
-  IconAdjustmentsHeart,
-  IconActivityHeartbeat,
   IconBellHeart,
   IconDeviceIpadHeart,
 } from "@tabler/icons-react";
@@ -18,9 +16,11 @@ import { isEmpty } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import { useImmer } from "use-immer";
 
 import axios from "@/axios";
 import ConversationList from "@/components/conversation-list";
+import DiscussionModal from "@/components/discussion-modal";
 import MessageList from "@/components/message-list";
 import OnboardingTutorial from "@/components/onboarding-tutorial";
 import Settings from "@/components/settings";
@@ -43,6 +43,7 @@ import { formatModelOption } from "@/utils/models";
 const Component: React.FC = () => {
   const { isMobile } = useDevice();
   const router = useRouter();
+  const [openDiscussion, setOpenDiscussion] = useImmer<boolean>(false);
   const [open, setOpen] = useState(false);
   {
     const [showConversationModal, setShowConversationModal] = useState(false);
@@ -73,6 +74,9 @@ const Component: React.FC = () => {
     const _handleSearchConversation = (term: string) => {
       setSearchTerm(term);
     };
+
+    const _openDiscussionModal = () => setOpenDiscussion(true);
+    const _closeDiscussionModal = () => setOpenDiscussion(false);
 
     const filteredConversations = conversations.filter((conversation) =>
       conversation.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -260,6 +264,19 @@ const Component: React.FC = () => {
                   <Settings
                     isOpen={isSettingsModalOpen}
                     onClose={_closeSettingsModal}
+                  />
+                  <div className="flex cursor-pointer flex-row items-center gap-1">
+                    <IconBellHeart />
+                    <span
+                      className="ml-2 cursor-pointer text-sm text-light-text dark:text-white"
+                      onClick={_openDiscussionModal}
+                    >
+                      {t("discussion")}
+                    </span>
+                  </div>
+                  <DiscussionModal
+                    isOpen={openDiscussion}
+                    onClose={_closeDiscussionModal}
                   />
                   <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />

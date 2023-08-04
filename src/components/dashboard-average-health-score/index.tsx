@@ -58,7 +58,7 @@ const Component = React.memo(() => {
               thickness="15%"
               trackColor="#162549"
             >
-              <CircularProgressLabel className="text-4xl font-bold">
+              <CircularProgressLabel className="text-4xl font-bold text-white">
                 {averageScore}
               </CircularProgressLabel>
             </CircularProgress>
