@@ -12,11 +12,12 @@ const Component = React.memo((props: ICustomResponsiveCardProps) => {
       padding="3%"
       minH="20rem"
       borderRadius="14"
-      backgroundColor="#14a27d"
+      backgroundColor="#2d325a"
       textAlign="center"
       onClick={onClick}
-      className={`hover:bg-gray-200" rounded-lg bg-gradient-to-r from-teal-400 via-teal-500 to-[#14a27d] p-4 shadow-lg transition duration-300 hover:shadow-2xl ${className}`}
+      className={`hover:bg-gray-200" rounded-lg transition duration-300 hover:shadow-2xl ${className}`}
       style={style}
+      x
     >
       {children && children}
     </Box>

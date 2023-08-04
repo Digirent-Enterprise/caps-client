@@ -49,7 +49,7 @@ const Component = React.memo((props: IDashboardDiagnosisDetail) => {
               <div className="h-full w-full max-w-screen-md ">
                 <div className="relative rounded-lg bg-light-background-gray p-8 shadow-xl dark:bg-dark-blue">
                   <div className="mb-4 flex items-center justify-between ">
-                    <h2 className="text-xl font-semibold text-light-blue-hover dark:text-dark-white">
+                    <h2 className="text-xl font-semibold text-light-blue-hover dark:text-gray-400">
                       Diagnosis Detail - {formatDateTime(item.createdAt)}
                     </h2>
                     <button
@@ -65,7 +65,9 @@ const Component = React.memo((props: IDashboardDiagnosisDetail) => {
                     src={"/static/dashboard/diag.svg"}
                     alt=""
                   />
-                  <Dialog.Description>{textWithLineBreaks}</Dialog.Description>
+                  <Dialog.Description className="dark:text-gray-400">
+                    {textWithLineBreaks}
+                  </Dialog.Description>
 
                   <div className="mt-6 flex justify-end">
                     <button
