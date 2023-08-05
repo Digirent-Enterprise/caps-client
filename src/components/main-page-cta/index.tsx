@@ -96,8 +96,8 @@ const Component = memo(() => {
     }
   };
   return (
-    <div className="mt-4 flex w-full flex-col items-center justify-center bg-light-background-gray px-6  dark:bg-dark-gray-heavy md:px-12 lg:px-36">
-      <div className="text-center text-2xl  text-light-blue-hover dark:text-dark-white md:text-3xl lg:text-4xl">
+    <div className="flex w-full flex-col items-center justify-center bg-light-background-gray px-6  dark:bg-dark-gray-heavy md:px-12 lg:px-36">
+      <div className="mt-4 text-center text-2xl  text-light-blue-hover dark:text-dark-white md:text-3xl lg:text-4xl">
         {t("how_can_we_help_you")}
       </div>
       <div className="mt-2 flex flex-col gap-2 md:flex-row md:gap-5">

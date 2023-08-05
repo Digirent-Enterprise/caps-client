@@ -1,13 +1,5 @@
-import DiscussionContent from "@/components/dicussion/content";
-import DiscussionSidebar from "@/components/dicussion/sidebar";
-
 const Component = () => {
-  return (
-    <div className="flex flex-wrap">
-      <DiscussionSidebar />
-      <DiscussionContent />
-    </div>
-  );
+  return <div className="flex flex-wrap">Discussion</div>;
 };
 
 Component.displayName = "DiscussionComponent";

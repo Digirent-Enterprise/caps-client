@@ -1,14 +1,10 @@
-import { useContext } from "react";
-
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 
-import { LoadingContext } from "@/contexts/loading-context";
-import { LocalStorageService } from "@/services/local-storage";
-import { LocalStorageKeys } from "@/services/local-storage/constant";
 import { HttpResponse } from "@/types/enum/http-response";
 import { showToast } from "@/utils/toast";
 
-export const API_BASE_URL = "http://localhost:3003";
+export const API_BASE_URL: string = "http://localhost:3003";
+export const NEWS_BASE_URL: string = "";
 
 const TWENTY_MINUTES = 20 * 60 * 1000;
 
