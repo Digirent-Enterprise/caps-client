@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import axios from "@/axios";
+import { createAxiosInstance } from "@/axios";
 import { LocalStorageService } from "@/services/local-storage";
 import { LocalStorageKeys } from "@/services/local-storage/constant";
 import { UserService } from "@/services/user";
@@ -21,13 +21,15 @@ const useUser = () => {
   const [user, setUser] = useState<IUser | null>(null);
   const [allUsers, setAllUsers] = useState<IUser[] | null>(null);
 
+  const api = createAxiosInstance();
+
   const handleAccessToken = () => {
     const accessToken = LocalStorageService.getInstance().getItem(
       LocalStorageKeys.access_token
     );
     if (accessToken) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
-      axios.defaults.headers.post["Content-Type"] = "application/json";
+      api.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+      api.defaults.headers.post["Content-Type"] = "application/json";
     }
   };
 

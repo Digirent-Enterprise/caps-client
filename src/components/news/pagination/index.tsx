@@ -126,7 +126,7 @@ const Component = ({
 
               <div className="relative mx-2 mt-1 shadow-sm" key={"input"}>
                 <input
-                  className="form-input mt-3 block w-12 rounded-sm text-orange-600 focus:text-orange-800 sm:text-sm sm:leading-5"
+                  className="mt-3 block w-12 rounded-sm text-orange-600 focus:text-orange-800 sm:text-sm sm:leading-5"
                   placeholder="25"
                   value={input}
                   onChange={(e) => {

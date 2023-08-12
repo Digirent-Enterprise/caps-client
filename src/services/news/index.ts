@@ -1,7 +1,10 @@
-import axios from "@/axios";
+import { createAxiosInstance } from "@/axios";
+import { NEWS_BASE_URL } from "@/axios/constant";
+
+const api = createAxiosInstance(NEWS_BASE_URL);
 
 export default class NewsService {
   static getNewsBasedOnSymptom = (): Promise<NewsNS.NewsResults> => {
-    return axios.get(`/news/`);
+    return api.get(`/news/`);
   };
 }

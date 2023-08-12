@@ -144,7 +144,7 @@ const Component = React.memo(
                 }`}
               />
               <div
-                className={`relative max-h-5 flex-1 overflow-hidden text-ellipsis whitespace-nowrap break-all text-left text-[12.5px] leading-3 ${
+                className={`relative max-h-5 flex-1 truncate break-all text-left text-[12.5px] leading-3${
                   selectedConversation?.id === conversation.id
                     ? "pr-12 text-light-white"
                     : "pr-1"

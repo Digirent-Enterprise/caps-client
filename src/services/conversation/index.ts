@@ -1,19 +1,20 @@
-import axios from "@/axios";
+import { createAxiosInstance } from "@/axios";
 import { ConversationNS } from "@/services/conversation/type";
 
+const api = createAxiosInstance();
 export default class ConversationService {
   static createNewConversation = (
     data: ConversationNS.CreateConversationRequest
   ): Promise<ConversationNS.Conversation> => {
-    return axios.post("/conversation/create-conversation", data);
+    return api.post("/conversation/create-conversation", data);
   };
   static getAllConversations = (): Promise<ConversationNS.Conversation[]> => {
-    return axios.get("/conversation/items");
+    return api.get("/conversation/items");
   };
 
   static updateConversation = (
     data: ConversationNS.UpdateConversationRequest
   ): Promise<ConversationNS.Conversation> => {
-    return axios.post("/conversation/create-conversation", data);
+    return api.post("/conversation/create-conversation", data);
   };
 }

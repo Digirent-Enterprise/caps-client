@@ -16,7 +16,6 @@
     "analyze": "cross-env ANALYZE=true npm run build",
     "serve": "serve .next/analyze",
     "prepare": "husky install",
-    "update-translations": "npx tsx scripts/update-translations.ts",
     "postbuild": "next-sitemap"
   },
   "dependencies": {
@@ -34,7 +33,6 @@
     "dotenv": "^16.3.1",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.12",
-    "framer-motion": "^10.12.8",
     "fuse.js": "^6.6.2",
     "html-to-image": "^1.11.11",
     "i18next": "^22.4.15",
