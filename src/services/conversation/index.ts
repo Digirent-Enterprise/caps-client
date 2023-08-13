@@ -7,6 +7,7 @@ export default class ConversationService {
   ): Promise<ConversationNS.Conversation> => {
     return axios.post("/conversation/create-conversation", data);
   };
+
   static getAllConversations = (): Promise<ConversationNS.Conversation[]> => {
     return axios.get("/conversation/items");
   };
@@ -14,6 +15,10 @@ export default class ConversationService {
   static updateConversation = (
     data: ConversationNS.UpdateConversationRequest
   ): Promise<ConversationNS.Conversation> => {
-    return axios.post("/conversation/create-conversation", data);
+    return axios.post("/conversation/item/update", data);
+  };
+
+  static deleteConversation = (): Promise<ConversationNS.Conversation> => {
+    return axios.delete("/conversation/item/delete");
   };
 }

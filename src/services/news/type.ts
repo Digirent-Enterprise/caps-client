@@ -6,7 +6,6 @@ namespace NewsNS {
     title: string;
     description: string;
     category: string;
-    createdAt: string;
   };
 
   export type NewsResults = News[];

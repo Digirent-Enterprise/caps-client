@@ -1,27 +1,27 @@
 import { useContext, useState } from "react";
-
-import { useImmer } from "use-immer";
-
 import { LoadingContext } from "@/contexts/loading-context";
 import NewsService from "@/services/news";
+import { INews } from "@/types/context/with-auth-context";
 
 export type NewsResult = {
-  getNewsResults: () => void;
+  getNewsResults: (symptom: string) => Promise<INews[]>;
   newsLoading: boolean;
-  newsResults: NewsNS.NewsResults;
+  newsResults: INews[];
 };
 
 const useNews = (): NewsResult => {
   const { setLoading } = useContext(LoadingContext);
   const [newsLoading, setNewsLoading] = useState<boolean>(false);
-  const [newsResults, setNewsResults] = useImmer<NewsNS.NewsResults>([]);
+  const [newsResults, setNewsResults] = useState<INews[]>([]);
 
-  const getNewsResults = async () => {
+  const getNewsResults = async (symptom: string) => {
     try {
       setLoading(true);
-      const response = await NewsService.getNewsBasedOnSymptom();
+      const response = await NewsService.getNewsBasedOnSymptom(symptom);
       if (response) {
-        setNewsResults(response);
+        const allNews = response as INews[];
+        setNewsResults(allNews);
+        return allNews;
       }
       setNewsLoading(false);
       setLoading(false);

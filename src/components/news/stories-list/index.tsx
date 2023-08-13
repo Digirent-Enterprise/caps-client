@@ -1,5 +1,4 @@
-// https://github.com/pbteja1998/hacker-news-client
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import ListBox from "@/components/news/listbox";
 import Pagination from "@/components/news/pagination";
@@ -18,6 +17,7 @@ import {
   SORT_BY_OPTIONS,
 } from "@/constant";
 import useDynamicHealth from "@/hooks/dynamic-health";
+import useNews from "@/hooks/news/useNews";
 import useUser from "@/hooks/user/useUser";
 
 const PAGE_SIZE = 10;
@@ -26,22 +26,6 @@ const STORIES_OFFSET = 50;
 const Component = () => {
   const { isLoading } = useUser();
   const [storiesMap, setStoriesMap] = useState<Record<number, StoryNode>>({});
-
-  const setStoryNode = ({
-    storyId,
-    points,
-    time,
-    comments,
-  }: {
-    storyId: number;
-    points: number;
-    time: number;
-    comments: number;
-  }) =>
-    setStoriesMap({
-      ...storiesMap,
-      [storyId]: { storyId, points, time, comments },
-    });
 
   const [currentPage, setCurrentPage] = useState(0);
   const [currentlySortBy, setCurrentlySortBy] = useState(POPULARITY);
@@ -55,6 +39,8 @@ const Component = () => {
   useEffect(() => {
     getMostUserSymptomRanking();
   }, []);
+
+  const { getNewsResults, newsResults } = useNews();
 
   const [totalStories, setTotalStories] = useState(STORIES_OFFSET);
 
@@ -78,7 +64,7 @@ const Component = () => {
             multiplicationFactor * (b.comments - a.comments)
         );
       }
-      setStoryIds(sortedStoryNodes.map((a: StoryNode) => a.storyId));
+      setStoryIds(sortedStoryNodes!.map((a: StoryNode) => a.storyId));
     }
   }, [storiesMap, currentlySortBy, currentlyOrderIn]);
 
@@ -93,7 +79,31 @@ const Component = () => {
     }
   }, [currentPage]);
 
-  const allStoryNodes = Object.values(storiesMap);
+  const loadNewsForSymptom = async (symptom: string) => {
+    const response = await getNewsResults(symptom);
+    const newStoriesMap: Record<number, StoryNode> = {};
+
+    response.forEach((item) => {
+      const storyId = parseInt(item.id);
+      newStoriesMap[storyId] = {
+        storyId,
+        points: 0,
+        time: Date.now(),
+        comments: 0,
+      };
+    });
+
+    setStoriesMap((prevStoriesMap) => ({
+      ...prevStoriesMap,
+      ...newStoriesMap,
+    }));
+  };
+
+  useEffect(() => {
+    mostUserSymptomRanking.forEach((symptom) => {
+      loadNewsForSymptom(symptom);
+    });
+  }, [mostUserSymptomRanking]);
 
   return (
     <>

@@ -1,7 +1,11 @@
 import axios from "@/axios";
 
 export default class NewsService {
-  static getNewsBasedOnSymptom = (): Promise<NewsNS.NewsResults> => {
-    return axios.get(`/news/`);
+  static getNewsBasedOnSymptom = (
+    symptom: string
+  ): Promise<NewsNS.NewsResults> => {
+    return axios.get(`http://0.0.0.0:8000/news`, {
+      params: { symptom },
+    });
   };
 }
