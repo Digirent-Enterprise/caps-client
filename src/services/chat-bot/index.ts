@@ -1,17 +1,15 @@
-import { createAxiosInstance } from "@/axios";
-
-const api = createAxiosInstance();
+import axios from "@/axios";
 
 export default class ChatBotService {
   static generalDiagnosis = (): Promise<DiagnosisNS.DiagnosisResults> => {
-    return api.get(`/chat-bot/diagnosis/`);
+    return axios.get(`/chat-bot/diagnosis/`);
   };
 
   static createNewDiagnosis = (): Promise<DiagnosisNS.Diagnosis> => {
-    return api.post(`/chat-bot/diagnosis/create`);
+    return axios.post(`/chat-bot/diagnosis/create`);
   };
 
   static couldGetDiagnosis = (): Promise<DiagnosisNS.CouldGetDiagnosis> => {
-    return api.get(`/chat-bot/diagnosis/status`);
+    return axios.get(`/chat-bot/diagnosis/status`);
   };
 }

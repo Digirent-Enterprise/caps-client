@@ -17,6 +17,7 @@ import {
   POPULARITY,
   SORT_BY_OPTIONS,
 } from "@/constant";
+import useDynamicHealth from "@/hooks/dynamic-health";
 import useUser from "@/hooks/user/useUser";
 
 const PAGE_SIZE = 10;
@@ -47,6 +48,13 @@ const Component = () => {
   const [currentlyOrderIn, setCurrentlyOrderIn] = useState(DESCENDING);
   const [currentFilter, setCurrentFilter] = useState(ALL_TIME);
   const [storyIds, setStoryIds] = useState<number[]>([]);
+
+  const { getMostUserSymptomRanking, mostUserSymptomRanking } =
+    useDynamicHealth();
+
+  useEffect(() => {
+    getMostUserSymptomRanking();
+  }, []);
 
   const [totalStories, setTotalStories] = useState(STORIES_OFFSET);
 

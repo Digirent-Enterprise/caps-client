@@ -18,7 +18,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
-import { createAxiosInstance } from "@/axios";
+import axios from "@/axios";
 import ConversationList from "@/components/conversation-list";
 import DiscussionModal from "@/components/discussion-modal";
 import MessageList from "@/components/message-list";
@@ -61,8 +61,6 @@ const Component: React.FC = () => {
 
     const { getAllMessages, messages } = useMessage();
 
-    const api = createAxiosInstance();
-
     const chatContainerRef = useRef<HTMLDivElement | null>(null);
 
     const _handleOpenConversationModal = () => {
@@ -94,7 +92,7 @@ const Component: React.FC = () => {
     };
 
     const _getUserStaticHealth = async () => {
-      return await api.get("/static-health");
+      return await axios.get("/static-health");
     };
 
     const _initForm = async () => {

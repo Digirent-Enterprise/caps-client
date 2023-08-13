@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import { useImmer } from "use-immer";
 
@@ -15,16 +15,21 @@ type DynamicHealthResult = {
   categorizedStatus: DynamicHealthNS.CategorizedStatusRes;
   commonSymptoms: DynamicHealthNS.CategorizedStatusRes;
   getCommonSymptoms: () => void;
+  mostUserSymptomRanking: DynamicHealthNS.MostUserSymptomRankingRes;
+  getMostUserSymptomRanking: () => void;
 };
 
 const useDynamicHealth = () => {
   const { setLoading } = useContext(LoadingContext);
   const [myStatuses, setMyStatuses] =
     useImmer<DynamicHealthNS.DynamicHealthStatusesRes>({});
+
   const [categorizedStatus, setCategorizedStatus] =
     useImmer<DynamicHealthNS.CategorizedStatusRes>({});
   const [commonSymptoms, setCommonSymptoms] =
     useImmer<DynamicHealthNS.CategorizedStatusRes>({});
+  const [mostUserSymptomRanking, setMostUserSymptomRanking] = // Add this line
+    useImmer<DynamicHealthNS.MostUserSymptomRankingRes>([]);
 
   const addDynamicHealth = async (
     data: DynamicHealthNS.AddDynamicHealthParams
@@ -74,6 +79,18 @@ const useDynamicHealth = () => {
     }
   };
 
+  const getMostUserSymptomRanking = async () => {
+    try {
+      setLoading(true);
+      const response: DynamicHealthNS.MostUserSymptomRankingRes =
+        await DynamicHealthService.getMostUserSymptomRanking();
+      setMostUserSymptomRanking(response);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
   return {
     addDynamicHealth,
     myStatuses,
@@ -82,6 +99,8 @@ const useDynamicHealth = () => {
     categorizedStatus,
     getCommonSymptoms,
     commonSymptoms,
+    getMostUserSymptomRanking,
+    mostUserSymptomRanking,
   } as DynamicHealthResult;
 };
 

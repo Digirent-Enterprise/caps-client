@@ -1,12 +1,11 @@
 import MockAdapter from "axios-mock-adapter";
 
-import { createAxiosInstance } from "@/axios";
+import api from "@/axios";
 import { AuthService } from "@/services/auth";
 
 describe("AuthService", () => {
   let mock: MockAdapter;
   let postMock: jest.Mock;
-  const api = createAxiosInstance();
 
   beforeEach(() => {
     mock = new MockAdapter(api);

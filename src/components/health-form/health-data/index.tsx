@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import * as yup from "yup";
 
-import { createAxiosInstance } from "@/axios";
+import axios from "@/axios";
 import {
   CheckboxOptions,
   DefaultCheckboxOption,
@@ -22,7 +22,6 @@ import { showToast } from "@/utils/toast";
 
 const Component = () => {
   const { t } = useTranslation("health_data");
-  const api = createAxiosInstance();
   const { isMobile } = useDevice();
   const router = useRouter();
   const [healthForm, setHealthForm] = useState({
@@ -244,7 +243,7 @@ const Component = () => {
     schema
       .validate(healthForm, { abortEarly: false })
       .then(async (validatedData) => {
-        await api.post("/static-health", healthForm);
+        await axios.post("/static-health", healthForm);
         showToast(
           "success",
           "Congratulations. You have updated your health data."

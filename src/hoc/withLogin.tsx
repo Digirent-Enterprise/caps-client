@@ -28,7 +28,7 @@ export default function withAuth<P extends object>(
 
     useEffect(() => {
       if (!user && !isLoading) {
-        router.replace("/auth/login");
+        // router.replace("/auth/login");
       }
     }, [user, isLoading, router]);
 

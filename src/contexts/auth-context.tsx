@@ -4,7 +4,7 @@ import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { useImmer } from "use-immer";
 
-import { createAxiosInstance } from "@/axios";
+import axios from "@/axios";
 import { LoadingContext } from "@/contexts/loading-context";
 import useUser from "@/hooks/user/useUser";
 import { LocalStorageService } from "@/services/local-storage";
@@ -29,7 +29,6 @@ export const AuthProvider = (props: IAuthContextProps) => {
   const [refreshToken, setRefreshToken] = useImmer<string>("");
   const { setLoading } = useContext(LoadingContext);
   const router = useRouter();
-  const api = createAxiosInstance();
 
   const signIn = (user: IUser) => {
     setUser(user);
@@ -48,17 +47,16 @@ export const AuthProvider = (props: IAuthContextProps) => {
   };
 
   const setAxiosAuthHeader = (accessToken: string) => {
-    api.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
-    api.defaults.headers.post["Content-Type"] = "application/json";
+    axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    axios.defaults.headers.post["Content-Type"] = "application/json";
   };
 
   const resetAxiosHeader = () => {
-    api.defaults.headers.common["Authorization"] = ``;
+    axios.defaults.headers.common["Authorization"] = ``;
   };
 
   const _initUser = async () => {
     const newUser = await getUser();
-    console.log("new user");
     if (!isEmpty(newUser)) setUser(user);
   };
 
