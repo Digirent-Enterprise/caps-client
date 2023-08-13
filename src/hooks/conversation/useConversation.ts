@@ -15,17 +15,19 @@ type ConversationResult = {
   conversations: ConversationNS.Conversation[];
   selectedConversation: ConversationNS.Conversation;
   setSelectedConversation: (x: ConversationNS.Conversation) => void;
-  updateConversation: (conversationId: number) => void;
-  deleteConversation: (conversationId: number) => void;
+  updateConversation: (name: string) => void;
+  deleteConversation: () => void;
 };
 
 const useConversation = () => {
   const [conversations, setConversations] = useState<
     ConversationNS.Conversation[]
   >([]);
+
   const { setLoading } = useContext(LoadingContext);
   const { selectedConversation, setSelectedConversation } =
     useContext(ConversationContext);
+
   const createNewConversation = async (
     name: string,
     chatBotType: ConversationNS.ChatbotType
@@ -60,9 +62,25 @@ const useConversation = () => {
     setLoading(false);
   };
 
-  const updateConversation = async (conversationId: number) => {};
+  const updateConversation = async (name: string) => {
+    setLoading(true);
+    try {
+      const response = await ConversationService.updateConversation({ name });
+    } catch (error) {
+      showToast("error", "Could not update conversations");
+    }
+    setLoading(false);
+  };
 
-  const deleteConversation = async (conversationId: number) => {};
+  const deleteConversation = async () => {
+    setLoading(true);
+    try {
+      await ConversationService.deleteConversation();
+    } catch (error) {
+      showToast("error", "Could not delete conversations");
+    }
+    setLoading(false);
+  };
 
   return {
     createNewConversation,

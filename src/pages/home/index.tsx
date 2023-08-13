@@ -312,7 +312,7 @@ const Component: React.FC = () => {
                   ) : null}
                 </div>
                 <div data-tour="step3" className="flex">
-                  {/*<WeatherReport />*/}
+                  <WeatherReport />
                 </div>
               </div>
               {selectedConversation && conversations.length > 0 ? (

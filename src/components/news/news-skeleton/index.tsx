@@ -41,5 +41,5 @@ const Component = () => {
   );
 };
 
-Component.displayName = "StorySkeleton";
+Component.displayName = "NewsSkeleton";
 export default Component;

@@ -1,5 +1,3 @@
-import { useContext } from "react";
-
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 
 import { LoadingContext } from "@/contexts/loading-context";

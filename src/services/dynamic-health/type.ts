@@ -16,4 +16,6 @@ export namespace DynamicHealthNS {
   export type CategorizedStatusRes = {
     [x: string]: number;
   };
+
+  export type MostUserSymptomRankingRes = string[];
 }

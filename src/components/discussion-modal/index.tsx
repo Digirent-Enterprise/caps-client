@@ -45,7 +45,7 @@ const Component = memo((props: IDiscussionModalProps) => {
               <Tab.Panel
                 key={idx}
                 className={
-                  "rounded-xl bg-white font-serif ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+                  "rounded-xl bg-white font-serif ring-white ring-opacity/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
                 }
               >
                 {/*{idx === 0 && (*/}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import clsx from "clsx";
+import classNames from "classnames";
 
 const PageNumber = ({
   page,
@@ -15,15 +15,15 @@ const PageNumber = ({
 }) => {
   return (
     <a
-      className={clsx(
-        `-mt-px ml-2 inline-flex cursor-pointer items-center border-b-2 px-4 
-        pt-4 text-sm font-medium leading-5 transition 
-        duration-150 ease-in-out focus:outline-none`,
+      className={classNames(
+        `ml-2 cursor-pointer -mt-px border-b-2 pt-4 px-4 inline-flex 
+        items-center text-sm leading-5 font-medium focus:outline-none 
+        transition ease-in-out duration-150`,
         isSelected
-          ? `border-orange-500 text-orange-600 focus:border-orange-700 
-          focus:text-orange-800`
-          : `border-transparent text-gray-500 hover:border-gray-300 
-          hover:text-gray-700 focus:border-gray-400 focus:text-gray-700`
+          ? `border-orange-500 text-orange-600 focus:text-orange-800 
+          focus:border-orange-700`
+          : `border-transparent text-gray-500 hover:text-gray-700 
+          hover:border-gray-300 focus:text-gray-700 focus:border-gray-400`
       )}
       onClick={() => setPage()}
     >
@@ -56,11 +56,11 @@ const Component = ({
       >
         <div className="flex w-0 flex-1">
           <button
-            className={clsx(
-              `-mt-px inline-flex items-center border-b-2 border-transparent px-3 pb-2 
-              pt-4 text-sm font-medium leading-5 text-gray-500 
-              transition duration-150 ease-in-out 
-              hover:text-gray-700 focus:text-gray-700 focus:outline-none disabled:opacity-25
+            className={classNames(
+              `-mt-px border-b-2 border-transparent pt-4 pb-2 px-3 inline-flex 
+              items-center text-sm leading-5 font-medium text-gray-500 
+              hover:text-gray-700 focus:outline-none focus:text-gray-700 
+              transition ease-in-out duration-150 disabled:opacity-25
               disabled:hover:text-gray-500 disabled:focus:text-gray-500`,
               currentPage > 0 ? "cursor-pointer" : "cursor-not-allowed"
             )}
@@ -177,11 +177,11 @@ const Component = ({
         </div>
         <div className="flex w-0 flex-1 justify-end">
           <button
-            className={clsx(
-              `-mt-px inline-flex items-center border-b-2 border-transparent px-3 pb-2 
-              pt-4 text-sm font-medium leading-5 text-gray-500 
-              transition duration-150 ease-in-out 
-              hover:text-gray-700 focus:text-gray-700 focus:outline-none disabled:opacity-25 
+            className={classNames(
+              `-mt-px border-b-2 border-transparent pt-4 pb-2 px-3 inline-flex 
+              items-center text-sm leading-5 font-medium text-gray-500 
+              hover:text-gray-700 focus:outline-none focus:text-gray-700 
+              transition ease-in-out duration-150 disabled:opacity-25 
               disabled:hover:text-gray-500 disabled:focus:text-gray-500`,
               currentPage < pagesCount - 1
                 ? "cursor-pointer"
@@ -211,5 +211,5 @@ const Component = ({
   );
 };
 
-Component.displayName = "Pagination";
+Component.displayName = "NewsPagination";
 export default Component;

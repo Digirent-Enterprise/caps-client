@@ -57,7 +57,6 @@ export const AuthProvider = (props: IAuthContextProps) => {
 
   const _initUser = async () => {
     const newUser = await getUser();
-    console.log("new user");
     if (!isEmpty(newUser)) setUser(user);
   };
 
