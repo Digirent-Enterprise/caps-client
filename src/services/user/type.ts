@@ -1,3 +1,5 @@
+import { RoleTypes } from "@/types/context/with-auth-context";
+
 export namespace UserNS {
   //generic
   type GenderType = "male" | "female" | "other";
@@ -27,7 +29,7 @@ export namespace UserNS {
     dob: string;
     age: number;
     email: string;
-    role: RoleType;
+    roles: RoleTypes;
     status: StatusType;
     firstLogin: boolean;
     createdAt: string;

@@ -1,6 +1,12 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 
-import { isEmpty } from "lodash";
+import { debounce, isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { useImmer } from "use-immer";
 
@@ -24,10 +30,10 @@ export const useAuth = (): AuthContextData => useContext(AuthContext);
 export const AuthProvider = (props: IAuthContextProps) => {
   const { children } = props;
   const [user, setUser] = useState<IUser | null>(null);
-  const { getUser } = useUser();
+  const { user: newUser, getUser } = useUser();
   const [accessToken, setAccessToken] = useImmer<string>("");
   const [refreshToken, setRefreshToken] = useImmer<string>("");
-  const { setLoading } = useContext(LoadingContext);
+  const { loading, setLoading } = useContext(LoadingContext);
   const router = useRouter();
 
   const signIn = (user: IUser) => {
@@ -57,27 +63,63 @@ export const AuthProvider = (props: IAuthContextProps) => {
 
   const _initUser = async () => {
     const newUser = await getUser();
-    console.log("new user");
-    if (!isEmpty(newUser)) setUser(user);
+    setUser(newUser);
   };
 
-  useEffect(() => {
-    const storage = LocalStorageService.getInstance();
-    const storedAccessToken = storage.getItem(LocalStorageKeys.access_token);
-    const storedRefreshToken = storage.getItem(LocalStorageKeys.refresh_token);
+  // const _debounceGetUser = debounce((newUser: IUser) => {
+  //   if (!newUser) {
+  //     const storage = LocalStorageService.getInstance();
+  //     const storedAccessToken = storage.getItem(LocalStorageKeys.access_token);
+  //     const storedRefreshToken = storage.getItem(
+  //         LocalStorageKeys.refresh_token
+  //     );
+  //
+  //     if (storedAccessToken && storedRefreshToken) {
+  //       setAxiosAuthHeader(storedAccessToken);
+  //       setAccessToken(storedAccessToken);
+  //       setRefreshToken(storedRefreshToken);
+  //     }
+  //     if (storedAccessToken && isEmpty(newUser)) {
+  //       _initUser();
+  //     }
+  //   }
+  // }, 3000)
+  //
+  // const _callbackGetUser = useCallback((newUser: IUser) => {
+  //   _debounceGetUser(newUser);
+  // }, [])
 
-    if (storedAccessToken && storedRefreshToken) {
-      setAxiosAuthHeader(storedAccessToken);
-      setAccessToken(storedAccessToken);
-      setRefreshToken(storedRefreshToken);
-    }
-    if (isEmpty(user)) {
-      _initUser();
+  // useEffect(() => {
+  //   console.log('my user', user)
+  //   _callbackGetUser(user);
+  // }, [user]);
+
+  useEffect(() => {
+    if (!user) {
+      const storage = LocalStorageService.getInstance();
+      const storedAccessToken = storage.getItem(LocalStorageKeys.access_token);
+      if (storedAccessToken) _initUser();
     }
   }, []);
 
+  // useEffect(() => {
+  //   const storage = LocalStorageService.getInstance();
+  //   const storedAccessToken = storage.getItem(LocalStorageKeys.access_token);
+  //   const storedRefreshToken = storage.getItem(LocalStorageKeys.refresh_token);
+  //
+  //   if (storedAccessToken && storedRefreshToken) {
+  //     setAxiosAuthHeader(storedAccessToken);
+  //     setAccessToken(storedAccessToken);
+  //     setRefreshToken(storedRefreshToken);
+  //   }
+  //   if (storedAccessToken && isEmpty(user)) {
+  //     console.log('run callback get user')
+  //     _initUser();
+  //   }
+  // }, []);
+
   return (
-    <AuthContext.Provider value={{ user, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, signIn, signOut, loading }}>
       {children}
     </AuthContext.Provider>
   );

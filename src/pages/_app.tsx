@@ -48,7 +48,7 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
   //     router.events.off("routeChangeError", handleComplete);
   //   };
   // }, [router, setLoading]);
-
+  console.log("appppppppppp");
   return (
     <AnimatePresence>
       {/*<motion.div*/}

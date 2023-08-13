@@ -1,6 +1,7 @@
-import { DashboardContentTabs } from "@/components/dashboard-content/type";
+import { IBaseProps } from "@/types";
 
-export interface IDashboardSidebarProps {
-  tab?: DashboardContentTabs;
-  onChangeTab?: (tab: DashboardContentTabs) => void;
+export interface IDashboardSidebarProps extends IBaseProps {
+  tab?: any;
+  onChangeTab?: (tab: any) => void;
+  title?: string;
 }

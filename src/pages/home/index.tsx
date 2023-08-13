@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 
 import {
   IconSettings,
@@ -10,6 +10,7 @@ import {
   IconJson,
   IconBellHeart,
   IconDeviceIpadHeart,
+  IconCheckupList,
 } from "@tabler/icons-react";
 import { toPng } from "html-to-image";
 import { isEmpty } from "lodash";
@@ -24,8 +25,7 @@ import DiscussionModal from "@/components/discussion-modal";
 import MessageList from "@/components/message-list";
 import OnboardingTutorial from "@/components/onboarding-tutorial";
 import Settings from "@/components/settings";
-import WeatherReport from "@/components/weather-report";
-import { AuthContext } from "@/contexts/auth-context";
+import { AuthContext, useAuth } from "@/contexts/auth-context";
 import withAuth from "@/hoc/withLogin";
 import useConversation from "@/hooks/conversation/useConversation";
 import useMessage from "@/hooks/message/useMessage";
@@ -50,7 +50,7 @@ const Component: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
     const { t } = useTranslation("home");
-    const { user, signOut } = useContext(AuthContext);
+    const { user, signOut } = useAuth();
     const {
       getAllConversations,
       conversations,
@@ -162,6 +162,12 @@ const Component: React.FC = () => {
       },
     ];
 
+    const isDoctor = useMemo(() => {
+      console.log("userrrrrrrrrr", user);
+      if (user && user.roles) return user.roles.includes("doctor");
+      return false;
+    }, [user]);
+
     useEffect(() => {
       if (user) _initForm();
     }, [user]);
@@ -191,7 +197,7 @@ const Component: React.FC = () => {
             >
               <div className="flex flex-none flex-row items-center justify-between p-4">
                 <p className="hidden font-bold text-light-text dark:text-dark-white md:block">
-                  {t("welcome")} {user?.name}
+                  {t("welcome")} {user && user.name}
                 </p>
               </div>
 
@@ -271,9 +277,25 @@ const Component: React.FC = () => {
                       className="ml-2 cursor-pointer text-sm text-light-text dark:text-white"
                       onClick={_openDiscussionModal}
                     >
-                      {t("discussion")}
+                      {" "}
+                      x{t("discussion")}
                     </span>
                   </div>
+                  {isDoctor && (
+                    <Link
+                      href={"/discussions"}
+                      className="flex cursor-pointer flex-row items-center gap-1"
+                    >
+                      <IconCheckupList />
+                      <span className="ml-2 cursor-pointer text-sm text-light-text dark:text-white">
+                        {t("discussion_dashboard")}
+                      </span>
+                      <div className="ml-1 cursor-pointer rounded bg-blue-600 px-2 py-1 text-xs text-white">
+                        Doctor only
+                      </div>
+                    </Link>
+                  )}
+
                   <DiscussionModal
                     isOpen={openDiscussion}
                     onClose={_closeDiscussionModal}

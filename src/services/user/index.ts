@@ -1,5 +1,6 @@
 import axios from "@/axios";
 import { UserNS } from "@/services/user/type";
+import { IUser } from "@/types/context/with-auth-context";
 
 export class UserService {
   static getAllUsers = (): Promise<UserNS.UserDetailResponse[]> => {
@@ -8,6 +9,10 @@ export class UserService {
 
   static getUserDetail = (): Promise<UserNS.UserDetailResponse> => {
     return axios.get("/users/user-detail");
+  };
+
+  static getUserById = (id: number): Promise<IUser> => {
+    return axios.get("/users/user-basic-info", { params: { id } });
   };
 
   static updateUser = (

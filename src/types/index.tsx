@@ -8,3 +8,5 @@ export interface IBaseProps {
   onClick?: (x: any) => void;
   children?: ReactJSXElement;
 }
+
+export type CustomFn = () => void;

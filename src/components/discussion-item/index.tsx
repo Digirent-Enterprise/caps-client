@@ -1,13 +1,47 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 
 import { Disclosure } from "@headlessui/react";
-import { IconChevronDown, IconChevronRight } from "@tabler/icons-react";
+import {
+  IconChevronDown,
+  IconChevronRight,
+  IconEdit,
+} from "@tabler/icons-react";
 
 import AskQuestionModal from "@/components/ask-question-modal";
 import { IDiscussionItemProps } from "@/components/discussion-item/type";
 
 const Component = memo((props: IDiscussionItemProps) => {
-  const { title, content, status = "Pending" } = props;
+  const {
+    title,
+    answer,
+    status = "Pending",
+    hasButton = false,
+    onClick,
+  } = props;
+
+  const _onDiscussionClick = () => {
+    if (onClick && hasButton) onClick();
+  };
+
+  const newStatus = useMemo(() => {
+    if (status === "pending") return "Pending";
+    if (status === "answered") return "Answered";
+    if (status === "peer-reviewed") return "Answered (*)";
+    return "Pending";
+  }, [status]);
+
+  const statusColor = useMemo(() => {
+    if (status === "pending") return "bg-orange-400";
+    if (status === "answered") return "bg-green-400";
+    if (status === "peer-reviewed") return "bg-green-400";
+  }, [status]);
+
+  const answerClasses = useMemo(() => {
+    return hasButton
+      ? "text-md mb-2 px-4 pb-2 pt-4 font-semibold bg-gray-300 shadow-md"
+      : "text-md mb-2 px-4 pb-2 pt-4";
+  }, [hasButton]);
+
   return (
     <Disclosure>
       {({ open }) => {
@@ -17,13 +51,26 @@ const Component = memo((props: IDiscussionItemProps) => {
         return (
           <>
             <Disclosure.Button
-              className="text-md mb-1 flex w-full items-center justify-between rounded-lg bg-light-button-blue px-4 py-3 text-left text-sm font-medium text-white
-                hover:bg-light-button-blue-hover focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+              onClick={_onDiscussionClick}
+              className="text-md z-10 mb-1 flex w-full items-center justify-between rounded-lg bg-light-button-blue px-4 py-3 text-left text-sm font-medium text-white
+                shadow-md hover:bg-light-button-blue-hover focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
             >
               <div className="text-md line-clamp-1 w-[85%] font-bold">
                 {title}
               </div>
-              <div className="rounded bg-orange-400 px-3 py-1">{status}</div>
+              <div
+                className={`rounded ${statusColor} px-3 py-1 ${
+                  hasButton ? "ml-auto" : ""
+                }`}
+              >
+                {newStatus}
+              </div>
+              {hasButton && (
+                <button className="z-50 ml-2 p-1 text-sm text-light-secondary-button shadow-md">
+                  {" "}
+                  <IconEdit />{" "}
+                </button>
+              )}
               {canOpen ? (
                 !open ? (
                   <IconChevronRight
@@ -37,8 +84,8 @@ const Component = memo((props: IDiscussionItemProps) => {
               ) : null}
             </Disclosure.Button>
             {canOpen && open && (
-              <Disclosure.Panel className="text-md mb-2 px-4 pb-2 pt-4">
-                {content}
+              <Disclosure.Panel className={answerClasses}>
+                Answer from doctor: {answer}
               </Disclosure.Panel>
             )}
           </>
