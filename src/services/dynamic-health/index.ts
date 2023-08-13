@@ -19,6 +19,10 @@ export class DynamicHealthService {
   }
 
   static getMostUserSymptomRanking(): Promise<DynamicHealthNS.MostUserSymptomRankingRes> {
-    return axios.get("/dynamic-health/my-symptoms-ranking");
+    return axios.get("/dynamic-health/my-symptoms-rank", {
+      params: {
+        limit: 2,
+      },
+    });
   }
 }
