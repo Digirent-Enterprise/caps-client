@@ -15,17 +15,19 @@ export default function withAuth<P extends object>(
 ) {
   const WithAuth: React.FC<P> = (props) => {
     const router = useRouter();
-    const { user, loading: isLoading, setForceInit, redirect } = useContext(AuthContext);
+    const {
+      user,
+      loading: isLoading,
+      setForceInit,
+      redirect,
+    } = useContext(AuthContext);
     const _debounceCheckUser = debounce(() => {
       router.replace("/auth/login");
     }, WAIT_TIME_BEFORE_REDIRECT);
 
-    const callbackCheckUser = useCallback(
-      () => {
-        _debounceCheckUser();
-      },
-    [redirect]
-    );
+    const callbackCheckUser = useCallback(() => {
+      _debounceCheckUser();
+    }, [redirect]);
 
     useEffect(() => {
       if (!user && !isLoading) {
@@ -37,7 +39,7 @@ export default function withAuth<P extends object>(
       if (redirect) {
         callbackCheckUser();
       }
-    }, [redirect])
+    }, [redirect]);
 
     return user ? <Component {...props} /> : null;
   };
