@@ -9,31 +9,35 @@ import useUser from "@/hooks/user/useUser";
 import { IUser } from "@/types/context/with-auth-context";
 import { showToast } from "@/utils/toast";
 
-const WAIT_TIME_BEFORE_REDIRECT = 3000;
+const WAIT_TIME_BEFORE_REDIRECT = 5000;
 export default function withAuth<P extends object>(
   Component: React.ComponentType<P>
 ) {
   const WithAuth: React.FC<P> = (props) => {
     const router = useRouter();
-    const { user, loading: isLoading } = useContext(AuthContext);
-
-    const _debounceCheckUser = debounce((userValue: IUser) => {
-      if (!userValue) router.replace("/auth/login");
+    const { user, loading: isLoading, setForceInit, redirect } = useContext(AuthContext);
+    const _debounceCheckUser = debounce(() => {
+      router.replace("/auth/login");
     }, WAIT_TIME_BEFORE_REDIRECT);
 
     const callbackCheckUser = useCallback(
-      (newUser: IUser) => {
-        _debounceCheckUser(newUser);
+      () => {
+        _debounceCheckUser();
       },
-      [user]
+    [redirect]
     );
 
     useEffect(() => {
       if (!user && !isLoading) {
-        callbackCheckUser(user);
+        setForceInit(true);
       }
-      console.log("user and isLoading", user, isLoading);
     }, [user, isLoading, router]);
+
+    useEffect(() => {
+      if (redirect) {
+        callbackCheckUser();
+      }
+    }, [redirect])
 
     return user ? <Component {...props} /> : null;
   };

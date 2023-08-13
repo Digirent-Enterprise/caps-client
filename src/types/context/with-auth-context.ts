@@ -24,6 +24,8 @@ export interface AuthContextData {
   signIn: (user: IUser) => void;
   signOut: () => void;
   loading: boolean;
+  setForceInit: (x: boolean) => void;
+  redirect: boolean;
 }
 
 export interface IAuthContextProps {

@@ -277,8 +277,7 @@ const Component: React.FC = () => {
                       className="ml-2 cursor-pointer text-sm text-light-text dark:text-white"
                       onClick={_openDiscussionModal}
                     >
-                      {" "}
-                      x{t("discussion")}
+                      {t("discussion")}
                     </span>
                   </div>
                   {isDoctor && (

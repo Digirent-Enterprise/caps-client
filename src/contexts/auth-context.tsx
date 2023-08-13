@@ -31,11 +31,12 @@ export const AuthProvider = (props: IAuthContextProps) => {
   const { children } = props;
   const [user, setUser] = useState<IUser | null>(null);
   const { user: newUser, getUser } = useUser();
+  const [forceInit, setForceInit] = useImmer<boolean>(false);
   const [accessToken, setAccessToken] = useImmer<string>("");
   const [refreshToken, setRefreshToken] = useImmer<string>("");
   const { loading, setLoading } = useContext(LoadingContext);
   const router = useRouter();
-
+  const [redirect, setRedirect] = useState<boolean>(false);
   const signIn = (user: IUser) => {
     setUser(user);
   };
@@ -62,8 +63,15 @@ export const AuthProvider = (props: IAuthContextProps) => {
   };
 
   const _initUser = async () => {
-    const newUser = await getUser();
-    setUser(newUser);
+    try {
+      const newUser = await getUser();
+      if (!isEmpty(newUser)) {
+        setUser(newUser);
+        setRedirect(false);
+      } else setRedirect(true);
+    } catch (error) {
+      setRedirect(true);
+    }
   };
 
   // const _debounceGetUser = debounce((newUser: IUser) => {
@@ -102,6 +110,16 @@ export const AuthProvider = (props: IAuthContextProps) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (forceInit) {
+      _initUser();
+      setForceInit(false);
+    }
+  }, [forceInit]);
+
+  useEffect(() => {
+    if (redirect) setRedirect(false);
+  }, [redirect]);
   // useEffect(() => {
   //   const storage = LocalStorageService.getInstance();
   //   const storedAccessToken = storage.getItem(LocalStorageKeys.access_token);
@@ -119,7 +137,9 @@ export const AuthProvider = (props: IAuthContextProps) => {
   // }, []);
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signOut, loading }}>
+    <AuthContext.Provider
+      value={{ user, signIn, signOut, loading, setForceInit, redirect }}
+    >
       {children}
     </AuthContext.Provider>
   );

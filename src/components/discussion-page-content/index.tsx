@@ -42,7 +42,7 @@ const Component = memo((props: IDiscussionPageContentProps) => {
           const onClick = () => {};
           return (
             <DiscussionItem
-                key={index}
+              key={index}
               title={inquiry.message}
               answer={inquiry.answer}
               status={inquiry.status}
