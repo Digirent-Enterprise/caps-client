@@ -18,16 +18,20 @@ export type FeelingIcon = {
 
 export type FeelingIcons = FeelingIcon[];
 
-export const allSymptoms = [
+export const allSymptoms: string[] = [
   "Fever",
   "Cough",
   "Shortness of breath",
   "Fatigue",
-  "Muscle or body aches",
+  "Muscle aches",
+  "Body aches",
   "Headache",
-  "New loss of taste or smell",
+  "Loss of taste",
+  "Loss of smell",
   "Sore throat",
-  "Congestion or runny nose",
-  "Nausea or vomiting",
+  "Congestion",
+  "Runny nose",
+  "Nausea",
+  "Vomiting",
   "Diarrhea",
 ];

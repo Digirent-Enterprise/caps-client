@@ -28,7 +28,7 @@ const useDynamicHealth = () => {
     useImmer<DynamicHealthNS.CategorizedStatusRes>({});
   const [commonSymptoms, setCommonSymptoms] =
     useImmer<DynamicHealthNS.CategorizedStatusRes>({});
-  const [mostUserSymptomRanking, setMostUserSymptomRanking] = // Add this line
+  const [mostUserSymptomRanking, setMostUserSymptomRanking] =
     useImmer<DynamicHealthNS.MostUserSymptomRankingRes>([]);
 
   const addDynamicHealth = async (
