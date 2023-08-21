@@ -1,7 +1,9 @@
 import { io, Socket } from "socket.io-client";
+import dotenv from "dotenv";
+dotenv.config();
 
 const SOCKET_SERVER_URL =
-  process.env.NEXT_PUBLIC_SOCKET_SERVER_URL || "http://localhost:3003";
+  process.env.SOCKET_SERVER_URL || "http://localhost:3003";
 
 let socket: Socket | null;
 

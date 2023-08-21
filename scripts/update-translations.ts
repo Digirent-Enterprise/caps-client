@@ -4,7 +4,7 @@ import path from "path";
 import dotenv from "dotenv";
 import { Configuration, OpenAIApi } from "openai";
 
-dotenv.config({ path: ".env.development" });
+dotenv.config();
 const dirPath = "./public/locales";
 
 if (!process.env.OPENAI_API_KEY) {
