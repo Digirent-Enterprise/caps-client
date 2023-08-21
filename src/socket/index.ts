@@ -1,5 +1,5 @@
-import { io, Socket } from "socket.io-client";
 import dotenv from "dotenv";
+import { io, Socket } from "socket.io-client";
 dotenv.config();
 
 const SOCKET_SERVER_URL =

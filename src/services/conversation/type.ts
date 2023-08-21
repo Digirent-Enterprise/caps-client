@@ -5,7 +5,7 @@ export namespace ConversationNS {
     ThreeB = "long-llama-3B",
     SevenB = "llama2-7b",
     ThirdTeenB = "llama2-13b",
-    CustomB = 'custom',
+    CustomB = "custom",
   }
 
   export type Conversation = {
