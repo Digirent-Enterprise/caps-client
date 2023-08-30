@@ -12,7 +12,6 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "ts:check": "tsc --noEmit",
-    "deploy": "amplify publish",
     "analyze": "cross-env ANALYZE=true npm run build",
     "serve": "serve .next/analyze",
     "prepare": "husky install",

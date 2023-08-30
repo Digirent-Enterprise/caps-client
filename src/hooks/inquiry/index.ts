@@ -21,7 +21,6 @@ const useInquiry = () => {
   const [inquiries, setInquiries] = useImmer<InquiryNS.Inquiries>([]);
   const getInquiryByUserId = async (status: InquiryNS.InquiryStatus) => {
     try {
-      console.log("getting status", status);
       setLoading(true);
       const response = await InquiryService.getInquiriesByUserId({
         status,

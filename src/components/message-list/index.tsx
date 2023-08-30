@@ -55,7 +55,6 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
 
     const _handleSend = () => {
       const socket = getSocket();
-      console.log("socketttt", socket);
       if (
         socket &&
         props.selectedConversation &&
@@ -66,7 +65,6 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
           content: message,
           sender: MessageNS.SenderType.USER,
         });
-        console.log("message", message);
         _clearMessage();
       }
     };

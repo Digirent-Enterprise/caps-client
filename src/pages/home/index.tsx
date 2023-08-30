@@ -132,7 +132,7 @@ const Component: React.FC = () => {
           }
         })
         .catch((err) => {
-          console.log(err);
+          console.error(err);
         });
     };
 
@@ -163,7 +163,6 @@ const Component: React.FC = () => {
     ];
 
     const isDoctor = useMemo(() => {
-      console.log("userrrrrrrrrr", user);
       if (user && user.roles) return user.roles.includes("doctor");
       return false;
     }, [user]);
