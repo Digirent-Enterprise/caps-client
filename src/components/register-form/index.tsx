@@ -102,8 +102,6 @@ const Component = React.memo(() => {
         register(form);
       })
       .catch((validationErrors) => {
-        console.error("Validation errors:", validationErrors);
-
         const newErrorMessages: ErrorMessages = {};
 
         validationErrors.inner.forEach((error: ErrorMessages) => {

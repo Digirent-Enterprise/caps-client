@@ -28,7 +28,6 @@ const useMessage = (): MessageResult => {
       });
       setMessages(response);
     } catch (error) {
-      console.log("error", error);
       showToast("error", "Could not fetch conversations");
     }
     setLoading(false);

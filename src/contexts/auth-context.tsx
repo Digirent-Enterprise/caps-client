@@ -98,7 +98,6 @@ export const AuthProvider = (props: IAuthContextProps) => {
   // }, [])
 
   // useEffect(() => {
-  //   console.log('my user', user)
   //   _callbackGetUser(user);
   // }, [user]);
 

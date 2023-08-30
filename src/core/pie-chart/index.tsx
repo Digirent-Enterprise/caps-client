@@ -27,7 +27,6 @@ const PieChart = ({ data, title }: ChartProps) => {
       } = chart;
       ctx.save();
       ctx.globalCompositeOperation = "destination-over";
-      console.log("ctxxxxxxx", ctx);
       ctx.fillStyle = "#44687E";
       ctx.fillRect(left, top, width, height);
       ctx.restore();
