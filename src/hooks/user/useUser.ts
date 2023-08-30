@@ -12,7 +12,7 @@ type UseUserResult = {
   user: IUser;
   allUsers: IUser[];
   getUser: () => Promise<IUser | undefined>;
-  getAllUsers: () => Promise<IUser[] | undefined>; // New method to get all users
+  getAllUsers: () => Promise<IUser[] | undefined>;
   isLoading: boolean;
   updateUser: (data: UserNS.UpdateUserReq) => Promise<IUser>;
   getUserById: (userId: number) => Promise<IUser | undefined>;

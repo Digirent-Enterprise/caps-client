@@ -21,9 +21,9 @@ const Component = React.memo((props: IConversationModalProps) => {
     return renderChatBotOptions();
   }, []);
 
-  const models: ConversationNS.ChatbotType[] = Object.keys(
-    ConversationNS.ChatbotType
-  ).map((key) => ConversationNS.ChatbotType[key]);
+  // const models: ConversationNS.ChatbotType[] = Object.keys(
+  //   ConversationNS.ChatbotType
+  // ).map((key: string) => ConversationNS.ChatbotType[key]);
 
   const [selectedModel, setSelectedModel] =
     useState<ConversationNS.ChatbotType>(
@@ -79,7 +79,7 @@ const Component = React.memo((props: IConversationModalProps) => {
         </label>
         <input
           type="text"
-          placeholder={t("create_name")}
+          placeholder={t("create_name")!}
           value={conversationName}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setConversationName(e.target.value)
@@ -95,7 +95,7 @@ const Component = React.memo((props: IConversationModalProps) => {
               _handleModelTypeChange(value)
             }
             selectedValue={selectedModel}
-            label={t("model")}
+            label={t("model")!}
           />
         </div>
       </div>

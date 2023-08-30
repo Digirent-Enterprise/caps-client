@@ -24,6 +24,10 @@ export namespace ConversationNS {
     name: string;
   };
 
+  export type DeleteConversationRequest = {
+    name: string;
+  };
+
   //  response
   export type ConversationsResponse = Conversation[];
 }

@@ -19,6 +19,15 @@ export interface IUser {
   createdAt: string;
 }
 
+export interface INews {
+  id: string;
+  url: string;
+  img_url: string;
+  title: string;
+  description: string;
+  category: string;
+}
+
 export interface AuthContextData {
   user: IUser | null;
   signIn: (user: IUser) => void;

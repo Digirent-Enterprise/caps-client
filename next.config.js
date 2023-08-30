@@ -6,8 +6,11 @@ const { i18n } = require("./next-i18next.config");
 dotenv.config();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
+  reactStrictMode: true,
   i18n,
+  images: {
+    domains: ["cdn.tuoitre.vn", "static.mediacdn.vn"],
+  },
   pageExtensions: ["ts", "tsx", "js", "jsx"],
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname,
