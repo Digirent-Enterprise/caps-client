@@ -62,10 +62,7 @@ const Component = () => {
       .string()
       .required("BloodPressure is required")
       .matches(/^\d+$/, `${t("blood_pressure_error")}`),
-    bloodType: yup
-      .string()
-      .required("Blood type is required")
-      .oneOf(["A", "B", "AB", "O"], `${t("blood_type_error")}`),
+    bloodType: yup.string().required("Blood type is required"),
     allergies: yup
       .array()
       .of(yup.string())

@@ -26,7 +26,7 @@ const useRegister = () => {
       }
       const data = response.data;
       setData(data);
-      await router.push("/auth/login");
+      router.push("/auth/login");
     } catch (error) {
       setLoading(false);
       return;

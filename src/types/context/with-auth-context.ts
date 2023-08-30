@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
 
 type GenderType = "male" | "female" | "other";
-type RoleType = "user" | "admin";
+type RoleType = "user" | "admin" | "doctor";
+export type RoleTypes = RoleType[];
 type StatusType = "active" | "deactivated";
 
 export interface IUser {
@@ -12,7 +13,7 @@ export interface IUser {
   dob: string;
   age: number;
   email: string;
-  role: RoleType;
+  roles: RoleTypes;
   status: StatusType;
   firstLogin: boolean;
   createdAt: string;
@@ -31,6 +32,9 @@ export interface AuthContextData {
   user: IUser | null;
   signIn: (user: IUser) => void;
   signOut: () => void;
+  loading: boolean;
+  setForceInit: (x: boolean) => void;
+  redirect: boolean;
 }
 
 export interface IAuthContextProps {

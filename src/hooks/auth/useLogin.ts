@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 
 import axios from "@/axios";
+import { AuthContext } from "@/contexts/auth-context";
 import { LoadingContext } from "@/contexts/loading-context";
 import { AuthService } from "@/services/auth";
 import { AuthNS } from "@/services/auth/type";
@@ -19,7 +20,7 @@ const useLogin = () => {
   const [data, setData] = useState<AuthNS.LoginResponse | null>(null);
   const route = useRouter();
   const { setLoading } = useContext(LoadingContext);
-
+  const { signIn } = useContext(AuthContext);
   const setAxiosAuthHeader = (accessToken: string) => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
   };

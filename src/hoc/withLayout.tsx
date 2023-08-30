@@ -10,18 +10,16 @@ export default function withLayout<P extends object>(
 ): React.FC<P> {
   const WithLayout: React.FC<P> = (props: P) => {
     return (
-      <AuthProvider>
-        <div className="flex h-screen flex-col">
-          <Header />
-          <main
-            data-testid="wrapped-component"
-            className="h-fit w-full grow scroll-m-2 overflow-auto border-b border-gray-800 bg-light-background-gray px-4 pb-10 pt-32"
-          >
-            <WrappedComponent {...props} />
-          </main>
-          <Footer />
-        </div>
-      </AuthProvider>
+      <div className="flex h-screen flex-col">
+        <Header />
+        <main
+          data-testid="wrapped-component"
+          className="h-fit w-full grow scroll-m-2 overflow-auto border-b border-gray-800 bg-light-background-gray px-4 pb-10 pt-32"
+        >
+          <WrappedComponent {...props} />
+        </main>
+        <Footer />
+      </div>
     );
   };
 

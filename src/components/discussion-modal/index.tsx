@@ -1,6 +1,7 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 
 import { Tab } from "@headlessui/react";
+import { useImmer } from "use-immer";
 
 import AskQuestionModal from "@/components/ask-question-modal";
 import DiscussionItem from "@/components/discussion-item";
@@ -8,13 +9,28 @@ import { DefaultDiscussionTabs } from "@/components/discussion-modal/constant";
 import { IDiscussionModalProps } from "@/components/discussion-modal/type";
 import BaseModal from "@/core/base-modal";
 import CustomTabSwitcher from "@/core/custom-tab-switcher";
+import useInquiry from "@/hooks/inquiry";
 
 const Component = memo((props: IDiscussionModalProps) => {
   const { isOpen, onClose } = props;
   const [openAskQuestion, setOpenAskQuestion] = React.useState(false);
-
+  const [tab, setTab] = useImmer<number>(0);
+  const { createInquiry, getInquiryByUserId, inquiries } = useInquiry();
   const _openModal = () => setOpenAskQuestion(true);
   const _closeModal = () => setOpenAskQuestion(false);
+
+  const _onChangeTab = (x: number) => setTab(x);
+
+  const _onCreateInquiry = (message: string) => {
+    createInquiry(message, _closeModal);
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      if (tab === 0) getInquiryByUserId("pending");
+      if (tab === 1) getInquiryByUserId("answered");
+    }
+  }, [tab, isOpen]);
 
   return (
     <BaseModal isOpen={isOpen} onClose={onClose} title="Discussion">
@@ -39,37 +55,37 @@ const Component = memo((props: IDiscussionModalProps) => {
             </button>
           </div>
         </div>
-        <CustomTabSwitcher tabs={DefaultDiscussionTabs}>
+        <CustomTabSwitcher
+          tabs={DefaultDiscussionTabs}
+          handleTabChange={_onChangeTab}
+        >
           <>
             {DefaultDiscussionTabs.map((tab, idx) => (
               <Tab.Panel
                 key={idx}
                 className={
-                  "rounded-xl bg-white font-serif ring-white ring-opacity/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+                  "rounded-xl bg-white font-serif ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
                 }
               >
-                {/*{idx === 0 && (*/}
-                {idx === 0 && (
-                  <>
+                {inquiries?.map((inquiry, idx) => {
+                  return (
                     <DiscussionItem
-                      title="bao"
-                      content="adasasdasdasd.dadasdasdssda. asdadasdweqweqweqweqweqwewqewqewweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeweqweqweqweqweqwewqewqewweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeweqweqweqweqweqwewqewqewweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeweqweqweqweqweqwewqewqewweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeweqweqweqweqweqwewqewqewweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeweqweqweqweqweqwewqewqewweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeweqweqweqweqweqwewqewqewweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeweqweqweqweqweqwewqewqewweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeweqweqweqweqweqwewqewqewweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeweqweqweqweqweqwewqewqewweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee weqweqweqweqweqwewqewqewweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+                      title={inquiry.message}
+                      answer={inquiry.answer}
+                      status={inquiry.status || "pending"}
+                      key={idx}
                     />
-                    <DiscussionItem
-                      title="bao"
-                      content="adasasdasdasd.dadasdasdssda. asdadasd"
-                    />
-                    <DiscussionItem
-                      title="bao"
-                      content="adasasdasdasd.dadasdasdssda. asdadasd"
-                    />
-                  </>
-                )}
+                  );
+                })}
               </Tab.Panel>
             ))}
           </>
         </CustomTabSwitcher>
-        <AskQuestionModal open={openAskQuestion} onClose={_closeModal} />
+        <AskQuestionModal
+          open={openAskQuestion}
+          onClose={_closeModal}
+          createInquiry={_onCreateInquiry}
+        />
       </>
     </BaseModal>
   );
