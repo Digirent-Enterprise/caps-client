@@ -18,6 +18,7 @@ const nextConfig = {
   env: {
     BACKEND_URL: process.env.BACKEND_URL,
     SOCKET_SERVER_URL: process.env.SOCKET_SERVER_URL,
+    OPEN_AI_API: process.env.OPENAI_API_KEY,
   },
 };
 

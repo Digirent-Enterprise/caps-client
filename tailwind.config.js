@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Plugin} */
+
+const plugin = require("tailwindcss/plugin");
 module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -70,6 +73,28 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".content-auto": {
+          "content-visibility": "auto",
+        },
+        ".content-hidden": {
+          "content-visibility": "hidden",
+        },
+        ".content-visible": {
+          "content-visibility": "visible",
+        },
+        ".no-scrollbar::-webkit-scrollbar": {
+          display: "none",
+        },
+        ".no-scrollbar": {
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        },
+      });
+    }),
+  ],
   important: true,
 };

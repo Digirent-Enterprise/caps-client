@@ -7,11 +7,14 @@ const SOCKET_SERVER_URL =
 
 let socket: Socket | null;
 
-export const initSocket = (): void => {
+export const initSocket = (roomName: string): void => {
   if (!socket) {
     socket = io(SOCKET_SERVER_URL, {
       transports: ["websocket"],
       upgrade: false,
+      query: {
+        roomName,
+      },
     });
   }
 };

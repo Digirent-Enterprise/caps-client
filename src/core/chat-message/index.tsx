@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import { IconVolume2 } from "@tabler/icons-react";
 import axios from "axios";
@@ -47,6 +47,14 @@ const Component = React.memo((props: IChatMessageProps) => {
     }
   }, [isSpeaking]);
 
+  const textWithLineBreaks = useMemo(() => {
+    return content.split("\n").map((line, index) => (
+      <React.Fragment key={index}>
+        {line}
+        <div className="pb-1" />
+      </React.Fragment>
+    ));
+  }, [content]);
   return (
     <div
       className={`mt-5 grid grid-flow-row gap-2 text-sm text-light-blue-hover ${containerClass}`}
@@ -57,7 +65,7 @@ const Component = React.memo((props: IChatMessageProps) => {
           style={{ wordBreak: "break-word" }}
         >
           <div style={{ display: "flex", alignItems: "center" }}>
-            <p>{content}</p>
+            <p>{textWithLineBreaks}</p>
             {language && language === "vi" && (
               <button
                 className="ml-2"
