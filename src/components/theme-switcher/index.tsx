@@ -70,7 +70,7 @@ const Component: React.FC = () => {
               className={`rounded border-2 ${
                 theme === "dark" ? "border-light-button-blue" : ""
               }`}
-              onClick={() => setTheme("light")}
+              onClick={() => setTheme("dark")}
             >
               <Image
                 src="/theme/dark.png"

@@ -23,7 +23,7 @@ const Component: React.FC<IMessageInputProps> = ({
     <div className="flex-none">
       <div className="flex flex-row items-center p-2 pb-4">
         <VoiceRecorder
-          inpurRef={inputRef}
+          inputRef={inputRef}
           onValueChange={onValueChange}
           currentInput={message}
         />

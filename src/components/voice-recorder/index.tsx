@@ -1,11 +1,4 @@
-import React, {
-  memo,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
 
 import { Popover, Transition } from "@headlessui/react";
 import { IconMicrophone } from "@tabler/icons-react";
@@ -13,7 +6,6 @@ import {
   Transcription,
   TranscriptionCreateParams,
 } from "openai/resources/audio";
-import { BlobLike } from "openai/uploads";
 import { useAudioRecorder } from "react-audio-voice-recorder";
 import { useImmer } from "use-immer";
 
@@ -26,7 +18,7 @@ import { getAI } from "@/open-ai";
 import { showToast } from "@/utils/toast";
 
 const Component = memo((props: IVoiceRecorderProps) => {
-  const { inputRef, onValueChange, currentInput } = props;
+  const { onValueChange, currentInput } = props;
   const [isRecording, setIsRecording] = useImmer<boolean>(false);
   const [open, setOpen] = useImmer<boolean>(false);
   const [selectedLanguage, setSelectedLanguage] = useState<string>("");
@@ -80,7 +72,7 @@ const Component = memo((props: IVoiceRecorderProps) => {
       const ai = getAI();
       const file = new File([blob], "audio.mp3");
 
-      const transcriptions = await ai.audio.transcriptions;
+      const transcriptions = ai.audio.transcriptions;
       const response: Transcription = await transcriptions.create({
         file,
         language: selectedLanguage,
@@ -88,8 +80,8 @@ const Component = memo((props: IVoiceRecorderProps) => {
         model: "whisper-1",
       } as TranscriptionCreateParams);
       if (response) {
-        if (currentInput) onValueChange(`${currentInput}${response as string}`);
-        else onValueChange(response as string);
+        if (currentInput) onValueChange(`${currentInput}${response.text}`);
+        else onValueChange(response.text);
       } else {
         showToast(
           "error",

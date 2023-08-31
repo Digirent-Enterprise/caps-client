@@ -1,16 +1,10 @@
+import { FC } from "react";
+
 import { Switch } from "@nextui-org/react";
 
-interface ISwitcherProps {
-  title: string;
-  description: string;
-  checked: boolean;
-}
+import { ISwitcherProps } from "@/core/switcher/type";
 
-const Component: React.FC<ISwitcherProps> = ({
-  title,
-  description,
-  checked,
-}) => {
+const Component: FC<ISwitcherProps> = ({ title, description, checked }) => {
   return (
     <div className="flex">
       <div className="flex flex-col">
@@ -22,7 +16,7 @@ const Component: React.FC<ISwitcherProps> = ({
         </span>
       </div>
       <div className="relative ml-4">
-        <Switch size="md" checked={checked} />
+        <Switch size="md" isSelected={checked} />
       </div>
     </div>
   );

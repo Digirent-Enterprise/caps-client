@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo } from "react";
+import { memo, useEffect } from "react";
 
 import { useImmer } from "use-immer";
 
@@ -24,7 +24,6 @@ const Component = memo((props: IDiscussionPageContentProps) => {
   const _onCloseInquiryModal = () => setOpenInquiry(DefaultOpenInquiryModal);
   const onOpenInquiryModal = (inquiry: InquiryNS.Inquiry) => {
     setOpenInquiry({ open: true, inquiry });
-    console.log("lciked");
   };
   useEffect(() => {
     if (tab === "pending") getAllInquiries("pending");

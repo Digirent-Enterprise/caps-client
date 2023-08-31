@@ -1,16 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { Alert, AlertIcon } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 
 import AutocompleteSearch from "@/components/autocomplete-search";
+import { ISearchTerm } from "@/components/autocomplete-search/type";
 
 const Component = () => {
   const { t } = useTranslation("handbook");
-  const [selectedDescription, setSelectedDescription] = useState<string>("");
+  const [selectedSuggestion, setSelectedSuggestion] = useState<ISearchTerm>();
 
-  const handleSuggestionClick = (description: string) => {
-    setSelectedDescription(description);
+  const handleSuggestionClick = (suggestion: ISearchTerm) => {
+    setSelectedSuggestion(suggestion);
   };
 
   return (
@@ -28,15 +29,34 @@ const Component = () => {
         </div>
       </div>
 
-      {selectedDescription && (
-        <div className="flex w-full flex-col space-y-4 rounded-md border border-neutral-200 p-12 dark:border-neutral-700">
-          <h1 className="font-heading text-3xl font-bold">
-            {selectedDescription}
-          </h1>
+      {selectedSuggestion && (
+        <div className="rounded-md bg-white p-6 shadow-md dark:bg-gray-800">
+          <h1 className="mb-4 text-2xl font-bold">{selectedSuggestion.term}</h1>
 
-          <p className="text-sm text-neutral-400">{selectedDescription}</p>
+          <div className="mb-2">
+            <h2 className="text-lg font-semibold">{t("handbook_causes")}</h2>
+            <p className="text-sm">{selectedSuggestion.causes}</p>
+          </div>
+
+          <div className="mb-2">
+            <h2 className="text-lg font-semibold">{t("handbook_symptom")}</h2>
+            <p className="text-sm">{selectedSuggestion.symptom}</p>
+          </div>
+
+          <div className="mb-2">
+            <h2 className="text-lg font-semibold">{t("handbook_treatment")}</h2>
+            <p className="text-sm">{selectedSuggestion.treatment}</p>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-semibold">
+              {t("handbook_diagnostic")}
+            </h2>
+            <p className="text-sm">{selectedSuggestion.diagnostic}</p>
+          </div>
         </div>
       )}
+
       <Alert status="warning" variant="subtle">
         <AlertIcon />
         {t("handbook_warning")}

@@ -24,7 +24,7 @@ const Component = () => {
         <p className="mt-2 text-center text-sm font-light leading-relaxed text-gray-500 md:text-base">
           How it works
         </p>
-        <h2 className="text-3xl md:text-4xl text-[#1A2238] font-semibold mb-4 text-center">
+        <h2 className="mb-4 text-center text-3xl font-semibold text-[#1A2238] md:text-4xl">
           {`It's super simple`}
         </h2>
         <Player
