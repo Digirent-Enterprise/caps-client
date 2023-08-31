@@ -7,7 +7,7 @@ import {
   ISearchTerm,
 } from "@/components/autocomplete-search/type";
 
-import searchTerms from "./searchTerms.json";
+import diseaseData from "./diseaseData.json";
 
 const Component: React.FC<IAutocompleteSearchProps> = ({
   onSuggestionClick,
@@ -25,7 +25,17 @@ const Component: React.FC<IAutocompleteSearchProps> = ({
     threshold: 0.3,
   };
 
-  const fuse = new Fuse(searchTerms, fuseOptions);
+  const fuse = new Fuse(
+    Object.keys(diseaseData).map((term) => ({
+      term,
+      description: term,
+      causes: diseaseData[term]["disease-causes"],
+      symptom: diseaseData[term]["disease-symptoms_free"],
+      treatment: diseaseData[term]["disease-treatment"],
+      diagnostic: diseaseData[term]["disease-diagnostic"],
+    })),
+    fuseOptions
+  );
 
   const _handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newSearchTerm = event.target.value;
@@ -42,7 +52,7 @@ const Component: React.FC<IAutocompleteSearchProps> = ({
   const _handleSuggestionClick = (suggestion: ISearchTerm) => {
     setSearchTerm(suggestion.term);
     setSuggestions([]);
-    onSuggestionClick(suggestion.description);
+    onSuggestionClick(suggestion);
   };
 
   const _handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -58,9 +68,16 @@ const Component: React.FC<IAutocompleteSearchProps> = ({
       event.preventDefault();
       if (selectedSuggestionIndex !== -1) {
         setSearchTerm(suggestions[selectedSuggestionIndex].term);
-        onSuggestionClick(suggestions[selectedSuggestionIndex].description);
+        onSuggestionClick(suggestions[selectedSuggestionIndex]);
       } else {
-        onSuggestionClick("");
+        onSuggestionClick({
+          term: searchTerm,
+          description: searchTerm,
+          causes: "",
+          symptom: "",
+          treatment: "",
+          diagnostic: "",
+        });
       }
       setSuggestions([]);
     } else if (event.key === "Escape") {

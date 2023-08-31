@@ -1,6 +1,6 @@
 export default function Error() {
   return (
-    <div className="flex flex-auto flex-col items-center justify-center px-4 text-center sm:flex-row">
+    <div className="flex h-screen w-full flex-auto flex-col items-center justify-center px-4 text-center sm:flex-row">
       <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 sm:mr-6 sm:border-r sm:border-slate-900/10 sm:pr-6 sm:text-3xl sm:dark:border-slate-300/10">
         404
       </h1>

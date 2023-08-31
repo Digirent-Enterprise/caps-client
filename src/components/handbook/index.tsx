@@ -1,16 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { Alert, AlertIcon } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 
 import AutocompleteSearch from "@/components/autocomplete-search";
+import { ISearchTerm } from "@/components/autocomplete-search/type";
 
 const Component = () => {
   const { t } = useTranslation("handbook");
-  const [selectedDescription, setSelectedDescription] = useState<string>("");
+  const [selectedSuggestion, setSelectedSuggestion] = useState<ISearchTerm>();
 
-  const handleSuggestionClick = (description: string) => {
-    setSelectedDescription(description);
+  const handleSuggestionClick = (suggestion: ISearchTerm) => {
+    setSelectedSuggestion(suggestion);
   };
 
   return (
@@ -28,13 +29,24 @@ const Component = () => {
         </div>
       </div>
 
-      {selectedDescription && (
+      {selectedSuggestion && (
         <div className="flex w-full flex-col space-y-4 rounded-md border border-neutral-200 p-12 dark:border-neutral-700">
           <h1 className="font-heading text-3xl font-bold">
-            {selectedDescription}
+            {selectedSuggestion.term}
           </h1>
 
-          <p className="text-sm text-neutral-400">{selectedDescription}</p>
+          <div className="text-sm">
+            Causes: {selectedSuggestion.causes.replace(/\n/g, "\n")}
+          </div>
+          <div className="text-sm">
+            Symptoms: {selectedSuggestion.symptom.replace(/\n/g, "\n")}
+          </div>
+          <div className="text-sm">
+            Treatment: {selectedSuggestion.treatment.replace(/\n/g, "\n")}
+          </div>
+          <div className="text-sm">
+            Diagnostic: {selectedSuggestion.diagnostic.replace(/\n/g, "\n")}
+          </div>
         </div>
       )}
       <Alert status="warning" variant="subtle">
