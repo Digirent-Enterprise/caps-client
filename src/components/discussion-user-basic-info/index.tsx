@@ -7,7 +7,6 @@ const Component = memo((props: IUserDiscussionBasicInfo) => {
   const { userId } = props;
   const { getUserById } = useUser();
   useEffect(() => {
-    console.log("user id", userId);
     getUserById(userId);
   }, [userId]);
   return (

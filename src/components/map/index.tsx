@@ -1,11 +1,11 @@
 import { useTranslation } from "next-i18next";
 
 const Component = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("map");
   return (
-    <div className="flex flex-col items-center space-y-5 py-4 lg:items-start lg:p-20">
+    <div className="flex flex-col items-center space-y-5 rounded-md border border-neutral-200 p-6 py-4 dark:border-neutral-700 lg:items-start lg:p-20">
       <div className=" text-xl font-medium lg:text-3xl">
-        Medical professionals near me
+        {t("medical_destination")}
       </div>
       <iframe
         height="450"

@@ -248,8 +248,6 @@ const Component = () => {
         await router.push("/");
       })
       .catch((validationErrors) => {
-        console.error("Validation errors:", validationErrors);
-
         const newErrorMessages: ErrorMessages = {};
 
         const errorMessages: { [key: string]: string } = {};
