@@ -2,5 +2,9 @@
   "handbook": "Handbook",
   "handbook_description": "Find detailed information on any condition.",
   "handbook_source": "Source",
-  "handbook_warning": "For informational purposes only. Consult your local medical authority for advice."
+  "handbook_warning": "For informational purposes only. Consult your local medical authority for advice.",
+  "handbook_causes": "Causes",
+  "handbook_symptom": "Symptom",
+  "handbook_treatment": "Treatment",
+  "handbook_diagnostic": "Diagnostic"
 }
