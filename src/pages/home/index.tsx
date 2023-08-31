@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import {
+  IconBooks,
   IconSettings,
   IconPlus,
   IconUserCancel,
@@ -136,8 +137,8 @@ const Component: React.FC = () => {
         });
     };
 
-    const _handleExportJson = async () => {
-      await exportConversationToJson(messages);
+    const _handleExportJson = () => {
+      exportConversationToJson(messages);
     };
 
     const _handleExportMarkdown = () => {
@@ -246,6 +247,15 @@ const Component: React.FC = () => {
                     <IconDeviceIpadHeart />
                     <span className="ml-2 cursor-pointer text-sm text-light-text dark:text-white">
                       {t("my_health")}
+                    </span>
+                  </Link>
+                  <Link
+                    href={"/documentation"}
+                    className="flex cursor-pointer flex-row items-center gap-1"
+                  >
+                    <IconBooks />
+                    <span className="ml-2 cursor-pointer text-sm text-light-text dark:text-white">
+                      {t("documentation")}
                     </span>
                   </Link>
                   <Link
