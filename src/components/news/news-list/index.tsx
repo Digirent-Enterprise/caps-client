@@ -24,30 +24,25 @@ const Component = () => {
 
   const { getNewsResults, newsResults, newsLoading } = useNews();
 
-  const convertToSlug = (symptom: string) => {
+  const _convertToSlug = (symptom: string) => {
     return symptom
       .toLowerCase()
       .replace(/ /g, "-")
       .replace(/[^\w-]+/g, "");
   };
 
-  const loadNewsForSymptom = async (symptoms: string[]) => {
+  const _loadNewsForSymptom = async (symptoms: string[]) => {
     const formattedSymptoms = symptoms.map((symptom: string) =>
-      convertToSlug(symptom)
+      _convertToSlug(symptom)
     );
 
-    console.log(formattedSymptoms, "formatted symptom");
-
     getNewsResults(formattedSymptoms);
-
-    console.log(newsResults.length, "length");
-
     setTotalNewsCount(newsResults.length);
   };
 
   useEffect(() => {
     if (mostUserSymptomRanking && mostUserSymptomRanking.length) {
-      loadNewsForSymptom(mostUserSymptomRanking);
+      _loadNewsForSymptom(mostUserSymptomRanking);
     }
   }, [mostUserSymptomRanking]);
 
