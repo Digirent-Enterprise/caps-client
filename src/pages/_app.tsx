@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import "@/styles/globals.css";
 
 import { ChakraProvider } from "@chakra-ui/react";
@@ -17,7 +19,6 @@ import theme from "@/utils/theme";
 import nextI18nextConfig from "next-i18next.config";
 
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
