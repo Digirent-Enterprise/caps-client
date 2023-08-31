@@ -2,6 +2,7 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 import Handbook from "@/components/handbook";
 import Map from "@/components/map";
+import Tutorial from "src/components/tutorial-step";
 
 const Component = () => {
   return (
@@ -17,7 +18,7 @@ const Component = () => {
 
         <TabPanels>
           <TabPanel>
-            <p>one!</p>
+            <Tutorial />
           </TabPanel>
           <TabPanel>
             <Handbook />
