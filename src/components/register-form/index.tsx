@@ -84,7 +84,7 @@ const Component = React.memo(() => {
       .string()
       .required("Password is required")
       .matches(
-        /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+/,
+        /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]+/,
         "Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character"
       )
       .min(8, "Password must be at least 8 characters")
@@ -102,8 +102,6 @@ const Component = React.memo(() => {
         register(form);
       })
       .catch((validationErrors) => {
-        console.error("Validation errors:", validationErrors);
-
         const newErrorMessages: ErrorMessages = {};
 
         validationErrors.inner.forEach((error: ErrorMessages) => {

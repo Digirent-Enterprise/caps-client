@@ -2,9 +2,10 @@ export namespace ConversationNS {
   export enum ChatbotType {
     OPEN_AI_BASE = "open_ai_base",
     OPEN_AI_EMBEDDING = "open_ai_embedding",
-    GPT4ALL_EMBEDDING = "gpt4all_embedding",
-    BLOOM = "bloom",
-    STABLE_LLM = "stable_llm",
+    ThreeB = "long-llama-3B",
+    SevenB = "llama2-7b",
+    ThirdTeenB = "llama2-13b",
+    CustomB = "custom",
   }
 
   export type Conversation = {

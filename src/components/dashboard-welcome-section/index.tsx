@@ -62,7 +62,7 @@ const Component = React.memo((props: IDashboardWelcomeSection) => {
         ref={containerRef}
         className="relative mt-5 h-auto min-h-[15rem] w-1/3 overflow-hidden rounded-xl bg-[#2d325a] p-10 md:w-full"
       >
-        <WeatherReport classes="absolute top-1 right-0 p-4 bg-[#475D78] bg-opacity-0 rounded-xl" />
+        {/*<WeatherReport classes="absolute top-1 right-0 p-4 bg-[#475D78] bg-opacity-0 rounded-xl" />*/}
         <div
           ref={cloudRef}
           className="relative"

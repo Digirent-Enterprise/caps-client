@@ -5,14 +5,16 @@ export const formatModelOption = (model: string) => {
   switch (model) {
     case ConversationNS.ChatbotType.OPEN_AI_BASE:
       return "Open AI Base (Standard)";
+    case ConversationNS.ChatbotType.ThreeB:
+      return "LLama 3B (Professional)";
+    case ConversationNS.ChatbotType.SevenB:
+      return "LLama 7B (Natural)";
+    case ConversationNS.ChatbotType.ThirdTeenB:
+      return "LLama 13B (Consistent and stable)";
+    case ConversationNS.ChatbotType.CustomB:
+      return "Custom LLama (Comprehensive)";
     case ConversationNS.ChatbotType.OPEN_AI_EMBEDDING:
-      return "Embedding Open AI (Professional)";
-    case ConversationNS.ChatbotType.BLOOM:
-      return "AI Blossom (Natural)";
-    case ConversationNS.ChatbotType.STABLE_LLM:
-      return "Stable LLM AI (Consistent and stable)";
-    case ConversationNS.ChatbotType.GPT4ALL_EMBEDDING:
-      return "Embedding GPT4ALL (Comprehensive)";
+      return "Open AI Embedding (Professional)";
     default:
       return model;
   }

@@ -15,7 +15,7 @@ const Component = React.memo((props: ICustomResponsiveCardProps) => {
       backgroundColor="#2d325a"
       textAlign="center"
       onClick={onClick}
-      className={`rounded-lg transition duration-300 hover:bg-gray-200 hover:shadow-2xl ${className}`}
+      className={`hover:bg-gray-200" rounded-lg transition duration-300 hover:shadow-2xl ${className}`}
       style={style}
     >
       {children && children}

@@ -24,21 +24,23 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
     }, [props.selectedConversation]);
 
     useEffect(() => {
-      initSocket();
+      const conversationId = props.selectedConversation.createdAt;
+      if (conversationId) {
+        initSocket(conversationId);
 
-      const socket = getSocket();
+        const socket = getSocket();
 
-      if (socket) {
-        socket.on("message", (message: MessageNS.Message) => {
-          console.log("call ", message);
-          setMessages(message);
-        });
+        if (socket) {
+          socket.on("message", (message: MessageNS.Message) => {
+            setMessages(message);
+          });
+        }
       }
 
       return () => {
         closeSocket();
       };
-    }, []);
+    }, [props.selectedConversation]);
 
     const _scrollToBottom = () => {
       if (messagesEndRef && messagesEndRef.current) {
@@ -63,13 +65,12 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
           content: message,
           sender: MessageNS.SenderType.USER,
         });
-        console.log("message", message);
         _clearMessage();
       }
     };
 
-    const _handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-      if (e.key === "Enter") {
+    const _handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+      if (e.keyCode == 13 && !e.shiftKey) {
         e.preventDefault();
         _handleSend();
       }

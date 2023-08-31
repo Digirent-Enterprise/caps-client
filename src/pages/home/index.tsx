@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 
 import {
   IconSettings,
@@ -10,6 +10,7 @@ import {
   IconJson,
   IconBellHeart,
   IconDeviceIpadHeart,
+  IconCheckupList,
 } from "@tabler/icons-react";
 import { toPng } from "html-to-image";
 import { isEmpty } from "lodash";
@@ -24,8 +25,7 @@ import DiscussionModal from "@/components/discussion-modal";
 import MessageList from "@/components/message-list";
 import OnboardingTutorial from "@/components/onboarding-tutorial";
 import Settings from "@/components/settings";
-import WeatherReport from "@/components/weather-report";
-import { AuthContext } from "@/contexts/auth-context";
+import { AuthContext, useAuth } from "@/contexts/auth-context";
 import withAuth from "@/hoc/withLogin";
 import useConversation from "@/hooks/conversation/useConversation";
 import useMessage from "@/hooks/message/useMessage";
@@ -50,7 +50,7 @@ const Component: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
     const { t } = useTranslation("home");
-    const { user, signOut } = useContext(AuthContext);
+    const { user, signOut } = useAuth();
     const {
       getAllConversations,
       conversations,
@@ -132,7 +132,7 @@ const Component: React.FC = () => {
           }
         })
         .catch((err) => {
-          console.log(err);
+          console.error(err);
         });
     };
 
@@ -161,6 +161,11 @@ const Component: React.FC = () => {
         onClick: _handleExportMarkdown,
       },
     ];
+
+    const isDoctor = useMemo(() => {
+      if (user && user.roles) return user.roles.includes("doctor");
+      return false;
+    }, [user]);
 
     useEffect(() => {
       if (user) _initForm();
@@ -191,7 +196,7 @@ const Component: React.FC = () => {
             >
               <div className="flex flex-none flex-row items-center justify-between p-4">
                 <p className="hidden font-bold text-light-text dark:text-dark-white md:block">
-                  {t("welcome")} {user?.name}
+                  {t("welcome")} {user && user.name}
                 </p>
               </div>
 
@@ -274,6 +279,21 @@ const Component: React.FC = () => {
                       {t("discussion")}
                     </span>
                   </div>
+                  {isDoctor && (
+                    <Link
+                      href={"/discussions"}
+                      className="flex cursor-pointer flex-row items-center gap-1"
+                    >
+                      <IconCheckupList />
+                      <span className="ml-2 cursor-pointer text-sm text-light-text dark:text-white">
+                        {t("discussion_dashboard")}
+                      </span>
+                      <div className="ml-1 cursor-pointer rounded bg-blue-600 px-2 py-1 text-xs text-white">
+                        Doctor only
+                      </div>
+                    </Link>
+                  )}
+
                   <DiscussionModal
                     isOpen={openDiscussion}
                     onClose={_closeDiscussionModal}
@@ -312,7 +332,7 @@ const Component: React.FC = () => {
                   ) : null}
                 </div>
                 <div data-tour="step3" className="flex">
-                  <WeatherReport />
+                  {/*<WeatherReport />*/}
                 </div>
               </div>
               {selectedConversation && conversations.length > 0 ? (

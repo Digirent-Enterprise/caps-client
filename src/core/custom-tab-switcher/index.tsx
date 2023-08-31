@@ -5,10 +5,10 @@ import { Tab } from "@headlessui/react";
 import { ITabSwitcherProps } from "@/core/custom-tab-switcher/type";
 
 const Component = memo((props: ITabSwitcherProps) => {
-  const { tabs = [], children } = props;
+  const { tabs = [], children, handleTabChange } = props;
   return (
     <div className="w-full px-2 sm:px-0">
-      <Tab.Group>
+      <Tab.Group onChange={handleTabChange}>
         <Tab.List className="flex w-full rounded-xl bg-dark-blue p-1 text-white">
           {tabs.map((category) => (
             <Tab

@@ -1,11 +1,11 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 
 import { IAskQuestionModal } from "@/components/ask-question-modal/type";
 import BaseModal from "@/core/base-modal";
 import { showToast } from "@/utils/toast";
 
 const Component = memo((props: IAskQuestionModal) => {
-  const { open, onClose } = props;
+  const { open, onClose, createInquiry } = props;
   const [question, setQuestion] = React.useState("");
 
   const _onQuestionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
@@ -18,11 +18,17 @@ const Component = memo((props: IAskQuestionModal) => {
     if (question.length < 100) {
       showToast(
         "error",
-        "Your question is too short. Please provide more information or using our Chat function."
+        "Your question is too short. Please provide more information or use our Chat function instead."
       );
       return;
     }
+    createInquiry(question);
   };
+
+  useEffect(() => {
+    if (!open) setQuestion("");
+  }, [open]);
+
   return (
     <BaseModal isOpen={open} onClose={onClose} title="Ask Your Question">
       <div className="flex w-full flex-col">

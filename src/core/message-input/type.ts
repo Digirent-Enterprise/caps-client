@@ -5,5 +5,5 @@ export interface IMessageInputProps {
   message: string;
   onValueChange: (message: string) => void;
   handleSend: (content: any) => void;
-  handleKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  handleKeyDown?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void;
 }

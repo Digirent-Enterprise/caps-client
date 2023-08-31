@@ -1,20 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { isEmpty } from "lodash";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
+import { useAuth } from "@/contexts/auth-context";
 import useUser from "@/hooks/user/useUser";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const { getUser, user } = useUser();
+  const { user } = useAuth();
   const { t } = useTranslation("landing_page");
-  useEffect(() => {
-    getUser();
-  }, []);
+
   return (
     <header
       data-testid="header"

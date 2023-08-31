@@ -5,3 +5,5 @@ export interface IBaseProps {
   style?: CSSProperties;
   onClick?: (x: any) => void;
 }
+
+export type CustomFn = () => void;
