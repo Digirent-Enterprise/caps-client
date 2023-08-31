@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 import dotenv from "dotenv";
-import { Configuration, OpenAIApi } from "openai";
+import Configuration, {OpenAI } from "openai";
 
 dotenv.config();
 const dirPath = "./public/locales";
@@ -13,7 +13,7 @@ if (!process.env.OPENAI_API_KEY) {
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
+const openai = new OpenAI(configuration);
 
 interface JSONData {
   [key: string]: string;
