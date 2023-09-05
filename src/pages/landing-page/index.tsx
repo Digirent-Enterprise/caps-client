@@ -6,7 +6,7 @@ import withLayout from "@/hoc/withLayout";
 
 const Component = memo(() => {
   return (
-    <div>
+    <div className="mt-20">
       <MainPageCarousel />
       <MainPageCta />
     </div>

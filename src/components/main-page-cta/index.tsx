@@ -1,4 +1,4 @@
-import { memo, useMemo } from "react";
+import React, { memo, useMemo } from "react";
 
 import {
   IconAddressBook,
@@ -97,7 +97,7 @@ const Component = memo(() => {
   };
   return (
     <div className="flex w-full flex-col items-center justify-center bg-light-background-gray px-6  dark:bg-dark-gray-heavy md:px-12 lg:px-36">
-      <div className="mt-4 text-center text-2xl  text-light-blue-hover dark:text-dark-white md:text-3xl lg:text-4xl">
+      <div className="mt-10 text-center text-2xl  text-light-blue-hover dark:text-dark-white md:text-3xl lg:text-4xl">
         {t("how_can_we_help_you")}
       </div>
       <div className="mt-2 flex flex-col gap-2 md:flex-row md:gap-5">
@@ -114,7 +114,7 @@ const Component = memo(() => {
           {t("long_term")}
         </button>
       </div>
-      <div className="mt-5 md:w-full lg:w-2/3">
+      <div className="mb-20 mt-5 md:w-full lg:w-2/3">
         <div className="flex w-full flex-row flex-wrap items-center justify-center gap-10 text-light-blue-hover dark:text-dark-white md:gap-10">
           {(tab === 0 ? ImmediateActions : LongTermActions).map((action) => {
             if (getActionIcon(action))
