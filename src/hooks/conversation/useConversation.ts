@@ -5,6 +5,7 @@ import { LoadingContext } from "@/contexts/loading-context";
 import ConversationService from "@/services/conversation";
 import { ConversationNS } from "@/services/conversation/type";
 import { showToast } from "@/utils/toast";
+import { IConversation } from "@/shared/conversation/type";
 
 type ConversationResult = {
   getAllConversations: () => void;
@@ -15,8 +16,8 @@ type ConversationResult = {
   conversations: ConversationNS.Conversation[];
   selectedConversation: ConversationNS.Conversation;
   setSelectedConversation: (x: ConversationNS.Conversation) => void;
-  updateConversation: (name: string) => void;
-  deleteConversation: () => void;
+  updateConversation: (conversation: IConversation) => void;
+  deleteConversation: (id: number) => void;
 };
 
 const useConversation = () => {
@@ -62,20 +63,20 @@ const useConversation = () => {
     setLoading(false);
   };
 
-  const updateConversation = async (name: string) => {
+  const updateConversation = async (conversation: IConversation) => {
     setLoading(true);
     try {
-      const response = await ConversationService.updateConversation({ name });
+      await ConversationService.updateConversation(conversation);
     } catch (error) {
       showToast("error", "Could not update conversations");
     }
     setLoading(false);
   };
 
-  const deleteConversation = async () => {
+  const deleteConversation = async (id: number) => {
     setLoading(true);
     try {
-      await ConversationService.deleteConversation();
+      await ConversationService.deleteConversation(id);
     } catch (error) {
       showToast("error", "Could not delete conversations");
     }

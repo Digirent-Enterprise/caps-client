@@ -2,6 +2,12 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
 .grayscale {
   filter: grayscale(100%);
 }

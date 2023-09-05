@@ -70,7 +70,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
     };
 
     const _handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-      if (e.keyCode == 13 && !e.shiftKey) {
+      if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
         _handleSend();
       }

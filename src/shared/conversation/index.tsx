@@ -18,6 +18,7 @@ import {
 import SidebarActionButton from "@/core/sidebar-action-button";
 import { IConversation, IConversationProps } from "@/shared/conversation/type";
 import SharingModal from "@/shared/sharing-modal";
+import useConversation from "@/hooks/conversation/useConversation";
 
 const Component = React.memo(
   (
@@ -26,6 +27,7 @@ const Component = React.memo(
     }
   ) => {
     const { conversation, selected, createdAt, selectedConversation } = props;
+    const { updateConversation, deleteConversation } = useConversation();
     const [isDeleting, setIsDeleting] = useState(false);
     const [isRenaming, setIsRenaming] = useState(false);
     const [isSharing, setIsSharing] = useState(false);
@@ -38,9 +40,14 @@ const Component = React.memo(
       }
     };
 
-    const _handleUpdateConversation = (conversation: IConversation) => {};
+    const _handleUpdateConversation = (conversation: IConversation) => {
+      updateConversation(conversation);
 
-    const _handleDeleteConversation = (conversation: IConversation) => {};
+    };
+
+    const _handleDeleteConversation = (id: number) => {
+      deleteConversation(id);
+    };
 
     const _handleDragStart = (
       e: DragEvent<HTMLButtonElement>,
@@ -62,7 +69,7 @@ const Component = React.memo(
     const _handleConfirm: MouseEventHandler<HTMLButtonElement> = (e) => {
       e.stopPropagation();
       if (isDeleting) {
-        _handleDeleteConversation(conversation);
+        _handleDeleteConversation(conversation.id);
       } else if (isRenaming) {
         _handleRename(conversation);
       }
