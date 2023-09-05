@@ -117,12 +117,10 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
                   <div className="animate-bounce text-6xl text-gray-500 delay-75">
                     .
                   </div>
-                  <div className="animate-bounce text-6xl  text-gray-500 delay-100">
+                  <div className="animate-bounce text-6xl text-gray-500 delay-100">
                     .
                   </div>
-                  <div className="animate-bounce  text-6xl text-gray-500">
-                    .
-                  </div>
+                  <div className="animate-bounce text-6xl text-gray-500">.</div>
                   {/*<div className="text-gray-500 animate-bounce  text-4xl delay-150">.</div>*/}
                 </div>
               </div>

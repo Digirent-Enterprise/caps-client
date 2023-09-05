@@ -26,7 +26,7 @@ import DiscussionModal from "@/components/discussion-modal";
 import MessageList from "@/components/message-list";
 import OnboardingTutorial from "@/components/onboarding-tutorial";
 import Settings from "@/components/settings";
-import { AuthContext, useAuth } from "@/contexts/auth-context";
+import { useAuth } from "@/contexts/auth-context";
 import withAuth from "@/hoc/withLogin";
 import useConversation from "@/hooks/conversation/useConversation";
 import useMessage from "@/hooks/message/useMessage";
