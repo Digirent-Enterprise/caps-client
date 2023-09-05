@@ -114,7 +114,7 @@ const Component = memo(() => {
           {t("long_term")}
         </button>
       </div>
-      <div className="mt-5 mb-20 md:w-full lg:w-2/3">
+      <div className="mb-20 mt-5 md:w-full lg:w-2/3">
         <div className="flex w-full flex-row flex-wrap items-center justify-center gap-10 text-light-blue-hover dark:text-dark-white md:gap-10">
           {(tab === 0 ? ImmediateActions : LongTermActions).map((action) => {
             if (getActionIcon(action))

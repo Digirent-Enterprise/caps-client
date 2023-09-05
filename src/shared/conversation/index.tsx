@@ -16,9 +16,9 @@ import {
 } from "@tabler/icons-react";
 
 import SidebarActionButton from "@/core/sidebar-action-button";
+import useConversation from "@/hooks/conversation/useConversation";
 import { IConversation, IConversationProps } from "@/shared/conversation/type";
 import SharingModal from "@/shared/sharing-modal";
-import useConversation from "@/hooks/conversation/useConversation";
 
 const Component = React.memo(
   (
@@ -42,7 +42,6 @@ const Component = React.memo(
 
     const _handleUpdateConversation = (conversation: IConversation) => {
       updateConversation(conversation);
-
     };
 
     const _handleDeleteConversation = (id: number) => {
