@@ -13,12 +13,25 @@ export default class ConversationService {
   };
 
   static updateConversation = (
-    data: ConversationNS.UpdateConversationRequest
+    data: ConversationNS.Conversation
   ): Promise<ConversationNS.Conversation> => {
-    return axios.post("/conversation/item/update", data);
+    return axios.put("/conversation/item/update", {
+      id: data.id,
+      name: data.name,
+    });
   };
 
-  static deleteConversation = (): Promise<ConversationNS.Conversation> => {
-    return axios.delete("/conversation/item/delete");
+  static deleteConversation = (
+    id: number
+  ): Promise<ConversationNS.Conversation> => {
+    return axios.delete(
+      "/conversation/item/delete",
+
+      {
+        data: {
+          id,
+        },
+      }
+    );
   };
 }
