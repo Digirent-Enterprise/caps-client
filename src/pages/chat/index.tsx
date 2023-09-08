@@ -40,6 +40,7 @@ import StatusModal from "@/shared/status-modal";
 import { exportConversationToJson } from "@/utils/json";
 import { exportConversationToMarkdown } from "@/utils/markdown";
 import { formatModelOption } from "@/utils/models";
+import Kbd from "@/components/kbd";
 
 const Component: React.FC = () => {
   const { isMobile } = useDevice();
@@ -319,6 +320,7 @@ const Component: React.FC = () => {
                   </div>
                 </div>
               </div>
+              <Kbd />
             </section>
             <section
               className={`flex flex-auto flex-col border border-gray-400 shadow dark:border-dark-gray ${

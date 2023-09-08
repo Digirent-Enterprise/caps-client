@@ -36,7 +36,7 @@ const Component: React.FC = () => {
         <>
           <div className="my-2 flex border-t p-2 dark:border-dark-gray dark:text-dark-white">
             <Link
-              href={"/home"}
+              href={"/chat"}
               className="flex cursor-pointer flex-row items-center justify-start gap-1"
             >
               <IconArrowBack />

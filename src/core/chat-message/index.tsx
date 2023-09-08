@@ -3,11 +3,13 @@ import React, { useEffect, useMemo, useState } from "react";
 import { IconVolume2 } from "@tabler/icons-react";
 import axios from "axios";
 
+import SliceOver from "@/components/sliceover";
 import { IChatMessageProps } from "@/core/chat-message/type";
 
 const Component = React.memo((props: IChatMessageProps) => {
-  const { conservationId, content, senderType, language } = props;
-  const [isSpeaking, setIsSpeaking] = useState(false);
+  const { content, senderType, language, metadata } = props;
+  const [isSliceOverOpen, setIsSliceOverOpen] = useState<boolean>(false);
+  const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
   const containerClasses = {
     chatbot: "justify-start",
     user: "items-center flex-row-reverse",
@@ -41,6 +43,10 @@ const Component = React.memo((props: IChatMessageProps) => {
     setIsSpeaking(false);
   };
 
+  const _openSliceOver = () => {
+    setIsSliceOverOpen(true);
+  };
+
   useEffect(() => {
     if (isSpeaking) {
       _speak();
@@ -58,6 +64,7 @@ const Component = React.memo((props: IChatMessageProps) => {
   return (
     <div
       className={`mt-5 grid grid-flow-row gap-2 text-sm text-light-blue-hover ${containerClass}`}
+      onClick={senderType === "chatbot" ? _openSliceOver : () => {}}
     >
       <div className={`group flex ${containerClass}`}>
         <div
@@ -83,6 +90,11 @@ const Component = React.memo((props: IChatMessageProps) => {
           </div>
         </div>
       </div>
+      <SliceOver
+        open={isSliceOverOpen}
+        setOpen={setIsSliceOverOpen}
+        metadata={metadata}
+      />
     </div>
   );
 });
