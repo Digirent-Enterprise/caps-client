@@ -4,11 +4,11 @@ import { Kbd } from "@nextui-org/react";
 
 const Component = () => {
   return (
-    <div className="h-14 border-t border-gray-300 flex items-center justify-center">
+    <div className="flex h-14 items-center justify-center border-t border-gray-300">
       <p className="text-center">
         <Kbd
           keys={["command"]}
-          className="border border-gray-300 rounded px-2 py-1 inline-block bg-gray-800 text-white"
+          className="inline-block rounded border border-gray-300 bg-gray-800 px-2 py-1 text-white"
         >
           K
         </Kbd>{" "}
