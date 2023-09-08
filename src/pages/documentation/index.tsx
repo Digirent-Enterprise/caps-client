@@ -4,7 +4,11 @@ import Tabs from "@/core/tabs";
 import withLayout from "@/hoc/withLayout";
 
 const Component: React.FC = () => {
-  return <Tabs />;
+  return (
+    <div className="flex h-screen items-center justify-center">
+      <Tabs />
+    </div>
+  );
 };
 
 Component.displayName = "Documentation";
