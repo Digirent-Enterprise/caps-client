@@ -23,6 +23,7 @@ import { useImmer } from "use-immer";
 import axios from "@/axios";
 import ConversationList from "@/components/conversation-list";
 import DiscussionModal from "@/components/discussion-modal";
+import Kbd from "@/components/kbd";
 import MessageList from "@/components/message-list";
 import OnboardingTutorial from "@/components/onboarding-tutorial";
 import Settings from "@/components/settings";
@@ -319,6 +320,7 @@ const Component: React.FC = () => {
                   </div>
                 </div>
               </div>
+              <Kbd />
             </section>
             <section
               className={`flex flex-auto flex-col border border-gray-400 shadow dark:border-dark-gray ${

@@ -15,7 +15,7 @@ const Component = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center space-y-5 rounded-md border border-neutral-200 p-6 dark:border-neutral-700 lg:p-20">
+    <div className="relative space-y-5 rounded-md border border-neutral-200 p-6 dark:border-neutral-700 lg:p-20">
       <div className="flex w-full flex-col items-center space-y-2 lg:items-start">
         <div className="text-3xl font-bold">{t("handbook")}</div>
         <div className="text-sm text-neutral-400 lg:text-base">
