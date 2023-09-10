@@ -55,17 +55,18 @@ const Component = ({ open, setOpen, metadata }) => {
                       </button>
                     </div>
                   </Transition.Child>
-                  <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
-                    <div className="px-4 sm:px-6">
-                      <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">
-                        Metadata
+                  <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                    <div className="bg-light-button-blue p-4 sm:px-6">
+                      <Dialog.Title className="text-2xl font-semibold leading-6 text-white">
+                        Reference
                       </Dialog.Title>
+                      <p className="text-white">Description goes here</p>
                     </div>
                     <div className="relative mt-6 flex-1 px-4 sm:px-6">
                       <ul className="list-disc pl-5">
                         {metadata.map((item, index) => (
                           <li key={index} className="mb-4">
-                            <div className="text-lg font-semibold">
+                            <div className="text-lg font-semibold capitalize">
                               {item.source_type}
                             </div>
                             <div className="text-gray-600">
