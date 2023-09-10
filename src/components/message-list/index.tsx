@@ -106,13 +106,27 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
             <ChatMessage
               key={"1"}
               conservationId={1}
-              content={"hello"}
-              senderType={"chatbot"}
+              content={"chào mọi người, tôi tên làchào mọi người, tôi tên là "}
+              senderType={"user"}
               language={"en"}
               metadata={[
                 {
                   source_type: "text book",
-                  source: "BẸNH TRUYỀN NHIỄM VÀ NHIỆT ĐỚI",
+                  source: "BỆNH TRUYỀN NHIỄM VÀ NHIỆT ĐỚI",
+                  page: 519,
+                  publisher: "Nhà Xuất Bản Khoa học kỹ thuật",
+                  author: "GS. TSKH. LÊ ĐĂNG HÀ",
+                },
+                {
+                  source_type: "text book",
+                  source: "BỆNH TRUYỀN NHIỄM VÀ NHIỆT ĐỚI",
+                  page: 519,
+                  publisher: "Nhà Xuất Bản Khoa học kỹ thuật",
+                  author: "GS. TSKH. LÊ ĐĂNG HÀ",
+                },
+                {
+                  source_type: "text book",
+                  source: "BỆNH TRUYỀN NHIỄM VÀ NHIỆT ĐỚI",
                   page: 519,
                   publisher: "Nhà Xuất Bản Khoa học kỹ thuật",
                   author: "GS. TSKH. LÊ ĐĂNG HÀ",
