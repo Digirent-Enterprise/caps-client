@@ -1,10 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 
 import AnswerCard from "@/components/about/answer-card";
 import QuestionCard from "@/components/about/question-card";
 import { ISelectQuestionAnswerProps } from "@/components/about/select-question-answer/type";
 
-const SelectQuestionAnswer: React.FC<ISelectQuestionAnswerProps> = ({
+const SelectQuestionAnswer: FC<ISelectQuestionAnswerProps> = ({
   questionsData,
   selectedQuestion,
   onQuestionChange,

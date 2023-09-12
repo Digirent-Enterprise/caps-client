@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useMemo } from "react";
+import React, { Fragment, memo, useEffect, useMemo } from "react";
 
 import { Checkbox } from "@chakra-ui/react";
 import { Dialog, Transition } from "@headlessui/react";
@@ -7,9 +7,9 @@ import { isEmpty } from "lodash";
 import { useImmer } from "use-immer";
 
 import { IDashboardCreateDiagnosisModal } from "@/components/dashboard-create-diagnosis-modal/type";
-import Button from "@/core/button";
-import useChatBotHook from "@/hooks/chat-bot/useChatbot";
-const Component = React.memo((props: IDashboardCreateDiagnosisModal) => {
+import BaseButton from "@/core/base-button";
+
+const Component = memo((props: IDashboardCreateDiagnosisModal) => {
   const { open: isOpen, onClose, img, useChatBot } = props;
   const { diagnosisLoading, diagnosis } = useChatBot!;
   const [checked, setChecked] = useImmer<boolean>(false);
@@ -31,10 +31,10 @@ const Component = React.memo((props: IDashboardCreateDiagnosisModal) => {
   const textWithLineBreaks = useMemo(() => {
     if (!tempDiagnosis) return "";
     return tempDiagnosis.description.split("\n").map((line, index) => (
-      <React.Fragment key={index}>
+      <Fragment key={index}>
         {line}
         <div className="pb-1" />
-      </React.Fragment>
+      </Fragment>
     ));
   }, [tempDiagnosis]);
 
@@ -119,9 +119,12 @@ const Component = React.memo((props: IDashboardCreateDiagnosisModal) => {
                           </Checkbox>
                         </div>
                         <div className="flex w-full flex-row items-center justify-center">
-                          <Button disabled={!checked} onClick={_onDiagnosis}>
+                          <BaseButton
+                            disabled={!checked}
+                            onClick={_onDiagnosis}
+                          >
                             Diagnosis my health
-                          </Button>
+                          </BaseButton>
                         </div>
                       </div>
                     </Dialog.Description>

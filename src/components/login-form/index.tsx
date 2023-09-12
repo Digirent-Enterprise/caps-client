@@ -1,22 +1,22 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { IconBrandFacebook, IconBrandGoogle } from "@tabler/icons-react";
 import { cloneDeep } from "lodash";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
 import { DefaultLoginForm } from "@/constant/auth-page";
-import Button from "@/core/button";
+import BaseButton from "@/core/base-button";
 import TextInput from "@/core/text-input";
 import { FormExtension } from "@/core/text-input/type";
 import useLogin from "@/hooks/auth/useLogin";
 import useDevice from "@/hooks/useDevice";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
-const Component = React.memo(() => {
+const Component = memo(() => {
   const { t } = useTranslation("login");
   const { isDesktop } = useDevice();
 
@@ -95,9 +95,9 @@ const Component = React.memo(() => {
         onChange={_onInputChange}
       />
 
-      <Button onClick={_handleSubmit} mode="primary">
+      <BaseButton onClick={_handleSubmit} mode="primary">
         {t("login_description")}
-      </Button>
+      </BaseButton>
       <label className="md:text-md text-light-button-blue dark:text-dark-white sm:text-sm lg:text-lg">
         {t("have_not_registered")}{" "}
         <Link href={"/auth/register"}>

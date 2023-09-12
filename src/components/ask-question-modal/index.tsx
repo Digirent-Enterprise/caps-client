@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { ChangeEvent, memo, useEffect, useState } from "react";
 
 import { IAskQuestionModal } from "@/components/ask-question-modal/type";
 import BaseModal from "@/core/base-modal";
@@ -6,9 +6,9 @@ import { showToast } from "@/utils/toast";
 
 const Component = memo((props: IAskQuestionModal) => {
   const { open, onClose, createInquiry } = props;
-  const [question, setQuestion] = React.useState("");
+  const [question, setQuestion] = useState<string>("");
 
-  const _onQuestionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
+  const _onQuestionChange = (e: ChangeEvent<HTMLTextAreaElement>) =>
     setQuestion(e.target.value);
   const _onSubmit = () => {
     if (!question) {

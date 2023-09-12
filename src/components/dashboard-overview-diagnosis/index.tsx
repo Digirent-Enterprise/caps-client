@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo } from "react";
+import React, { memo, useContext, useEffect } from "react";
 
 import { useImmer } from "use-immer";
 
@@ -10,7 +10,7 @@ import useChatBot from "@/hooks/chat-bot/useChatbot";
 import CustomResponsiveCard from "@/shared/custom-responsive-card";
 import { formatDateTime } from "@/utils/common";
 
-const DiagnosisCard = React.memo((props: IDiagnosisCardProps) => {
+const DiagnosisCard = memo((props: IDiagnosisCardProps) => {
   const { item } = props;
   const [open, setOpen] = useImmer<boolean>(false);
   const _onOpenDetailModal = () => setOpen(true);
@@ -53,7 +53,7 @@ const DiagnosisCard = React.memo((props: IDiagnosisCardProps) => {
 
 DiagnosisCard.displayName = "DiagnosisCard";
 
-const Component = React.memo(() => {
+const Component = memo(() => {
   const chatBotResult = useChatBot();
   const { getDiagnosisResults, diagnosisResults, diagnosisLoading, diagnosis } =
     chatBotResult;

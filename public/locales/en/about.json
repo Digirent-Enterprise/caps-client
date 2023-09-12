@@ -1,3 +1,14 @@
 {
-  "assistant": "Assistant"
+  "question": "Question",
+  "assistant": "Assistant",
+  "overview": {
+    "title": "Overview"
+  },
+  "team": {
+    "title": "The title"
+  },
+  "acknowledgment": {
+    "title": "Acknowledgment",
+    "text": "We would like to thank Xinyang Geng, Hao Liu, and Eric Wallace from BAIR; Xuecheng Li, and Tianyi Zhang from Stanford Alpaca team for their insightful discussion and feedback; Qirong Ho from MBZUAI for providing support on the serving cluster. Please check out a blog post from BAIR about a concurrent effort on their chatbot."
+  }
 }

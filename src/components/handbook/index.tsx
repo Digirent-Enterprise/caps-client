@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { Alert, AlertIcon } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 
-import AutocompleteSearch from "@/components/autocomplete-search";
-import { ISearchTerm } from "@/components/autocomplete-search/type";
+import AutocompleteSearch from "@/core/autocomplete-search";
+import { ISearchTerm } from "@/core/autocomplete-search/type";
 
 const Component = () => {
   const { t } = useTranslation("handbook");

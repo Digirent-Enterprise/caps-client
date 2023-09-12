@@ -1,11 +1,11 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 
 import { useTranslation } from "next-i18next";
 
 import { IAnswerCardProps } from "@/components/about/answer-card/type";
 import { IModelOption } from "@/components/about/select-question-answer/type";
 
-const Component: React.FC<IAnswerCardProps> = ({ modelOptions }) => {
+const Component: FC<IAnswerCardProps> = ({ modelOptions }) => {
   const { t } = useTranslation("about");
   const [selectedModel, setSelectedModel] = useState<string>(
     modelOptions[0]?.model || ""

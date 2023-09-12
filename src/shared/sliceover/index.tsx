@@ -1,10 +1,12 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 
 import { Dialog, Transition } from "@headlessui/react";
 import { IconX } from "@tabler/icons-react";
 import { useTranslation } from "next-i18next";
 
-const Component = ({ open, setOpen, metadata }) => {
+import { ISliceOverProps } from "@/shared/sliceover/type";
+
+const Component: React.FC<ISliceOverProps> = ({ open, setOpen, metadata }) => {
   const { t } = useTranslation("metadata");
   return (
     <Transition.Root show={open} as={Fragment}>

@@ -4,7 +4,7 @@ import { IconX } from "@tabler/icons-react";
 import { useTranslation } from "next-i18next";
 import Modal from "react-modal";
 
-import Button from "@/core/button";
+import BaseButton from "@/core/base-button";
 import DropdownMenu from "@/core/dropdown-menu";
 import useDevice from "@/hooks/useDevice";
 import { ConversationNS } from "@/services/conversation/type";
@@ -101,14 +101,14 @@ const Component = React.memo((props: IConversationModalProps) => {
       </div>
       <div className="mt-3 flex justify-end">
         <div className="ml-5">
-          <Button mode="secondary" onClick={_handleCancelClick}>
+          <BaseButton mode="secondary" onClick={_handleCancelClick}>
             {t("cancel")}
-          </Button>
+          </BaseButton>
         </div>
         <div className="ml-5">
-          <Button mode="primary" onClick={_handleSubmitModal}>
+          <BaseButton mode="primary" onClick={_handleSubmitModal}>
             {t("save")}
-          </Button>
+          </BaseButton>
         </div>
       </div>
     </Modal>
