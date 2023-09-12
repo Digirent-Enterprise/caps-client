@@ -6,6 +6,5 @@ const Component: React.FC = () => {
   return <StoriesList />;
 };
 
-Component.displayName = "News";
-
+Component.displayName = "NewsPage";
 export default Component;

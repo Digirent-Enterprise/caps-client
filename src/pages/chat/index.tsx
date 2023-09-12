@@ -379,4 +379,5 @@ const Component: React.FC = () => {
   }
 };
 
+Component.displayName = "ChatPage";
 export default withAuth(Component);
