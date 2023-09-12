@@ -1,10 +1,9 @@
 import React, { FC, useState } from "react";
 
+import Description from "@/components/about/about-section";
 import Gpt4Evaluation from "@/components/about/gpt4-evaluation";
-import Description from "src/components/about/about-section";
-import SelectQuestionAnswer from "src/components/about/select-question-answer";
-
-import questionsData from "../../fixtures/questions.json";
+import SelectQuestionAnswer from "@/components/about/select-question-answer";
+import questionsData from "@/fixtures/questions.json";
 
 const Component: FC = () => {
   const [selectedQuestion, setSelectedQuestion] = useState<string>(
