@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-import { Dialog, Transition } from "@headlessui/react";
-import { IconExternalLink, IconX } from "@tabler/icons-react";
+import { IconExternalLink } from "@tabler/icons-react";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
@@ -10,8 +9,8 @@ import LanguageSwitcher from "@/components/language-switcher";
 import { tabs } from "@/components/settings/constant";
 import { ISettingsModalProps } from "@/components/settings/type";
 import ThemeSwitcher from "@/components/theme-switcher";
+import BaseButton from "@/core/base-button";
 import BaseModal from "@/core/base-modal";
-import Button from "@/core/button";
 import Switcher from "@/core/switcher";
 
 const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
@@ -82,13 +81,13 @@ const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
             </Link>
           </div>
           <div className="mt-6 flex justify-end">
-            <Button onClick={onClose} mode="secondary">
+            <BaseButton onClick={onClose} mode="secondary">
               {t("cancel")}
-            </Button>
+            </BaseButton>
             <div className="ml-2">
-              <Button onClick={onClose} mode="primary">
+              <BaseButton onClick={onClose} mode="primary">
                 {t("save")}
-              </Button>
+              </BaseButton>
             </div>
           </div>
         </div>

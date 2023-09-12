@@ -2,11 +2,11 @@ import React from "react";
 
 import { Combobox } from "@headlessui/react";
 import {
+  IconArrowForward,
+  IconArrowRight,
   IconPlus,
   IconSettingsCog,
   IconUserCircle,
-  IconArrowForward,
-  IconArrowRight,
 } from "@tabler/icons-react";
 import clsx from "clsx";
 
@@ -48,7 +48,7 @@ const Component: React.FC<ICommandProps> = ({ commands, group }) => {
   );
 };
 
-const mapCommandGroupToIcon = (group: any) => {
+const mapCommandGroupToIcon = (group: string) => {
   switch (group) {
     case "conversation":
       return <IconPlus className="h-4 w-4 text-white" />;

@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { IconX } from "@tabler/icons-react";
 import { useTranslation } from "next-i18next";
 
-import { ISliceOverProps } from "@/components/sliceover/type";
+import { ISliceOverProps } from "@/shared/sliceover/type";
 
 const Component: React.FC<ISliceOverProps> = ({ open, setOpen, metadata }) => {
   const { t } = useTranslation("metadata");

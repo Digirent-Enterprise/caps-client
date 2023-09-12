@@ -9,7 +9,7 @@ import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import Modal from "react-modal";
 
-import Button from "@/core/button";
+import BaseButton from "@/core/base-button";
 import { CustomStyle } from "@/shared/status-modal/constant";
 import { IConfirmationModalProps } from "@/shared/status-modal/type";
 
@@ -98,15 +98,15 @@ const Component = React.memo((props: IConfirmationModalProps) => {
       <div className="flex flex-row flex-nowrap items-end justify-end gap-2">
         {isSecondButton && onSecondaryButtonClick ? (
           <div className="w-1/3">
-            <Button onClick={onSecondaryButtonClick} mode="secondary">
+            <BaseButton onClick={onSecondaryButtonClick} mode="secondary">
               {t(secondaryButtonText)}
-            </Button>
+            </BaseButton>
           </div>
         ) : null}
         <div className="w-1/5">
-          <Button onClick={onPrimaryButtonClick} mode="primary">
+          <BaseButton onClick={onPrimaryButtonClick} mode="primary">
             {t(primaryButtonText)}
-          </Button>
+          </BaseButton>
         </div>
       </div>
     </Modal>

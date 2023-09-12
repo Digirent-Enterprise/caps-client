@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 
 import Gpt4Evaluation from "@/components/about/gpt4-evaluation";
 import Description from "src/components/about/about-section";
 import SelectQuestionAnswer from "src/components/about/select-question-answer";
 
-import questionsData from "./questions.json";
+import questionsData from "../../fixtures/questions.json";
 
-const Component: React.FC = () => {
+const Component: FC = () => {
   const [selectedQuestion, setSelectedQuestion] = useState<string>(
     questionsData.length > 0 ? questionsData[0].question : ""
   );

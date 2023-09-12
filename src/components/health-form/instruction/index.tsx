@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
-import Button from "@/core/button";
+import BaseButton from "@/core/base-button";
 import useDevice from "@/hooks/useDevice";
+
 const Component = () => {
   const { t } = useTranslation("instruction");
   const { isMobile } = useDevice();
@@ -69,7 +70,7 @@ const Component = () => {
         </div>
         <div>
           <Link href={"/health-form/health-data"}>
-            <Button mode="primary">{t("start")}</Button>
+            <BaseButton mode="primary">{t("start")}</BaseButton>
           </Link>
         </div>
       </div>

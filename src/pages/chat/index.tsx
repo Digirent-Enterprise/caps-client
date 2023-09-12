@@ -1,17 +1,17 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import {
-  IconBooks,
-  IconSettings,
-  IconPlus,
-  IconUserCancel,
-  IconNews,
-  IconScreenshot,
-  IconMarkdown,
-  IconJson,
   IconBellHeart,
-  IconDeviceIpadHeart,
+  IconBooks,
   IconCheckupList,
+  IconDeviceIpadHeart,
+  IconJson,
+  IconMarkdown,
+  IconNews,
+  IconPlus,
+  IconScreenshot,
+  IconSettings,
+  IconUserCancel,
 } from "@tabler/icons-react";
 import { toPng } from "html-to-image";
 import { isEmpty } from "lodash";
@@ -23,7 +23,6 @@ import { useImmer } from "use-immer";
 import axios from "@/axios";
 import ConversationList from "@/components/conversation-list";
 import DiscussionModal from "@/components/discussion-modal";
-import Kbd from "@/components/kbd";
 import MessageList from "@/components/message-list";
 import OnboardingTutorial from "@/components/onboarding-tutorial";
 import Settings from "@/components/settings";
@@ -41,6 +40,7 @@ import StatusModal from "@/shared/status-modal";
 import { exportConversationToJson } from "@/utils/json";
 import { exportConversationToMarkdown } from "@/utils/markdown";
 import { formatModelOption } from "@/utils/models";
+import Kbd from "src/core/kbd";
 
 const Component: React.FC = () => {
   const { isMobile } = useDevice();

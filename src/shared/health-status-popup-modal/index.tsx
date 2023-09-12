@@ -1,17 +1,17 @@
 import React, { useMemo, useState } from "react";
 
 import {
-  IconX,
   IconMoodConfuzed,
-  IconMoodHappy,
-  IconMoodEmpty,
   IconMoodCry,
+  IconMoodEmpty,
+  IconMoodHappy,
   IconMoodSmile,
+  IconX,
 } from "@tabler/icons-react";
 import { useTranslation } from "next-i18next";
 import Modal from "react-modal";
 
-import Button from "@/core/button";
+import BaseButton from "@/core/base-button";
 import useDynamicHealth from "@/hooks/dynamic-health";
 import { DynamicHealthNS } from "@/services/dynamic-health/type";
 import {
@@ -155,14 +155,14 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
         )}
         <div className="mt-6 flex justify-end gap-2">
           <div className="w-1/3">
-            <Button onClick={onRequestClose} mode="secondary">
+            <BaseButton onClick={onRequestClose} mode="secondary">
               {t("cancel")}
-            </Button>
+            </BaseButton>
           </div>
           <div className="w-1/3">
-            <Button onClick={_handleSubmit} mode="primary">
+            <BaseButton onClick={_handleSubmit} mode="primary">
               {t("submit")}
-            </Button>
+            </BaseButton>
           </div>
         </div>
       </div>

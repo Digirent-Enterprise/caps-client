@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 
 import { cloneDeep } from "lodash";
 import Link from "next/link";
@@ -11,7 +11,7 @@ import {
   GenderOptions,
 } from "@/components/register-form/constant";
 import { DefaultRegisterForm } from "@/constant/auth-page";
-import Button from "@/core/button";
+import BaseButton from "@/core/base-button";
 import Option from "@/core/select-option";
 import { SelectOption } from "@/core/select-option/type";
 import TextInput from "@/core/text-input";
@@ -19,7 +19,7 @@ import { FormExtension } from "@/core/text-input/type";
 import useRegister from "@/hooks/auth/useRegister";
 import useDevice from "@/hooks/useDevice";
 
-const Component = React.memo(() => {
+const Component = memo(() => {
   const { t } = useTranslation("register");
   const { isDesktop } = useDevice();
   const [form, setForm] = useImmer(DefaultRegisterForm);
@@ -178,13 +178,13 @@ const Component = React.memo(() => {
         options={GenderOptions}
         title={t("Gender")}
       />
-      <Button
+      <BaseButton
         onClick={_handleSubmitForm}
         mode="primary"
         className={`${isDesktop ? "my-4" : "my-2"}`}
       >
         {t("register")}
-      </Button>
+      </BaseButton>
       <label
         className={`text-xl dark:text-dark-white ${
           isDesktop ? "mb-0" : "mb-4"

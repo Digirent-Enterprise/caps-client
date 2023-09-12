@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { IGpt4EvaluationProps } from "@/components/about/gpt4-evaluation/type";
 
-const Component: React.FC<IGpt4EvaluationProps> = ({ evaluation }) => {
+const Component: FC<IGpt4EvaluationProps> = ({ evaluation }) => {
   return (
     <div className="mb-4">
       <div className="rounded-md border border-gray-300 bg-white p-4 shadow-md">

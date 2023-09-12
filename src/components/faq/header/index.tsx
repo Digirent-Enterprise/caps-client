@@ -1,14 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { breadcrumbItems } from "@/components/faq/constant";
+import { IBreadcrumbProps } from "@/components/faq/header/type";
 import Breadcrumb from "@/core/breadcrumb";
 import SearchInput from "@/shared/search-input";
 
-interface IBreadcrumbProps {
-  currentPage: string;
-}
-
-const Component: React.FC<IBreadcrumbProps> = ({ currentPage }) => {
+const Component: FC<IBreadcrumbProps> = ({ currentPage }) => {
   return (
     <>
       <div className="bg-light-button-blue p-10 dark:bg-dark-bg-primary">

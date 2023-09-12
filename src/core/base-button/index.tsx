@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 
-import { IButtonProps } from "@/core/button/type";
+import { IButtonProps } from "@/core/base-button/type";
+
 const Component = React.memo((props: IButtonProps) => {
   const { children, disabled, onClick, mode, size = "m" } = props;
 
@@ -44,6 +45,6 @@ const Component = React.memo((props: IButtonProps) => {
   );
 });
 
-Component.displayName = "Button";
+Component.displayName = "BaseButton";
 
 export default Component;

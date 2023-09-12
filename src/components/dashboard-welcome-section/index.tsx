@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { memo, useEffect, useRef } from "react";
 
 import { isEmpty } from "lodash";
 import Image from "next/image";
@@ -7,10 +7,9 @@ import { useImmer } from "use-immer";
 
 import DashboardCreateDiagnosisModal from "@/components/dashboard-create-diagnosis-modal";
 import { IDashboardWelcomeSection } from "@/components/dashboard-welcome-section/type";
-import WeatherReport from "@/components/weather-report";
 import HealthStatusPopupModal from "@/shared/health-status-popup-modal";
 
-const Component = React.memo((props: IDashboardWelcomeSection) => {
+const Component = memo((props: IDashboardWelcomeSection) => {
   const { t } = useTranslation();
   const { user, page, useChatBot } = props;
   const cloudRef = useRef<HTMLDivElement | null>(null);
