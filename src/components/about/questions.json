@@ -1,0 +1,53 @@
+[
+  {
+    "question": "How does DICA work?",
+    "modelOptions": [
+      {
+        "model": "llama2",
+        "answer": "1"
+      },
+      {
+        "model": "llama2-7b",
+        "answer": "2"
+      },
+      {
+        "model": "llama2-13b",
+        "answer": "3"
+      }
+    ]
+  },
+  {
+    "question": "How does DICA work asda?",
+    "modelOptions": [
+      {
+        "model": "llama2",
+        "answer": "4"
+      },
+      {
+        "model": "llama2-7b",
+        "answer": "5"
+      },
+      {
+        "model": "llama2-13b",
+        "answer": "6"
+      }
+    ]
+  },
+  {
+    "question": "How does DICA work? asadaq14",
+    "modelOptions": [
+      {
+        "model": "llama2",
+        "answer": "7"
+      },
+      {
+        "model": "llama2-7b",
+        "answer": "8"
+      },
+      {
+        "model": "llama2-13b",
+        "answer": "9"
+      }
+    ]
+  }
+]

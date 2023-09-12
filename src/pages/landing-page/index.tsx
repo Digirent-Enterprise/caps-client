@@ -14,5 +14,4 @@ const Component = memo(() => {
 });
 
 Component.displayName = "LandingPage";
-
 export default withLayout(Component);

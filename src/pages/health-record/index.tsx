@@ -84,6 +84,6 @@ const Component: React.FC = () => {
     </div>
   );
 };
-Component.displayName = "HeathRecord";
 
+Component.displayName = "HeathRecordPage";
 export default withAuth(Component);
