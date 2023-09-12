@@ -6,8 +6,9 @@ export interface IConfirmationModalProps {
   description: string;
   primaryButtonText: string;
   onPrimaryButtonClick: () => void;
-  secondButton?: boolean;
+  isSecondButton?: boolean;
   secondaryButtonText?: string;
   onSecondaryButtonClick?: () => void;
+  username?: string;
   imgContent?: string;
 }

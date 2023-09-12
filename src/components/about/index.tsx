@@ -24,7 +24,7 @@ const Component: React.FC = () => {
       />
       <Gpt4Evaluation evaluation={evaluation} />
       <Description
-        title="Overview"
+        title="overview.title"
         text={"Lorem"}
         imageUrl="/theme/dark.png"
         imageAlt="Image Alt Text"
@@ -33,8 +33,24 @@ const Component: React.FC = () => {
       <Description title="How to evaluate a chatbot?" text={"Lorem"} />
       <Description title="Limitation" text={"Lorem"} />
       <Description title="Release" text={"Lorem"} />
-      <Description title="Acknowledgment" text={"Lorem"} />
-      <Description title="The Team" text={"Lorem"} />
+      <Description title="acknowledgment.title" text="acknowledgment.text" />
+      <Description
+        title="team.title"
+        text={"Lorem"}
+        listItems={[
+          {
+            label: "Student:",
+            content: "Giang Nguyen, Luan Vo, Bao Vo, Nhat Bui, Nguyen Nguyen",
+          },
+          {
+            label: "Supervisor:",
+            content: "Dr. Arthur Tang, Dr. Minh Dinh, Mr. Tom Huynh",
+          },
+          {
+            content: "Special thanks to NVIDIA and Mr. Nhiem",
+          },
+        ]}
+      />
       <Description title="Citation" text={"Lorem"} />
     </div>
   );

@@ -4,4 +4,5 @@ export interface IAboutSectionProps {
   imageUrl?: string;
   imageAlt?: string;
   imageFigureText?: string;
+  listItems?: { label?: string; content: string }[];
 }

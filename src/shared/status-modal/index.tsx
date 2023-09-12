@@ -6,6 +6,7 @@ import {
   IconInfoSmall,
 } from "@tabler/icons-react";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
 import Modal from "react-modal";
 
 import Button from "@/core/button";
@@ -13,6 +14,8 @@ import { CustomStyle } from "@/shared/status-modal/constant";
 import { IConfirmationModalProps } from "@/shared/status-modal/type";
 
 const Component = React.memo((props: IConfirmationModalProps) => {
+  const { t } = useTranslation("home");
+
   const getConfirmationModalTypeStyle = (type: string) => {
     switch (type) {
       case "success":
@@ -48,7 +51,8 @@ const Component = React.memo((props: IConfirmationModalProps) => {
     secondaryButtonText,
     onPrimaryButtonClick,
     onSecondaryButtonClick,
-    secondButton = false,
+    isSecondButton = true,
+    username,
   } = props;
 
   const { color } = getConfirmationModalTypeStyle(type);
@@ -86,22 +90,22 @@ const Component = React.memo((props: IConfirmationModalProps) => {
         />
       </div>
       <h2 className="my-5 text-lg font-bold text-light-blue-hover dark:text-dark-white">
-        {title}
+        {t(title)}
       </h2>
       <p className="mb-5 mt-1 text-light-blue-hover dark:text-dark-white">
-        {description}
+        {t(description, { username })}
       </p>
       <div className="flex flex-row flex-nowrap items-end justify-end gap-2">
-        {secondButton && onSecondaryButtonClick && (
+        {isSecondButton && onSecondaryButtonClick ? (
           <div className="w-1/3">
             <Button onClick={onSecondaryButtonClick} mode="secondary">
-              {secondaryButtonText}
+              {t(secondaryButtonText)}
             </Button>
           </div>
-        )}
+        ) : null}
         <div className="w-1/5">
           <Button onClick={onPrimaryButtonClick} mode="primary">
-            {primaryButtonText}
+            {t(primaryButtonText)}
           </Button>
         </div>
       </div>
@@ -109,6 +113,6 @@ const Component = React.memo((props: IConfirmationModalProps) => {
   );
 });
 
-Component.displayName = "ConfirmationModal";
+Component.displayName = "StatusModal";
 
 export default Component;

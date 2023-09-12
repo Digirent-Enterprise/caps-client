@@ -1,15 +1,17 @@
-import React, { useContext, useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { isEmpty } from "lodash";
+import Image from "next/image";
+import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
 import DashboardCreateDiagnosisModal from "@/components/dashboard-create-diagnosis-modal";
 import { IDashboardWelcomeSection } from "@/components/dashboard-welcome-section/type";
 import WeatherReport from "@/components/weather-report";
-import { AuthContext } from "@/contexts/auth-context";
 import HealthStatusPopupModal from "@/shared/health-status-popup-modal";
 
 const Component = React.memo((props: IDashboardWelcomeSection) => {
+  const { t } = useTranslation();
   const { user, page, useChatBot } = props;
   const cloudRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -62,21 +64,24 @@ const Component = React.memo((props: IDashboardWelcomeSection) => {
         ref={containerRef}
         className="relative mt-5 h-auto min-h-[15rem] w-1/3 overflow-hidden rounded-xl bg-[#2d325a] p-10 md:w-full"
       >
-        {/*<WeatherReport classes="absolute top-1 right-0 p-4 bg-[#475D78] bg-opacity-0 rounded-xl" />*/}
+        {/*<WeatherReport className="absolute top-1 right-0 p-4 bg-[#475D78] bg-opacity-0 rounded-xl" />*/}
         <div
           ref={cloudRef}
           className="relative"
           style={{ top: "-5rem", left: "-2rem" }}
         >
-          <img
-            className="h-auto w-28 opacity-10 "
-            src={"/static/dashboard/cloud.png"}
+          <Image
+            className="h-auto w-28 opacity-80"
+            src="/static/dashboard/cloud.png"
+            alt="cloud"
+            width={500}
+            height={300}
           />
         </div>
 
         <div className="absolute -bottom-6 left-0 flex h-2/3 w-full flex-col items-start justify-start bg-transparent/10 p-4 pt-2 text-white drop-shadow-md backdrop-blur-xl">
-          <div className="mt-3 text-3xl font-semibold text-white ">
-            Welcome back, {user?.name}
+          <div className="mt-3 text-3xl font-semibold text-white">
+            {t("welcome")}, {user?.name}
           </div>
           <div>
             We are always happy to hear from you. Taking care of your health is

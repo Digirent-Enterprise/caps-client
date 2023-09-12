@@ -198,7 +198,7 @@ const Component: React.FC = () => {
             >
               <div className="flex flex-none flex-row items-center justify-between p-4">
                 <p className="hidden font-bold text-light-text dark:text-dark-white md:block">
-                  {t("welcome")} {user && user.name}
+                  {t("welcome")}, {user && user.name}
                 </p>
               </div>
 
@@ -290,7 +290,7 @@ const Component: React.FC = () => {
                       {t("discussion")}
                     </span>
                   </div>
-                  {isDoctor && (
+                  {isDoctor ? (
                     <Link
                       href={"/discussions"}
                       className="flex cursor-pointer flex-row items-center gap-1"
@@ -303,7 +303,7 @@ const Component: React.FC = () => {
                         Doctor only
                       </div>
                     </Link>
-                  )}
+                  ) : null}
 
                   <DiscussionModal
                     isOpen={openDiscussion}
@@ -365,11 +365,11 @@ const Component: React.FC = () => {
           type="info"
           isOpen={open}
           onClose={_onModalClose}
-          title={t("health_status_update")}
-          description={`${t("hi")}, ${user?.name}. ${t("thank_you")}`}
-          primaryButtonText={t("sure")}
-          secondButton
-          secondaryButtonText={t("not_right_now") || "Not right now"}
+          title="health_status_update"
+          description="status_modal_description"
+          username={user?.name}
+          primaryButtonText="sure"
+          secondaryButtonText={t("not_right_now")}
           onSecondaryButtonClick={_onModalClose}
           onPrimaryButtonClick={_onModalConfirm}
         />
