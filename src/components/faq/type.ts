@@ -1,7 +1,7 @@
 export interface IQuestion {
   id: number;
   title: string;
-  content: string;
+  content?: string;
 }
 
 export interface IQuestionProps {

@@ -95,7 +95,7 @@ const Component = memo(() => {
     }
   };
   return (
-    <div className="flex w-full flex-col items-center justify-center bg-light-background-gray px-6  dark:bg-dark-gray-heavy md:px-12 lg:px-36">
+    <div className="flex w-full flex-col items-center justify-center bg-light-background-gray px-6 dark:bg-dark-gray-heavy md:px-12 lg:px-36">
       <div className="mt-10 text-center text-2xl  text-light-blue-hover dark:text-dark-white md:text-3xl lg:text-4xl">
         {t("how_can_we_help_you")}
       </div>
@@ -115,17 +115,22 @@ const Component = memo(() => {
       </div>
       <div className="mb-20 mt-5 md:w-full lg:w-2/3">
         <div className="flex w-full flex-row flex-wrap items-center justify-center gap-10 text-light-blue-hover dark:text-dark-white md:gap-10">
-          {(tab === 0 ? ImmediateActions : LongTermActions).map((action) => {
-            if (getActionIcon(action))
-              return (
-                <div className="flex flex-col items-center justify-center gap-2 text-center">
-                  <div className="w-fit rounded-full border border-light-blue-hover bg-light-background-gray p-5 dark:border-dark-white dark:bg-dark-gray-heavy md:p-5">
-                    {getActionIcon(action)}
+          {(tab === 0 ? ImmediateActions : LongTermActions).map(
+            (action, index) => {
+              if (getActionIcon(action))
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center justify-center gap-2 text-center"
+                  >
+                    <div className="w-fit rounded-full border border-light-blue-hover bg-light-background-gray p-5 dark:border-dark-white dark:bg-dark-gray-heavy md:p-5">
+                      {getActionIcon(action)}
+                    </div>
+                    <div className="font-bold">{action}</div>
                   </div>
-                  <div className="font-bold">{action}</div>
-                </div>
-              );
-          })}
+                );
+            },
+          )}
         </div>
       </div>
     </div>

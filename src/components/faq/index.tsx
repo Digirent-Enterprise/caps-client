@@ -2,24 +2,27 @@ import React from "react";
 
 import { IconArrowRight } from "@tabler/icons-react";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 import { questions } from "@/components/faq/constant";
 import FaqHeader from "@/components/faq/header";
+import { IQuestion } from "@/components/faq/type";
 import Footer from "@/shared/footer";
 import { convertUrlToTitle } from "@/utils/common";
 
 const Component = () => {
+  const { t } = useTranslation("faq");
   const router = useRouter();
   const currentPage = router.pathname;
 
-  const _handleQuestionClick = (question: any) => {
-    router.push(`/faq/${question.url}`);
+  const _handleQuestionClick = (question: IQuestion) => {
+    router.push(`/faq/${question.title}`);
   };
 
   return (
     <div className="flex min-h-screen flex-col bg-light-gray dark:bg-dark-gray-heavy">
       <div className="mb-10">
-        <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
+        <FaqHeader currentPage={currentPage} />
         <div className="mx-auto mt-10 max-w-3xl">
           <div className="flex flex-col gap-5">
             <section className="flex flex-col rounded-xl border border-solid border-gray-400 bg-light-gray p-2 dark:border-dark-white dark:bg-dark-gray-heavy sm:p-3">
@@ -32,7 +35,7 @@ const Component = () => {
                   }`}
                 >
                   <div className="flex items-center">
-                    <h3 className="mr-2">{question.title}</h3>
+                    <h3 className="mr-2">{t(question.title)}</h3>
                   </div>
                   <IconArrowRight size={16} className="self-center" />
                 </div>

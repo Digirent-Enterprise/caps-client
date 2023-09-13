@@ -18,7 +18,7 @@ const Component: FC = () => {
         <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
         <div className="mx-auto mt-10 max-w-3xl bg-light-gray dark:bg-dark-gray-heavy">
           <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-white">
-            {t("privacy")}
+            {t("privacy-concerns-and-security")}
           </h2>
           <div className="rounded bg-light-gray p-4 shadow dark:bg-dark-gray-heavy">
             <h3 className="mb-2 text-xl font-bold text-light-blue-hover dark:text-dark-white">

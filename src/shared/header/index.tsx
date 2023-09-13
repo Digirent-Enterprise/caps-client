@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
 import { useAuth } from "@/contexts/auth-context";
-import useUser from "@/hooks/user/useUser";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

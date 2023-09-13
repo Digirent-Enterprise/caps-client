@@ -21,16 +21,11 @@ export const DefaultGuideSteps = [
   },
   {
     target: '[data-tour="step3"]',
-    content: "The current weather on your location will show here",
-    disableBeacon: true,
-  },
-  {
-    target: '[data-tour="step4"]',
     content: "Your chat message will show here",
     disableBeacon: true,
   },
   {
-    target: '[data-tour="step5"]',
+    target: '[data-tour="step4"]',
     content: "You can start asking the question here",
     disableBeacon: true,
   },
