@@ -3,19 +3,19 @@ import { InquiryNS } from "@/services/inquiry/type";
 
 export class InquiryService {
   static getInquiries(
-    params: InquiryNS.GetInquiriesByStatusParams
+    params: InquiryNS.GetInquiriesByStatusParams,
   ): Promise<InquiryNS.Inquiries> {
     return axios.get("/inquiry/all-items", { params: params });
   }
 
   static getInquiriesByUserId(
-    params: InquiryNS.GetInquiriesByStatusParams
+    params: InquiryNS.GetInquiriesByStatusParams,
   ): Promise<InquiryNS.Inquiries> {
     return axios.get("/inquiry/item", { params: params });
   }
 
   static createInquiry(
-    params: InquiryNS.createInquiryParams
+    params: InquiryNS.createInquiryParams,
   ): Promise<InquiryNS.Inquiry> {
     return axios.post("/inquiry/item", params);
   }

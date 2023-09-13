@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { IconLink, IconX, IconExternalLink } from "@tabler/icons-react";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import { CustomStyle } from "@/shared/sharing-modal/constant";
 import { ISharingModalProps } from "@/shared/sharing-modal/type";
 import { formatDate } from "@/utils/common";
 
-const Component: React.FC<ISharingModalProps> = ({
+const Component: FC<ISharingModalProps> = ({
   isOpen,
   closeModal,
   title,

@@ -38,7 +38,7 @@ const Component = (props: { classes?: string }) => {
         },
         (error: GeolocationPositionError) => {
           showToast("error", userDeniedMessage);
-        }
+        },
       );
     } else {
       showToast("error", geoLocationMessage);

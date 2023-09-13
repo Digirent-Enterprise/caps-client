@@ -11,7 +11,7 @@ type ConversationResult = {
   getAllConversations: () => void;
   createNewConversation: (
     name: string,
-    chatBotType: ConversationNS.ChatbotType
+    chatBotType: ConversationNS.ChatbotType,
   ) => void;
   conversations: ConversationNS.Conversation[];
   selectedConversation: ConversationNS.Conversation;
@@ -31,7 +31,7 @@ const useConversation = () => {
 
   const createNewConversation = async (
     name: string,
-    chatBotType: ConversationNS.ChatbotType
+    chatBotType: ConversationNS.ChatbotType,
   ) => {
     setLoading(true);
     try {

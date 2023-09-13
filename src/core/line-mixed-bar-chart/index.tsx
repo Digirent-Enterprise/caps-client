@@ -23,7 +23,7 @@ ChartJS.register(
   Legend,
   Tooltip,
   LineController,
-  BarController
+  BarController,
 );
 
 const LineMixedBarChart = ({ barData, lineData, labels, title }: any) => {

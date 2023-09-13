@@ -15,6 +15,7 @@ module.exports = {
     "next",
   ],
   rules: {
+    "comma-dangle": "off",
     "prettier/prettier": [
       "error",
       {

@@ -16,7 +16,7 @@ export class UserService {
   };
 
   static updateUser = (
-    data: UserNS.UpdateUserReq
+    data: UserNS.UpdateUserReq,
   ): Promise<UserNS.UpdateUserReq> => {
     return axios.put("/users/update", { firstLogin: false });
   };

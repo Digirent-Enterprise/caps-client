@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { ToastContainer } from "react-toastify";
 
-const Component = React.memo(() => {
+const Component = memo(() => {
   return (
     <ToastContainer
       position="bottom-right"

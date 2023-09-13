@@ -76,7 +76,7 @@ const Component = () => {
           }
           const uniqueElements = new Set(allergies);
           return uniqueElements.size === allergies.length;
-        }
+        },
       ),
     medications: yup
       .array()
@@ -92,7 +92,7 @@ const Component = () => {
           }
           const uniqueElements = new Set(medications);
           return uniqueElements.size === medications.length;
-        }
+        },
       ),
     surgeryDescription: yup
       .string()
@@ -114,7 +114,7 @@ const Component = () => {
           }
           const words = value.trim().split(/\s+/);
           return words.length >= 1 && words.length <= 100;
-        }
+        },
       ),
     familyHistoryDescription: yup
       .string()
@@ -127,7 +127,7 @@ const Component = () => {
           }
           const words = value.trim().split(/\s+/);
           return words.length >= 1 && words.length <= 100;
-        }
+        },
       ),
   });
 
@@ -242,7 +242,7 @@ const Component = () => {
         await axios.post("/static-health", healthForm);
         showToast(
           "success",
-          "Congratulations. You have updated your health data."
+          "Congratulations. You have updated your health data.",
         );
         await router.push("/");
       })

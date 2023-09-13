@@ -1,7 +1,7 @@
 import { MessageNS } from "@/services/message/type";
 
 export const exportConversationToJson = (
-  messages: MessageNS.Messages
+  messages: MessageNS.Messages,
 ): void => {
   try {
     const json = JSON.stringify(messages);

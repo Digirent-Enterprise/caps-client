@@ -168,7 +168,7 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
         />
       </>
     );
-  }
+  },
 );
 
 MessageList.displayName = "MessageList";

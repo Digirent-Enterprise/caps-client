@@ -1,12 +1,20 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+  ReactNode,
+  FC,
+} from "react";
 
 import { ConversationNS } from "@/services/conversation/type";
 import { LocalStorageKeys } from "@/services/local-storage/constant";
 
 type ContextProps = {
   selectedConversation: ConversationNS.Conversation | null;
-  setSelectedConversation: React.Dispatch<
-    React.SetStateAction<ConversationNS.Conversation | null>
+  setSelectedConversation: Dispatch<
+    SetStateAction<ConversationNS.Conversation | null>
   >;
 };
 
@@ -16,10 +24,10 @@ export const ConversationContext = createContext<ContextProps>({
 });
 
 type ConversationProviderProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
-export const ConversationProvider: React.FC<ConversationProviderProps> = ({
+export const ConversationProvider: FC<ConversationProviderProps> = ({
   children,
 }) => {
   const [selectedConversation, setSelectedConversation] =
@@ -27,7 +35,7 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({
 
   useEffect(() => {
     const storedConversation = localStorage.getItem(
-      LocalStorageKeys.selected_conversation
+      LocalStorageKeys.selected_conversation,
     );
     if (storedConversation) {
       setSelectedConversation(JSON.parse(storedConversation));
@@ -38,7 +46,7 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({
     if (selectedConversation) {
       localStorage.setItem(
         LocalStorageKeys.selected_conversation,
-        JSON.stringify(selectedConversation)
+        JSON.stringify(selectedConversation),
       );
     }
   }, [selectedConversation]);

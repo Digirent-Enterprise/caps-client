@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 import {
   IconArrowBack,
@@ -15,10 +15,10 @@ import DashboardSidebar from "@/components/dashboard-sidebar";
 import withAuth from "@/hoc/withLogin";
 import useDevice from "@/hooks/useDevice";
 
-const Component: React.FC = () => {
+const Component: FC = () => {
   const { isMobile } = useDevice();
   const [selectedTab, setSelectedTab] = useImmer<DashboardContentTabs>(
-    "MyGeneralHealthStatistics"
+    "MyGeneralHealthStatistics",
   );
   const { t } = useTranslation("health_record");
 

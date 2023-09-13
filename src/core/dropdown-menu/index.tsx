@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { IDropDownMenuProps } from "@/core/dropdown-menu/type";
 
-const Component = React.memo((props: IDropDownMenuProps) => {
+const Component = memo((props: IDropDownMenuProps) => {
   const { options, onChange, selectedValue, label } = props;
   return (
     <div className="space-y-2">

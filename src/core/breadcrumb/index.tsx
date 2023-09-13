@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 
 import Link from "next/link";
 
-const Component: React.FC<IBreadcrumbProps> = ({ items, currentPage }) => {
+const Component: FC<IBreadcrumbProps> = ({ items, currentPage }) => {
   return (
     <nav aria-label="breadcrumb">
       <ol className="flex">

@@ -52,7 +52,7 @@ api.interceptors.response.use(
       showToast("error", `Request error: ${error.message}`);
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export default api;

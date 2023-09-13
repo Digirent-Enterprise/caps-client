@@ -8,15 +8,15 @@ import { IModelOption } from "@/components/about/select-question-answer/type";
 const Component: FC<IAnswerCardProps> = ({ modelOptions }) => {
   const { t } = useTranslation("about");
   const [selectedModel, setSelectedModel] = useState<string>(
-    modelOptions[0]?.model || ""
+    modelOptions[0]?.model || "",
   );
   const [selectedAnswer, setSelectedAnswer] = useState<string>(
-    modelOptions[0]?.answer
+    modelOptions[0]?.answer,
   );
 
   useEffect(() => {
     const newAnswer = modelOptions.find(
-      (modelOption) => modelOption.model === selectedModel
+      (modelOption) => modelOption.model === selectedModel,
     )?.answer;
     setSelectedAnswer(newAnswer);
   }, [selectedModel, modelOptions]);

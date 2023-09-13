@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Fragment, FC } from "react";
 
 import { Popover, Transition } from "@headlessui/react";
 import { IconDots } from "@tabler/icons-react";
 
 import { IPopoverProps } from "@/shared/popover/type";
 
-const Component: React.FC<IPopoverProps> = ({ options }) => {
+const Component: FC<IPopoverProps> = ({ options }) => {
   return (
     <Popover className="relative">
       {({ open }) => (
@@ -18,7 +18,7 @@ const Component: React.FC<IPopoverProps> = ({ options }) => {
 
           <Transition
             show={open}
-            as={React.Fragment}
+            as={Fragment}
             enter="transition ease-out duration-200"
             enterFrom="opacity-0 translate-y-1"
             enterTo="opacity-100 translate-y-0"

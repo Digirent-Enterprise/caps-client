@@ -18,7 +18,7 @@ const Component = memo((props: IAskQuestionModal) => {
     if (question.length < 100) {
       showToast(
         "error",
-        "Your question is too short. Please provide more information or use our Chat function instead."
+        "Your question is too short. Please provide more information or use our Chat function instead.",
       );
       return;
     }

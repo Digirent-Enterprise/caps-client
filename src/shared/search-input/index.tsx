@@ -1,15 +1,15 @@
-import React from "react";
+import React, { ChangeEvent, memo } from "react";
 
 import { IconSearch, IconX } from "@tabler/icons-react";
 
 import useDevice from "@/hooks/useDevice";
 import { ISearchInputProps } from "@/shared/search-input/type";
 
-const Component = React.memo((props: ISearchInputProps) => {
+const Component = memo((props: ISearchInputProps) => {
   const { placeholder, searchTerm, onSearch } = props;
   const { isMobile } = useDevice();
 
-  const _handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const _handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     onSearch(e.target.value);
   };
 

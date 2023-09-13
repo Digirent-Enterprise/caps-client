@@ -11,5 +11,5 @@ export default extendTheme(
   buttonStyles,
   inputStyles,
   linkStyles,
-  CardComponent
+  CardComponent,
 );
