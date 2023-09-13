@@ -14,7 +14,6 @@ import { ConversationProvider } from "@/contexts/conversation-context";
 import { LoadingProvider } from "@/contexts/loading-context";
 import Loading from "@/core/loading";
 import ToastContainer from "@/core/toast-container";
-import theme from "@/utils/theme";
 import nextI18nextConfig from "next-i18next.config";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -47,7 +46,7 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
   }, [router, setLoading]);
   return (
     <>
-      <ChakraProvider theme={theme}>
+      <ChakraProvider>
         <SessionProvider>
           <LoadingProvider>
             <AuthProvider>

@@ -16,5 +16,7 @@
   "location": "Location:",
   "geolocation": "Geolocation is not supported by this browser.",
   "user_denied": "User denied geolocation",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "no_data": "No data",
+  "update_health_record": "Please update your health regularly!"
 }
