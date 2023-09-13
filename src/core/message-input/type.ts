@@ -1,4 +1,4 @@
-import React, { KeyboardEvent } from "react";
+import { KeyboardEvent } from "react";
 
 export interface IMessageInputProps {
   dataTourTwo: string;
