@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 
-import { Popover, Transition } from "@headlessui/react";
-import { IconSend, IconHeartbeat, IconMicrophone } from "@tabler/icons-react";
+import { IconSend, IconHeartbeat } from "@tabler/icons-react";
 
 import VoiceRecorder from "@/components/voice-recorder";
 import { IMessageInputProps } from "@/core/message-input/type";

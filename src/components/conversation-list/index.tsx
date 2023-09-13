@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import dayjs from "dayjs";
 import { useTranslation } from "next-i18next";
@@ -11,7 +11,7 @@ import useDevice from "@/hooks/useDevice";
 import { ConversationNS } from "@/services/conversation/type";
 import Conversation from "@/shared/conversation";
 
-const Component: React.FC<IConversationListProps> = (
+const Component: FC<IConversationListProps> = (
   props: IConversationListProps
 ) => {
   const {

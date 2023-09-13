@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { memo, useEffect, useMemo, useState } from "react";
 
 import { CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
 import { isEmpty } from "lodash";
@@ -6,7 +6,7 @@ import { isEmpty } from "lodash";
 import useDynamicHealth from "@/hooks/dynamic-health";
 import ContainerCard from "@/shared/chart-container-card";
 
-const Component = React.memo(() => {
+const Component = memo(() => {
   const { myStatuses, getDynamicHealth } = useDynamicHealth();
   const [averageScore, setAverageScore] = useState(0);
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 
 import { ChartData, ChartOptions } from "chart.js";
 import { Chart, registerables } from "chart.js";
@@ -7,17 +7,14 @@ import { Line } from "react-chartjs-2";
 
 import { DefaultColorPalette } from "@/components/dashboard-pie-chart/constant";
 import { DATE_AND_MONTH_TIME_FENCE } from "@/components/dashboard-status-chart/constant";
-import { LineChartDataset } from "@/components/dashboard-status-chart/type";
-import LineChart from "@/core/line-chart";
 import useDynamicHealth from "@/hooks/dynamic-health";
 import ContainerCard from "@/shared/chart-container-card";
-
-import { formatDateAndMonth, formatDateTime } from "../../utils/common";
+import { formatDateAndMonth, formatDateTime } from "@/utils/common";
 
 Chart.register(...registerables);
 Chart.defaults.color = "#ffffff";
 
-const Component = React.memo(() => {
+const Component = memo(() => {
   const { myStatuses, getDynamicHealth } = useDynamicHealth();
 
   const data: ChartData<"line", any, any> = {
@@ -76,7 +73,6 @@ const Component = React.memo(() => {
   useEffect(() => {
     getDynamicHealth();
   }, []);
-  console.log(data.datasets);
   return (
     <ContainerCard
       hasData={!isEmpty((data.datasets as { data: unknown }[])[0].data)}

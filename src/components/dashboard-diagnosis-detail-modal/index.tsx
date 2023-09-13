@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo } from "react";
+import React, { Fragment, memo, useMemo } from "react";
 
 import { Dialog, Transition } from "@headlessui/react";
 import { IconX } from "@tabler/icons-react";
@@ -6,14 +6,14 @@ import { IconX } from "@tabler/icons-react";
 import { IDashboardDiagnosisDetail } from "@/components/dashboard-diagnosis-detail-modal/type";
 import { formatDateTime } from "@/utils/common";
 
-const Component = React.memo((props: IDashboardDiagnosisDetail) => {
+const Component = memo((props: IDashboardDiagnosisDetail) => {
   const { open: isOpen, onClose, item, img } = props;
   const textWithLineBreaks = useMemo(() => {
     return item.description.split("\n").map((line, index) => (
-      <React.Fragment key={index}>
+      <Fragment key={index}>
         {line}
         <div className="pb-1" />
-      </React.Fragment>
+      </Fragment>
     ));
   }, [item]);
 

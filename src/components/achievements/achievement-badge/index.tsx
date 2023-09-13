@@ -1,10 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 
 import Image from "next/image";
 
 import { IAchievementBadge } from "@/components/achievements/achievement-badge/type";
 
-const Component: React.FC<IAchievementBadge> = () => {
+const Component: FC<IAchievementBadge> = () => {
   return (
     <div>
       <h1>Your Achievements</h1>

@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useEffect, useState } from "react";
 
 import { Tab } from "@headlessui/react";
 import { useImmer } from "use-immer";
@@ -13,7 +13,7 @@ import useInquiry from "@/hooks/inquiry";
 
 const Component = memo((props: IDiscussionModalProps) => {
   const { isOpen, onClose } = props;
-  const [openAskQuestion, setOpenAskQuestion] = React.useState(false);
+  const [openAskQuestion, setOpenAskQuestion] = useState<boolean>(false);
   const [tab, setTab] = useImmer<number>(0);
   const { createInquiry, getInquiryByUserId, inquiries } = useInquiry();
   const _openModal = () => setOpenAskQuestion(true);

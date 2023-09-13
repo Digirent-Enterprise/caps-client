@@ -9,9 +9,8 @@ import {
   CheckboxOptions,
   DefaultCheckboxOption,
 } from "@/components/health-form/constant";
-import { IHealthFormProps } from "@/components/health-form/type";
 import BadgeListInput from "@/core/badge-list-input";
-import Button from "@/core/button";
+import BaseButton from "@/core/base-button";
 import Option from "@/core/select-option";
 import { SelectOption } from "@/core/select-option/type";
 import TextInput from "@/core/text-input";
@@ -419,14 +418,14 @@ const Component = () => {
         </div>
         <div className="mt-10 flex w-full flex-col items-center justify-between sm:flex-row">
           <div>
-            <Button onClick={() => router.back()} mode="secondary">
+            <BaseButton onClick={() => router.back()} mode="secondary">
               {t("back")}
-            </Button>
+            </BaseButton>
           </div>
           <div className="flex justify-end">
-            <Button onClick={_handleSubmitForm} mode="primary">
+            <BaseButton onClick={_handleSubmitForm} mode="primary">
               {t("submit")}
-            </Button>
+            </BaseButton>
           </div>
         </div>
       </div>

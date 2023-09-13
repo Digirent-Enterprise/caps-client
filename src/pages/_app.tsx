@@ -4,7 +4,6 @@ import "@/styles/globals.css";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
-import { Inter } from "next/font/google";
 import { SessionProvider } from "next-auth/react";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "next-themes";
@@ -19,8 +18,6 @@ import theme from "@/utils/theme";
 import nextI18nextConfig from "next-i18next.config";
 
 import "react-toastify/dist/ReactToastify.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 interface CustomAppProps extends AppProps {
   err: Error;
@@ -49,7 +46,7 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
     };
   }, [router, setLoading]);
   return (
-    <div className={inter.className}>
+    <>
       <ChakraProvider theme={theme}>
         <SessionProvider>
           <LoadingProvider>
@@ -65,7 +62,7 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
       </ChakraProvider>
       <Loading loadingProps={loading} />
       <ToastContainer />
-    </div>
+    </>
   );
 }
 

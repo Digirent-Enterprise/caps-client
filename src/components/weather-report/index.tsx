@@ -8,6 +8,9 @@ import { showToast } from "@/utils/toast";
 
 const Component = (props: { classes?: string }) => {
   const { t } = useTranslation("health_record");
+  const userDeniedMessage = t("user_denied");
+  const geoLocationMessage = t("geolocation");
+
   const { classes } = props;
   const [weather, setWeather] = useState<IWeatherData | null>(null);
   const { isMobile } = useDevice();
@@ -34,11 +37,11 @@ const Component = (props: { classes?: string }) => {
             });
         },
         (error: GeolocationPositionError) => {
-          showToast("error", t("user_denied"));
+          showToast("error", userDeniedMessage);
         }
       );
     } else {
-      showToast("error", t("geolocation"));
+      showToast("error", geoLocationMessage);
     }
   }, []);
 

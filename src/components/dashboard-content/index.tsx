@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useRef } from "react";
+import React, { memo } from "react";
 
 import { useTranslation } from "next-i18next";
 
@@ -7,7 +7,7 @@ import DashboardMyGeneralHealthStatistic from "@/components/dashboard-my-general
 import DashboardOverviewDiagnosis from "@/components/dashboard-overview-diagnosis";
 import useDevice from "@/hooks/useDevice";
 
-const Component = React.memo((props: IDashboardContentProps) => {
+const Component = memo((props: IDashboardContentProps) => {
   const { t } = useTranslation("health_record");
   const { tab = "MyGeneralHealthStatistics" } = props;
   const { isMobile } = useDevice();

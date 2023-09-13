@@ -1,0 +1,14 @@
+{
+  "question": "Câu hỏi",
+  "assistant": "Mô hình",
+  "overview": {
+    "title": "Tổng quan"
+  },
+  "team": {
+    "title": "Nhóm phát triển"
+  },
+  "acknowledgment": {
+    "title": "Lời cảm ơn",
+    "text": "We would like to thank Xinyang Geng, Hao Liu, and Eric Wallace from BAIR; Xuecheng Li, and Tianyi Zhang from Stanford Alpaca team for their insightful discussion and feedback; Qirong Ho from MBZUAI for providing support on the serving cluster. Please check out a blog post from BAIR about a concurrent effort on their chatbot."
+  }
+}

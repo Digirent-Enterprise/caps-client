@@ -98,5 +98,6 @@ export const Component = memo(() => {
     </div>
   );
 });
-Component.displayName = "Discussions";
+
+Component.displayName = "DiscussionsPage";
 export default Component;

@@ -1,21 +1,13 @@
-import React, { useContext } from "react";
+import React, { memo, useContext } from "react";
 
-import {
-  IconArrowBack,
-  IconBellPlusFilled,
-  IconDeviceIpadHeart,
-  IconHistory,
-} from "@tabler/icons-react";
-import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
-import { DashboardContentTabs } from "@/components/dashboard-content/type";
 import { IDashboardSidebarProps } from "@/components/dashboard-sidebar/type";
 import { AuthContext } from "@/contexts/auth-context";
 import useDevice from "@/hooks/useDevice";
 
-const Component = React.memo((props: IDashboardSidebarProps) => {
+const Component = memo((props: IDashboardSidebarProps) => {
   const { t } = useTranslation("health_record");
   const [showSidebar, setShowSidebar] = useImmer<boolean>(false);
   const { isMobile } = useDevice();

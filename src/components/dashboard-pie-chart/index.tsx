@@ -1,23 +1,19 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 
-import { Chart, ChartOptions, registerables } from "chart.js";
+import { Chart, registerables } from "chart.js";
 import { ChartData } from "chart.js/dist/types";
 import { isEmpty } from "lodash";
 import { Pie } from "react-chartjs-2";
 
 import { DefaultColorPalette } from "@/components/dashboard-pie-chart/constant";
-import {
-  IDashboardPieChart,
-  PieChartDataset,
-} from "@/components/dashboard-pie-chart/type";
+import { IDashboardPieChart } from "@/components/dashboard-pie-chart/type";
 import PieChart from "@/core/pie-chart";
 import useDynamicHealth from "@/hooks/dynamic-health";
 import ContainerCard from "@/shared/chart-container-card";
-import { formatDateTime } from "@/utils/common";
 
 Chart.register(...registerables);
 Chart.defaults.color = "#ffffff";
-const Component = React.memo((props: IDashboardPieChart) => {
+const Component = memo((props: IDashboardPieChart) => {
   const { type } = props;
   const {
     categorizedStatus,

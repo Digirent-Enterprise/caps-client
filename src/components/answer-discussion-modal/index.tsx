@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useState } from "react";
 
 import { IconRobot } from "@tabler/icons-react";
 
@@ -9,7 +9,7 @@ import { showToast } from "@/utils/toast";
 
 const Component = memo((props: IAnswerDiscussionModalProps) => {
   const { open, onClose } = props;
-  const [answer, setAnswer] = React.useState<string>("");
+  const [answer, setAnswer] = useState<string>("");
   const _onQuestionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setAnswer(e.target.value);
   };

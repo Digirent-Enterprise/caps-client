@@ -2,9 +2,9 @@ import React from "react";
 
 import FaqComponent from "@/components/faq";
 
-const Component = () => {
+const Component: React.FC = () => {
   return <FaqComponent />;
 };
 
-Component.displayName = "Faq";
+Component.displayName = "FaqPage";
 export default Component;

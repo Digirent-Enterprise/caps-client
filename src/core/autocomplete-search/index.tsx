@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Fuse from "fuse.js";
 
 import {
   IAutocompleteSearchProps,
   ISearchTerm,
-} from "@/components/autocomplete-search/type";
-
-import diseaseData from "./diseaseData.json";
+} from "@/core/autocomplete-search/type";
+import diseaseData from "@/fixtures/diseaseData.json";
 
 const Component: React.FC<IAutocompleteSearchProps> = ({
   onSuggestionClick,
