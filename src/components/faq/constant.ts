@@ -1,33 +1,30 @@
-export const questions = [
+import { IQuestion } from "@/components/faq/type";
+
+export const questions: IQuestion[] = [
   {
     id: 1,
-    url: "general-information",
-    title: "General information",
+    title: "general-information",
   },
   {
-    id: 1,
-    url: "account-and-profile",
-    title: "Account and profile",
+    id: 2,
+    title: "account-and-profile",
   },
   {
-    id: 1,
-    url: "supported-features",
-    title: "Supported feature",
+    id: 3,
+    title: "supported-features",
   },
   {
-    id: 1,
-    url: "privacy-concerns-and-security",
-    title: "Privacy concerns and security",
+    id: 4,
+    title: "privacy-concerns-and-security",
   },
   {
-    id: 1,
-    url: "dica-release-notes",
-    title: "DICA - Release notes",
+    id: 5,
+    title: "dica-release-notes",
   },
 ];
 
 export const breadcrumbItems = [
-  { label: "Home", href: "/" },
+  { label: "home", href: "/" },
   { label: "DICA", href: "/faq" },
-  { label: "FAQ" },
+  { label: "faq" },
 ];

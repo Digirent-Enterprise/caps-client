@@ -1,11 +1,10 @@
 import React, { memo } from "react";
 
 import Link from "next/link";
-
-import useDevice from "@/hooks/useDevice";
+import { useTranslation } from "next-i18next";
 
 const Component = memo(() => {
-  const { isMobile } = useDevice();
+  const { t } = useTranslation("home");
   return (
     <footer
       data-testid="footer"
@@ -17,7 +16,7 @@ const Component = memo(() => {
           <Link href="/" className="hover:underline">
             DICA™
           </Link>
-          . All Rights Reserved.
+          . {t("all_right_reserved")}.
         </span>
       </div>
     </footer>

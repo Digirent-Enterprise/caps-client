@@ -1,8 +1,10 @@
 import React, { FC } from "react";
 
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 const Component: FC<IBreadcrumbProps> = ({ items, currentPage }) => {
+  const { t } = useTranslation("faq");
   return (
     <nav aria-label="breadcrumb">
       <ol className="flex">
@@ -13,11 +15,11 @@ const Component: FC<IBreadcrumbProps> = ({ items, currentPage }) => {
                 href={item.href}
                 className="text-light-button-blue hover:text-light-button-blue-hover dark:text-dark-white dark:hover:text-light-button-blue-hover"
               >
-                {item.label}
+                {t(item.label)}
               </Link>
             ) : (
               <span className="text-gray-500 dark:text-light-button-blue-hover">
-                {currentPage ? currentPage : item.label}
+                {currentPage ? t(currentPage) : t(item.label)}
               </span>
             )}
             {index < items.length - 1 && item.label && (

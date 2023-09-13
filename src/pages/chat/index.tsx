@@ -26,7 +26,6 @@ import DiscussionModal from "@/components/discussion-modal";
 import MessageList from "@/components/message-list";
 import OnboardingTutorial from "@/components/onboarding-tutorial";
 import Settings from "@/components/settings";
-import WeatherReport from "@/components/weather-report";
 import { useAuth } from "@/contexts/auth-context";
 import Kbd from "@/core/kbd";
 import withAuth from "@/hoc/withLogin";
@@ -350,15 +349,12 @@ const Component: FC = () => {
                     </div>
                   ) : null}
                 </div>
-                <div data-tour="step3" className="flex">
-                  {/*<WeatherReport classes="text-light-blue-hover" />*/}
-                </div>
               </div>
               {selectedConversation && conversations.length > 0 ? (
                 <MessageList
                   ref={chatContainerRef}
-                  dataTourOne="step4"
-                  dataTourTwo="step5"
+                  dataTourOne="step3"
+                  dataTourTwo="step4"
                   selectedConversation={selectedConversation}
                 />
               ) : (
