@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, ReactElement } from "react";
 
 import {
   IconAddressBook,
@@ -45,7 +45,7 @@ const Component = memo(() => {
   const iconClass = useMemo(() => {
     return "w-10 h-10 stroke-1 m-0";
   }, []);
-  const getActionIcon = (action: string): React.ReactElement | null => {
+  const getActionIcon = (action: string): ReactElement | null => {
     switch (action) {
       // Immediate Actions
       case t("chat"):

@@ -1,14 +1,21 @@
-import React, { createContext, useState } from "react";
+import React, {
+  createContext,
+  useState,
+  Dispatch,
+  SetStateAction,
+  ReactNode,
+  FC,
+} from "react";
 
 import Loading from "@/core/loading";
 
 type LoadingContextType = {
   loading: boolean;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 };
 
 type LoadingProviderProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export const LoadingContext = createContext<LoadingContextType>({
@@ -16,9 +23,7 @@ export const LoadingContext = createContext<LoadingContextType>({
   setLoading: () => {},
 });
 
-export const LoadingProvider: React.FC<LoadingProviderProps> = ({
-  children,
-}) => {
+export const LoadingProvider: FC<LoadingProviderProps> = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
   return (

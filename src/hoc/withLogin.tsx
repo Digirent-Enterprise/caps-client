@@ -1,19 +1,21 @@
-import React, { useCallback, useContext, useEffect, useMemo } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  ComponentType,
+  FC,
+} from "react";
 
 import { debounce } from "lodash";
 import { useRouter } from "next/router";
 
-import { AuthContext, AuthProvider, useAuth } from "@/contexts/auth-context";
-import { LoadingProvider } from "@/contexts/loading-context";
-import useUser from "@/hooks/user/useUser";
-import { IUser } from "@/types/context/with-auth-context";
-import { showToast } from "@/utils/toast";
+import { AuthContext } from "@/contexts/auth-context";
 
 const WAIT_TIME_BEFORE_REDIRECT = 5000;
 export default function withAuth<P extends object>(
-  Component: React.ComponentType<P>,
+  Component: ComponentType<P>,
 ) {
-  const WithAuth: React.FC<P> = (props) => {
+  const WithAuth: FC<P> = (props) => {
     const router = useRouter();
     const {
       user,

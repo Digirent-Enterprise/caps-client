@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { FC, useState, ChangeEvent, FormEvent } from "react";
 
 import { IconX } from "@tabler/icons-react";
 
 import { Badge, IBadgeListInputProps } from "@/core/badge-list-input/type";
 
-const Component: React.FC<IBadgeListInputProps> = ({
+const Component: FC<IBadgeListInputProps> = ({
   onSubmit,
   label,
   errorMessage,
@@ -12,11 +12,11 @@ const Component: React.FC<IBadgeListInputProps> = ({
   const [badgeText, setBadgeText] = useState("");
   const [badges, setBadges] = useState<Badge[]>([]);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setBadgeText(event.target.value);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setBadges([...badges, { value: badgeText.trim(), id: badges.length + 1 }]);
     setBadgeText("");

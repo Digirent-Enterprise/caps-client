@@ -1,8 +1,8 @@
-import * as React from "react";
+import React, { memo } from "react";
 
 import { ISelectOptionProps, SelectOption } from "@/core/select-option/type";
 
-const Component = React.memo((props: ISelectOptionProps) => {
+const Component = memo((props: ISelectOptionProps) => {
   const {
     onChange,
     selectedOption,

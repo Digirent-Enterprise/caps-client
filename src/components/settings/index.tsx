@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { FC, useState } from "react";
 
 import { IconExternalLink } from "@tabler/icons-react";
 import Link from "next/link";
@@ -13,7 +13,7 @@ import BaseButton from "@/core/base-button";
 import BaseModal from "@/core/base-modal";
 import Switcher from "@/core/switcher";
 
-const Component: React.FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
+const Component: FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
   const [selectedTab, setSelectedTab] = useState(1);
   const [isEnabledNotification, setIsEnabledNotification] = useState(false);
   const { t } = useTranslation("settings");

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { ITextareaProps } from "@/core/textarea/type";
 
-const Component = React.memo((props: ITextareaProps) => {
+const Component = memo((props: ITextareaProps) => {
   const { value, label, onChange, errorMessage } = props;
 
   let inputClassNames =
