@@ -1,5 +1,3 @@
-import { useTranslation } from "next-i18next";
-
 import { SelectOption, SelectOptions } from "@/core/select-option/type";
 
 export const GenderOptions: SelectOptions = [

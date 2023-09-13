@@ -7,7 +7,6 @@ import {
   IconEdit,
 } from "@tabler/icons-react";
 
-import AskQuestionModal from "@/components/ask-question-modal";
 import { IDiscussionItemProps } from "@/components/discussion-item/type";
 
 const Component = memo((props: IDiscussionItemProps) => {

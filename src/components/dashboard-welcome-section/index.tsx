@@ -1,7 +1,6 @@
 import React, { memo, useEffect, useRef } from "react";
 
 import { isEmpty } from "lodash";
-import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
