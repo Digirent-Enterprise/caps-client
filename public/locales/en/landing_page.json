@@ -1,5 +1,5 @@
 {
-  "chat": "Chat",
+  "home": "Home",
   "login": "Login",
   "register": "Register",
   "my_health": "My Health",
@@ -17,7 +17,6 @@
   "diagnosis": "Diagnosis",
   "emergency_contact": "Emergency Contacts",
   "medication_tracking": "Medication Tracking",
-  "chat": "Chat",
   "health_tracking": "Health Tracking",
   "visualization": "Visualization",
   "health_management": "Health Management",
