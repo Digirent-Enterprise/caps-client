@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 
+import { useImmer } from "use-immer";
+
 import { ConversationContext } from "@/contexts/conversation-context";
 import { LoadingContext } from "@/contexts/loading-context";
 import ConversationService from "@/services/conversation";
@@ -26,8 +28,8 @@ const useConversation = () => {
   >([]);
 
   const { setLoading } = useContext(LoadingContext);
-  const { selectedConversation, setSelectedConversation } =
-    useContext(ConversationContext);
+  const [selectedConversation, setSelectedConversation] =
+    useImmer<ConversationNS.Conversation>(null);
 
   const createNewConversation = async (
     name: string,

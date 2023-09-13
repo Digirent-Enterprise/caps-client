@@ -61,7 +61,7 @@ const Component = memo((props: IDashboardWelcomeSection) => {
     <>
       <div
         ref={containerRef}
-        className="relative mt-5 h-auto min-h-[15rem] w-1/3 overflow-hidden rounded-xl bg-[#2d325a] p-10 md:w-full"
+        className="relative mt-5 h-auto min-h-[15rem] w-1/3 overflow-hidden rounded-xl bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 p-10 md:w-full"
       >
         {/*<WeatherReport className="absolute top-1 right-0 p-4 bg-[#475D78] bg-opacity-0 rounded-xl" />*/}
         <div
@@ -69,17 +69,11 @@ const Component = memo((props: IDashboardWelcomeSection) => {
           className="relative"
           style={{ top: "-5rem", left: "-2rem" }}
         >
-          <Image
-            className="h-auto w-28 opacity-80"
-            src="/static/dashboard/cloud.png"
-            alt="cloud"
-            width={500}
-            height={300}
-          />
+          <img className="h-auto w-28 " src={"/static/dashboard/cloud.png"} />
         </div>
 
-        <div className="absolute -bottom-6 left-0 flex h-2/3 w-full flex-col items-start justify-start bg-transparent/10 p-4 pt-2 text-white drop-shadow-md backdrop-blur-xl">
-          <div className="mt-3 text-3xl font-semibold text-white">
+        <div className="absolute -bottom-6 left-0 flex h-2/3 w-full flex-col items-start justify-start bg-[#213363] bg-opacity-60 p-4 pt-2 text-white drop-shadow-md backdrop-blur-xl">
+          <div className="mt-3 text-3xl font-semibold text-white ">
             {t("welcome")}, {user?.name}
           </div>
           <div>
@@ -90,7 +84,7 @@ const Component = memo((props: IDashboardWelcomeSection) => {
             <div className="flex flex-row gap-1">
               Please let DICA know your
               <div
-                className="cursor-pointer text-light-button-blue-hover underline"
+                className="cursor-pointer text-light-gray underline"
                 onClick={_openModal}
               >
                 latest status
@@ -103,7 +97,7 @@ const Component = memo((props: IDashboardWelcomeSection) => {
               DICA is able to general diagnosis your health status based on your
               provided information.
               <div
-                className="cursor-pointer text-light-button-blue-hover underline"
+                className="cursor-pointer text-light-gray underline"
                 onClick={_openModal}
               >
                 Give us a try!

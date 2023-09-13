@@ -51,12 +51,14 @@ const Component = memo((props: IAskQuestionModal) => {
           </span>
         </div>
         <div className="font-semibold"> Input your question here: </div>
+        `
         <textarea
           className="h-28 overflow-auto p-1"
           value={question}
           onChange={_onQuestionChange}
           placeholder="This is area to input your question"
         />
+        `
         <div className="mt-3 flex w-full">
           <button
             onClick={_onSubmit}

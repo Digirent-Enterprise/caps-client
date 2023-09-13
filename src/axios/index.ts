@@ -1,15 +1,15 @@
 import * as process from "process";
 
+import { useContext } from "react";
+
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 import dotenv from "dotenv";
 
 import { HttpResponse } from "@/types/enum/http-response";
 import { showToast } from "@/utils/toast";
-
 dotenv.config();
+export const API_BASE_URL = process.env.BACKEND_URL || "http://localhost:3003";
 
-export const API_BASE_URL: string =
-  process.env.BACKEND_URL || "http://localhost:3003";
 const TWENTY_MINUTES = 20 * 60 * 1000;
 
 const api: AxiosInstance = axios.create({

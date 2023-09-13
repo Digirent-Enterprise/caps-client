@@ -64,9 +64,11 @@ const Component = memo((props: IChatMessageProps) => {
   return (
     <div
       className={`mt-5 grid grid-flow-row gap-2 text-sm text-light-blue-hover ${containerClass}`}
-      onClick={senderType === "chatbot" ? _openSliceOver : () => {}}
     >
-      <div className={`group flex ${containerClass}`}>
+      <div
+        className={`group flex ${containerClass}`}
+        onClick={senderType === "chatbot" ? _openSliceOver : () => {}}
+      >
         <div
           className={`max-w-xs px-6 py-3 lg:max-w-md ${messageClass}`}
           style={{ wordBreak: "break-word" }}
@@ -111,7 +113,7 @@ const Component = memo((props: IChatMessageProps) => {
       <SliceOver
         open={isSliceOverOpen}
         setOpen={setIsSliceOverOpen}
-        metadata={metadata}
+        metadata={metadata || []}
       />
     </div>
   );

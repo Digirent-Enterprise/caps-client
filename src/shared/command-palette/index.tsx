@@ -54,7 +54,7 @@ const Component = () => {
           leave="transition-opacity duration-100"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
-          // afterLeave={() => {console.log("leaving...")}}
+          // afterLeave={() => }}
         >
           <Combobox
             as="div"

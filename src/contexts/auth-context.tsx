@@ -92,6 +92,7 @@ export const AuthProvider = (props: IAuthContextProps) => {
   // }, [])
 
   // useEffect(() => {
+  //   console.log('my user', user)
   //   _callbackGetUser(user);
   // }, [user]);
 
@@ -124,7 +125,6 @@ export const AuthProvider = (props: IAuthContextProps) => {
   //     setRefreshToken(storedRefreshToken);
   //   }
   //   if (storedAccessToken && isEmpty(user)) {
-  //     console.log('run callback get user')
   //     _initUser();
   //   }
   // }, []);

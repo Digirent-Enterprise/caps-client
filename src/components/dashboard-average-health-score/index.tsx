@@ -44,6 +44,7 @@ const Component = memo(() => {
 
   return (
     <ContainerCard
+      hasData={!!averageScore}
       chart={
         <div className="h-full w-full">
           <div className="w-full p-1 text-center text-lg font-bold text-white">
@@ -56,7 +57,7 @@ const Component = memo(() => {
               value={averageScore}
               color={colorRender}
               thickness="15%"
-              trackColor="#162549"
+              trackColor="#5f5c5c"
             >
               <CircularProgressLabel className="text-4xl font-bold text-white">
                 {averageScore}

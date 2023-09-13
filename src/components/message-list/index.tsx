@@ -93,46 +93,17 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
           } hide-scrollbar flex-col overflow-y-scroll border-l border-gray-400 dark:border-dark-gray`}
         >
           <div data-tour={props.dataTourOne} className="relative flex-1 p-4">
-            {/*{messages.map((message, index) => (*/}
-            {/*  <ChatMessage*/}
-            {/*    key={index}*/}
-            {/*    conservationId={message.id}*/}
-            {/*    content={message.content}*/}
-            {/*    senderType={message.sender}*/}
-            {/*    language={message.language}*/}
-            {/*  />*/}
-            {/*))}*/}
+            {messages.map((message, index) => (
+              <ChatMessage
+                key={index}
+                conservationId={message.id}
+                content={message.content}
+                senderType={message.sender}
+                language={message.language}
+                metadata={message.metadata}
+              />
+            ))}
 
-            <ChatMessage
-              key={"1"}
-              conservationId={1}
-              content={"chào mọi người, tôi tên làchào mọi người, tôi tên là "}
-              senderType={"user"}
-              language={"en"}
-              metadata={[
-                {
-                  source_type: "text book",
-                  source: "BỆNH TRUYỀN NHIỄM VÀ NHIỆT ĐỚI",
-                  page: 519,
-                  publisher: "Nhà Xuất Bản Khoa học kỹ thuật",
-                  author: "GS. TSKH. LÊ ĐĂNG HÀ",
-                },
-                {
-                  source_type: "text book",
-                  source: "BỆNH TRUYỀN NHIỄM VÀ NHIỆT ĐỚI",
-                  page: 519,
-                  publisher: "Nhà Xuất Bản Khoa học kỹ thuật",
-                  author: "GS. TSKH. LÊ ĐĂNG HÀ",
-                },
-                {
-                  source_type: "text book",
-                  source: "BỆNH TRUYỀN NHIỄM VÀ NHIỆT ĐỚI",
-                  page: 519,
-                  publisher: "Nhà Xuất Bản Khoa học kỹ thuật",
-                  author: "GS. TSKH. LÊ ĐĂNG HÀ",
-                },
-              ]}
-            />
             <div ref={messagesEndRef}></div>
 
             {messages &&

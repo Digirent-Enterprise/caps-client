@@ -104,7 +104,7 @@ const Component = memo(() => {
       .catch((validationErrors) => {
         const newErrorMessages: ErrorMessages = {};
 
-        validationErrors.inner.forEach((error: ErrorMessages) => {
+        validationErrors?.inner?.forEach((error: ErrorMessages) => {
           newErrorMessages[error.path] = error.message;
         });
 
@@ -127,8 +127,14 @@ const Component = memo(() => {
   };
 
   return (
-    <div className="flex h-full w-full flex-col gap-2 bg-light-background-gray p-2 dark:bg-dark-gray-heavy sm:gap-1 md:w-2/5 md:gap-4 md:p-0">
-      <div className="mb-2 w-full text-center text-2xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white md:mb-[40px] md:text-3xl">
+    <div
+      className={
+        isDesktop
+          ? "mt-10 flex w-full flex-col gap-2 bg-light-background-gray p-2 dark:bg-dark-gray-heavy sm:gap-1 md:mb-[10px] md:w-2/5 md:gap-4 md:p-0"
+          : "mb-2 flex w-full flex-col gap-1 bg-light-background-gray  text-2xl dark:bg-dark-gray-heavy"
+      }
+    >
+      <div className="mb-1 w-full text-center text-2xl font-bold tracking-normal text-light-blue-hover dark:text-dark-white md:mb-[40px] md:text-3xl">
         {t("register")}
       </div>
       <TextInput

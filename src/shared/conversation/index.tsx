@@ -119,7 +119,7 @@ const Component = memo(
 
     return (
       <>
-        <div className="relative flex items-center">
+        <div className="relative mb-1 flex items-center">
           {isRenaming && selectedConversation?.id === conversation.id ? (
             <div className="group flex w-full items-center gap-3 rounded-md border border-light-primary-button bg-light-gray p-3 dark:bg-light-primary-button">
               <IconMessage size={18} />
@@ -147,11 +147,11 @@ const Component = memo(
                 className={`${
                   selectedConversation?.id === conversation.id
                     ? "text-light-white"
-                    : "text-light-gray dark:text-dark-white"
+                    : "text-light-bg-blue dark:text-dark-white"
                 }`}
               />
               <div
-                className={`relative max-h-5 flex-1 truncate break-all text-left text-[12.5px] leading-3${
+                className={`text-md relative max-h-5 flex-1 truncate break-all text-left text-[12.5px] font-semibold leading-3${
                   selectedConversation?.id === conversation.id
                     ? "pr-12 text-light-white"
                     : "pr-1"
@@ -184,14 +184,14 @@ const Component = memo(
                     className="text-light-white dark:text-dark-white"
                   />
                 </SidebarActionButton>
-                <SidebarActionButton
-                  handleClick={_handleShareConversationModal}
-                >
-                  <IconShare2
-                    size={18}
-                    className="text-light-white dark:text-dark-white"
-                  />
-                </SidebarActionButton>
+                {/*<SidebarActionButton*/}
+                {/*  handleClick={_handleShareConversationModal}*/}
+                {/*>*/}
+                {/*  <IconShare2*/}
+                {/*    size={18}*/}
+                {/*    className="text-light-white dark:text-dark-white"*/}
+                {/*  />*/}
+                {/*</SidebarActionButton>*/}
                 <SidebarActionButton handleClick={_handleOpenDeleteModal}>
                   <IconTrash
                     size={18}
