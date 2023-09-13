@@ -47,7 +47,6 @@ const Component = memo((props: IDiscussionItemProps) => {
       {({ open }) => {
         let canOpen = false;
         if (status.toLowerCase() !== "pending") canOpen = true;
-        console.log("canOpen", canOpen);
         return (
           <>
             <Disclosure.Button

@@ -125,7 +125,6 @@ export const AuthProvider = (props: IAuthContextProps) => {
   //     setRefreshToken(storedRefreshToken);
   //   }
   //   if (storedAccessToken && isEmpty(user)) {
-  //     console.log('run callback get user')
   //     _initUser();
   //   }
   // }, []);
