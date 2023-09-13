@@ -59,11 +59,11 @@ const Component: React.FC<ISliceOverProps> = ({ open, setOpen, metadata }) => {
                     </div>
                   </Transition.Child>
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                    <div className="flex flex-row gap-3 items-center bg-light-button-blue p-4 sm:px-6">
+                    <div className="flex flex-row items-center gap-3 bg-light-button-blue p-4 sm:px-6">
                       <Dialog.Title className="text-2xl font-semibold leading-6 text-white">
                         References
                       </Dialog.Title>
-                      <p className="mt-1 w-fit rounded text-white bg-light-orange px-3 border-2 border-light-orange font-semibold">
+                      <p className="mt-1 w-fit rounded border-2 border-light-orange bg-light-orange px-3 font-semibold text-white">
                         BETA
                       </p>
                     </div>
