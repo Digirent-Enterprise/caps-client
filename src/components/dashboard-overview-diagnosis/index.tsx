@@ -78,7 +78,8 @@ const Component = memo(() => {
           />
           <div> No Data </div>
           <div className="text-sm text-light-background-gray">
-            Please update your heath regularly. Or you can try our diagnosis.
+            Please update your status regularly. Then, you can try our
+            diagnosis.
           </div>
         </div>
       )}

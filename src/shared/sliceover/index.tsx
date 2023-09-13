@@ -8,6 +8,7 @@ import { ISliceOverProps } from "@/shared/sliceover/type";
 
 const Component: React.FC<ISliceOverProps> = ({ open, setOpen, metadata }) => {
   const { t } = useTranslation("metadata");
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -20,7 +21,7 @@ const Component: React.FC<ISliceOverProps> = ({ open, setOpen, metadata }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-500 transition-opacity" />
+          <div className="fixed inset-0 bg-gray-500 bg-opacity-40 transition-opacity" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-hidden">
@@ -60,9 +61,11 @@ const Component: React.FC<ISliceOverProps> = ({ open, setOpen, metadata }) => {
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                     <div className="bg-light-button-blue p-4 sm:px-6">
                       <Dialog.Title className="text-2xl font-semibold leading-6 text-white">
-                        Reference
+                        Reference(s)
                       </Dialog.Title>
-                      <p className="text-white">Description goes here</p>
+                      <p className="text-white mt-1 px-3 py-1 bg-dark-green-hover font-semibold rounded w-fit">
+                        Beta
+                      </p>
                     </div>
                     <div className="relative mt-6 flex-1 px-4 sm:px-6">
                       <ul className="list-disc pl-5">
