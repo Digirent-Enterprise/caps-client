@@ -1,6 +1,6 @@
 export const tabs = [
-  { id: 1, name: "General" },
-  { id: 2, name: "Accounts" },
-  { id: 3, name: "Privacy" },
-  { id: 4, name: "Notifications" },
+  { id: 1, name: "general" },
+  { id: 2, name: "accounts" },
+  { id: 3, name: "privacy" },
+  { id: 4, name: "notifications" },
 ];

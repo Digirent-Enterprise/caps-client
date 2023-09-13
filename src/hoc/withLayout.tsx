@@ -27,7 +27,5 @@ export default function withLayout<P extends object>(
 }
 
 function getDisplayName<P>(WrappedComponent: ComponentType<P>) {
-  return (
-    WrappedComponent.displayName || WrappedComponent.name || "WrappedComponent"
-  );
+  return WrappedComponent.displayName || "WrappedComponent";
 }

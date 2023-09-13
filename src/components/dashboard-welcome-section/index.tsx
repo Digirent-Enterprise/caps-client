@@ -6,6 +6,7 @@ import { useImmer } from "use-immer";
 
 import DashboardCreateDiagnosisModal from "@/components/dashboard-create-diagnosis-modal";
 import { IDashboardWelcomeSection } from "@/components/dashboard-welcome-section/type";
+import WeatherReport from "@/components/weather-report";
 import HealthStatusPopupModal from "@/shared/health-status-popup-modal";
 
 const Component = memo((props: IDashboardWelcomeSection) => {
@@ -62,7 +63,7 @@ const Component = memo((props: IDashboardWelcomeSection) => {
         ref={containerRef}
         className="relative mt-5 h-auto min-h-[15rem] w-1/3 overflow-hidden rounded-xl bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-300 via-blue-500 to-purple-600 p-10 md:w-full"
       >
-        {/*<WeatherReport className="absolute top-1 right-0 p-4 bg-[#475D78] bg-opacity-0 rounded-xl" />*/}
+        <WeatherReport classes="absolute rounded top-5 p-2 right-2" />
         <div
           ref={cloudRef}
           className="relative"
