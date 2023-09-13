@@ -1,14 +1,10 @@
-import React, { memo, useContext, useEffect, useMemo, useRef } from "react";
-
-import { useImmer } from "use-immer";
+import React, { memo, useContext } from "react";
 
 import DashboardAverageHealthScore from "@/components/dashboard-average-health-score";
 import DashboardPieChart from "@/components/dashboard-pie-chart";
 import DashboardStatusChart from "@/components/dashboard-status-chart";
 import DashboardWelcomeSection from "@/components/dashboard-welcome-section";
-import WeatherReport from "@/components/weather-report";
 import { AuthContext } from "@/contexts/auth-context";
-import HealthStatusPopupModal from "@/shared/health-status-popup-modal";
 
 const Component = memo(() => {
   const { user } = useContext(AuthContext);

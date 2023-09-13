@@ -1,4 +1,4 @@
-import React, { useMemo, FC } from "react";
+import React, { FC, useMemo } from "react";
 
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";

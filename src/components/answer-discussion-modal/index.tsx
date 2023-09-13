@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState, ChangeEvent } from "react";
+import React, { ChangeEvent, memo, useMemo, useState } from "react";
 
 import { IconRobot } from "@tabler/icons-react";
 

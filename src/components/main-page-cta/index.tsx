@@ -1,4 +1,4 @@
-import React, { memo, useMemo, ReactElement } from "react";
+import React, { memo, ReactElement, useMemo } from "react";
 
 import {
   IconAddressBook,
@@ -21,7 +21,6 @@ import {
   IconTrack,
   IconUrgent,
 } from "@tabler/icons-react";
-import { Icon } from "@tabler/icons-react";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 

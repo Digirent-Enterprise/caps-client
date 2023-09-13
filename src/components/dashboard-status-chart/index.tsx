@@ -1,7 +1,6 @@
 import React, { memo, useEffect } from "react";
 
-import { ChartData, ChartOptions } from "chart.js";
-import { Chart, registerables } from "chart.js";
+import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 import { isEmpty } from "lodash";
 import { Line } from "react-chartjs-2";
 

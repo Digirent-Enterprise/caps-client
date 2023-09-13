@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState, FC } from "react";
+import React, { FC, useContext, useMemo, useState } from "react";
 
 import { useRouter } from "next/router";
 import Joyride, { CallBackProps } from "react-joyride";
@@ -7,7 +7,6 @@ import {
   DefaultGuideSteps,
   options,
 } from "@/components/onboarding-tutorial/constant";
-import { IOnboardingStepProps } from "@/components/onboarding-tutorial/type";
 import { AuthContext } from "@/contexts/auth-context";
 import useUser from "@/hooks/user/useUser";
 

@@ -3,7 +3,6 @@ import React, { memo, useEffect } from "react";
 import { Chart, registerables } from "chart.js";
 import { ChartData } from "chart.js/dist/types";
 import { isEmpty } from "lodash";
-import { Pie } from "react-chartjs-2";
 
 import { DefaultColorPalette } from "@/components/dashboard-pie-chart/constant";
 import { IDashboardPieChart } from "@/components/dashboard-pie-chart/type";
