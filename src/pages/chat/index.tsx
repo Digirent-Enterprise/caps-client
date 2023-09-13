@@ -41,7 +41,6 @@ import StatusModal from "@/shared/status-modal";
 import { exportConversationToJson } from "@/utils/json";
 import { exportConversationToMarkdown } from "@/utils/markdown";
 import { formatModelOption } from "@/utils/models";
-import Kbd from "src/core/kbd";
 
 const Component: FC = () => {
   const { isMobile } = useDevice();
