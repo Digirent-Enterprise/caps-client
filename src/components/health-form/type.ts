@@ -2,7 +2,7 @@ export interface IHealthFormProps {
   age: string;
   height: string;
   weight: string;
-  bloodPressure: string;
+  bloodPressure: number;
   bloodType: string;
   allergies: string[];
   medications: string[];
@@ -18,7 +18,7 @@ export const DefaultHealthForm: IHealthFormProps = {
   age: "",
   height: "",
   weight: "",
-  bloodPressure: "",
+  bloodPressure: 0,
   bloodType: "",
   allergies: [],
   medications: [],

@@ -3,6 +3,7 @@ export interface IChatMessageProps {
   content: string;
   senderType: SenderType;
   language?: string;
+  metadata?: any;
 }
 
 export type SenderType = "chatbot" | "user";

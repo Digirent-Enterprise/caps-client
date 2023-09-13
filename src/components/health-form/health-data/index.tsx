@@ -245,7 +245,7 @@ const Component = () => {
           "success",
           "Congratulations. You have updated your health data."
         );
-        await router.push("/");
+        await router.push("/chat");
       })
       .catch((validationErrors) => {
         const newErrorMessages: ErrorMessages = {};

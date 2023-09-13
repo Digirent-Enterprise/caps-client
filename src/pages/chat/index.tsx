@@ -163,6 +163,11 @@ const Component: React.FC = () => {
       },
     ];
 
+    const _handleSignOut = () => {
+      setSelectedConversation(null);
+      signOut();
+    };
+
     const isDoctor = useMemo(() => {
       if (user && user.roles) return user.roles.includes("doctor");
       return false;
@@ -209,7 +214,7 @@ const Component: React.FC = () => {
                 />
               </div>
               <div
-                className="mx-4 flex-none cursor-pointer gap-3 rounded-md border
+                className="mx-2 flex-none cursor-pointer gap-3 rounded-md border
               border-light-white bg-light-primary-button p-4
               text-sm text-light-white transition-colors duration-200
                hover:bg-light-button-blue-hover dark:border-dark-gray-heavy dark:bg-light-primary-button"
@@ -312,7 +317,7 @@ const Component: React.FC = () => {
                     <IconUserCancel />
                     <span
                       className="ml-2 cursor-pointer text-sm text-light-text dark:text-white"
-                      onClick={signOut}
+                      onClick={_handleSignOut}
                     >
                       {t("logout")}
                     </span>

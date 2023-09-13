@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import { ChartData, ChartOptions } from "chart.js";
 import { Chart, registerables } from "chart.js";
+import { isEmpty } from "lodash";
 import { Line } from "react-chartjs-2";
 
 import { DefaultColorPalette } from "@/components/dashboard-pie-chart/constant";
@@ -75,8 +76,17 @@ const Component = React.memo(() => {
   useEffect(() => {
     getDynamicHealth();
   }, []);
-
-  return <ContainerCard chart={<Line data={data} options={options} />} />;
+  console.log(data.datasets);
+  return (
+    <ContainerCard
+      hasData={!isEmpty((data.datasets as { data: unknown }[])[0].data)}
+      chart={
+        <div className="w-100 h-100 flex-column flex items-center justify-center">
+          <Line data={data} options={options} />
+        </div>
+      }
+    />
+  );
 });
 Component.displayName = "DashboardStatusChart";
 

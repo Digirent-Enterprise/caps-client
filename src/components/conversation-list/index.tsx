@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import dayjs from "dayjs";
 import { useTranslation } from "next-i18next";
@@ -35,6 +35,16 @@ const Component: React.FC<IConversationListProps> = (
     { name: "Last six months", condition: 180 },
     { name: "Last year", condition: 365 },
   ];
+
+  const _getConversationPaddingColor = (name: string) => {
+    switch (name) {
+      case "Today":
+      case "Yesterday":
+        return "text-white light-button-blue";
+      default:
+        return "text-white bg-dark-green-hover";
+    }
+  };
 
   const sortConversationsByCreatedAt = (
     conversations: ConversationNS.Conversation[]
@@ -106,30 +116,33 @@ const Component: React.FC<IConversationListProps> = (
         isDesktop ? "flex-col" : "scroll-m-2"
       } hide-scrollbar gap-2 overflow-y-scroll border-b-light-gray p-2 dark:border-b-dark-gray`}
     >
-      {Object.keys(groupedConversations).map((label) => (
-        <div key={label}>
-          <div className="mb-2 text-sm text-light-blue-hover dark:text-dark-white">
-            {label}
-          </div>
-          {groupedConversations[label].map((conversation) => (
-            <div
-              key={conversation.id}
-              onClick={() => _onSelectConversation(conversation)}
-            >
-              <Conversation
-                key={conversation.id}
-                id={conversation.id}
-                name={conversation.name}
-                chatBotType={conversation.chatBotType}
-                createdAt={conversation.createdAt}
-                conversation={conversation}
-                selected={selectedConversation?.id === conversation?.id}
-                selectedConversation={selectedConversation}
-              />
+      {Object.keys(groupedConversations).map((label) => {
+        const colorClasses = _getConversationPaddingColor(label);
+        return (
+          <div key={label} className="d-flex flex-col gap-1">
+            <div className={`mb-2 px-2 py-1 text-sm text-light-blue-hover `}>
+              {label}
             </div>
-          ))}
-        </div>
-      ))}
+            {groupedConversations[label].map((conversation) => (
+              <div
+                key={conversation.id}
+                onClick={() => _onSelectConversation(conversation)}
+              >
+                <Conversation
+                  key={conversation.id}
+                  id={conversation.id}
+                  name={conversation.name}
+                  chatBotType={conversation.chatBotType}
+                  createdAt={conversation.createdAt}
+                  conversation={conversation}
+                  selected={selectedConversation?.id === conversation?.id}
+                  selectedConversation={selectedConversation}
+                />
+              </div>
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import { Chart, ChartOptions, registerables } from "chart.js";
 import { ChartData } from "chart.js/dist/types";
+import { isEmpty } from "lodash";
 import { Pie } from "react-chartjs-2";
 
 import { DefaultColorPalette } from "@/components/dashboard-pie-chart/constant";
@@ -50,9 +51,9 @@ const Component = React.memo((props: IDashboardPieChart) => {
     if (type === "categorized-status") getCategorizedStatus();
     if (type === "symptoms") getCommonSymptoms();
   }, [type]);
-
   return (
     <ContainerCard
+      hasData={!isEmpty((data.datasets as { data: unknown }[])[0].data)}
       chart={
         <PieChart
           data={data}

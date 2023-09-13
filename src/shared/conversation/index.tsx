@@ -118,7 +118,7 @@ const Component = React.memo(
 
     return (
       <>
-        <div className="relative flex items-center">
+        <div className="relative mb-1 flex items-center">
           {isRenaming && selectedConversation?.id === conversation.id ? (
             <div className="group flex w-full items-center gap-3 rounded-md border border-light-primary-button bg-light-gray p-3 dark:bg-light-primary-button">
               <IconMessage size={18} />
@@ -146,7 +146,7 @@ const Component = React.memo(
                 className={`${
                   selectedConversation?.id === conversation.id
                     ? "text-light-white"
-                    : "text-light-gray dark:text-dark-white"
+                    : "text-light-bg-blue dark:text-dark-white"
                 }`}
               />
               <div
@@ -183,14 +183,14 @@ const Component = React.memo(
                     className="text-light-white dark:text-dark-white"
                   />
                 </SidebarActionButton>
-                <SidebarActionButton
-                  handleClick={_handleShareConversationModal}
-                >
-                  <IconShare2
-                    size={18}
-                    className="text-light-white dark:text-dark-white"
-                  />
-                </SidebarActionButton>
+                {/*<SidebarActionButton*/}
+                {/*  handleClick={_handleShareConversationModal}*/}
+                {/*>*/}
+                {/*  <IconShare2*/}
+                {/*    size={18}*/}
+                {/*    className="text-light-white dark:text-dark-white"*/}
+                {/*  />*/}
+                {/*</SidebarActionButton>*/}
                 <SidebarActionButton handleClick={_handleOpenDeleteModal}>
                   <IconTrash
                     size={18}

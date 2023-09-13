@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useMemo } from "react";
 
+import { isEmpty } from "lodash";
 import { useImmer } from "use-immer";
 
 import DashboardDiagnosisDetailModal from "@/components/dashboard-diagnosis-detail-modal";
@@ -68,6 +69,19 @@ const Component = React.memo(() => {
         page={"diagnosis"}
         useChatBot={chatBotResult}
       />
+      {isEmpty(diagnosisResults) && (
+        <div className="h-50 mt-2 flex w-full flex-col items-center justify-center rounded-xl bg-dark-blue p-5 text-white">
+          <img
+            alt="loading"
+            src={"/static/dashboard/empty_data_icon.png"}
+            className="w-36"
+          />
+          <div> No Data </div>
+          <div className="text-sm text-light-background-gray">
+            Please update your heath regularly. Or you can try our diagnosis.
+          </div>
+        </div>
+      )}
       <div className="mt-6  grid gap-6  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
         {diagnosisResults.map((result, index) => (
           <DiagnosisCard key={index} item={result} />
