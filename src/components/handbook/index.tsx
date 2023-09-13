@@ -15,7 +15,7 @@ const Component = () => {
   };
 
   return (
-    <div className="relative space-y-5 rounded-md border border-neutral-200 p-6 dark:border-neutral-700 lg:p-20">
+    <div className="relative space-y-5 rounded-md border border-neutral-200 p-6 dark:border-neutral-700">
       <div className="flex w-full flex-col items-center space-y-2 lg:items-start">
         <div className="text-3xl font-bold">{t("handbook")}</div>
         <div className="text-sm text-neutral-400 lg:text-base">
@@ -35,24 +35,24 @@ const Component = () => {
 
           <div className="mb-2">
             <h2 className="text-lg font-semibold">{t("handbook_causes")}</h2>
-            <p className="text-sm">{selectedSuggestion.causes}</p>
+            <p className="text-md">{selectedSuggestion.causes}</p>
           </div>
 
           <div className="mb-2">
             <h2 className="text-lg font-semibold">{t("handbook_symptom")}</h2>
-            <p className="text-sm">{selectedSuggestion.symptom}</p>
+            <p className="text-md">{selectedSuggestion.symptom}</p>
           </div>
 
           <div className="mb-2">
             <h2 className="text-lg font-semibold">{t("handbook_treatment")}</h2>
-            <p className="text-sm">{selectedSuggestion.treatment}</p>
+            <p className="text-md">{selectedSuggestion.treatment}</p>
           </div>
 
           <div>
             <h2 className="text-lg font-semibold">
               {t("handbook_diagnostic")}
             </h2>
-            <p className="text-sm">{selectedSuggestion.diagnostic}</p>
+            <p className="text-md">{selectedSuggestion.diagnostic}</p>
           </div>
         </div>
       )}

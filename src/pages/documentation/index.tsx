@@ -5,7 +5,7 @@ import withLayout from "@/hoc/withLayout";
 
 const Component: FC = () => {
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="lg:py-30 flex h-screen justify-center py-40">
       <Tabs />
     </div>
   );

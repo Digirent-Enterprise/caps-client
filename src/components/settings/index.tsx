@@ -26,7 +26,7 @@ const Component: FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
       <>
         <div className="flex">
           <div className="border-gray-200">
-            <nav className="flex flex-col justify-start">
+            <nav className="flex w-40 flex-col justify-start">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -37,7 +37,7 @@ const Component: FC<ISettingsModalProps> = ({ isOpen, onClose }) => {
                   }`}
                   onClick={() => setSelectedTab(tab.id)}
                 >
-                  {tab.name}
+                  {t(tab.name)}
                 </button>
               ))}
             </nav>

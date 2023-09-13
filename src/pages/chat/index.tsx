@@ -26,6 +26,7 @@ import DiscussionModal from "@/components/discussion-modal";
 import MessageList from "@/components/message-list";
 import OnboardingTutorial from "@/components/onboarding-tutorial";
 import Settings from "@/components/settings";
+import WeatherReport from "@/components/weather-report";
 import { useAuth } from "@/contexts/auth-context";
 import Kbd from "@/core/kbd";
 import withAuth from "@/hoc/withLogin";
@@ -273,19 +274,7 @@ const Component: FC = () => {
                       {t("news")}
                     </span>
                   </Link>
-                  <div className="flex cursor-pointer flex-row items-center gap-1">
-                    <IconSettings />
-                    <span
-                      className="ml-2 cursor-pointer text-sm text-light-text dark:text-white"
-                      onClick={_openSettingsModal}
-                    >
-                      {t("settings")}
-                    </span>
-                  </div>
-                  <Settings
-                    isOpen={isSettingsModalOpen}
-                    onClose={_closeSettingsModal}
-                  />
+
                   <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconBellHeart />
                     <span
@@ -313,6 +302,19 @@ const Component: FC = () => {
                   <DiscussionModal
                     isOpen={openDiscussion}
                     onClose={_closeDiscussionModal}
+                  />
+                  <div className="flex cursor-pointer flex-row items-center gap-1">
+                    <IconSettings />
+                    <span
+                      className="ml-2 cursor-pointer text-sm text-light-text dark:text-white"
+                      onClick={_openSettingsModal}
+                    >
+                      {t("settings")}
+                    </span>
+                  </div>
+                  <Settings
+                    isOpen={isSettingsModalOpen}
+                    onClose={_closeSettingsModal}
                   />
                   <div className="flex cursor-pointer flex-row items-center gap-1">
                     <IconUserCancel />
@@ -349,7 +351,7 @@ const Component: FC = () => {
                   ) : null}
                 </div>
                 <div data-tour="step3" className="flex">
-                  {/*<WeatherReport />*/}
+                  {/*<WeatherReport classes="text-light-blue-hover" />*/}
                 </div>
               </div>
               {selectedConversation && conversations.length > 0 ? (

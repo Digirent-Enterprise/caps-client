@@ -6,20 +6,20 @@ import Map from "@/components/map";
 const Component = () => {
   const { t } = useTranslation("documentation");
   return (
-    <div className="flex w-screen items-center justify-center py-10 lg:py-20">
+    <div className="flex w-screen items-start justify-center">
       <Tabs className="w-[95%] lg:w-4/5">
         <div className="flex justify-center">
           <TabList>
-            <Tab>{t("about")}</Tab>
+            {/*<Tab>{t("about")}</Tab>*/}
             <Tab>{t("handbook")}</Tab>
             <Tab>{t("map")}</Tab>
           </TabList>
         </div>
 
         <TabPanels>
-          <TabPanel>
-            <div>Something</div>
-          </TabPanel>
+          {/*<TabPanel>*/}
+          {/*  <div>Something</div>*/}
+          {/*</TabPanel>*/}
           <TabPanel>
             <Handbook />
           </TabPanel>
