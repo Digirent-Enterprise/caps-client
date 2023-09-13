@@ -33,7 +33,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
   const _handleSymptomsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedSymptoms = Array.from(
       e.target.selectedOptions,
-      (option) => option.value
+      (option) => option.value,
     );
     setSymptoms(selectedSymptoms);
   };

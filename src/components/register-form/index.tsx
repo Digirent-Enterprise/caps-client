@@ -85,7 +85,7 @@ const Component = memo(() => {
       .required("Password is required")
       .matches(
         /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]+/,
-        "Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character"
+        "Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character",
       )
       .min(8, "Password must be at least 8 characters")
       .max(20, "Password must be at most 20 characters"),
@@ -114,7 +114,7 @@ const Component = memo(() => {
 
   const _onChangeSelectOption = (
     option: SelectOption,
-    extension?: FormExtension
+    extension?: FormExtension,
   ) => {
     const { dataKey } = extension!;
     const temp = cloneDeep(form);

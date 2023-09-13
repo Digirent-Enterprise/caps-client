@@ -12,7 +12,7 @@ import { ConversationNS } from "@/services/conversation/type";
 import Conversation from "@/shared/conversation";
 
 const Component: FC<IConversationListProps> = (
-  props: IConversationListProps
+  props: IConversationListProps,
 ) => {
   const {
     getAllConversations,
@@ -47,12 +47,12 @@ const Component: FC<IConversationListProps> = (
   };
 
   const sortConversationsByCreatedAt = (
-    conversations: ConversationNS.Conversation[]
+    conversations: ConversationNS.Conversation[],
   ) => {
     const sortedByCreatedAt = conversations.sort(
       (a, b) =>
         dayjs(b.createdAt, "ddd, DD MMM YYYY HH:mm:ss [GMT]").valueOf() -
-        dayjs(a.createdAt, "ddd, DD MMM YYYY HH:mm:ss [GMT]").valueOf()
+        dayjs(a.createdAt, "ddd, DD MMM YYYY HH:mm:ss [GMT]").valueOf(),
     );
     const groupedByLabel: { [key: string]: ConversationNS.Conversation[] } = {};
     sortedByCreatedAt.forEach((conversation) => {
@@ -85,7 +85,7 @@ const Component: FC<IConversationListProps> = (
   const getConversationLabel = (conversation: ConversationNS.Conversation) => {
     const createdAt = dayjs(
       conversation.createdAt,
-      "ddd, DD MMM YYYY HH:mm:ss [GMT]"
+      "ddd, DD MMM YYYY HH:mm:ss [GMT]",
     );
     const now = dayjs();
     const diffDays = now.diff(createdAt, "days");

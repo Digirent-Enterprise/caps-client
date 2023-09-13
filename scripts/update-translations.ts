@@ -21,7 +21,7 @@ interface JSONData {
 
 async function fixTranslation(
   languageCode: string,
-  translations: JSONData
+  translations: JSONData,
 ): Promise<JSONData | undefined> {
   const prompt =
     `TARGET LANGUAGE: "${languageCode}".
@@ -78,7 +78,7 @@ async function updateTranslations() {
         fs.writeFileSync(
           filePath,
           JSON.stringify(translation, null, 2),
-          "utf-8"
+          "utf-8",
         );
       } else {
         console.error(`\t\t\tno data received`);

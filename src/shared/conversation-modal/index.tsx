@@ -27,7 +27,7 @@ const Component = React.memo((props: IConversationModalProps) => {
 
   const [selectedModel, setSelectedModel] =
     useState<ConversationNS.ChatbotType>(
-      ConversationNS.ChatbotType.OPEN_AI_BASE
+      ConversationNS.ChatbotType.OPEN_AI_BASE,
     );
 
   const _handleCancelClick = () => {

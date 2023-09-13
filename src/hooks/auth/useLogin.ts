@@ -35,11 +35,11 @@ const useLogin = () => {
       setAxiosAuthHeader(response.access_token);
       LocalStorageService.getInstance().setItem(
         LocalStorageKeys.access_token,
-        response.access_token
+        response.access_token,
       );
       LocalStorageService.getInstance().setItem(
         LocalStorageKeys.refresh_token,
-        response.refresh_token
+        response.refresh_token,
       );
       await route.push("/chat");
       setLoading(false);

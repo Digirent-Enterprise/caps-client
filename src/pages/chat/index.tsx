@@ -81,7 +81,7 @@ const Component: React.FC = () => {
     const _closeDiscussionModal = () => setOpenDiscussion(false);
 
     const filteredConversations = conversations.filter((conversation) =>
-      conversation.name.toLowerCase().includes(searchTerm.toLowerCase())
+      conversation.name.toLowerCase().includes(searchTerm.toLowerCase()),
     );
 
     const _onModalClose = () => {
@@ -343,7 +343,7 @@ const Component: React.FC = () => {
                   {selectedConversation && conversations.length > 0 ? (
                     <div className="h-fit w-fit rounded bg-light-bg-blue px-5 py-1 text-sm text-white">
                       {formatModelOption(
-                        selectedConversation?.chatBotType || ""
+                        selectedConversation?.chatBotType || "",
                       )}
                     </div>
                   ) : null}

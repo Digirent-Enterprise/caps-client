@@ -27,7 +27,7 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({
 
   useEffect(() => {
     const storedConversation = localStorage.getItem(
-      LocalStorageKeys.selected_conversation
+      LocalStorageKeys.selected_conversation,
     );
     if (storedConversation) {
       setSelectedConversation(JSON.parse(storedConversation));
@@ -38,7 +38,7 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({
     if (selectedConversation) {
       localStorage.setItem(
         LocalStorageKeys.selected_conversation,
-        JSON.stringify(selectedConversation)
+        JSON.stringify(selectedConversation),
       );
     }
   }, [selectedConversation]);

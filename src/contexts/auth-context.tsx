@@ -22,7 +22,7 @@ import {
 } from "@/types/context/with-auth-context";
 
 export const AuthContext = createContext<AuthContextData>(
-  {} as AuthContextData
+  {} as AuthContextData,
 );
 
 export const useAuth = (): AuthContextData => useContext(AuthContext);
@@ -46,7 +46,7 @@ export const AuthProvider = (props: IAuthContextProps) => {
     setUser(null);
     LocalStorageService.getInstance().removeItem(LocalStorageKeys.access_token);
     LocalStorageService.getInstance().removeItem(
-      LocalStorageKeys.refresh_token
+      LocalStorageKeys.refresh_token,
     );
     resetAxiosHeader();
     await router.reload();

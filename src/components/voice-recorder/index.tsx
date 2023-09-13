@@ -45,7 +45,7 @@ const Component = memo((props: IVoiceRecorderProps) => {
         onClick: () => _handleLanguageSelect("vi"),
       },
     ],
-    [isRecording]
+    [isRecording],
   );
 
   const _openSelectLanguageModal = () => setOpen(!open);
@@ -85,11 +85,11 @@ const Component = memo((props: IVoiceRecorderProps) => {
       } else {
         showToast(
           "error",
-          "Something wrong with the voice assistant. Please try again later"
+          "Something wrong with the voice assistant. Please try again later",
         );
       }
     },
-    [currentInput]
+    [currentInput],
   );
 
   useEffect(() => {

@@ -25,7 +25,7 @@ const Component: React.FC = () => {
 
   const currentLocale = useMemo(
     () => languageOptions.find(({ locale }) => router.locale === locale),
-    [router.locale]
+    [router.locale],
   );
 
   return (

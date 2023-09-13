@@ -22,8 +22,8 @@ const Component: React.FC<IBadgeListInputProps> = ({
     setBadgeText("");
     onSubmit(
       [...badges, { value: badgeText.trim(), id: badges.length + 1 }].map(
-        (item) => item.value
-      )
+        (item) => item.value,
+      ),
     );
   };
 
@@ -32,7 +32,7 @@ const Component: React.FC<IBadgeListInputProps> = ({
     onSubmit(
       badges
         .filter((badge) => badge.id !== badgeToDelete.id)
-        .map((item) => item.value)
+        .map((item) => item.value),
     );
   };
 

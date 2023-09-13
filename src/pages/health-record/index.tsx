@@ -18,7 +18,7 @@ import useDevice from "@/hooks/useDevice";
 const Component: React.FC = () => {
   const { isMobile } = useDevice();
   const [selectedTab, setSelectedTab] = useImmer<DashboardContentTabs>(
-    "MyGeneralHealthStatistics"
+    "MyGeneralHealthStatistics",
   );
   const { t } = useTranslation("health_record");
 

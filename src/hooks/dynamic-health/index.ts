@@ -32,7 +32,7 @@ const useDynamicHealth = () => {
     useImmer<DynamicHealthNS.MostUserSymptomRankingRes>([]);
 
   const addDynamicHealth = async (
-    data: DynamicHealthNS.AddDynamicHealthParams
+    data: DynamicHealthNS.AddDynamicHealthParams,
   ) => {
     try {
       setLoading(true);

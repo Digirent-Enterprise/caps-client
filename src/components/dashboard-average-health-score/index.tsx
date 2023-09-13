@@ -27,7 +27,7 @@ const Component = memo(() => {
         }, 0) /
           myStatuses.records.length /
           5) *
-          100
+          100,
       );
       let initialScore = 0;
       const interval = setInterval(() => {

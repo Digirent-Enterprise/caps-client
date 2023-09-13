@@ -39,7 +39,7 @@ const useInquiry = () => {
       setInquiries((prev) => [...prev, response]);
       showToast(
         "success",
-        "Successfully asking a question! Please be patient."
+        "Successfully asking a question! Please be patient.",
       );
       if (extraFn) extraFn();
       setLoading(false);

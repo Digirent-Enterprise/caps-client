@@ -24,7 +24,7 @@ const Component = React.memo(
   (
     props: IConversationProps & {
       selectedConversation: IConversation | null;
-    }
+    },
   ) => {
     const { conversation, selected, createdAt, selectedConversation } = props;
     const { updateConversation, deleteConversation } = useConversation();
@@ -50,7 +50,7 @@ const Component = React.memo(
 
     const _handleDragStart = (
       e: DragEvent<HTMLButtonElement>,
-      conversation: IConversation
+      conversation: IConversation,
     ) => {
       if (e.dataTransfer) {
         e.dataTransfer.setData("conversation", JSON.stringify(conversation));
@@ -83,7 +83,7 @@ const Component = React.memo(
     };
 
     const _handleOpenRenameModal: MouseEventHandler<HTMLButtonElement> = (
-      e
+      e,
     ) => {
       e.stopPropagation();
       setIsRenaming(true);
@@ -91,7 +91,7 @@ const Component = React.memo(
     };
 
     const _handleOpenDeleteModal: MouseEventHandler<HTMLButtonElement> = (
-      e
+      e,
     ) => {
       e.stopPropagation();
       setIsDeleting(true);
@@ -150,7 +150,7 @@ const Component = React.memo(
                 }`}
               />
               <div
-                className={`relative font-semibold text-md max-h-5 flex-1 truncate break-all text-left text-[12.5px] leading-3${
+                className={`text-md relative max-h-5 flex-1 truncate break-all text-left text-[12.5px] font-semibold leading-3${
                   selectedConversation?.id === conversation.id
                     ? "pr-12 text-light-white"
                     : "pr-1"
@@ -210,7 +210,7 @@ const Component = React.memo(
         />
       </>
     );
-  }
+  },
 );
 
 Component.displayName = "Conversation";

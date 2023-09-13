@@ -28,7 +28,7 @@ const Component: React.FC<ICommandProps> = ({ commands, group }) => {
               <div
                 className={clsx(
                   "flex h-[46px] w-full cursor-default items-center text-white transition-colors duration-100 ease-in hover:bg-primary/40",
-                  active ? "bg-primary/40" : ""
+                  active ? "bg-primary/40" : "",
                 )}
               >
                 <div className="flex w-full items-center px-3.5">

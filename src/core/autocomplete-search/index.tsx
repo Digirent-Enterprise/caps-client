@@ -33,7 +33,7 @@ const Component: React.FC<IAutocompleteSearchProps> = ({
       treatment: diseaseData[term]["disease-treatment"],
       diagnostic: diseaseData[term]["disease-diagnostic"],
     })),
-    fuseOptions
+    fuseOptions,
   );
 
   const _handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,7 +58,7 @@ const Component: React.FC<IAutocompleteSearchProps> = ({
     if (event.key === "ArrowDown") {
       event.preventDefault();
       setSelectedSuggestionIndex((prevIndex) =>
-        Math.min(prevIndex + 1, suggestions.length - 1)
+        Math.min(prevIndex + 1, suggestions.length - 1),
       );
     } else if (event.key === "ArrowUp") {
       event.preventDefault();

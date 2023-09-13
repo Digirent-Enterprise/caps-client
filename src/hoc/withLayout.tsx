@@ -6,7 +6,7 @@ import Footer from "@/shared/footer";
 import Header from "@/shared/header";
 
 export default function withLayout<P extends object>(
-  WrappedComponent: React.ComponentType<P>
+  WrappedComponent: React.ComponentType<P>,
 ): React.FC<P> {
   const WithLayout: React.FC<P> = (props: P) => {
     return (

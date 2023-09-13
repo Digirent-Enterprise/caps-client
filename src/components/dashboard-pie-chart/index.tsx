@@ -33,7 +33,7 @@ const Component = memo((props: IDashboardPieChart) => {
         data:
           type === "categorized-status"
             ? Object.keys(categorizedStatus)?.map(
-                (key) => categorizedStatus[key]
+                (key) => categorizedStatus[key],
               )
             : Object.keys(commonSymptoms)?.map((key) => commonSymptoms[key]),
         backgroundColor: DefaultColorPalette,

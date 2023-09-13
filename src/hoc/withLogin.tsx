@@ -11,7 +11,7 @@ import { showToast } from "@/utils/toast";
 
 const WAIT_TIME_BEFORE_REDIRECT = 5000;
 export default function withAuth<P extends object>(
-  Component: React.ComponentType<P>
+  Component: React.ComponentType<P>,
 ) {
   const WithAuth: React.FC<P> = (props) => {
     const router = useRouter();
