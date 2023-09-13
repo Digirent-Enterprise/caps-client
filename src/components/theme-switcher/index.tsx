@@ -35,7 +35,7 @@ const Component: FC = () => {
               onClick={() => setTheme("system")}
             >
               <Image
-                src="/theme/dark.png"
+                src="/theme/system.png"
                 alt="System Theme"
                 width={300}
                 height={300}
@@ -54,7 +54,7 @@ const Component: FC = () => {
               onClick={() => setTheme("light")}
             >
               <Image
-                src="/theme/dark.png"
+                src="/theme/light.png"
                 alt="Light Theme"
                 width={300}
                 height={300}

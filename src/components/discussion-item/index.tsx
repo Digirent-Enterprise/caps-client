@@ -50,10 +50,10 @@ const Component = memo((props: IDiscussionItemProps) => {
           <>
             <Disclosure.Button
               onClick={_onDiscussionClick}
-              className="text-md z-10 mb-1 flex w-full items-center justify-between rounded-lg bg-light-button-blue px-4 py-3 text-left text-sm font-medium text-white
+              className="text-md Georgia z-10 mb-1 flex w-full items-center justify-between rounded-lg bg-light-button-blue px-4 py-3 text-left font-serif text-sm text-white
                 shadow-md hover:bg-light-button-blue-hover focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
             >
-              <div className="text-md line-clamp-1 w-[85%] font-bold">
+              <div className="text-md line-clamp-1 w-[85%] font-semibold">
                 {title}
               </div>
               <div
@@ -65,8 +65,7 @@ const Component = memo((props: IDiscussionItemProps) => {
               </div>
               {hasButton && (
                 <button className="z-50 ml-2 p-1 text-sm text-light-secondary-button shadow-md">
-                  {" "}
-                  <IconEdit />{" "}
+                  <IconEdit />
                 </button>
               )}
               {canOpen ? (
