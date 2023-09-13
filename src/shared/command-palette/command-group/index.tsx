@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { Combobox } from "@headlessui/react";
 import {
@@ -12,7 +12,7 @@ import clsx from "clsx";
 
 import { ICommandProps } from "@/shared/command-palette/command-group/type";
 
-const Component: React.FC<ICommandProps> = ({ commands, group }) => {
+const Component: FC<ICommandProps> = ({ commands, group }) => {
   return (
     <>
       {commands.filter((command) => command.group === group).length >= 1 && (

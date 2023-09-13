@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { IInputProps } from "@/core/text-input/type";
 import useDevice from "@/hooks/useDevice";
 
-const Component = React.memo((props: IInputProps) => {
+const Component = memo((props: IInputProps) => {
   const {
     value,
     onChange,

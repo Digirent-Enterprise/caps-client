@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
+import React, { useMemo, memo } from "react";
 
 import { IButtonProps } from "@/core/base-button/type";
 
-const Component = React.memo((props: IButtonProps) => {
+const Component = memo((props: IButtonProps) => {
   const { children, disabled, onClick, mode, size = "m" } = props;
 
   const colorClass = useMemo(() => {

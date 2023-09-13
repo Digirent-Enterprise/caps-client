@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, ChangeEvent, FC } from "react";
 
 import {
   IconMoodConfuzed,
@@ -22,7 +22,7 @@ import {
 
 Modal.setAppElement("#__next");
 
-const Component: React.FC<IHealthStatusPopupModalProps> = ({
+const Component: FC<IHealthStatusPopupModalProps> = ({
   isOpen,
   onRequestClose,
 }) => {
@@ -30,7 +30,7 @@ const Component: React.FC<IHealthStatusPopupModalProps> = ({
   const [feeling, setFeeling] = useState<DynamicHealthNS.Status>("Good");
   const [symptoms, setSymptoms] = useState<string[]>([]);
   const { addDynamicHealth } = useDynamicHealth();
-  const _handleSymptomsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const _handleSymptomsChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const selectedSymptoms = Array.from(
       e.target.selectedOptions,
       (option) => option.value,

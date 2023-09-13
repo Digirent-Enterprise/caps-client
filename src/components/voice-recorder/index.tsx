@@ -1,4 +1,11 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+  Fragment,
+  memo,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 import { Popover, Transition } from "@headlessui/react";
 import { IconMicrophone } from "@tabler/icons-react";
@@ -129,7 +136,7 @@ const Component = memo((props: IVoiceRecorderProps) => {
       </Popover.Button>
       <Transition
         show={open}
-        as={React.Fragment}
+        as={Fragment}
         enter="transition ease-out duration-200 transform origin-bottom"
         enterFrom="opacity-0 translate-y-1 scale-95"
         enterTo="opacity-100 translate-y-0 scale-100"

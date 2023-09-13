@@ -72,7 +72,7 @@ const Component = memo(() => {
       </button>
       <div className="inline-flex w-full items-center justify-center text-light-blue-hover">
         <hr className="my-2 h-px w-full border-0 bg-gray-200 dark:bg-gray-700 md:my-8" />
-        <span className="absolute left-1/2 -translate-x-1/2 bg-white px-1 text-xs font-medium text-light-blue-hover dark:bg-dark-gray dark:text-dark-white md:px-3 md:text-base">
+        <span className="absolute left-1/2 -translate-x-1/2 px-1 text-xs font-medium text-light-blue-hover dark:bg-dark-gray dark:text-dark-white md:px-3 md:text-base">
           {t("or")}
         </span>
       </div>

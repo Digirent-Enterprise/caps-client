@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, ReactElement, useMemo } from "react";
 
 import {
   IconAddressBook,
@@ -21,7 +21,6 @@ import {
   IconTrack,
   IconUrgent,
 } from "@tabler/icons-react";
-import { Icon } from "@tabler/icons-react";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
@@ -45,7 +44,7 @@ const Component = memo(() => {
   const iconClass = useMemo(() => {
     return "w-10 h-10 stroke-1 m-0";
   }, []);
-  const getActionIcon = (action: string): React.ReactElement | null => {
+  const getActionIcon = (action: string): ReactElement | null => {
     switch (action) {
       // Immediate Actions
       case t("chat"):

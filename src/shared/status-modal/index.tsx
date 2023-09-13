@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import {
   IconCheck,
@@ -13,7 +13,7 @@ import BaseButton from "@/core/base-button";
 import { CustomStyle } from "@/shared/status-modal/constant";
 import { IConfirmationModalProps } from "@/shared/status-modal/type";
 
-const Component = React.memo((props: IConfirmationModalProps) => {
+const Component = memo((props: IConfirmationModalProps) => {
   const { t } = useTranslation("home");
 
   const getConfirmationModalTypeStyle = (type: string) => {

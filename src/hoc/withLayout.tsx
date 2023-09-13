@@ -1,14 +1,12 @@
-import React from "react";
+import React, { ComponentType, FC } from "react";
 
-import { AuthProvider } from "@/contexts/auth-context";
-import { LoadingProvider } from "@/contexts/loading-context";
 import Footer from "@/shared/footer";
 import Header from "@/shared/header";
 
 export default function withLayout<P extends object>(
-  WrappedComponent: React.ComponentType<P>,
-): React.FC<P> {
-  const WithLayout: React.FC<P> = (props: P) => {
+  WrappedComponent: ComponentType<P>,
+): FC<P> {
+  const WithLayout: FC<P> = (props: P) => {
     return (
       <div className="flex h-screen flex-col">
         <Header />
@@ -28,8 +26,6 @@ export default function withLayout<P extends object>(
   return WithLayout;
 }
 
-function getDisplayName<P>(WrappedComponent: React.ComponentType<P>) {
-  return (
-    WrappedComponent.displayName || WrappedComponent.name || "WrappedComponent"
-  );
+function getDisplayName<P>(WrappedComponent: ComponentType<P>) {
+  return WrappedComponent.displayName || "WrappedComponent";
 }

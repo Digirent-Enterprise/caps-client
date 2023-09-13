@@ -4,6 +4,7 @@ import React, {
   MouseEventHandler,
   useEffect,
   useState,
+  memo,
 } from "react";
 
 import {
@@ -20,7 +21,7 @@ import useConversation from "@/hooks/conversation/useConversation";
 import { IConversation, IConversationProps } from "@/shared/conversation/type";
 import SharingModal from "@/shared/sharing-modal";
 
-const Component = React.memo(
+const Component = memo(
   (
     props: IConversationProps & {
       selectedConversation: IConversation | null;

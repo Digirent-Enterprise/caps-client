@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { FC, useMemo } from "react";
 
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
@@ -6,7 +6,7 @@ import { useTranslation } from "next-i18next";
 import { languageOptions } from "@/components/language-switcher/constant";
 import { LocalStorageService } from "@/services/local-storage";
 
-const Component: React.FC = () => {
+const Component: FC = () => {
   const router = useRouter();
   const { t } = useTranslation("settings");
   const _handleChangeLanguage = (lang: string) => () => {

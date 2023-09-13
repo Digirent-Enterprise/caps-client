@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { FC, useContext, useMemo, useState } from "react";
 
 import { useRouter } from "next/router";
 import Joyride, { CallBackProps } from "react-joyride";
@@ -7,15 +7,14 @@ import {
   DefaultGuideSteps,
   options,
 } from "@/components/onboarding-tutorial/constant";
-import { IOnboardingStepProps } from "@/components/onboarding-tutorial/type";
 import { AuthContext } from "@/contexts/auth-context";
 import useUser from "@/hooks/user/useUser";
 
 const MAX_STEP = DefaultGuideSteps.length;
 
-const Component: React.FC = () => {
-  const [run, setRun] = useState(false);
-  const [stepIndex, setStepIndex] = useState(0);
+const Component: FC = () => {
+  const [run, setRun] = useState<boolean>(false);
+  const [stepIndex, setStepIndex] = useState<number>(0);
   const { updateUser } = useUser();
   const { user } = useContext(AuthContext);
   const router = useRouter();

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { Box } from "@chakra-ui/react";
 
 import { ICustomResponsiveCardProps } from "@/shared/custom-responsive-card/type";
 
-const Component = React.memo((props: ICustomResponsiveCardProps) => {
+const Component = memo((props: ICustomResponsiveCardProps) => {
   const { className, style, children, onClick } = props;
   return (
     <Box

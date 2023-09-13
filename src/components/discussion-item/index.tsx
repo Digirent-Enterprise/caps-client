@@ -7,7 +7,6 @@ import {
   IconEdit,
 } from "@tabler/icons-react";
 
-import AskQuestionModal from "@/components/ask-question-modal";
 import { IDiscussionItemProps } from "@/components/discussion-item/type";
 
 const Component = memo((props: IDiscussionItemProps) => {
@@ -47,7 +46,6 @@ const Component = memo((props: IDiscussionItemProps) => {
       {({ open }) => {
         let canOpen = false;
         if (status.toLowerCase() !== "pending") canOpen = true;
-        console.log("canOpen", canOpen);
         return (
           <>
             <Disclosure.Button

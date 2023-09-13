@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { Fragment, useEffect, useMemo, useState, memo } from "react";
 
 import { IconDotsVertical, IconVolume2 } from "@tabler/icons-react";
 import axios from "axios";
@@ -6,7 +6,7 @@ import axios from "axios";
 import { IChatMessageProps } from "@/core/chat-message/type";
 import SliceOver from "src/shared/sliceover";
 
-const Component = React.memo((props: IChatMessageProps) => {
+const Component = memo((props: IChatMessageProps) => {
   const { content, senderType, language, metadata } = props;
   const [isSliceOverOpen, setIsSliceOverOpen] = useState<boolean>(false);
   const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
@@ -55,10 +55,10 @@ const Component = React.memo((props: IChatMessageProps) => {
 
   const textWithLineBreaks = useMemo(() => {
     return content.split("\n").map((line, index) => (
-      <React.Fragment key={index}>
+      <Fragment key={index}>
         {line}
         <div className="pb-1" />
-      </React.Fragment>
+      </Fragment>
     ));
   }, [content]);
   return (

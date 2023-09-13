@@ -1,5 +1,5 @@
 {
-  "chat": "Trò chuyện",
+  "home": "Trang chủ",
   "login": "Đăng nhập",
   "register": "Đăng ký",
   "my_health": "Sổ sức khỏe",
@@ -17,7 +17,6 @@
   "exercise_plans": "Kế hoạch tập thể dục",
   "advice": "Lời khuyên",
   "medication_tracking": "Theo dõi thuốc",
-  "chat": "Trò chuyện",
   "health_tracking": "Theo dõi sức khỏe",
   "visualization": "Hình dung",
   "health_management": "Quản lý sức khỏe",
