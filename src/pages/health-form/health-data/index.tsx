@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 
 import HealthData from "@/components/health-form/health-data";
 
-const Component: React.FC = () => {
+const Component: FC = () => {
   return <HealthData />;
 };
 

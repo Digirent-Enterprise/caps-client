@@ -1,9 +1,9 @@
-import React from "react";
+import React, { KeyboardEvent } from "react";
 
 export interface IMessageInputProps {
   dataTourTwo: string;
   message: string;
   onValueChange: (message: string) => void;
   handleSend: (content: any) => void;
-  handleKeyDown?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void;
+  handleKeyDown?: (e: KeyboardEvent<HTMLTextAreaElement>) => void;
 }

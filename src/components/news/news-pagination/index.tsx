@@ -23,7 +23,7 @@ const PageNumber = ({
           ? `border-orange-500 text-orange-600 focus:text-orange-800 
           focus:border-orange-700`
           : `border-transparent text-gray-500 hover:text-gray-700 
-          hover:border-gray-300 focus:text-gray-700 focus:border-gray-400`
+          hover:border-gray-300 focus:text-gray-700 focus:border-gray-400`,
       )}
       onClick={() => setPage()}
     >
@@ -62,7 +62,7 @@ const Component = ({
               hover:text-gray-700 focus:outline-none focus:text-gray-700 
               transition ease-in-out duration-150 disabled:opacity-25
               disabled:hover:text-gray-500 disabled:focus:text-gray-500`,
-              currentPage > 0 ? "cursor-pointer" : "cursor-not-allowed"
+              currentPage > 0 ? "cursor-pointer" : "cursor-not-allowed",
             )}
             onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
             disabled={currentPage <= 0}
@@ -185,7 +185,7 @@ const Component = ({
               disabled:hover:text-gray-500 disabled:focus:text-gray-500`,
               currentPage < pagesCount - 1
                 ? "cursor-pointer"
-                : "cursor-not-allowed"
+                : "cursor-not-allowed",
             )}
             disabled={currentPage >= pagesCount - 1}
             onClick={() =>

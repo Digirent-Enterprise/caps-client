@@ -5,6 +5,6 @@ export interface IConversationModalProps {
   onClose: () => void;
   createNewConversation: (
     name: string,
-    chatBotType: ConversationNS.ChatbotType
+    chatBotType: ConversationNS.ChatbotType,
   ) => void;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { Combobox } from "@headlessui/react";
 import {
@@ -12,7 +12,7 @@ import clsx from "clsx";
 
 import { ICommandProps } from "@/shared/command-palette/command-group/type";
 
-const Component: React.FC<ICommandProps> = ({ commands, group }) => {
+const Component: FC<ICommandProps> = ({ commands, group }) => {
   return (
     <>
       {commands.filter((command) => command.group === group).length >= 1 && (
@@ -28,7 +28,7 @@ const Component: React.FC<ICommandProps> = ({ commands, group }) => {
               <div
                 className={clsx(
                   "flex h-[46px] w-full cursor-default items-center text-white transition-colors duration-100 ease-in hover:bg-primary/40",
-                  active ? "bg-primary/40" : ""
+                  active ? "bg-primary/40" : "",
                 )}
               >
                 <div className="flex w-full items-center px-3.5">

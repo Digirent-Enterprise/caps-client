@@ -1,11 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { IconCheck } from "@tabler/icons-react";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { useTheme } from "next-themes";
 
-const Component: React.FC = () => {
+const Component: FC = () => {
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation("settings");
   const getCheckIcon = (selected: boolean) => {

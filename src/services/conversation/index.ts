@@ -3,7 +3,7 @@ import { ConversationNS } from "@/services/conversation/type";
 
 export default class ConversationService {
   static createNewConversation = (
-    data: ConversationNS.CreateConversationRequest
+    data: ConversationNS.CreateConversationRequest,
   ): Promise<ConversationNS.Conversation> => {
     return axios.post("/conversation/create-conversation", data);
   };
@@ -13,7 +13,7 @@ export default class ConversationService {
   };
 
   static updateConversation = (
-    data: ConversationNS.Conversation
+    data: ConversationNS.Conversation,
   ): Promise<ConversationNS.Conversation> => {
     return axios.put("/conversation/item/update", {
       id: data.id,
@@ -22,7 +22,7 @@ export default class ConversationService {
   };
 
   static deleteConversation = (
-    id: number
+    id: number,
   ): Promise<ConversationNS.Conversation> => {
     return axios.delete(
       "/conversation/item/delete",
@@ -31,7 +31,7 @@ export default class ConversationService {
         data: {
           id,
         },
-      }
+      },
     );
   };
 }

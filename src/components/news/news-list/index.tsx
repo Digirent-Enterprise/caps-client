@@ -33,7 +33,7 @@ const Component = () => {
 
   const _loadNewsForSymptom = async (symptoms: string[]) => {
     const formattedSymptoms = symptoms.map((symptom: string) =>
-      _convertToSlug(symptom)
+      _convertToSlug(symptom),
     );
 
     getNewsResults(formattedSymptoms);
@@ -68,7 +68,7 @@ const Component = () => {
               {newsResults
                 .slice(
                   currentPage * ITEMS_PER_PAGE,
-                  (currentPage + 1) * ITEMS_PER_PAGE
+                  (currentPage + 1) * ITEMS_PER_PAGE,
                 )
                 .map((news) => (
                   <NewsCard key={news.title} news={news} />

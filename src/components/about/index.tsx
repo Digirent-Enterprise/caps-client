@@ -7,7 +7,7 @@ import questionsData from "@/fixtures/questions.json";
 
 const Component: FC = () => {
   const [selectedQuestion, setSelectedQuestion] = useState<string>(
-    questionsData.length > 0 ? questionsData[0].question : ""
+    questionsData.length > 0 ? questionsData[0].question : "",
   );
   const evaluation = "GPT-4 evaluation text goes here";
 

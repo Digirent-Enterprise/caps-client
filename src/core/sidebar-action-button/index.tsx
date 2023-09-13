@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { ISidebarActionButton } from "@/core/sidebar-action-button/type";
 
-const Component = React.memo((props: ISidebarActionButton) => {
+const Component = memo((props: ISidebarActionButton) => {
   const { children, handleClick } = props;
   return (
     <button

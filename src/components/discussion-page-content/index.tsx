@@ -18,7 +18,7 @@ const Component = memo((props: IDiscussionPageContentProps) => {
   const { getAllInquiries, inquiries } = useInquiry();
   const { isMobile } = useDevice();
   const [openInquiry, setOpenInquiry] = useImmer<OpenInquiryModal>(
-    DefaultOpenInquiryModal
+    DefaultOpenInquiryModal,
   );
 
   const _onCloseInquiryModal = () => setOpenInquiry(DefaultOpenInquiryModal);

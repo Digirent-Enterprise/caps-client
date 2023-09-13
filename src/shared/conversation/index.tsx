@@ -4,6 +4,7 @@ import React, {
   MouseEventHandler,
   useEffect,
   useState,
+  memo,
 } from "react";
 
 import {
@@ -20,11 +21,11 @@ import useConversation from "@/hooks/conversation/useConversation";
 import { IConversation, IConversationProps } from "@/shared/conversation/type";
 import SharingModal from "@/shared/sharing-modal";
 
-const Component = React.memo(
+const Component = memo(
   (
     props: IConversationProps & {
       selectedConversation: IConversation | null;
-    }
+    },
   ) => {
     const { conversation, selected, createdAt, selectedConversation } = props;
     const { updateConversation, deleteConversation } = useConversation();
@@ -50,7 +51,7 @@ const Component = React.memo(
 
     const _handleDragStart = (
       e: DragEvent<HTMLButtonElement>,
-      conversation: IConversation
+      conversation: IConversation,
     ) => {
       if (e.dataTransfer) {
         e.dataTransfer.setData("conversation", JSON.stringify(conversation));
@@ -83,7 +84,7 @@ const Component = React.memo(
     };
 
     const _handleOpenRenameModal: MouseEventHandler<HTMLButtonElement> = (
-      e
+      e,
     ) => {
       e.stopPropagation();
       setIsRenaming(true);
@@ -91,7 +92,7 @@ const Component = React.memo(
     };
 
     const _handleOpenDeleteModal: MouseEventHandler<HTMLButtonElement> = (
-      e
+      e,
     ) => {
       e.stopPropagation();
       setIsDeleting(true);
@@ -210,7 +211,7 @@ const Component = React.memo(
         />
       </>
     );
-  }
+  },
 );
 
 Component.displayName = "Conversation";

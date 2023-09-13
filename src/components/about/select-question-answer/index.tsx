@@ -10,7 +10,7 @@ const SelectQuestionAnswer: FC<ISelectQuestionAnswerProps> = ({
   onQuestionChange,
 }) => {
   const selectedData = questionsData.find(
-    (item) => item.question === selectedQuestion
+    (item) => item.question === selectedQuestion,
   );
 
   return (

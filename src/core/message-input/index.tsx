@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, FC } from "react";
 
 import { IconSend, IconHeartbeat } from "@tabler/icons-react";
 
@@ -6,7 +6,7 @@ import VoiceRecorder from "@/components/voice-recorder";
 import { IMessageInputProps } from "@/core/message-input/type";
 import HealthStatusPopupModal from "@/shared/health-status-popup-modal";
 
-const Component: React.FC<IMessageInputProps> = ({
+const Component: FC<IMessageInputProps> = ({
   dataTourTwo,
   message,
   onValueChange,

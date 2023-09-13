@@ -26,7 +26,7 @@ const useUser = () => {
   const [allUsers, setAllUsers] = useState<IUser[] | null>(null);
   const handleAccessToken = () => {
     const accessToken = LocalStorageService.getInstance().getItem(
-      LocalStorageKeys.access_token
+      LocalStorageKeys.access_token,
     );
     if (accessToken) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;

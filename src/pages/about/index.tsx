@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 
 import About from "@/components/about";
 
-const Component: React.FC = () => {
+const Component: FC = () => {
   return <About />;
 };
 

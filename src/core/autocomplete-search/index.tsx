@@ -1,4 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  FC,
+  useEffect,
+  useRef,
+  useState,
+  ChangeEvent,
+  KeyboardEvent,
+} from "react";
 
 import Fuse from "fuse.js";
 
@@ -8,9 +15,7 @@ import {
 } from "@/core/autocomplete-search/type";
 import diseaseData from "@/fixtures/diseaseData.json";
 
-const Component: React.FC<IAutocompleteSearchProps> = ({
-  onSuggestionClick,
-}) => {
+const Component: FC<IAutocompleteSearchProps> = ({ onSuggestionClick }) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [suggestions, setSuggestions] = useState<ISearchTerm[]>([]);
   const [selectedSuggestionIndex, setSelectedSuggestionIndex] =
@@ -33,10 +38,10 @@ const Component: React.FC<IAutocompleteSearchProps> = ({
       treatment: diseaseData[term]["disease-treatment"],
       diagnostic: diseaseData[term]["disease-diagnostic"],
     })),
-    fuseOptions
+    fuseOptions,
   );
 
-  const _handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const _handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newSearchTerm = event.target.value;
     setSearchTerm(newSearchTerm);
 
@@ -54,11 +59,11 @@ const Component: React.FC<IAutocompleteSearchProps> = ({
     onSuggestionClick(suggestion);
   };
 
-  const _handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const _handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "ArrowDown") {
       event.preventDefault();
       setSelectedSuggestionIndex((prevIndex) =>
-        Math.min(prevIndex + 1, suggestions.length - 1)
+        Math.min(prevIndex + 1, suggestions.length - 1),
       );
     } else if (event.key === "ArrowUp") {
       event.preventDefault();

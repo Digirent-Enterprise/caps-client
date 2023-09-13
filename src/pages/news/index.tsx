@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 
 import StoriesList from "@/components/news/news-list";
 
-const Component: React.FC = () => {
+const Component: FC = () => {
   return <StoriesList />;
 };
 

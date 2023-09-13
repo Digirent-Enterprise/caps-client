@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, memo, ChangeEvent } from "react";
 
 import { IconX } from "@tabler/icons-react";
 import { useTranslation } from "next-i18next";
@@ -12,12 +12,12 @@ import { CustomStyle } from "@/shared/conversation-modal/constant";
 import { IConversationModalProps } from "@/shared/conversation-modal/type";
 import { renderChatBotOptions } from "@/utils/models";
 
-const Component = React.memo((props: IConversationModalProps) => {
+const Component = memo((props: IConversationModalProps) => {
   const { isOpen, onClose, createNewConversation } = props;
   const { isMobile } = useDevice();
   const [conversationName, setConversationName] = useState<string>("");
   const { t } = useTranslation("create_conversation");
-  const mappedModels = React.useMemo(() => {
+  const mappedModels = useMemo(() => {
     return renderChatBotOptions();
   }, []);
 
@@ -27,7 +27,7 @@ const Component = React.memo((props: IConversationModalProps) => {
 
   const [selectedModel, setSelectedModel] =
     useState<ConversationNS.ChatbotType>(
-      ConversationNS.ChatbotType.OPEN_AI_BASE
+      ConversationNS.ChatbotType.OPEN_AI_BASE,
     );
 
   const _handleCancelClick = () => {
@@ -81,7 +81,7 @@ const Component = React.memo((props: IConversationModalProps) => {
           type="text"
           placeholder={t("create_name")!}
           value={conversationName}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setConversationName(e.target.value)
           }
           className={`w-full rounded-md border border-gray-400 bg-light-background-gray py-2 pl-3 pr-10 text-light-blue-hover transition duration-300 ease-in focus:bg-light-gray focus:shadow-md focus:outline-none ${

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { FC, useEffect, useMemo, useRef, useState } from "react";
 
 import {
   IconBellHeart,
@@ -27,6 +27,7 @@ import MessageList from "@/components/message-list";
 import OnboardingTutorial from "@/components/onboarding-tutorial";
 import Settings from "@/components/settings";
 import { useAuth } from "@/contexts/auth-context";
+import Kbd from "@/core/kbd";
 import withAuth from "@/hoc/withLogin";
 import useConversation from "@/hooks/conversation/useConversation";
 import useMessage from "@/hooks/message/useMessage";
@@ -40,9 +41,8 @@ import StatusModal from "@/shared/status-modal";
 import { exportConversationToJson } from "@/utils/json";
 import { exportConversationToMarkdown } from "@/utils/markdown";
 import { formatModelOption } from "@/utils/models";
-import Kbd from "src/core/kbd";
 
-const Component: React.FC = () => {
+const Component: FC = () => {
   const { isMobile } = useDevice();
   const router = useRouter();
   const [openDiscussion, setOpenDiscussion] = useImmer<boolean>(false);
@@ -81,7 +81,7 @@ const Component: React.FC = () => {
     const _closeDiscussionModal = () => setOpenDiscussion(false);
 
     const filteredConversations = conversations.filter((conversation) =>
-      conversation.name.toLowerCase().includes(searchTerm.toLowerCase())
+      conversation.name.toLowerCase().includes(searchTerm.toLowerCase()),
     );
 
     const _onModalClose = () => {
@@ -338,7 +338,7 @@ const Component: React.FC = () => {
                   {selectedConversation && conversations.length > 0 ? (
                     <div className="h-fit w-fit rounded bg-light-bg-blue px-5 py-1 text-sm text-white">
                       {formatModelOption(
-                        selectedConversation?.chatBotType || ""
+                        selectedConversation?.chatBotType || "",
                       )}
                     </div>
                   ) : null}
