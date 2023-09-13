@@ -1,9 +1,9 @@
 {
   "welcome": "Chào mừng,",
   "back": "Quay lại trang trước",
-  "my_general": "Thống kê Sức khỏe Chung của tôi",
-  "my_health": "Lịch sử Sức khỏe của tôi",
-  "my_secret": "Các gợi ý bí mật của tôi",
+  "my_general": "Tổng quát sức khoẻ",
+  "my_health": "Lịch sử sức khoẻ",
+  "my_secret": "Gợi ý bí mật",
   "welcome_back": "Chào mừng trở lại,",
   "we_are": "Chúng tôi luôn vui lòng được nghe từ bạn. Chăm sóc sức khỏe của bạn là niềm vui của chúng tôi.",
   "please_let": "Vui lòng cho DICA biết",
@@ -16,5 +16,7 @@
   "location": "Vị trí:",
   "geolocation": "Trình duyệt này không hỗ trợ định vị địa lý.",
   "user_denied": "Người dùng từ chối định vị địa lý",
-  "loading": "Đang tải..."
+  "loading": "Đang tải...",
+  "no_data": "Không có thông tin",
+  "update_health_record": "Hãy cập nhật sức khỏe của bạn thường xuyên nhé!"
 }

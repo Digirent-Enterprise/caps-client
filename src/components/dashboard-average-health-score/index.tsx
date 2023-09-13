@@ -4,7 +4,7 @@ import { CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
 import { isEmpty } from "lodash";
 
 import useDynamicHealth from "@/hooks/dynamic-health";
-import ContainerCard from "@/shared/chart-container-card";
+import ChartContainerCard from "@/shared/chart-container-card";
 
 const Component = memo(() => {
   const { myStatuses, getDynamicHealth } = useDynamicHealth();
@@ -43,7 +43,7 @@ const Component = memo(() => {
   }, [myStatuses]);
 
   return (
-    <ContainerCard
+    <ChartContainerCard
       hasData={!!averageScore}
       chart={
         <div className="h-full w-full">

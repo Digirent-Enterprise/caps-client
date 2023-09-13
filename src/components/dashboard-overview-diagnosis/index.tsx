@@ -1,6 +1,7 @@
 import React, { memo, useContext, useEffect } from "react";
 
 import { isEmpty } from "lodash";
+import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
 import DashboardDiagnosisDetailModal from "@/components/dashboard-diagnosis-detail-modal";
@@ -55,6 +56,7 @@ const DiagnosisCard = memo((props: IDiagnosisCardProps) => {
 DiagnosisCard.displayName = "DiagnosisCard";
 
 const Component = memo(() => {
+  const { t } = useTranslation("health_record");
   const chatBotResult = useChatBot();
   const { getDiagnosisResults, diagnosisResults, diagnosisLoading, diagnosis } =
     chatBotResult;
@@ -76,7 +78,7 @@ const Component = memo(() => {
             src={"/static/dashboard/empty_data_icon.png"}
             className="w-36"
           />
-          <div> No Data </div>
+          <div>{t("no_data")}</div>
           <div className="text-sm text-light-background-gray">
             Please update your status regularly. Then, you can try our
             diagnosis.

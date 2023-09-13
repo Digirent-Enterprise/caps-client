@@ -5,7 +5,6 @@ import { useTranslation } from "next-i18next";
 
 import FaqHeader from "@/components/faq/header";
 import Footer from "@/shared/footer";
-import { convertUrlToTitle } from "@/utils/common";
 
 const Component: FC = () => {
   const { t } = useTranslation("faq");
@@ -15,7 +14,7 @@ const Component: FC = () => {
   return (
     <div className="flex min-h-screen flex-col bg-light-gray dark:bg-dark-gray-heavy">
       <div className="mb-20">
-        <FaqHeader currentPage={convertUrlToTitle(currentPage)} />
+        <FaqHeader currentPage={currentPage} />
         <div className="mx-auto mt-10 max-w-3xl bg-light-gray dark:bg-dark-gray-heavy">
           <h2 className="mb-4 text-2xl font-bold text-light-blue-hover dark:text-white">
             {t("privacy-concerns-and-security")}

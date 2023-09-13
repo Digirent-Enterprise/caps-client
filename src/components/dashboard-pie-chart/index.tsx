@@ -8,7 +8,7 @@ import { DefaultColorPalette } from "@/components/dashboard-pie-chart/constant";
 import { IDashboardPieChart } from "@/components/dashboard-pie-chart/type";
 import PieChart from "@/core/pie-chart";
 import useDynamicHealth from "@/hooks/dynamic-health";
-import ContainerCard from "@/shared/chart-container-card";
+import ChartContainerCard from "@/shared/chart-container-card";
 
 Chart.register(...registerables);
 Chart.defaults.color = "#ffffff";
@@ -47,7 +47,7 @@ const Component = memo((props: IDashboardPieChart) => {
     if (type === "symptoms") getCommonSymptoms();
   }, [type]);
   return (
-    <ContainerCard
+    <ChartContainerCard
       hasData={!isEmpty((data.datasets as { data: unknown }[])[0].data)}
       chart={
         <PieChart
