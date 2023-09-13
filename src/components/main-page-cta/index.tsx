@@ -44,6 +44,7 @@ const Component = memo(() => {
   const iconClass = useMemo(() => {
     return "w-10 h-10 stroke-1 m-0";
   }, []);
+
   const getActionIcon = (action: string): ReactElement | null => {
     switch (action) {
       // Immediate Actions
@@ -99,7 +100,7 @@ const Component = memo(() => {
       <div className="mt-10 text-center text-2xl  text-light-blue-hover dark:text-dark-white md:text-3xl lg:text-4xl">
         {t("how_can_we_help_you")}
       </div>
-      <div className="mt-2 flex flex-col gap-2 md:flex-row md:gap-5">
+      <div className="mt-4 flex flex-col gap-2 md:flex-row md:gap-5">
         <button
           className={`${tab === 0 ? activeClass : inactiveClass}`}
           onClick={() => setTab(0)}
@@ -132,6 +133,44 @@ const Component = memo(() => {
             },
           )}
         </div>
+      </div>
+      <div className="from-1% h-90 w-70 mt-5 flex items-center justify-center px-2">
+        <div className="flex-40 relative rounded-3xl transition duration-300 hover:opacity-100">
+          <div className="absolute left-0 top-0 z-10 p-4">
+            <h1 className="mb-2 text-2xl font-bold text-white">SAVINGS</h1>
+            <p className="mb-4 text-lg text-white">Singlife Account</p>
+            <p className="mb-4 text-sm text-white">
+              The insurance savings plan that gives you up to 3.5% p.a.* return
+              on your first S$10,000. Save, spend, earn and be insured all in
+              one app. *Terms and Conditions apply. For a limited time only.
+            </p>
+          </div>
+          <img
+            className="h-full w-full transform-gpu rounded-3xl object-cover transition-transform duration-300 hover:scale-110"
+            src={"/theme/dark.png"}
+            alt="Your Image"
+          />
+        </div>
+        <div className="flex-40 relative ml-20 rounded-3xl transition duration-300 hover:opacity-100">
+          <div className="absolute left-0 top-0 z-10 p-4">
+            <h1 className="mb-2 text-2xl font-bold text-white">SAVINGS</h1>
+            <p className="mb-4 text-lg text-white">Singlife Account</p>
+            <p className="mb-4 text-sm text-white">
+              The insurance savings plan that gives you up to 3.5% p.a.* return
+              on your first S$10,000. Save, spend, earn and be insured all in
+              one app. *Terms and Conditions apply. For a limited time only.
+            </p>
+          </div>
+          <img
+            className="h-full w-full transform-gpu rounded-3xl object-cover transition-transform duration-300 hover:scale-110"
+            src={"/theme/dark.png"}
+            alt="Your Image"
+          />
+        </div>
+      </div>
+      <div className="container mx-auto mt-5 w-full p-4">
+        <h1 className="mb-4 text-2xl font-bold">Newsroom</h1>
+        {/*<ImageCardContainer />*/}
       </div>
     </div>
   );
