@@ -13,7 +13,7 @@ import {
   IAuthContextProps,
   IUser,
 } from "@/types/context/with-auth-context";
-import axios from "src/utils/axios";
+import axios from "@/utils/axios";
 
 export const AuthContext = createContext<AuthContextData>(
   {} as AuthContextData,

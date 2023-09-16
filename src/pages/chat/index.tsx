@@ -37,10 +37,10 @@ import DefaultChatMessage from "@/shared/default-chat-message";
 import Popover from "@/shared/popover";
 import SearchInput from "@/shared/search-input";
 import StatusModal from "@/shared/status-modal";
+import axios from "@/utils/axios";
 import { exportConversationToJson } from "@/utils/json";
 import { exportConversationToMarkdown } from "@/utils/markdown";
 import { formatModelOption } from "@/utils/models";
-import axios from "src/utils/axios";
 
 const Component: FC = () => {
   const { isMobile } = useDevice();

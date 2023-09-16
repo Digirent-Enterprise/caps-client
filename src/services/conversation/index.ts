@@ -1,5 +1,5 @@
 import { ConversationNS } from "@/services/conversation/type";
-import axios from "src/utils/axios";
+import axios from "@/utils/axios";
 
 export default class ConversationService {
   static createNewConversation = (

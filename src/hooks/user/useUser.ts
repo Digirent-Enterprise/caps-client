@@ -5,7 +5,7 @@ import { LocalStorageKeys } from "@/services/local-storage/constant";
 import { UserService } from "@/services/user";
 import { UserNS } from "@/services/user/type";
 import { IUser } from "@/types/context/with-auth-context";
-import axios from "src/utils/axios";
+import axios from "@/utils/axios";
 
 type UseUserResult = {
   user: IUser;

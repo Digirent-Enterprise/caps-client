@@ -8,8 +8,8 @@ import { AuthService } from "@/services/auth";
 import { AuthNS } from "@/services/auth/type";
 import { LocalStorageService } from "@/services/local-storage";
 import { LocalStorageKeys } from "@/services/local-storage/constant";
+import axios from "@/utils/axios";
 import { showToast } from "@/utils/toast";
-import axios from "src/utils/axios";
 
 type LoginResult = {
   data: AuthNS.LoginResponse;

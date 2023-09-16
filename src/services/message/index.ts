@@ -1,6 +1,6 @@
 import { ConversationNS } from "@/services/conversation/type";
 import { MessageNS } from "@/services/message/type";
-import axios from "src/utils/axios";
+import axios from "@/utils/axios";
 
 export default class MessageService {
   static sendMessage = (

@@ -1,4 +1,4 @@
-import axios from "src/utils/axios";
+import axios from "@/utils/axios";
 
 export default class NewsService {
   static getNewsBasedOnSymptom = (
