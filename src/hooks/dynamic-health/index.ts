@@ -9,10 +9,7 @@ import { StatusType } from "@/types/enum/common/status-type";
 import { showToast } from "@/utils/toast";
 
 type DynamicHealthResult = {
-  addDynamicHealth: (x: {
-    symptoms: string[];
-    status: DynamicHealthNS.Status;
-  }) => void;
+  addDynamicHealth: (x: DynamicHealthNS.AddDynamicHealthParams) => void;
   myStatuses: DynamicHealthNS.DynamicHealthStatusesRes;
   getDynamicHealth: () => void;
   getCategorizedStatus: () => void;
