@@ -6,6 +6,7 @@ import { LoadingContext } from "@/contexts/loading-context";
 import { AuthNS } from "@/services/auth/type";
 import axios from "@/utils/axios";
 import { showToast } from "@/utils/toast";
+import axios from "src/utils/axios";
 
 type RegisterResult = {
   register: (x: AuthNS.RegisterRequest) => void;

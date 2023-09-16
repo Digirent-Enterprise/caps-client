@@ -18,6 +18,7 @@ import withAuth from "@/hoc/withLogin";
 import useDevice from "@/hooks/useDevice";
 import axios from "@/utils/axios";
 import { showToast } from "@/utils/toast";
+import axios from "src/utils/axios";
 
 const Component = () => {
   const { t } = useTranslation("health_data");
