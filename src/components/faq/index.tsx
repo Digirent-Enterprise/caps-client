@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
 import { questions } from "@/components/faq/constant";
-import FaqHeader from "@/components/faq/header";
+import FaqHeader from "@/components/faq/faq-header";
 import { IQuestion } from "@/components/faq/type";
 import Footer from "@/shared/footer";
 

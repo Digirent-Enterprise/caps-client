@@ -4,11 +4,11 @@ import { IconExternalLink } from "@tabler/icons-react";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
-import AccountSettings from "@/components/account-settings";
-import LanguageSwitcher from "@/components/language-switcher";
 import { tabs } from "@/components/settings/constant";
+import AccountSettings from "@/components/settings/settings-account-information";
+import LanguageSwitcher from "@/components/settings/settings-language-switcher";
+import ThemeSwitcher from "@/components/settings/settings-theme-switcher";
 import { ISettingsModalProps } from "@/components/settings/type";
-import ThemeSwitcher from "@/components/theme-switcher";
 import BaseButton from "@/core/base-button";
 import BaseModal from "@/core/base-modal";
 import Switcher from "@/core/switcher";

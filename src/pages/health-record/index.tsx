@@ -9,9 +9,9 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
-import DashboardContent from "@/components/dashboard-content";
-import { DashboardContentTabType } from "@/components/dashboard-content/type";
-import DashboardSidebar from "@/components/dashboard-sidebar";
+import DashboardContent from "@/components/dashboard/dashboard-content";
+import { DashboardContentTabType } from "@/components/dashboard/dashboard-content/type";
+import DashboardSidebar from "@/components/dashboard/dashboard-sidebar";
 import withAuth from "@/hoc/withLogin";
 import useDevice from "@/hooks/useDevice";
 import { PersonalizedDashboardTab } from "@/types/enum/common/tabs";

@@ -10,9 +10,9 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
-import DashboardSidebar from "@/components/dashboard-sidebar";
-import DiscussionPageContent from "@/components/discussion-page-content";
-import { DiscussionPageContentTabType } from "@/components/discussion-page-content/type";
+import DashboardSidebar from "@/components/dashboard/dashboard-sidebar";
+import DiscussionPageContent from "@/components/discussion/discussion-page-content";
+import { DiscussionPageContentTabType } from "@/components/discussion/discussion-page-content/type";
 import useDevice from "@/hooks/useDevice";
 import { DiscussionStatus } from "@/types/enum/discussion";
 

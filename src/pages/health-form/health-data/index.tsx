@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import HealthData from "@/components/health-form/health-data";
+import HealthData from "@/components/dynamic-health/dynamic-health-data";
 
 const Component: FC = () => {
   return <HealthData />;

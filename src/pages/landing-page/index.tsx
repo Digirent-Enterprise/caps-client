@@ -1,7 +1,7 @@
 import { memo } from "react";
 
-import MainPageCarousel from "@/components/main-page-carousel";
-import MainPageCta from "@/components/main-page-cta";
+import MainPageCarousel from "@/components/landing-page/landing-page-carousel";
+import MainPageCta from "@/components/landing-page/landing-page-cta";
 import withLayout from "@/hoc/withLayout";
 
 const Component = memo(() => {
