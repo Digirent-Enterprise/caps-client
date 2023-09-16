@@ -1,4 +1,4 @@
-import { IMetadata } from "@/core/chat-message/type";
+import { IMetadata, SenderType } from "@/core/chat-message/type";
 
 export namespace MessageNS {
   export type Message = {
@@ -14,9 +14,4 @@ export namespace MessageNS {
   export type GetMessageReq = {
     conversationId: number;
   };
-
-  export enum SenderType {
-    USER = "user",
-    CHATBOT = "chatbot",
-  }
 }

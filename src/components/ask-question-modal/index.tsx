@@ -2,6 +2,7 @@ import React, { ChangeEvent, memo, useEffect, useState } from "react";
 
 import { IAskQuestionModal } from "@/components/ask-question-modal/type";
 import BaseModal from "@/core/base-modal";
+import { StatusType } from "@/types/enum/common/status-type";
 import { showToast } from "@/utils/toast";
 
 const Component = memo((props: IAskQuestionModal) => {
@@ -12,12 +13,12 @@ const Component = memo((props: IAskQuestionModal) => {
     setQuestion(e.target.value);
   const _onSubmit = () => {
     if (!question) {
-      showToast("error", "Please enter your question.");
+      showToast(StatusType.ERROR, "Please enter your question.");
       return;
     }
     if (question.length < 100) {
       showToast(
-        "error",
+        StatusType.ERROR,
         "Your question is too short. Please provide more information or use our Chat function instead.",
       );
       return;

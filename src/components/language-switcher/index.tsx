@@ -3,14 +3,12 @@ import React, { FC, useMemo } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
-import { languageOptions } from "@/components/language-switcher/constant";
-import { LocalStorageService } from "@/services/local-storage";
+import { supportedLanguages } from "@/components/language-switcher/constant";
 
 const Component: FC = () => {
   const router = useRouter();
   const { t } = useTranslation("settings");
   const _handleChangeLanguage = (lang: string) => () => {
-    const localStorageService = LocalStorageService.getInstance();
     const { pathname, asPath, query } = router;
 
     if (router.locale === lang) return;
@@ -19,12 +17,10 @@ const Component: FC = () => {
       locale: lang,
       shallow: true,
     });
-
-    localStorageService.setItem("NEXT_LOCALE", lang);
   };
 
   const currentLocale = useMemo(
-    () => languageOptions.find(({ locale }) => router.locale === locale),
+    () => supportedLanguages.find(({ locale }) => router.locale === locale),
     [router.locale],
   );
 
@@ -35,7 +31,7 @@ const Component: FC = () => {
       </h2>
 
       <div className="flex items-center">
-        {languageOptions.map(({ name, locale }) => (
+        {supportedLanguages.map(({ name, locale }) => (
           <button
             key={locale}
             className={`mr-2 rounded-lg p-2 ${

@@ -1,15 +1,13 @@
 import React, { memo } from "react";
 
-import { useTranslation } from "next-i18next";
-
 import { IDashboardContentProps } from "@/components/dashboard-content/type";
 import DashboardMyGeneralHealthStatistic from "@/components/dashboard-my-general-health-statistic";
 import DashboardOverviewDiagnosis from "@/components/dashboard-overview-diagnosis";
 import useDevice from "@/hooks/useDevice";
+import { PersonalizedDashboardTab } from "@/types/enum/common/tabs";
 
 const Component = memo((props: IDashboardContentProps) => {
-  const { t } = useTranslation("health_record");
-  const { tab = "MyGeneralHealthStatistics" } = props;
+  const { tab = PersonalizedDashboardTab.GENERAL_HEALTH_STATISTIC } = props;
   const { isMobile } = useDevice();
 
   return (
@@ -18,10 +16,12 @@ const Component = memo((props: IDashboardContentProps) => {
         isMobile ? "" : "w-full"
       }`}
     >
-      {tab === "MyGeneralHealthStatistics" && (
+      {tab === PersonalizedDashboardTab.GENERAL_HEALTH_STATISTIC && (
         <DashboardMyGeneralHealthStatistic />
       )}
-      {tab === "MySecretRecommendation" && <DashboardOverviewDiagnosis />}
+      {tab === PersonalizedDashboardTab.SECRET_RECOMMENDATION && (
+        <DashboardOverviewDiagnosis />
+      )}
     </section>
   );
 });

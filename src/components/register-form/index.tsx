@@ -15,7 +15,7 @@ import BaseButton from "@/core/base-button";
 import Option from "@/core/select-option";
 import { SelectOption } from "@/core/select-option/type";
 import TextInput from "@/core/text-input";
-import { FormExtension } from "@/core/text-input/type";
+import { FormExtensionType } from "@/core/text-input/type";
 import useRegister from "@/hooks/auth/useRegister";
 import useDevice from "@/hooks/useDevice";
 
@@ -27,7 +27,10 @@ const Component = memo(() => {
     useImmer<SelectOption>(DefaultGenderOption);
   const { register } = useRegister();
 
-  const _onInputChange = (value: string, extension?: FormExtension): void => {
+  const _onInputChange = (
+    value: string,
+    extension?: FormExtensionType,
+  ): void => {
     const { dataKey } = extension!;
     const temp = cloneDeep(form);
     switch (dataKey) {
@@ -114,7 +117,7 @@ const Component = memo(() => {
 
   const _onChangeSelectOption = (
     option: SelectOption,
-    extension?: FormExtension,
+    extension?: FormExtensionType,
   ) => {
     const { dataKey } = extension!;
     const temp = cloneDeep(form);

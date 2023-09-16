@@ -119,8 +119,8 @@ const Component: FC<IConversationListProps> = (
       {Object.keys(groupedConversations).map((label) => {
         const colorClasses = _getConversationPaddingColor(label);
         return (
-          <div key={label} className="d-flex flex-col gap-1">
-            <div className={`mb-2 px-2 py-1 text-sm text-light-blue-hover `}>
+          <div key={label} className="flex-col gap-1">
+            <div className="mb-2 px-2 py-1 text-sm text-light-blue-hover">
               {label}
             </div>
             {groupedConversations[label].map((conversation) => (

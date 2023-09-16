@@ -9,7 +9,7 @@ import { useImmer } from "use-immer";
 import { DefaultLoginForm } from "@/constants/auth-page";
 import BaseButton from "@/core/base-button";
 import TextInput from "@/core/text-input";
-import { FormExtension } from "@/core/text-input/type";
+import { FormExtensionType } from "@/core/text-input/type";
 import useLogin from "@/hooks/auth/useLogin";
 import useDevice from "@/hooks/useDevice";
 
@@ -19,7 +19,7 @@ const Component = memo(() => {
 
   const [form, setForm] = useImmer(DefaultLoginForm);
   const { login } = useLogin();
-  const _onInputChange = (value: string, extension?: FormExtension) => {
+  const _onInputChange = (value: string, extension?: FormExtensionType) => {
     const { dataKey } = extension!;
     const temp = cloneDeep(form);
     switch (dataKey) {

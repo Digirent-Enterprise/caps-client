@@ -8,12 +8,13 @@ import {
 } from "@tabler/icons-react";
 
 import { IDiscussionItemProps } from "@/components/discussion-item/type";
+import { DiscussionStatus } from "@/types/enum/discussion";
 
 const Component = memo((props: IDiscussionItemProps) => {
   const {
     title,
     answer,
-    status = "Pending",
+    status = DiscussionStatus.PENDING,
     hasButton = false,
     onClick,
   } = props;
@@ -23,16 +24,28 @@ const Component = memo((props: IDiscussionItemProps) => {
   };
 
   const newStatus = useMemo(() => {
-    if (status === "pending") return "Pending";
-    if (status === "answered") return "Answered";
-    if (status === "peer-reviewed") return "Answered (*)";
-    return "Pending";
+    switch (status) {
+      case DiscussionStatus.PENDING:
+        return "Pending";
+      case DiscussionStatus.ANSWERED:
+        return "Answered";
+      case DiscussionStatus.PEER_REVIEWED:
+        return "Answered (*)";
+      default:
+        return "Pending";
+    }
   }, [status]);
 
   const statusColor = useMemo(() => {
-    if (status === "pending") return "bg-orange-400";
-    if (status === "answered") return "bg-green-400";
-    if (status === "peer-reviewed") return "bg-green-400";
+    switch (status) {
+      case DiscussionStatus.PENDING:
+        return "bg-orange-400";
+      case DiscussionStatus.ANSWERED:
+      case DiscussionStatus.PEER_REVIEWED:
+        return "bg-green-400";
+      default:
+        return "";
+    }
   }, [status]);
 
   const answerClasses = useMemo(() => {
@@ -45,7 +58,7 @@ const Component = memo((props: IDiscussionItemProps) => {
     <Disclosure>
       {({ open }) => {
         let canOpen = false;
-        if (status.toLowerCase() !== "pending") canOpen = true;
+        if (status.toLowerCase() !== DiscussionStatus.PENDING) canOpen = true;
         return (
           <>
             <Disclosure.Button

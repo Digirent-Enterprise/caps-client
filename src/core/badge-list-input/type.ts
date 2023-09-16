@@ -4,7 +4,7 @@ export interface IBadgeListInputProps {
   errorMessage?: string;
 }
 
-export type Badge = {
+export type BadgeType = {
   value: string;
   id: number;
 };

@@ -4,6 +4,7 @@ import { useImmer } from "use-immer";
 
 import { LoadingContext } from "@/contexts/loading-context";
 import ChatBotService from "@/services/chat-bot";
+import { StatusType } from "@/types/enum/common/status-type";
 import { showToast } from "@/utils/toast";
 
 export type ChatBotResult = {
@@ -58,7 +59,7 @@ const useChatBot = (): ChatBotResult => {
         setLoading(false);
         setDiagnosisLoading(false);
         setDiagnosisResults((prev) => [...prev, response]);
-        showToast("success", "Diagnosis created successfully");
+        showToast(StatusType.SUCCESS, "Diagnosis created successfully");
         return response;
       }
     } catch (error) {

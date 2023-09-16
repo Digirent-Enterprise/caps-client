@@ -6,6 +6,7 @@ import { LoadingContext } from "@/contexts/loading-context";
 import ConversationService from "@/services/conversation";
 import { ConversationNS } from "@/services/conversation/type";
 import { IConversation } from "@/shared/conversation/type";
+import { StatusType } from "@/types/enum/common/status-type";
 import { showToast } from "@/utils/toast";
 
 type ConversationResult = {
@@ -42,13 +43,13 @@ const useConversation = () => {
           chatBotType,
         });
       setConversations((prev) => [...prev, newConversation]);
-      showToast("success", "Create new conversation successfully!");
+      showToast(StatusType.SUCCESS, "Create new conversation successfully!");
 
       if (!selectedConversation) {
         setSelectedConversation(null);
       }
     } catch (error) {
-      showToast("error", "Failed to get conversations");
+      showToast(StatusType.ERROR, "Failed to get conversations");
     }
     setLoading(false);
   };
@@ -59,7 +60,7 @@ const useConversation = () => {
       const response = await ConversationService.getAllConversations();
       setConversations(response);
     } catch (error) {
-      showToast("error", "Could not fetch conversations");
+      showToast(StatusType.ERROR, "Could not fetch conversations");
     }
     setLoading(false);
   };
@@ -69,7 +70,7 @@ const useConversation = () => {
     try {
       await ConversationService.updateConversation(conversation);
     } catch (error) {
-      showToast("error", "Could not update conversations");
+      showToast(StatusType.ERROR, "Could not update conversations");
     }
     setLoading(false);
   };
@@ -79,7 +80,7 @@ const useConversation = () => {
     try {
       await ConversationService.deleteConversation(id);
     } catch (error) {
-      showToast("error", "Could not delete conversations");
+      showToast(StatusType.ERROR, "Could not delete conversations");
     }
     setLoading(false);
   };

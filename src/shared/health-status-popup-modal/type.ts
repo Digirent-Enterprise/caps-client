@@ -6,17 +6,13 @@ export interface IHealthStatusPopupModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
 }
-export interface IHealthStatus {
-  feeling: string;
-  symptoms: string[];
-}
 
-export type FeelingIcon = {
+export type FeelingIconType = {
   label: DynamicHealthNS.Status;
   icon: ReactNode;
 };
 
-export type FeelingIcons = FeelingIcon[];
+export type FeelingIconsType = FeelingIconType[];
 
 export const allSymptoms: string[] = [
   "Fever",

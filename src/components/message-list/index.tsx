@@ -49,9 +49,11 @@ const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
       }
     };
 
+    const lastMessage = messages[messages.length - 1];
+
     useEffect(() => {
       _scrollToBottom();
-    }, [messages[messages.length - 1]]);
+    }, [lastMessage]);
 
     const _handleSend = () => {
       const socket = getSocket();

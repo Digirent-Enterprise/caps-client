@@ -1,5 +1,11 @@
+import { DiscussionStatus } from "@/types/enum/discussion";
+
 export namespace InquiryNS {
-  export type InquiryStatus = "pending" | "answered" | "peer-reviewed";
+  export type InquiryStatus =
+    | DiscussionStatus.PENDING
+    | DiscussionStatus.ANSWERED
+    | DiscussionStatus.PEER_REVIEWED;
+
   export type Inquiry = {
     id?: string;
     message: string;

@@ -1,12 +1,13 @@
 import { ILanguageOption } from "@/components/language-switcher/type";
+import { Language } from "@/types/enum/common/language";
 
-export const languageOptions: ILanguageOption[] = [
+export const supportedLanguages: ILanguageOption[] = [
   {
-    locale: "vi",
+    locale: Language.VIETNAMESE,
     name: "Tiếng Việt",
   },
   {
-    locale: "en",
+    locale: Language.ENGLISH,
     name: "English",
   },
 ];

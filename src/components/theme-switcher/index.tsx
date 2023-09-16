@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { useTheme } from "next-themes";
 
+import { Theme } from "@/types/enum/common/theme";
+
 const Component: FC = () => {
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation("settings");
@@ -30,9 +32,9 @@ const Component: FC = () => {
           <div className="relative mr-4">
             <div
               className={`rounded border-2 ${
-                theme === "system" ? "border-light-button-blue" : ""
+                theme === Theme.SYSTEM ? "border-light-button-blue" : ""
               }`}
-              onClick={() => setTheme("system")}
+              onClick={() => setTheme(Theme.SYSTEM)}
             >
               <Image
                 src="/theme/system.png"
@@ -40,7 +42,7 @@ const Component: FC = () => {
                 width={300}
                 height={300}
               />
-              {getCheckIcon(theme === "system")}
+              {getCheckIcon(theme === Theme.SYSTEM)}
             </div>
             <p className="mt-2 text-center font-medium text-light-blue-hover dark:text-dark-white">
               {t("system_preference")}
@@ -49,9 +51,9 @@ const Component: FC = () => {
           <div className="relative mr-4">
             <div
               className={`rounded border-2 ${
-                theme === "light" ? "border-light-button-blue" : ""
+                theme === Theme.LIGHT ? "border-light-button-blue" : ""
               }`}
-              onClick={() => setTheme("light")}
+              onClick={() => setTheme(Theme.LIGHT)}
             >
               <Image
                 src="/theme/light.png"
@@ -59,7 +61,7 @@ const Component: FC = () => {
                 width={300}
                 height={300}
               />
-              {getCheckIcon(theme === "light")}
+              {getCheckIcon(theme === Theme.LIGHT)}
             </div>
             <p className="mt-2 text-center font-medium text-light-blue-hover dark:text-dark-white">
               {t("light")}
@@ -68,9 +70,9 @@ const Component: FC = () => {
           <div className="relative">
             <div
               className={`rounded border-2 ${
-                theme === "dark" ? "border-light-button-blue" : ""
+                theme === Theme.DARK ? "border-light-button-blue" : ""
               }`}
-              onClick={() => setTheme("dark")}
+              onClick={() => setTheme(Theme.DARK)}
             >
               <Image
                 src="/theme/dark.png"
@@ -78,7 +80,7 @@ const Component: FC = () => {
                 width={300}
                 height={300}
               />
-              {getCheckIcon(theme === "dark")}
+              {getCheckIcon(theme === Theme.DARK)}
             </div>
             <p className="mt-2 text-center font-medium text-light-blue-hover dark:text-dark-white">
               {t("dark")}

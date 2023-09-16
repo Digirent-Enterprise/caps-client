@@ -5,6 +5,7 @@ import { IconRobot } from "@tabler/icons-react";
 import { IAnswerDiscussionModalProps } from "@/components/answer-discussion-modal/type";
 import DiscussionUserBasicInfo from "@/components/discussion-user-basic-info";
 import BaseModal from "@/core/base-modal";
+import { StatusType } from "@/types/enum/common/status-type";
 import { showToast } from "@/utils/toast";
 
 const Component = memo((props: IAnswerDiscussionModalProps) => {
@@ -15,7 +16,7 @@ const Component = memo((props: IAnswerDiscussionModalProps) => {
   };
 
   const _onClickSubmit = () => {
-    showToast("success", "This feature is not available yet");
+    showToast(StatusType.SUCCESS, "This feature is not available yet");
   };
   const inquiry = useMemo(() => {
     return open.inquiry;

@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, FormEvent, useState } from "react";
 
 import { IconX } from "@tabler/icons-react";
 
-import { Badge, IBadgeListInputProps } from "@/core/badge-list-input/type";
+import { BadgeType, IBadgeListInputProps } from "@/core/badge-list-input/type";
 
 const Component: FC<IBadgeListInputProps> = ({
   onSubmit,
@@ -10,7 +10,7 @@ const Component: FC<IBadgeListInputProps> = ({
   errorMessage,
 }) => {
   const [badgeText, setBadgeText] = useState("");
-  const [badges, setBadges] = useState<Badge[]>([]);
+  const [badges, setBadges] = useState<BadgeType[]>([]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setBadgeText(event.target.value);
@@ -22,23 +22,23 @@ const Component: FC<IBadgeListInputProps> = ({
     setBadgeText("");
     onSubmit(
       [...badges, { value: badgeText.trim(), id: badges.length + 1 }].map(
-        (item) => item.value,
+        (item: BadgeType) => item.value,
       ),
     );
   };
 
-  const handleDelete = (badgeToDelete: Badge) => {
-    setBadges(badges.filter((badge) => badge.id !== badgeToDelete.id));
+  const handleDelete = (badgeToDelete: BadgeType) => {
+    setBadges(
+      badges.filter((badge: BadgeType) => badge.id !== badgeToDelete.id),
+    );
     onSubmit(
       badges
-        .filter((badge) => badge.id !== badgeToDelete.id)
-        .map((item) => item.value),
+        .filter((badge: BadgeType) => badge.id !== badgeToDelete.id)
+        .map((item: BadgeType) => item.value),
     );
   };
 
-  let inputClassNames =
-    "w-full rounded-lg border border-light-border-gray dark:bg-dark-gray-heavy p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-blue dark:text-dark-white dark:focus:ring-dark-green";
-
+  let inputClassNames: string;
   if (errorMessage) {
     inputClassNames =
       "w-full rounded-lg border border-red p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-light-button-blue dark:text-dark-white dark:focus:ring-dark-green";

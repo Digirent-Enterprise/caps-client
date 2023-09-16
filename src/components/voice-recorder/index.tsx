@@ -21,7 +21,8 @@ import {
   MAX_TIME_RECORD_PER_CHUNK,
 } from "@/components/voice-recorder/constant";
 import { IVoiceRecorderProps } from "@/components/voice-recorder/type";
-import { getAI } from "@/open-ai";
+import { StatusType } from "@/types/enum/common/status-type";
+import { getAI } from "@/utils/open-ai";
 import { showToast } from "@/utils/toast";
 
 const Component = memo((props: IVoiceRecorderProps) => {
@@ -74,7 +75,7 @@ const Component = memo((props: IVoiceRecorderProps) => {
   const _translate = useCallback(
     async (blob: Blob) => {
       if (blob.size > MAX_BLOB_SIZE) {
-        showToast("error", "The voice record is too expensive!");
+        showToast(StatusType.ERROR, "The voice record is too expensive!");
       }
       const ai = getAI();
       const file = new File([blob], "audio.mp3");
@@ -91,7 +92,7 @@ const Component = memo((props: IVoiceRecorderProps) => {
         else onValueChange(response.text);
       } else {
         showToast(
-          "error",
+          StatusType.ERROR,
           "Something wrong with the voice assistant. Please try again later",
         );
       }

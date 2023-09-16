@@ -16,6 +16,7 @@ import TextInput from "@/core/text-input";
 import Textarea from "@/core/textarea";
 import withAuth from "@/hoc/withLogin";
 import useDevice from "@/hooks/useDevice";
+import { StatusType } from "@/types/enum/common/status-type";
 import axios from "@/utils/axios";
 import { showToast } from "@/utils/toast";
 
@@ -241,7 +242,7 @@ const Component = () => {
       .then(async (validatedData) => {
         await axios.post("/static-health", healthForm);
         showToast(
-          "success",
+          StatusType.SUCCESS,
           "Congratulations. You have updated your health data.",
         );
         await router.push("/chat");
@@ -258,7 +259,10 @@ const Component = () => {
         setErrorMessages(newErrorMessages);
 
         Object.keys(errorMessages).forEach((fieldName) => {
-          showToast("error", `${fieldName}: ${errorMessages[fieldName]}`);
+          showToast(
+            StatusType.ERROR,
+            `${fieldName}: ${errorMessages[fieldName]}`,
+          );
         });
       });
   };

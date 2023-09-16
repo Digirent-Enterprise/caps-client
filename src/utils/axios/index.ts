@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 
-import { HttpResponse } from "@/types/enum/http-response";
+import { HttpResponse } from "@/types/enum/common/http-response";
+import { StatusType } from "@/types/enum/common/status-type";
 import { showToast } from "@/utils/toast";
 
 export const API_BASE_URL =
@@ -23,29 +24,29 @@ api.interceptors.response.use(
       const { message } = data as AxiosError;
       switch (status) {
         case HttpResponse.BAD_REQUEST:
-          showToast("error", `Bad Request: ${message}`);
+          showToast(StatusType.ERROR, `Bad Request: ${message}`);
           break;
         case HttpResponse.UNAUTHORIZED:
           //TODO: add axios refresh token mechanism
-          showToast("error", `Unauthorized: ${message}`);
+          showToast(StatusType.ERROR, `Unauthorized: ${message}`);
           break;
         case HttpResponse.FORBIDDEN:
-          showToast("error", `Forbidden: ${message}`);
+          showToast(StatusType.ERROR, `Forbidden: ${message}`);
           break;
         case HttpResponse.NOT_FOUND:
-          showToast("error", `Not Found: ${message}`);
+          showToast(StatusType.ERROR, `Not Found: ${message}`);
           break;
         case HttpResponse.INTERNAL_SERVER_ERROR:
-          showToast("error", `Internal Server Error: ${message}`);
+          showToast(StatusType.ERROR, `Internal Server Error: ${message}`);
           break;
         default:
-          showToast("error", `Error ${status}: ${message}`);
+          showToast(StatusType.ERROR, `Error ${status}: ${message}`);
           break;
       }
     } else if (error.request) {
-      showToast("error", `No response received: ${error.message}`);
+      showToast(StatusType.ERROR, `No response received: ${error.message}`);
     } else {
-      showToast("error", `Request error: ${error.message}`);
+      showToast(StatusType.ERROR, `Request error: ${error.message}`);
     }
     return Promise.reject(error);
   },

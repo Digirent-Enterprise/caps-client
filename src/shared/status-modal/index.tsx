@@ -12,6 +12,7 @@ import Modal from "react-modal";
 import BaseButton from "@/core/base-button";
 import { CustomStyle } from "@/shared/status-modal/constant";
 import { IConfirmationModalProps } from "@/shared/status-modal/type";
+import { StatusType } from "@/types/enum/common/status-type";
 
 const Component = memo((props: IConfirmationModalProps) => {
   const { t } = useTranslation("home");
@@ -59,7 +60,7 @@ const Component = memo((props: IConfirmationModalProps) => {
 
   const getConfirmationModalIcon = () => {
     switch (type) {
-      case "success":
+      case StatusType.SUCCESS:
         return <IconCheck color={color} />;
       case "warning":
         return <IconExclamationMark color={color} />;

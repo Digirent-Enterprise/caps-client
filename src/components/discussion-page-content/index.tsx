@@ -7,17 +7,18 @@ import DiscussionItem from "@/components/discussion-item";
 import { DefaultOpenInquiryModal } from "@/components/discussion-page-content/constant";
 import {
   IDiscussionPageContentProps,
-  OpenInquiryModal,
+  OpenInquiryModalType,
 } from "@/components/discussion-page-content/type";
 import useInquiry from "@/hooks/inquiry";
 import useDevice from "@/hooks/useDevice";
 import { InquiryNS } from "@/services/inquiry/type";
+import { DiscussionStatus } from "@/types/enum/discussion";
 
 const Component = memo((props: IDiscussionPageContentProps) => {
   const { tab } = props;
   const { getAllInquiries, inquiries } = useInquiry();
   const { isMobile } = useDevice();
-  const [openInquiry, setOpenInquiry] = useImmer<OpenInquiryModal>(
+  const [openInquiry, setOpenInquiry] = useImmer<OpenInquiryModalType>(
     DefaultOpenInquiryModal,
   );
 
@@ -25,10 +26,22 @@ const Component = memo((props: IDiscussionPageContentProps) => {
   const onOpenInquiryModal = (inquiry: InquiryNS.Inquiry) => {
     setOpenInquiry({ open: true, inquiry });
   };
+
   useEffect(() => {
-    if (tab === "pending") getAllInquiries("pending");
-    if (tab === "answered") getAllInquiries("answered");
-    if (tab === "peer-reviewed") getAllInquiries("peer-reviewed");
+    let statusToFetch = DiscussionStatus.PENDING;
+
+    switch (tab) {
+      case DiscussionStatus.ANSWERED:
+        statusToFetch = DiscussionStatus.ANSWERED;
+        break;
+      case DiscussionStatus.PEER_REVIEWED:
+        statusToFetch = DiscussionStatus.PEER_REVIEWED;
+        break;
+      default:
+        break;
+    }
+
+    getAllInquiries(statusToFetch);
   }, [tab]);
   return (
     <section
@@ -45,7 +58,7 @@ const Component = memo((props: IDiscussionPageContentProps) => {
               title={inquiry.message}
               answer={inquiry.answer}
               status={inquiry.status}
-              hasButton={inquiry.status === "pending"}
+              hasButton={inquiry.status === DiscussionStatus.PENDING}
               onClick={() => onOpenInquiryModal(inquiry)}
             />
           );

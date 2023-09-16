@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 
 import { IWeatherData } from "@/components/weather-report/type";
 import useDevice from "@/hooks/useDevice";
+import { StatusType } from "@/types/enum/common/status-type";
 import { showToast } from "@/utils/toast";
 
 const Component = (props: { classes?: string }) => {
@@ -37,11 +38,11 @@ const Component = (props: { classes?: string }) => {
             });
         },
         (error: GeolocationPositionError) => {
-          showToast("error", userDeniedMessage);
+          showToast(StatusType.ERROR, userDeniedMessage);
         },
       );
     } else {
-      showToast("error", geoLocationMessage);
+      showToast(StatusType.ERROR, geoLocationMessage);
     }
   }, []);
 

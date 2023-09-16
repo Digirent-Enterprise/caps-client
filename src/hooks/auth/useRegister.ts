@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import { LoadingContext } from "@/contexts/loading-context";
 import { AuthNS } from "@/services/auth/type";
+import { StatusType } from "@/types/enum/common/status-type";
 import axios from "@/utils/axios";
 import { showToast } from "@/utils/toast";
 
@@ -22,11 +23,11 @@ const useRegister = () => {
       const response = await axios.post("/auth/register", authData);
       if (response) {
         setLoading(false);
-        showToast("success", "Register successfully!");
+        showToast(StatusType.SUCCESS, "Register successfully!");
       }
       const data = response.data;
       setData(data);
-      router.push("/auth/login");
+      await router.push("/auth/login");
     } catch (error) {
       setLoading(false);
       return;

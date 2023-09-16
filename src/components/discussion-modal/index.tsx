@@ -10,6 +10,7 @@ import { IDiscussionModalProps } from "@/components/discussion-modal/type";
 import BaseModal from "@/core/base-modal";
 import CustomTabSwitcher from "@/core/custom-tab-switcher";
 import useInquiry from "@/hooks/inquiry";
+import { DiscussionStatus } from "@/types/enum/discussion";
 
 const Component = memo((props: IDiscussionModalProps) => {
   const { isOpen, onClose } = props;
@@ -27,8 +28,16 @@ const Component = memo((props: IDiscussionModalProps) => {
 
   useEffect(() => {
     if (isOpen) {
-      if (tab === 0) getInquiryByUserId("pending");
-      if (tab === 1) getInquiryByUserId("answered");
+      switch (tab) {
+        case 0:
+          getInquiryByUserId(DiscussionStatus.PENDING);
+          break;
+        case 1:
+          getInquiryByUserId(DiscussionStatus.ANSWERED);
+          break;
+        default:
+          break;
+      }
     }
   }, [tab, isOpen]);
 
@@ -72,7 +81,7 @@ const Component = memo((props: IDiscussionModalProps) => {
                     <DiscussionItem
                       title={inquiry.message}
                       answer={inquiry.answer}
-                      status={inquiry.status || "pending"}
+                      status={inquiry.status || DiscussionStatus.PENDING}
                       key={idx}
                     />
                   );

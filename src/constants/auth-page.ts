@@ -1,11 +1,11 @@
-import { LoginForm, RegisterForm } from "@/types/pages/auth-page";
+import { LoginFormType, RegisterFormType } from "@/types/pages/auth-page";
 
-export const DefaultLoginForm: LoginForm = {
+export const DefaultLoginForm: LoginFormType = {
   email: "",
   password: "",
 };
 
-export const DefaultRegisterForm: RegisterForm = {
+export const DefaultRegisterForm: RegisterFormType = {
   name: "",
   dob: "",
   password: "",

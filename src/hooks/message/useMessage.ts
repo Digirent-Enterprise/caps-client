@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { LoadingContext } from "@/contexts/loading-context";
 import MessageService from "@/services/message";
 import { MessageNS } from "@/services/message/type";
+import { StatusType } from "@/types/enum/common/status-type";
 import { showToast } from "@/utils/toast";
 
 type MessageResult = {
@@ -28,7 +29,7 @@ const useMessage = (): MessageResult => {
       });
       setMessages(response);
     } catch (error) {
-      showToast("error", "Could not fetch conversations");
+      showToast(StatusType.ERROR, "Could not fetch conversations");
     }
     setLoading(false);
   };

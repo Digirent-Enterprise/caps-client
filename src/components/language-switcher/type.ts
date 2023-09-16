@@ -1,6 +1,8 @@
-export type Language = "en" | "vi";
+import { Language } from "@/types/enum/common/language";
+
+export type LanguageType = Language.VIETNAMESE | Language.ENGLISH;
 
 export interface ILanguageOption {
-  locale: string;
+  locale: LanguageType;
   name: string;
 }

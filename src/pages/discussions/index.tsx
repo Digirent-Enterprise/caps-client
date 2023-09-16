@@ -12,13 +12,15 @@ import { useImmer } from "use-immer";
 
 import DashboardSidebar from "@/components/dashboard-sidebar";
 import DiscussionPageContent from "@/components/discussion-page-content";
-import { DiscussionPageContentTabs } from "@/components/discussion-page-content/type";
+import { DiscussionPageContentTabType } from "@/components/discussion-page-content/type";
 import useDevice from "@/hooks/useDevice";
+import { DiscussionStatus } from "@/types/enum/discussion";
 
 export const Component = memo(() => {
   const { isMobile } = useDevice();
-  const [selectedTab, setSelectedTab] =
-    useImmer<DiscussionPageContentTabs>("pending");
+  const [selectedTab, setSelectedTab] = useImmer<DiscussionPageContentTabType>(
+    DiscussionStatus.PENDING,
+  );
   const { t } = useTranslation();
   return (
     <div
@@ -47,11 +49,11 @@ export const Component = memo(() => {
             <div className="flex w-full flex-col gap-3">
               <div
                 className={`flex w-full cursor-pointer flex-row items-center gap-1 p-2 shadow-2xl ${
-                  selectedTab === "pending"
+                  selectedTab === DiscussionStatus.PENDING
                     ? "bg-light-secondary-button text-white shadow-inner"
                     : "text-black"
                 }`}
-                onClick={() => setSelectedTab("pending")}
+                onClick={() => setSelectedTab(DiscussionStatus.PENDING)}
               >
                 <IconDeviceDesktopQuestion className="text-black dark:text-white" />
                 <span className="ml-2 cursor-pointer text-sm dark:text-white">
@@ -60,11 +62,11 @@ export const Component = memo(() => {
               </div>
               <div
                 className={`flex w-full cursor-pointer  flex-row items-center gap-1 p-2 shadow-2xl ${
-                  selectedTab === "answered"
+                  selectedTab === DiscussionStatus.ANSWERED
                     ? "bg-light-secondary-button text-white shadow-inner"
                     : "text-black"
                 }`}
-                onClick={() => setSelectedTab("answered")}
+                onClick={() => setSelectedTab(DiscussionStatus.ANSWERED)}
               >
                 <IconDeviceDesktopShare className="text-black dark:text-white" />
                 <span className="ml-2 cursor-pointer text-sm dark:text-white">
@@ -73,11 +75,11 @@ export const Component = memo(() => {
               </div>
               <div
                 className={`flex w-full cursor-pointer  flex-row items-center gap-1 p-2 shadow-2xl ${
-                  selectedTab === "peer-reviewed"
+                  selectedTab === DiscussionStatus.PEER_REVIEWED
                     ? "bg-light-secondary-button text-white shadow-inner"
                     : "text-black"
                 }`}
-                onClick={() => setSelectedTab("peer-reviewed")}
+                onClick={() => setSelectedTab(DiscussionStatus.PEER_REVIEWED)}
               >
                 <IconDeviceDesktopStar className="text-black dark:text-white" />
                 <span className="ml-2 cursor-pointer text-sm dark:text-white">
