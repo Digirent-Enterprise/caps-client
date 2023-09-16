@@ -27,7 +27,7 @@ const Component = (props: { classes?: string }) => {
       navigator.geolocation.getCurrentPosition(
         (position: GeolocationPosition) => {
           const { latitude, longitude } = position.coords;
-          const apiKey = process.env.NEXT_PUBLIC_OPEN_WEATHER_API;
+          const apiKey = process.env.OPEN_WEATHER_API;
           const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
 
           fetch(apiUrl)

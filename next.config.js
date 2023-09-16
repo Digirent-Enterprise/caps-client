@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 
 const { i18n } = require("./next-i18next.config");
 dotenv.config();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -19,9 +20,10 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "style")],
   },
   env: {
-    BACKEND_URL: process.env.BACKEND_URL,
+    OPEN_WEATHER_API: process.env.OPEN_WEATHER_API,
+    BACKEND_SERVER_URL: process.env.BACKEND_SERVER_URL,
     SOCKET_SERVER_URL: process.env.SOCKET_SERVER_URL,
-    OPEN_AI_API: process.env.OPENAI_API_KEY,
+    OPEN_API_KEY: process.env.OPENAI_API_KEY,
   },
 };
 
