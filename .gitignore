@@ -39,5 +39,5 @@ next-env.d.ts
 .swc
 
 .env.local
-.env.local
-.env.template
+.env.development
+.env.production
