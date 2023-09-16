@@ -1,23 +1,31 @@
-# Use the official Node.js image as the base image
-FROM node:16
+# Base on offical Node.js Alpine image
+FROM node:alpine
 
-# Set the working directory inside the container
-WORKDIR /app
+# Set working directory
+WORKDIR /usr/app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+# Install PM2 globally
+RUN npm install --global pm2
+
+# Copy package.json and package-lock.json before other files
+# Utilise Docker cache to save re-installing dependencies if unchanged
+COPY ./package*.json ./
 
 # Install dependencies
-RUN npm ci
+RUN npm install --production
 
-# Copy the source code to the working directory
-COPY . .
+# Copy all files
+COPY ./ ./
 
-# Build the Next.js app for production
+# Build app
 RUN npm run build
 
-# Expose the port on which the app will run
-EXPOSE 3000
+# Expose the listening port
+EXPOSE 3001
 
-# Start the production server
-CMD ["npm", "start"]
+# Run container as non-root (unprivileged) user
+# The node user is provided in the Node.js Alpine base image
+USER node
+
+# Run npm start script with PM2 when container starts
+CMD [ "pm2-runtime", "npm", "--", "start" ]

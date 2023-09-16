@@ -38,6 +38,6 @@ next-env.d.ts
 .idea
 .swc
 
-.env
 .env.local
 .env.development
+.env.production
