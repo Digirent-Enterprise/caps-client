@@ -1,4 +1,4 @@
-import React, { Fragment, FC } from "react";
+import React, { FC, Fragment } from "react";
 
 import { Popover, Transition } from "@headlessui/react";
 import { IconDots } from "@tabler/icons-react";

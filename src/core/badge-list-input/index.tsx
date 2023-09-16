@@ -1,4 +1,4 @@
-import React, { FC, useState, ChangeEvent, FormEvent } from "react";
+import React, { ChangeEvent, FC, FormEvent, useState } from "react";
 
 import { IconX } from "@tabler/icons-react";
 

@@ -1,4 +1,4 @@
-import axios from "@/axios";
+import axios from "@/utils/axios";
 
 export default class ChatBotService {
   static generalDiagnosis = (): Promise<DiagnosisNS.DiagnosisResults> => {

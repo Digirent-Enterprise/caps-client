@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import * as yup from "yup";
 
-import axios from "@/axios";
 import {
   CheckboxOptions,
   DefaultCheckboxOption,
@@ -17,6 +16,7 @@ import TextInput from "@/core/text-input";
 import Textarea from "@/core/textarea";
 import withAuth from "@/hoc/withLogin";
 import useDevice from "@/hooks/useDevice";
+import axios from "@/utils/axios";
 import { showToast } from "@/utils/toast";
 
 const Component = () => {

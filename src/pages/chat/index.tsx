@@ -20,7 +20,6 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
-import axios from "@/axios";
 import ConversationList from "@/components/conversation-list";
 import DiscussionModal from "@/components/discussion-modal";
 import MessageList from "@/components/message-list";
@@ -38,6 +37,7 @@ import DefaultChatMessage from "@/shared/default-chat-message";
 import Popover from "@/shared/popover";
 import SearchInput from "@/shared/search-input";
 import StatusModal from "@/shared/status-modal";
+import axios from "@/utils/axios";
 import { exportConversationToJson } from "@/utils/json";
 import { exportConversationToMarkdown } from "@/utils/markdown";
 import { formatModelOption } from "@/utils/models";

@@ -1,6 +1,6 @@
-import { useState, Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 
-import { Dialog, Combobox, Transition } from "@headlessui/react";
+import { Combobox, Dialog, Transition } from "@headlessui/react";
 import Fuse from "fuse.js";
 
 import CommandGroup from "@/shared/command-palette/command-group";

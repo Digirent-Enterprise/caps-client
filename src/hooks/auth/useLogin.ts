@@ -2,13 +2,13 @@ import { useContext, useState } from "react";
 
 import { useRouter } from "next/router";
 
-import axios from "@/axios";
 import { AuthContext } from "@/contexts/auth-context";
 import { LoadingContext } from "@/contexts/loading-context";
 import { AuthService } from "@/services/auth";
 import { AuthNS } from "@/services/auth/type";
 import { LocalStorageService } from "@/services/local-storage";
 import { LocalStorageKeys } from "@/services/local-storage/constant";
+import axios from "@/utils/axios";
 import { showToast } from "@/utils/toast";
 
 type LoginResult = {

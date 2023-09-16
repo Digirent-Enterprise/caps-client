@@ -1,9 +1,9 @@
 import React, {
+  ComponentType,
+  FC,
   useCallback,
   useContext,
   useEffect,
-  ComponentType,
-  FC,
 } from "react";
 
 import { debounce } from "lodash";

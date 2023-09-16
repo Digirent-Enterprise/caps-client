@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import React, { ReactNode, useEffect } from "react";
 
 import "@/styles/globals.css";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
-import { SessionProvider } from "next-auth/react";
+import { useRouter } from "next/router";
+import { SessionProvider, useSession } from "next-auth/react";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "next-themes";
 import { useImmer } from "use-immer";
@@ -18,11 +19,20 @@ import nextI18nextConfig from "next-i18next.config";
 
 import "react-toastify/dist/ReactToastify.css";
 
-interface CustomAppProps extends AppProps {
+interface IAuthenticatedWrapperProps {
+  children: ReactNode;
+}
+
+interface ICustomAppProps extends AppProps {
   err: Error;
 }
 
-function App({ Component, pageProps, router, err }: CustomAppProps) {
+function App({
+  Component,
+  pageProps: { session, ...pageProps },
+  router,
+  err,
+}: ICustomAppProps) {
   const [loading, setLoading] = useImmer<boolean>(false);
 
   useEffect(() => {
@@ -47,12 +57,14 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
   return (
     <>
       <ChakraProvider>
-        <SessionProvider>
+        <SessionProvider session={session}>
           <LoadingProvider>
             <AuthProvider>
               <ConversationProvider>
                 <ThemeProvider attribute="class">
-                  <Component {...pageProps} err={err} />
+                  <AuthenticatedWrapper>
+                    <Component {...pageProps} err={err} />
+                  </AuthenticatedWrapper>
                 </ThemeProvider>
               </ConversationProvider>
             </AuthProvider>
@@ -64,5 +76,31 @@ function App({ Component, pageProps, router, err }: CustomAppProps) {
     </>
   );
 }
+
+const AuthenticatedWrapper: React.FC<IAuthenticatedWrapperProps> = ({
+  children,
+}) => {
+  const { status, data: session } = useSession();
+  const router = useRouter();
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (
+    status === "authenticated" ||
+    router.pathname === "/auth/login" ||
+    router.pathname === "/auth/register"
+  ) {
+    return children;
+  }
+
+  if (!session) {
+    router.push("/login");
+    return null;
+  }
+
+  return null;
+};
 
 export default appWithTranslation(App, nextI18nextConfig);

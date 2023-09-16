@@ -1,4 +1,4 @@
-import React, { useMemo, useState, ChangeEvent, FC } from "react";
+import React, { ChangeEvent, FC, useMemo, useState } from "react";
 
 import {
   IconMoodConfuzed,

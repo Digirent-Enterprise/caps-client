@@ -8,7 +8,7 @@ import { signIn } from "next-auth/react";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
-import { DefaultLoginForm } from "@/constant/auth-page";
+import { DefaultLoginForm } from "@/constants/auth-page";
 import BaseButton from "@/core/base-button";
 import TextInput from "@/core/text-input";
 import { FormExtension } from "@/core/text-input/type";

@@ -1,6 +1,6 @@
-import React, { useState, useRef, FC } from "react";
+import React, { FC, useRef, useState } from "react";
 
-import { IconSend, IconHeartbeat } from "@tabler/icons-react";
+import { IconHeartbeat, IconSend } from "@tabler/icons-react";
 
 import VoiceRecorder from "@/components/voice-recorder";
 import { IMessageInputProps } from "@/core/message-input/type";

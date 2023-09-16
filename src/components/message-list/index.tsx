@@ -8,7 +8,7 @@ import MessageInput from "@/core/message-input";
 import useMessage from "@/hooks/message/useMessage";
 import useDevice from "@/hooks/useDevice";
 import { MessageNS } from "@/services/message/type";
-import { closeSocket, getSocket, initSocket } from "@/socket";
+import { closeSocket, getSocket, initSocket } from "@/utils/socket";
 
 const MessageList = forwardRef<HTMLDivElement, IMessageListProps>(
   (props, ref) => {

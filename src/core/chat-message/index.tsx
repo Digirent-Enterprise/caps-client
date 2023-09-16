@@ -1,10 +1,10 @@
-import React, { Fragment, useEffect, useMemo, useState, memo } from "react";
+import React, { Fragment, memo, useEffect, useMemo, useState } from "react";
 
 import { IconDotsVertical, IconVolume2 } from "@tabler/icons-react";
 import axios from "axios";
 
 import { IChatMessageProps } from "@/core/chat-message/type";
-import SliceOver from "src/shared/sliceover";
+import SliceOver from "@/shared/sliceover";
 
 const Component = memo((props: IChatMessageProps) => {
   const { content, senderType, language, metadata } = props;

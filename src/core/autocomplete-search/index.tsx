@@ -1,10 +1,10 @@
 import React, {
+  ChangeEvent,
   FC,
+  KeyboardEvent,
   useEffect,
   useRef,
   useState,
-  ChangeEvent,
-  KeyboardEvent,
 } from "react";
 
 import Fuse from "fuse.js";

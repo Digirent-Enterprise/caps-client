@@ -1,10 +1,10 @@
 import React, {
   DragEvent,
   KeyboardEvent,
+  memo,
   MouseEventHandler,
   useEffect,
   useState,
-  memo,
 } from "react";
 
 import {
@@ -13,7 +13,6 @@ import {
   IconPencil,
   IconTrash,
   IconX,
-  IconShare2,
 } from "@tabler/icons-react";
 
 import SidebarActionButton from "@/core/sidebar-action-button";
