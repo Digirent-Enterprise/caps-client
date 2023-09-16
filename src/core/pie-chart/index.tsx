@@ -1,11 +1,11 @@
 import React from "react";
 
 import {
-  Chart as ChartJS,
   ArcElement,
-  Tooltip,
-  Legend,
+  Chart as ChartJS,
   Filler,
+  Legend,
+  Tooltip,
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 

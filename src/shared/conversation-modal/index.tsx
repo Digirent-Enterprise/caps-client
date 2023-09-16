@@ -1,4 +1,4 @@
-import React, { useState, useMemo, memo, ChangeEvent } from "react";
+import React, { ChangeEvent, memo, useMemo, useState } from "react";
 
 import { IconX } from "@tabler/icons-react";
 import { useTranslation } from "next-i18next";

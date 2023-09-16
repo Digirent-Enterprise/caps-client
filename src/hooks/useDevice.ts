@@ -1,4 +1,4 @@
-import { isMobile, isDesktop } from "react-device-detect";
+import { isDesktop, isMobile } from "react-device-detect";
 
 const useDevice = () => {
   return {

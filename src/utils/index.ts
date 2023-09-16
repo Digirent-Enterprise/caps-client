@@ -37,12 +37,3 @@ export const formatDateAndMonth = (dateTimeStr: string) => {
 export const formatDate = (dateString: string) => {
   return dayjs(dateString).format("MMMM D, YYYY");
 };
-
-export const convertUrlToTitle = (url: string) => {
-  const trimmedUrl = url.replace(/^\//, "");
-
-  const segments = trimmedUrl.split("/");
-
-  const lastSegment = segments[segments.length - 1];
-  return lastSegment.replace(/-/g, " ").replace(/^\w/, (c) => c.toUpperCase());
-};

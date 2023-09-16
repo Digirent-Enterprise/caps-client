@@ -1,12 +1,11 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
-import axios from "@/axios";
-import { AuthContext } from "@/contexts/auth-context";
 import { LocalStorageService } from "@/services/local-storage";
 import { LocalStorageKeys } from "@/services/local-storage/constant";
 import { UserService } from "@/services/user";
 import { UserNS } from "@/services/user/type";
 import { IUser } from "@/types/context/with-auth-context";
+import axios from "src/utils/axios";
 
 type UseUserResult = {
   user: IUser;

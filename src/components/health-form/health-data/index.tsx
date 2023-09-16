@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import * as yup from "yup";
 
-import axios from "@/axios";
 import {
   CheckboxOptions,
   DefaultCheckboxOption,
@@ -18,6 +17,7 @@ import Textarea from "@/core/textarea";
 import withAuth from "@/hoc/withLogin";
 import useDevice from "@/hooks/useDevice";
 import { showToast } from "@/utils/toast";
+import axios from "src/utils/axios";
 
 const Component = () => {
   const { t } = useTranslation("health_data");

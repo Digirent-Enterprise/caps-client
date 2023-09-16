@@ -1,10 +1,9 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import { useImmer } from "use-immer";
 
-import axios from "@/axios";
 import { LoadingContext } from "@/contexts/loading-context";
 import useUser from "@/hooks/user/useUser";
 import { LocalStorageService } from "@/services/local-storage";
@@ -14,6 +13,7 @@ import {
   IAuthContextProps,
   IUser,
 } from "@/types/context/with-auth-context";
+import axios from "src/utils/axios";
 
 export const AuthContext = createContext<AuthContextData>(
   {} as AuthContextData,

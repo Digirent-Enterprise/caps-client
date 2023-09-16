@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useTranslation } from "next-i18next";
+
 const Component = () => {
   const { t } = useTranslation("home");
   return (

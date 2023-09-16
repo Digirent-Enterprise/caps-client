@@ -1,8 +1,9 @@
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 
 import Handbook from "@/components/handbook";
 import Map from "@/components/map";
+
 const Component = () => {
   const { t } = useTranslation("documentation");
   return (

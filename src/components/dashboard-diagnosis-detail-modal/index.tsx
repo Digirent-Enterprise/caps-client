@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { IconX } from "@tabler/icons-react";
 
 import { IDashboardDiagnosisDetail } from "@/components/dashboard-diagnosis-detail-modal/type";
-import { formatDateTime } from "@/utils/common";
+import { formatDateTime } from "@/utils";
 
 const Component = memo((props: IDashboardDiagnosisDetail) => {
   const { open: isOpen, onClose, item, img } = props;

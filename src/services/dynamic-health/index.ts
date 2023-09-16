@@ -1,5 +1,5 @@
-import axios from "@/axios";
 import { DynamicHealthNS } from "@/services/dynamic-health/type";
+import axios from "src/utils/axios";
 
 export class DynamicHealthService {
   static addDynamicHealth(params: DynamicHealthNS.AddDynamicHealthParams) {

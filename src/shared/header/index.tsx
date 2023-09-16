@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 
 import { isEmpty } from "lodash";
 import Image from "next/image";

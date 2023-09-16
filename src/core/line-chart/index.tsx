@@ -1,14 +1,14 @@
 import React from "react";
 
 import {
-  Chart as ChartJS,
   CategoryScale,
+  Chart as ChartJS,
+  Legend,
   LinearScale,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
-  Legend,
-  PointElement,
-  LineElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 

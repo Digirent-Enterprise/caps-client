@@ -1,5 +1,5 @@
-import axios from "@/axios";
 import { InquiryNS } from "@/services/inquiry/type";
+import axios from "src/utils/axios";
 
 export class InquiryService {
   static getInquiries(

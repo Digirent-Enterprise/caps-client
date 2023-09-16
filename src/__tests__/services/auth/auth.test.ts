@@ -1,7 +1,7 @@
 import MockAdapter from "axios-mock-adapter";
 
-import api from "@/axios";
 import { AuthService } from "@/services/auth";
+import api from "src/utils/axios";
 
 describe("AuthService", () => {
   let mock: MockAdapter;

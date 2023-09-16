@@ -1,4 +1,4 @@
-import React, { useMemo, memo } from "react";
+import React, { memo, useMemo } from "react";
 
 import { IButtonProps } from "@/core/base-button/type";
 

@@ -10,7 +10,7 @@ import {
   DefaultGenderOption,
   GenderOptions,
 } from "@/components/register-form/constant";
-import { DefaultRegisterForm } from "@/constant/auth-page";
+import { DefaultRegisterForm } from "@/constants/auth-page";
 import BaseButton from "@/core/base-button";
 import Option from "@/core/select-option";
 import { SelectOption } from "@/core/select-option/type";

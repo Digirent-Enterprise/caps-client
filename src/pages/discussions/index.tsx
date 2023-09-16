@@ -2,12 +2,9 @@ import React, { memo } from "react";
 
 import {
   IconArrowBack,
-  IconBellPlusFilled,
   IconDeviceDesktopQuestion,
   IconDeviceDesktopShare,
   IconDeviceDesktopStar,
-  IconDeviceDesktopUp,
-  IconDeviceIpadHeart,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";

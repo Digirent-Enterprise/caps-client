@@ -1,6 +1,6 @@
-import axios from "@/axios";
 import { UserNS } from "@/services/user/type";
 import { IUser } from "@/types/context/with-auth-context";
+import axios from "src/utils/axios";
 
 export class UserService {
   static getAllUsers = (): Promise<UserNS.UserDetailResponse[]> => {

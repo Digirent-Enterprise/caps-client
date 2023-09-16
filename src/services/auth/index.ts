@@ -1,5 +1,5 @@
-import axios from "@/axios";
 import { AuthNS } from "@/services/auth/type";
+import axios from "src/utils/axios";
 
 export class AuthService {
   static login = (data: AuthNS.LoginRequest): Promise<AuthNS.LoginResponse> => {

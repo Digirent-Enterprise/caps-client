@@ -8,7 +8,6 @@ import { questions } from "@/components/faq/constant";
 import FaqHeader from "@/components/faq/header";
 import { IQuestion } from "@/components/faq/type";
 import Footer from "@/shared/footer";
-import { convertUrlToTitle } from "@/utils/common";
 
 const Component = () => {
   const { t } = useTranslation("faq");

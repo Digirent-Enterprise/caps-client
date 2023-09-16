@@ -10,7 +10,7 @@ import DashboardWelcomeSection from "@/components/dashboard-welcome-section";
 import { AuthContext } from "@/contexts/auth-context";
 import useChatBot from "@/hooks/chat-bot/useChatbot";
 import CustomResponsiveCard from "@/shared/custom-responsive-card";
-import { formatDateTime } from "@/utils/common";
+import { formatDateTime } from "@/utils";
 
 const DiagnosisCard = memo((props: IDiagnosisCardProps) => {
   const { item } = props;

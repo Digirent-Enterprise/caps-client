@@ -2,10 +2,10 @@ import { useContext, useState } from "react";
 
 import { useRouter } from "next/router";
 
-import axios from "@/axios";
 import { LoadingContext } from "@/contexts/loading-context";
 import { AuthNS } from "@/services/auth/type";
 import { showToast } from "@/utils/toast";
+import axios from "src/utils/axios";
 
 type RegisterResult = {
   register: (x: AuthNS.RegisterRequest) => void;
