@@ -1,1 +1,7 @@
-export type MessageTypes = "error" | "success" | "warning" | "info";
+import { StatusType } from "@/types/enum/common/status-type";
+
+export type ToastMessageType =
+  | StatusType.ERROR
+  | StatusType.SUCCESS
+  | StatusType.INFO
+  | StatusType.WARNING;

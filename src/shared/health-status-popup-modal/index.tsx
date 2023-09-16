@@ -16,9 +16,10 @@ import useDynamicHealth from "@/hooks/dynamic-health";
 import { DynamicHealthNS } from "@/services/dynamic-health/type";
 import {
   allSymptoms,
-  FeelingIcons,
+  FeelingIconsType,
   IHealthStatusPopupModalProps,
 } from "@/shared/health-status-popup-modal/type";
+import { DynamicHealthStatus } from "@/types/enum/dynamic-health";
 
 Modal.setAppElement("#__next");
 
@@ -27,7 +28,9 @@ const Component: FC<IHealthStatusPopupModalProps> = ({
   onRequestClose,
 }) => {
   const { t } = useTranslation("update_health");
-  const [feeling, setFeeling] = useState<DynamicHealthNS.Status>("Good");
+  const [feeling, setFeeling] = useState<DynamicHealthNS.Status>(
+    DynamicHealthStatus.Good,
+  );
   const [symptoms, setSymptoms] = useState<string[]>([]);
   const { addDynamicHealth } = useDynamicHealth();
   const _handleSymptomsChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -40,7 +43,7 @@ const Component: FC<IHealthStatusPopupModalProps> = ({
 
   const _handleSubmit = () => {
     const healthStatus = { feeling, symptoms };
-    setFeeling("Good");
+    setFeeling(DynamicHealthStatus.Good);
     setSymptoms([]);
     addDynamicHealth({
       status: feeling,
@@ -49,7 +52,7 @@ const Component: FC<IHealthStatusPopupModalProps> = ({
     onRequestClose();
   };
 
-  const feelingIcons: FeelingIcons = [
+  const feelingIcons: FeelingIconsType = [
     {
       label: t("critical"),
       icon: <IconMoodCry size={50} className=" text-red" />,

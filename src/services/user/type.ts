@@ -1,12 +1,9 @@
 import { RoleTypes } from "@/types/context/with-auth-context";
 
 export namespace UserNS {
-  //generic
   type GenderType = "male" | "female" | "other";
   type RoleType = "user" | "admin";
   type StatusType = "active" | "deactivated";
-
-  //request
 
   export type UpdateUserReq = Partial<{
     id: number;
@@ -18,8 +15,6 @@ export namespace UserNS {
     firstLogin: boolean;
     createdAt: string;
   }>;
-
-  //response
 
   export type UserDetailResponse = {
     id: number;

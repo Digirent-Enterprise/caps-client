@@ -8,6 +8,7 @@ import { AuthService } from "@/services/auth";
 import { AuthNS } from "@/services/auth/type";
 import { LocalStorageService } from "@/services/local-storage";
 import { LocalStorageKeys } from "@/services/local-storage/constant";
+import { StatusType } from "@/types/enum/common/status-type";
 import axios from "@/utils/axios";
 import { showToast } from "@/utils/toast";
 
@@ -31,7 +32,7 @@ const useLogin = () => {
     try {
       const response: AuthNS.LoginResponse = await AuthService.login(authData);
       setData(response);
-      showToast("success", "Login successfully!");
+      showToast(StatusType.SUCCESS, "Login successfully!");
       setAxiosAuthHeader(response.access_token);
       LocalStorageService.getInstance().setItem(
         LocalStorageKeys.access_token,

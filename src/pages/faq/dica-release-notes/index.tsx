@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
-import FaqHeader from "@/components/faq/header";
+import FaqHeader from "@/components/faq/faq-header";
 import Footer from "@/shared/footer";
 
 const Component: FC = () => {

@@ -5,6 +5,7 @@ import { useImmer } from "use-immer";
 import { LoadingContext } from "@/contexts/loading-context";
 import { DynamicHealthService } from "@/services/dynamic-health";
 import { DynamicHealthNS } from "@/services/dynamic-health/type";
+import { StatusType } from "@/types/enum/common/status-type";
 import { showToast } from "@/utils/toast";
 
 type DynamicHealthResult = {
@@ -39,7 +40,7 @@ const useDynamicHealth = () => {
       const response = await DynamicHealthService.addDynamicHealth(data);
       await getDynamicHealth();
       setLoading(false);
-      showToast("success", "Update your health status successfully!");
+      showToast(StatusType.SUCCESS, "Update your health status successfully!");
     } catch (error) {
       setLoading(false);
     }

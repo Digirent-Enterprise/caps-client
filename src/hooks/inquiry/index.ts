@@ -6,6 +6,8 @@ import { LoadingContext } from "@/contexts/loading-context";
 import { InquiryService } from "@/services/inquiry";
 import { InquiryNS } from "@/services/inquiry/type";
 import { CustomFn } from "@/types";
+import { StatusType } from "@/types/enum/common/status-type";
+import { DiscussionStatus } from "@/types/enum/discussion";
 import { showToast } from "@/utils/toast";
 
 type InquiryResult = {
@@ -38,7 +40,7 @@ const useInquiry = () => {
       const response = await InquiryService.createInquiry({ message });
       setInquiries((prev) => [...prev, response]);
       showToast(
-        "success",
+        StatusType.SUCCESS,
         "Successfully asking a question! Please be patient.",
       );
       if (extraFn) extraFn();
@@ -52,8 +54,8 @@ const useInquiry = () => {
     try {
       setLoading(true);
       const response = await InquiryService.updateInquiry(data);
-      await getInquiryByUserId("pending");
-      showToast("success", "Update discussion successfully");
+      await getInquiryByUserId(DiscussionStatus.PENDING);
+      showToast(StatusType.SUCCESS, "Update discussion successfully");
       setLoading(false);
     } catch (error) {
       setLoading(false);

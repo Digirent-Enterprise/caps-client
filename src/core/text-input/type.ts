@@ -1,6 +1,6 @@
 export interface IInputProps {
   required?: true;
-  onChange?: (x: string, extension?: FormExtension) => void;
+  onChange?: (x: string, extension?: FormExtensionType) => void;
   value: string;
   disable?: boolean;
   placeHolder: string;
@@ -11,6 +11,6 @@ export interface IInputProps {
   errorMessage?: string;
 }
 
-export type FormExtension = {
+export type FormExtensionType = {
   dataKey: string;
 };

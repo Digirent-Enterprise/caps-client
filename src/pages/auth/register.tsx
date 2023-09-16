@@ -1,6 +1,6 @@
 import React from "react";
 
-import RegisterForm from "@/components/register-form";
+import RegisterForm from "@/components/auth/register-form";
 import withLayout from "@/hoc/withLayout";
 
 const Component = () => {
