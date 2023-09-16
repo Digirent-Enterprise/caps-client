@@ -1,10 +1,9 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import "@/styles/globals.css";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "next-themes";
 import { useImmer } from "use-immer";
