@@ -3,8 +3,6 @@ import React, { memo } from "react";
 import { IconBrandFacebook, IconBrandGoogle } from "@tabler/icons-react";
 import { cloneDeep } from "lodash";
 import Link from "next/link";
-import { getServerSession } from "next-auth";
-import { signIn } from "next-auth/react";
 import { useTranslation } from "next-i18next";
 import { useImmer } from "use-immer";
 
@@ -14,7 +12,6 @@ import TextInput from "@/core/text-input";
 import { FormExtension } from "@/core/text-input/type";
 import useLogin from "@/hooks/auth/useLogin";
 import useDevice from "@/hooks/useDevice";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 const Component = memo(() => {
   const { t } = useTranslation("login");
@@ -54,7 +51,7 @@ const Component = memo(() => {
       </div>
       <button
         className="flex cursor-pointer items-center justify-center rounded border border-gray-400  bg-[#4267B2]  px-4 py-2 font-bold text-white hover:bg-[#3b5998] dark:text-dark-white"
-        onClick={() => signIn("facebook")}
+        onClick={() => {}}
       >
         <IconBrandFacebook className="mr-2 h-6 w-6 text-white md:h-8 md:w-8" />
         <span className="whitespace-nowrap text-xs text-white md:text-base">
@@ -62,7 +59,7 @@ const Component = memo(() => {
         </span>
       </button>
       <button
-        onClick={() => signIn("google")}
+        onClick={() => {}}
         className="mt-4 flex cursor-pointer items-center justify-center rounded border border-gray-400 bg-[#EA4335]  px-4 py-2 font-bold text-light-text hover:bg-[#C20806] dark:text-dark-white"
       >
         <IconBrandGoogle className="mr-2 h-6 w-6 text-white md:h-8 md:w-8" />
@@ -113,22 +110,3 @@ const Component = memo(() => {
 Component.displayName = "LoginForm";
 
 export default Component;
-
-export async function getServerSideProps(context: any) {
-  const session = await getServerSession(context.req, context.res, authOptions);
-
-  if (session) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  } else {
-    return {
-      props: {
-        session,
-      },
-    };
-  }
-}
