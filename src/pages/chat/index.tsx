@@ -41,7 +41,6 @@ import axios from "@/utils/axios";
 import { exportConversationToJson } from "@/utils/json";
 import { exportConversationToMarkdown } from "@/utils/markdown";
 import { formatModelOption } from "@/utils/models";
-import axios from "src/utils/axios";
 
 const Component: FC = () => {
   const { isMobile } = useDevice();
