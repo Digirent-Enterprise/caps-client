@@ -23,7 +23,7 @@ const nextConfig = {
     OPEN_WEATHER_API: process.env.OPEN_WEATHER_API,
     BACKEND_SERVER_URL: process.env.BACKEND_SERVER_URL,
     SOCKET_SERVER_URL: process.env.SOCKET_SERVER_URL,
-    OPEN_API_KEY: process.env.OPENAI_API_KEY,
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
   },
 };
 
