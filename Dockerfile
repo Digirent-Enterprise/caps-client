@@ -4,6 +4,9 @@ FROM node:alpine
 # Set working directory
 WORKDIR /usr/app
 
+# Install Husky globally
+RUN npm install --global husky
+
 # Install PM2 globally
 RUN npm install --global pm2
 
@@ -12,13 +15,17 @@ RUN npm install --global pm2
 COPY ./package*.json ./
 
 # Install dependencies
-RUN npm install --production
+RUN npm ci
+
+# Create a directory for cache and change its ownership to the "node" user
+RUN mkdir -p /usr/app/.next/cache/images && chown -R node:node /usr/app/.next
 
 # Copy all files
 COPY ./ ./
 
 # Build app
-RUN npm run build
+RUN npm run build \
+    && npm prune --production
 
 # Expose the listening port
 EXPOSE 3001

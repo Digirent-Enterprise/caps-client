@@ -1,3 +1,5 @@
+import path from "path";
+
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 
 import { HttpResponse } from "@/types/enum/common/http-response";
@@ -12,6 +14,11 @@ const TWENTY_MINUTES = 20 * 60 * 1000;
 const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
   timeout: TWENTY_MINUTES,
+  httpsAgent: {
+    cert: path.join(__dirname, "nginx/cert/client.crt"),
+    key: path.join(__dirname, "nginx/cert/client.key"),
+    passphrase: process.env.SSL_PASSPHRASE,
+  },
 });
 
 api.interceptors.response.use(
