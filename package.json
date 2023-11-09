@@ -18,7 +18,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.8.0",
+    "@chakra-ui/react": "^2.8.2",
     "@headlessui/react": "^1.7.15",
     "@hookform/resolvers": "^3.2.0",
     "@next/bundle-analyzer": "^13.4.19",
